@@ -25,7 +25,7 @@ pipelines:
           - mkdir upload
           - tar -xf packaged/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C upload
           - apk update && apk add openssh rsync
-          - rsync -a  -e "ssh -o StrictHostKeyChecking=no" --delete upload/ $USERNAME@$SERVER:html/temp/react-${BITBUCKET_BUILD_NUMBER}
-          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "rm -r html/www"
-          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "mv 'html/temp/react-${BITBUCKET_BUILD_NUMBER}' '/var/www/html/website-dev'"
+          - rsync -a  -e "ssh -o StrictHostKeyChecking=no" --delete upload/ $USERNAME@$SERVER:/var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}
+#          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "rm -r /var/www/temp"
+          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "mv '/var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}' '/var/www/html/website-dev'"
           - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "chmod -R u+rwX,go+rX,go-w /var/www/html/website-dev"
