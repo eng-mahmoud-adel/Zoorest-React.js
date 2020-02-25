@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './App.css';
 import AppRouter from "./components/AppRouter";
 import Navbar from "./components/Navbar";
