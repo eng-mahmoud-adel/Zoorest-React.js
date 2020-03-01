@@ -5,6 +5,16 @@
 // Bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap';
 
+// Big buttons
+@import './sass/components/bigButtons';
+
+// Small buttons
+@import './sass/components/smallButtons';
+
+// Combined buttons
+@import './sass/components/combinedButtons';
+
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -393,3 +403,4 @@
   border: unset;
   top: 20%;
 }
+
