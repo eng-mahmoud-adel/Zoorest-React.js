@@ -1,5 +1,13 @@
+import React from 'react'
 
-<button type="button" className="btn btn-light btn-twitter btn-sm">
-    <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-    <span>Login with Instagram</span>
-</button>
+const TwitterBtn = () => {
+    return (
+        <button type="button" className="btn btn-light btn-social btn-sm">
+            <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+            <span>Login with Twitter</span>
+        </button>
+    )
+}
+
+export default TwitterBtn;
+

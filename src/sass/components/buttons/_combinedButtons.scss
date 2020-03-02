@@ -1,0 +1,42 @@
+.btn-group-lg {
+    width: 328px;
+    height: 48px;
+    button {
+        background-color: #FFF;
+        color: #778699;
+        border-color: #778699;
+    }
+}
+
+.btn-group-sm {
+    width: 240px;
+    height: 36px;
+    font-size: 14px;
+    button {
+        background-color: #FFF;
+        color: #778699;
+        border-color: #778699;
+    }
+}
+
+.btn-social {
+    width: 197px;
+    height: 36px;
+    font-size: 14px;
+    .fa-facebook-official {
+        color: #4267B2;
+    }
+    .fa-google {
+        color: #EA4335;
+    }
+    .fa-instagram {
+        color: #EA4335;
+    }
+    .fa-twitter {
+        color: #1DA1F2;
+    }
+    span {
+        margin-left: 17px;
+        color: #919DAC;
+    }
+}

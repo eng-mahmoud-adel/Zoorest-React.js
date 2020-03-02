@@ -1,5 +1,13 @@
+import React from 'react';
 
-<button type="button" className="btn btn-outline-info btn-message-left btn-lg">
-    <i className="fa fa-commenting-o" aria-hidden="true"></i>
-    Download
-</button>
+function BtnOutlineInfoMessageLeft = () => {
+    return (
+        <button type="button" className="btn btn-outline-info btn-message-left btn-lg">
+            <i className="fa fa-commenting-o" aria-hidden="true"></i>
+            Download
+        </button>
+    )
+}
+
+export default BtnOutlineInfoMessageLeft;
+

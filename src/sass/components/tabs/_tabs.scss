@@ -1,0 +1,31 @@
+.card {
+    width: 410px;
+    height: 48px;
+    font-size: 14px;
+    padding: 0;
+    border-radius: 0;
+    .card-header {
+        background-color: white;
+        color: #778699;
+        padding: 0;
+        ul {
+            background-color: white;
+            li {
+                line-height: 48px;
+                a {
+                    color: #778699;
+                    padding: 0;
+                    &:first-of-type {
+                        padding-left: 0;
+                        margin-right: 25px;
+                    }
+                    &:hover {
+                        color: #12B0C6;
+                        border-bottom: 3px solid #12B0C6;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
