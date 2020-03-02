@@ -19,7 +19,7 @@ pipelines:
     - step:
         name: Deploy development and run
         image: alpine
-        trigger: manual
+#        trigger: manual
         deployment: test
         script:
           - apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
@@ -44,3 +44,5 @@ pipelines:
 #          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "mv /var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}/* '/var/www/html/website-dev'" #move build files from the temo directory to its target directory
 #          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "rm -rf /var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}" #cleanup temp directory
 #          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "chmod -R u+rwX,go+rX,go-w /var/www/html/website-dev" #grant permissions on the deployment folder
+#        artifacts:
+#          - packaged/**
