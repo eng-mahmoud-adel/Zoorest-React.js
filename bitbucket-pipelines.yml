@@ -22,11 +22,21 @@ pipelines:
         trigger: manual
         deployment: test
         script:
-          - mkdir upload #create a folder on bitbucket pipeline called upload
-          - tar -xf packaged/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C upload # extract compressed build from previous step  to upload directory on bitbucket
           - apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
-          - rsync -a  -e "ssh -o StrictHostKeyChecking=no" --delete upload/ $USERNAME@$SERVER:/var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER} # transfer build files from bitbucket to a temp directory on deployment server
-          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "rm -rf /var/www/html/website-dev/*"
-          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "mv /var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}/* '/var/www/html/website-dev'" #move build files from the temo directory to its target directory
-          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "rm -rf /var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}" #cleanup temp directory
-          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "chmod -R u+rwX,go+rX,go-w /var/www/html/website-dev" #grant permissions on the deployment folder
+          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "cd /var/www/html/website-dev/ && git fetch && git checkout --force ${BITBUCKET_COMMIT}"
+          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "cd /var/www/html/website-dev/ && npm install"
+          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "cd /var/www/html/website-dev/ && pm2 restart npm -- start"
+#    - step:
+#        name: Deploy production
+#        image: alpine
+#        trigger: manual
+#        deployment: test
+#        script:
+#          - mkdir upload #create a folder on bitbucket pipeline called upload
+#          - tar -xf packaged/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C upload # extract compressed build from previous step  to upload directory on bitbucket
+#          - apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
+#          - rsync -a  -e "ssh -o StrictHostKeyChecking=no" --delete upload/ $USERNAME@$SERVER:/var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER} # transfer build files from bitbucket to a temp directory on deployment server
+#          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "rm -rf /var/www/html/website-dev/*"
+#          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "mv /var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}/* '/var/www/html/website-dev'" #move build files from the temo directory to its target directory
+#          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "rm -rf /var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}" #cleanup temp directory
+#          - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "chmod -R u+rwX,go+rX,go-w /var/www/html/website-dev" #grant permissions on the deployment folder
