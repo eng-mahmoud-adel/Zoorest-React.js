@@ -1,5 +1,13 @@
+import React from 'react';
 
-<button type="button" className="btn btn-light btn-instagram btn-sm">
-    <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
-    <span>Login with Instagram</span>
-</button>
+const InstagramBtn = () => {
+    return (
+        <button type="button" className="btn btn-light btn-social btn-sm">
+            <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+            <span>Login with Instagram</span>
+        </button>
+    )
+}
+
+export default InstagramBtn;
+

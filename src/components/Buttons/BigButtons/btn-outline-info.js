@@ -1,2 +1,10 @@
+import React from 'react';
 
-<button type="button" className="btn btn-outline-info btn-lg">Download</button>
+const BtnOutlineInfo = () => {
+    return (
+        <button type="button" className="btn btn-outline-info btn-lg">Download</button>
+    )
+}
+
+export default BtnOutlineInfo;
+

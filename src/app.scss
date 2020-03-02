@@ -6,14 +6,28 @@
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 // Big buttons
-@import './sass/components/bigButtons';
+@import './sass/components/buttons/bigButtons';
 
 // Small buttons
-@import './sass/components/smallButtons';
+@import './sass/components/buttons/smallButtons';
 
 // Combined buttons
-@import './sass/components/combinedButtons';
+@import './sass/components/buttons/combinedButtons';
 
+// Checkboxes
+@import './sass/components/checkboxes/checkBoxes';
+
+// Tags
+@import './sass/components/tags/tags';
+
+// Alerts
+@import './sass/components/alerts/alerts';
+
+// Tabs
+@import './sass/components/tabs/tabs';
+
+// Avatars
+@import './sass/components/avatars/avatar';
 
 .navbar-laravel {
   background-color: #fff;

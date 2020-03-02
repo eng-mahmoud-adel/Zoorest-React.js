@@ -1,0 +1,55 @@
+.btn-sm {
+    width: 144px;
+    height: 36px;
+    padding: 7px 6px;
+    font-size: 14px;
+}
+
+.btn-info {
+    background-color: #12B0C6;
+}
+
+.btn-secondary {
+    background-color: #D7E1EA;
+    color: #778699;
+}
+
+.btn-light {
+    background-color: #FFFFFF;
+    color: #2C3F58;
+    border: 1px solid #DCE1E7;
+}
+  
+.btn-outline-info {
+    background-color: #FFFFFF;
+    color: #12B0C6;
+    border: 2px solid #12B0C6;
+}
+
+.btn-search-sm {
+    padding: 7px 16px 7px 0;
+    .fa-search {
+        padding-left: 16px;
+    }
+}
+
+.btn-chevron-sm {
+    padding: 7px 16px 7px 0;
+    .fa-chevron-down {
+        padding-left: 16px;
+    }
+}
+
+.btn-chevronLeft-sm {
+    padding: 7px 0 7px 16px;
+    .fa-chevron-down {
+        padding-right: 16px;
+    }
+}
+
+.btn-message-left-sm {
+    padding: 7px 0 7px 16px;
+    .fa-commenting-o{
+        padding-right: 16px;
+    }
+}

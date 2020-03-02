@@ -1,2 +1,10 @@
+import React from 'react';
 
-<button type="button" className="btn btn-secondary btn-sm">Download</button>
+const BtnSecondary = () => {
+    return (
+        <button type="button" className="btn btn-secondary btn-sm">Download</button>
+    )
+}
+
+export default BtnSecondary;
+

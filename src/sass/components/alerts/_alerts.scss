@@ -1,0 +1,29 @@
+.alert {
+    width: 360px;
+    height: 48px;
+    font-size: 14px;
+    color: white;
+    i {
+        margin-right: 12px;
+    }
+}
+
+.alert-info {
+    background-color: #03C3EC;
+    border: 1px solid #03C3EC;
+}
+
+.alert-warning {
+    background-color: #FFD422;
+    border: 1px solid #FFD422;
+}
+
+.alert-success {
+    background-color: #A7E521;
+    border: 1px solid #A7E521;
+}
+
+.alert-danger {
+    background-color: #FF3E1D;
+    border: 1px solid #FF3E1D;
+}
