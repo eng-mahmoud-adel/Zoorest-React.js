@@ -29,6 +29,12 @@
 // Avatars
 @import './sass/components/avatars/avatar';
 
+// DropDowns
+@import './sass/components/dropdowns/dropdowns.scss';
+
+// Inputs
+@import './sass/components/inputs/inputs';
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
