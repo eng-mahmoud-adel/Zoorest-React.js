@@ -12,7 +12,7 @@ function RenderBigButtons() {
                     <BigButton color= "btn btn-info" size= "btn-lg" />
                 </div>
                 <div className= "col-3">
-                    <BigButton color= "btn btn-secondary" size= "btn-lg" />
+                    <BigButton color= "btn btn-secondary" size= "btn-lg" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
                     <BigButton color= "btn btn-light" size= "btn-lg" />
@@ -25,7 +25,7 @@ function RenderBigButtons() {
                     <BigButton color= "btn btn-info" size= "btn-lg" right_icon= "fa fa-search" />
                 </div>
                 <div className= "col-3">
-                    <BigButton color= "btn btn-secondary" size= "btn-lg" right_icon= "fa fa-search" />
+                    <BigButton color= "btn btn-secondary" size= "btn-lg" right_icon= "fa fa-search" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
                     <BigButton color= "btn btn-light" size= "btn-lg" right_icon= "fa fa-chevron-down" />
@@ -38,7 +38,7 @@ function RenderBigButtons() {
                     <BigButton color= "btn btn-info" size= "btn-lg" left_icon= "fa fa-search" />
                 </div>
                 <div className= "col-3">
-                    <BigButton color= "btn btn-secondary" size= "btn-lg" left_icon= "fa fa-search" />
+                    <BigButton color= "btn btn-secondary" size= "btn-lg" left_icon= "fa fa-search" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
                     <BigButton color= "btn btn-light" size= "btn-lg" left_icon= "fa fa-car" />

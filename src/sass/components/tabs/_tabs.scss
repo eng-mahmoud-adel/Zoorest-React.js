@@ -1,27 +1,27 @@
 .card {
     width: 410px;
     height: 48px;
-    font-size: 14px;
+    font-size: $font-size-14;
     padding: 0;
     border-radius: 0;
     .card-header {
-        background-color: white;
-        color: #778699;
+        background-color: $light-color;
+        color: $gray-color;
         padding: 0;
         ul {
-            background-color: white;
+            background-color: $light-color;
             li {
                 line-height: 48px;
                 a {
-                    color: #778699;
+                    color: $gray-color;
                     padding: 0;
                     &:first-of-type {
                         padding-left: 0;
-                        margin-right: 25px;
+                        margin-right: $margin-24;
                     }
                     &:hover {
-                        color: #12B0C6;
-                        border-bottom: 3px solid #12B0C6;
+                        color: $info-color;
+                        border-bottom: 3px solid $info-color;
                         font-weight: bold;
                     }
                 }

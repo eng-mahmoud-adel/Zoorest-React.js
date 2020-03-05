@@ -12,7 +12,7 @@ function RenderSmallButtons() {
                     <SmallButton color= "btn btn-info" size= "btn-sm" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-secondary" size= "btn-sm" />
+                    <SmallButton color= "btn btn-secondary" size= "btn-sm" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
                     <SmallButton color= "btn btn-light" size= "btn-sm" />
@@ -25,7 +25,7 @@ function RenderSmallButtons() {
                     <SmallButton color= "btn btn-info" size= "btn-sm" right_icon= "fa fa-search" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-secondary" size= "btn-sm" right_icon= "fa fa-chevron-down" />
+                    <SmallButton color= "btn btn-secondary" size= "btn-sm" right_icon= "fa fa-chevron-down" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
                     <SmallButton color= "btn btn-light" size= "btn-sm" right_icon= "fa fa-chevron-down" />
@@ -38,7 +38,7 @@ function RenderSmallButtons() {
                     <SmallButton color= "btn btn-info" size= "btn-sm" left_icon= "fa fa-search" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-secondary" size= "btn-sm" left_icon= "fa fa-chevron-down" />
+                    <SmallButton color= "btn btn-secondary" size= "btn-sm" left_icon= "fa fa-chevron-down" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
                     <SmallButton color= "btn btn-light" size= "btn-sm" left_icon= "fa fa-chevron-down" />

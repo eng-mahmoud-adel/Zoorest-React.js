@@ -1,25 +1,25 @@
 %basic-input {
     width: 260px;
     height: 36px;
-    border-radius: 4px;
-    border: 1px solid #DCE1E7;
-    padding: 7px 12px;
+    border-radius: $border-radius;
+    border: 1px solid $secondary-color;
+    padding: $padding-8 $padding-12;
     &::placeholder {
-        color: #778699;
+        color: $gray-color;
     }
 }
 
 .basic-input {
     @extend %basic-input;
     &:hover {
-        border: 2px solid #12B0C6;
+        border: 2px solid $info-color;
     }
 }
 
 .text-area {
     width: 560px;
     height: 116px;
-    border-radius: 4px;
+    border-radius: $border-radius;
     resize: none;
 }
 
@@ -29,15 +29,15 @@
         height: 36px;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        border: 1px solid #DCE1E7;
+        border: 1px solid $secondary-color;
     }
     .url-input {
         width: 188px;
         height: 36px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border: 1px solid #DCE1E7;
-        padding: 7px 12px;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        border: 1px solid $secondary-color;
+        padding: $padding-8 $padding-12;
         border-left: 0;
     }
 }
@@ -45,39 +45,42 @@
 .input-icon {
     @extend %basic-input;
     position: relative;
-    padding: 7px 12px 7px 36px;
+    padding: $padding-8 $padding-12 $padding-8 $padding-36;
 }
 
-.fa-commenting-o {
+.icon-right {
     position: absolute;
     z-index: 2;
     line-height: 36px;
-    color: #778699;
-    padding-left: 8px;
+    color: $gray-color;
+    margin-left: -$margin-48;
 }
 
 .input-icon-left {
     @extend %basic-input;
     position: relative;
-    padding: 7px 36px 7px 12px;
+    padding: $padding-8 $padding-36 $padding-8 $padding-12;
 }
 
 .icon-left {
     position: absolute;
     z-index: 2;
     line-height: 36px;
-    color: #778699;
-    margin-left: -36px;
+    color: $gray-color;
+    margin-left: $margin-12;
 }
 
-.input-time {
+/* ----------------- */
+
+// for Time input One component
+.input-time-one {
     @extend %basic-input;
     width: 117px;
     height: 36px;
-    padding: 7px 12px 7px 40px;
+    padding: $padding-8 $padding-12 $padding-8 $padding-36;
     position: relative;
     &::placeholder {
-        font-size: 14px;
+        font-size: $font-size-14;
     }
 }
 
@@ -85,11 +88,104 @@
     position: absolute;
     z-index: 2;
     line-height: 36px;
-    margin-left: 12px;
-    color: #778699;
+    margin-left: $margin-12;
+    color: $gray-color;
 }
 
 .hyphen {
-    margin: 0 10px;
-    color: #778699;
+    margin: 0 $margin-12;
+    color: $gray-color;
 }
+
+/* ----------------- */
+
+// for Time input Two component
+.input-time-two {
+    @extend %basic-input;
+    width: 150px;
+}
+
+.left {
+    border-right: 0;
+    padding-left: $padding-36;
+}
+
+.right {
+    border-left: 0;
+}
+
+.text-inbetween {
+    background-color: $light-color;
+    border: 1px solid $light-color;
+    height: 36px;
+    border-top: 1px solid $secondary-color;
+    border-bottom: 1px solid $secondary-color;
+    line-height: 36px;
+}
+
+/* ----------------- */
+
+// for counter component
+.counter {
+        width: 36px;
+        height: 36px;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        border: 1px solid $secondary-color;
+        padding: $padding-8 $padding-12;
+        border-left: 0;
+}
+
+.minus, .plus {
+    width: 42px;
+    height: 36px;
+    background-color: $secondary-color;
+    line-height: 36px;
+    text-align: center;
+    font-size: $font-size-32;
+    color: $dark-color;
+    background-color: $ligh-dark-color;
+}
+
+.minus {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+}
+
+.plus {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+}
+
+/* ----------------- */
+
+.basic-counter {
+    width: 115px;
+    height: 36px;
+    border-radius: $border-radius;
+    border: 1px solid $secondary-color;
+}
+
+/* ----------------- */
+
+// for date picker component
+
+
+
+/* ----------------- */
+
+// for dropdown one component
+.dropdown {
+    width: 291px;
+    height: 36px;
+    border-color: $ligh-dark-color;
+    optgroup {
+        font-size: $font-size-10;
+    }
+    option {
+        font-size: $font-size-14;
+    }
+}
+
+
+/* ----------------- */

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const TextArea = () => {
+const TextArea = (props) => {
     return (
         <div className="mb-3">
-            <textarea className="form-control text-area is-invalid" id="validationTextarea" placeholder="Input name" required></textarea>
+            <textarea className={props.invalid + " form-control text-area"} id="validationTextarea" placeholder="Input name" required></textarea>
             <div className="invalid-feedback">
-                This filed is requiered
+                {props.text}
             </div>
         </div>
     )

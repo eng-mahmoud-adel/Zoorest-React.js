@@ -2,7 +2,10 @@ import React from 'react';
 import Select from 'react-select';
 
 const options = [
-  { value: 'code', label: 'code' }
+  { value: 'First Point', label: 'First Point' },
+  { value: 'Second Point', label: 'Second Point' },
+  { value: 'Third Point', label: 'Third Point' },
+  { value: 'Fourth Point', label: 'Fourth Point' }
 ];
 
 class DropDownTwo extends React.Component {
