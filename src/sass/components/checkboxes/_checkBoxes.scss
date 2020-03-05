@@ -1,8 +1,8 @@
 input:valid:checked~.custom-control-label::before {
-    border-color: #12B0C6;
-    background-color: #12B0C6;
+    border-color: $info-color;
+    background-color: $info-color;
 }
 
 .custom-control-label {
-    color: #254050;
+    color: $dark-color;
 }

@@ -1,8 +1,12 @@
 import React from 'react';
 
-const BasicInput = () => {
+const BasicInput = (props) => {
     return (
-        <input className="basic-input" type="text" placeholder="Input name" />
+        <div>
+            {props.left_icon && <i className= {props.left_icon + " icon-left"} aria-hidden="true"></i>}
+            <input className= {props.className} type= {props.type} placeholder= {props.placeholder} />
+            {props.right_icon && <i className= {props.right_icon + " icon-right"} aria-hidden="true"></i>}
+        </div>
     )
 }
 

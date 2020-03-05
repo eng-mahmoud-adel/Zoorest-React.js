@@ -1,21 +1,21 @@
 .tag-one {
     width: 100px;
     height: 22px;
-    background-color: #E8215D;
+    background-color: $accent-color;
     border-radius: 11px;
-    font-size: 12px;
+    font-size: $font-size-12;
     text-align: center;
     line-height: 22px;
-    color: white;
+    color: $light-color;
 }
 
 .tag-two {
     width: 100px;
     height: 22px;
-    background-color: #12B0C6;
+    background-color: $info-color;
     border-radius: 11px;
-    font-size: 12px;
+    font-size: $font-size-12;
     text-align: center;
     line-height: 22px;
-    color: white;
+    color: $light-color;
 }
