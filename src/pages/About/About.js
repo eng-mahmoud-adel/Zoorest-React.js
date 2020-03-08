@@ -8,6 +8,7 @@ import RenderAlerts from './RenderAlerts';
 import RenderTabs from './RenderTabs';
 import RenderInput from './RenderInput';
 import RenderDropdown from './RenderDropdown';
+import RenderAvatar from './RenderAvatar';
 
 
 
@@ -21,6 +22,7 @@ class About extends Component {
                 <RenderCheckBox />
                 <RenderTags />
                 <RenderAlerts />
+                <RenderAvatar />
                 <RenderTabs />
                 <RenderInput />
                 <RenderDropdown />

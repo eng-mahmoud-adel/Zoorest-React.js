@@ -4,7 +4,7 @@ class HomeContainer extends Component {
     render() {
         return (
             <div>
-                this is home page
+                This is home page
             </div>
         );
     }

@@ -2,9 +2,11 @@ import React from 'react';
 import BasicInput from '../../components/Inputs/BasicInput';
 import TextArea from '../../components/Inputs/TextArea';
 import UrlInput from '../../components/Inputs/UrlInput';
-import Counter from '../../components/Inputs/Counter';
+import CounterOne from '../../components/Inputs/CounterOne';
+import CounterTwo from '../../components/Inputs/CounterTwo';
 import TimeInputOne from '../../components/Inputs/TimeInputOne';
 import TimeInputTwo from '../../components/Inputs/TimeInputTwo';
+import MultiSelect from '../../components/Inputs/MultiSelect';
 
 function RenderInput() {
     return (
@@ -14,71 +16,66 @@ function RenderInput() {
             <hr />
             <div className= "row">
 
+                <div className= "col-8">
+                    <div className= "row">
 
-                <div className= "col-2">
-                    <Counter />
-                </div>
-                <div className= "col-2">
-                    <BasicInput className= "basic-counter" type= "number" />
-                </div>
-                <div className= "col-3">
-                    <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
-                </div>
-                <div className= "col-5">
-                    <TextArea />
-                </div>
+                        <div className= "col-3">
+                            <CounterOne />
+                        </div>
+                        <div className= "col-2">
+                            <CounterTwo />
+                        </div>
+                        <div className= "offset-1 col-6">
+                            <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
+                        </div>
 
+                        <div className= "col-3">
+                            <MultiSelect />
+                        </div>
+                        <div className= "offset-1 col-6">
+                            <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
+                        </div>
 
+                        <div className= "col-6">
+                            <UrlInput />
+                        </div>
+                        <div className= "col-6">
+                            <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
+                        </div>
 
-                <div className= "col-2">
-                    <Counter />
+                        <div className= "col-6">
+                            <BasicInput className= "input-icon" type= "text" left_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" />
+                        </div>
+
+                        <div className= "col-6">
+                            <BasicInput className= "input-icon-left" type= "text" right_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" />
+                        </div>
+
+                        {/* there is an error here in width of inputs ************************************* */}
+
+                        <div className= "col-6">
+                            <TimeInputTwo type= "text" startPlaceHolder="Start date" endPlaceHolder="End date" onFocus= {(e) => e.target.type = "date"} onBlur= {(e) => e.target.type = "text"} />
+                        </div>
+                        <div className= "col-6">
+                            <TimeInputOne type= "text" className= "input-time-one" icon= "fa fa-clock-o clock-icon fa-lg" />
+                        </div>
+                        <div className= "col-6">
+                            <TimeInputTwo type= "time" />
+                        </div>
+
+                    </div>
                 </div>
-                <div className= "col-2">
-                    <BasicInput className= "basic-counter" type= "number" />
-                </div>
-
-
-                <div className= "col-3">
-                    <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
-                </div>
-                <div className= "col-5">
-                    <TextArea invalid= "is-invalid" text= "This filed is requiered" />
-                </div>
-
 
                 <div className= "col-4">
-                    <UrlInput />
+                    <div className= "row">
+                        <div className= "col-12">
+                            <TextArea />
+                        </div>
+                        <div className= "col-12">
+                            <TextArea invalid= "is-invalid" text= "This filed is requiered" />
+                        </div>
+                    </div>
                 </div>
-                <div className= "col-4">
-                    <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
-                </div>
-
-                <div className= "col-4">
-                    <BasicInput className= "input-icon" type= "text" left_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" />
-                </div>
-
-                <div className= "col-4">
-                    <BasicInput className= "input-icon-left" type= "text" right_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" />
-                </div>
-
-                <div className= "col-4">
-                    <TimeInputOne type= "time" />
-                </div>
-
-                <div className= "col-4">
-                    <TimeInputTwo type= "time" />
-                </div>
-                
-                <div className= "col-4">
-                    <TimeInputTwo type= "date" />
-                </div>
-                
-                
-                
-                
-                
-                
-                
             </div>
         </div>
     )

@@ -14,7 +14,7 @@ function RenderDropdown() {
                     <DropDownOne />
                 </div>
                 <div className= "col-4">
-                    <DropDownTwo />
+                    <DropDownTwo variant= "light" size= "w-100"/>
                 </div>
                 <div className= "col-4">
                     <MaterialUIPickers />
