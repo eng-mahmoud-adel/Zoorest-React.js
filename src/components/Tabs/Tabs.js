@@ -4,11 +4,11 @@ import {useState} from 'react';
 const Tabs = () => {
     const [tabs, setTabs] = useState (["Curent tab","Second Tab", "Third Tab", "Fourth Tab" ]);
     return (
-        <div className="card text-center">
-            <div className="card-header">
-                <ul className="nav">
-                {tabs.map(item => <li className="nav-item">
-                        <a className="nav-link" href="#">{item}</a>
+        <div className="tab text-center">
+            <div className="tab-header">
+                <ul className="nav tab-nav">
+                {tabs.map(item => <li className="nav-item tab-item">
+                        <a className="nav-link tab-link" href="#">{item}</a>
                     </li>
                     )}
                     

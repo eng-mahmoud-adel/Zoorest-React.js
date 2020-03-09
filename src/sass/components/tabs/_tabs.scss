@@ -1,18 +1,19 @@
-.card {
+.tab {
     width: 410px;
     height: 48px;
     font-size: $font-size-14;
     padding: 0;
     border-radius: 0;
-    .card-header {
+    .tab-header {
         background-color: $light-color;
         color: $gray-color;
         padding: 0;
-        ul {
+        border-bottom: 1px solid $secondary-color;
+        .tab-nav {
             background-color: $light-color;
-            li {
+            .tab-item {
                 line-height: 48px;
-                a {
+                .tab-link {
                     color: $gray-color;
                     padding: 0;
                     &:first-of-type {

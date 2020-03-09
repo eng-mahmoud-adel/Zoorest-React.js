@@ -8,7 +8,7 @@ input::-webkit-inner-spin-button {
 %basic-input {
     width: 260px;
     height: 36px;
-    border-radius: $border-radius;
+    border-radius: $border-radius-4;
     border: 1px solid $secondary-color;
     padding: $padding-8 $padding-12;
     font-size: $font-size-14;
@@ -27,7 +27,7 @@ input::-webkit-inner-spin-button {
 .text-area {
     width: 560px;
     height: 116px;
-    border-radius: $border-radius;
+    border-radius: $border-radius-4;
     resize: none;
 }
 
@@ -42,8 +42,8 @@ input::-webkit-inner-spin-button {
     .url-input {
         width: 188px;
         height: 36px;
-        border-top-right-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
+        border-top-right-radius: $border-radius-4;
+        border-bottom-right-radius: $border-radius-4;
         border: 1px solid $secondary-color;
         padding: $padding-8 $padding-12;
         border-left: 0;
@@ -116,15 +116,15 @@ input::-webkit-inner-spin-button {
 
 .left {
     border-right: 0;
-    border-top-left-radius: $border-radius !important;
-    border-bottom-left-radius: $border-radius !important;
+    border-top-left-radius: $border-radius-4 !important;
+    border-bottom-left-radius: $border-radius-4 !important;
     padding-left: $padding-32;
 }
 
 .right {
     border-left: 0;
-    border-top-right-radius: $border-radius !important;
-    border-bottom-right-radius: $border-radius !important;
+    border-top-right-radius: $border-radius-4 !important;
+    border-bottom-right-radius: $border-radius-4 !important;
 }
 
 .text-inbetween {
@@ -162,13 +162,13 @@ input::-webkit-inner-spin-button {
 }
 
 .minus {
-    border-top-left-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
+    border-top-left-radius: $border-radius-4;
+    border-bottom-left-radius: $border-radius-4;
 }
 
 .plus {
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    border-top-right-radius: $border-radius-4;
+    border-bottom-right-radius: $border-radius-4;
 }
 
 /* ----------------- */
@@ -176,7 +176,7 @@ input::-webkit-inner-spin-button {
 .counter-two {
     width: 115px;
     height: 36px;
-    border-radius: $border-radius;
+    border-radius: $border-radius-4;
     border: 1px solid $secondary-color;
     padding: $padding-8 $padding-12;
     position: relative;
@@ -189,7 +189,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     border: 2px solid $ligh-dark-color;
     background-color: $ligh-dark-color;
-    border-radius: $border-radius;
+    border-radius: $border-radius-4;
     color: $dark-color;
     font-size: $font-size-10;
 }

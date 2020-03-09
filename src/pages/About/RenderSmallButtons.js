@@ -9,42 +9,42 @@ function RenderSmallButtons() {
             <hr />
             <div className= "row">
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-info" size= "btn-sm" />
+                    <SmallButton text= "Download" color= "btn btn-info" size= "btn-sm" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-secondary" size= "btn-sm" disabled= "disabled" />
+                    <SmallButton text= "Download" color= "btn btn-secondary" size= "btn-sm" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-light" size= "btn-sm" />
+                    <SmallButton text= "Download" color= "btn btn-light" size= "btn-sm" />
                 </div>
                 <div className= "col-3 mb-2">
-                    <SmallButton color= "btn btn-outline-info" size= "btn-sm" />
+                    <SmallButton text= "Download" color= "btn btn-outline-info" size= "btn-sm" />
                 </div>
 
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-info" size= "btn-sm" right_icon= "fa fa-search" />
+                    <SmallButton text= "Download" color= "btn btn-info" size= "btn-sm" right_icon= "fa fa-search" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-secondary" size= "btn-sm" right_icon= "fa fa-chevron-down" disabled= "disabled" />
+                    <SmallButton text= "Download" color= "btn btn-secondary" size= "btn-sm" right_icon= "fa fa-chevron-down" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-light" size= "btn-sm" right_icon= "fa fa-chevron-down" />
+                    <SmallButton text= "Download" color= "btn btn-light" size= "btn-sm" right_icon= "fa fa-chevron-down" />
                 </div>
                 <div className= "col-3 mb-2">
-                    <SmallButton color= "btn btn-outline-info" size= "btn-sm" right_icon= "fa fa-chevron-down" />
+                    <SmallButton text= "Download" color= "btn btn-outline-info" size= "btn-sm" right_icon= "fa fa-chevron-down" />
                 </div>
 
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-info" size= "btn-sm" left_icon= "fa fa-search" />
+                    <SmallButton text= "Download" color= "btn btn-info" size= "btn-sm" left_icon= "fa fa-search" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-secondary" size= "btn-sm" left_icon= "fa fa-chevron-down" disabled= "disabled" />
+                    <SmallButton text= "Download" color= "btn btn-secondary" size= "btn-sm" left_icon= "fa fa-chevron-down" disabled= "disabled" />
                 </div>
                 <div className= "col-3">
-                    <SmallButton color= "btn btn-light" size= "btn-sm" left_icon= "fa fa-chevron-down" />
+                    <SmallButton text= "Download" color= "btn btn-light" size= "btn-sm" left_icon= "fa fa-chevron-down" />
                 </div>
                 <div className= "col-3 mb-2">
-                    <SmallButton color= "btn btn-outline-info" size= "btn-sm" left_icon= "fa fa-chevron-down" />
+                    <SmallButton text= "Download" color= "btn btn-outline-info" size= "btn-sm" left_icon= "fa fa-chevron-down" />
                 </div>
             </div>
         </div>

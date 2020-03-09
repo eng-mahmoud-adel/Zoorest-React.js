@@ -19,6 +19,7 @@ $gray-color: #778699;           // for texts in secondary-color
 $dark-color: #2C3F58;           // for texts in ligh-color
 $ligh-dark-color: #DCE1E7;       // for background in counter component
 $light-white-color: #FAFBFD;      // for date picker component
+$blue-color: #2EBCCF;             // for text in card links
 
 // font-sizes
 $font-size-64: 64px;
@@ -36,7 +37,7 @@ $font-size-8: 8px;
 $margin-8: 8px;
 $margin-12: 12px;
 $margin-16: 16px;
-$margin-20: 20x;
+$margin-20: 20px;
 $margin-24: 24px;
 $margin-28: 28px;
 $margin-32: 32px;
@@ -49,7 +50,7 @@ $margin-64: 64px;
 $padding-8: 8px;
 $padding-12: 12px;
 $padding-16: 16px;
-$padding-20: 20x;
+$padding-20: 20px;
 $padding-24: 24px;
 $padding-28: 28px;
 $padding-32: 32px;
@@ -59,4 +60,5 @@ $padding-56: 56px;
 $padding-64: 64px;
 
 // border-radius
-$border-radius: 4px;
+$border-radius-4: 4px;
+$border-radius-8: 8px;
