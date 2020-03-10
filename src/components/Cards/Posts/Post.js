@@ -1,9 +1,9 @@
 import React from 'react';
-import img from '../../images/article-cover.png';
-import AvatarTwo from '../Avatars/AvatarTwo';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
+import img from '../../../images/article-cover.png';
+import AvatarTwo from '../../Avatars/AvatarTwo';
+import SmallButton from '../../Buttons/SmallButtons/SmallButton';
 
-const CardTwo = (props) => {
+const Post = (props) => {
     return (
         <div className={props.className + " card"}>
             <div className= "img-container">
@@ -37,4 +37,4 @@ const CardTwo = (props) => {
     )
 }
 
-export default CardTwo;
+export default Post;

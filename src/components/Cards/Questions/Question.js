@@ -1,9 +1,9 @@
 import React from 'react';
-import Tag from '../Tags/Tag';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
-import AvatarTwo from '../Avatars/AvatarTwo';
+import Tag from '../../Tags/Tag';
+import SmallButton from '../../Buttons/SmallButtons/SmallButton';
+import AvatarTwo from '../../Avatars/AvatarTwo';
 
-const CardThree = (props) => {
+const Question = (props) => {
     return (
         <div className={props.className + " card"}>
             <div className="card-body">
@@ -49,4 +49,4 @@ const CardThree = (props) => {
     )
 }
 
-export default CardThree;
+export default Question;

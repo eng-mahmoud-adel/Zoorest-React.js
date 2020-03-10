@@ -3,14 +3,22 @@ import { Route, Switch } from 'react-router-dom';
 
 import HomeContainer from '../../pages/Home/index';
 import About from '../../pages/About/About';
-import Article from '../../pages/Articles/Article';
+import ArticleCards from '../../pages/ShowingCards/ArticleCards';
+import PostCards from '../../pages/ShowingCards/PostCards';
+import QuestionCards from '../../pages/ShowingCards/QuestionCards';
+import CommentCards from '../../pages/ShowingCards/CommentCards';
+import AdsCard from '../../pages/ShowingCards/AdsCard';
 
 const AppRouter = () => (
-  <Fragment clas>
+  <Fragment>
     <Switch>
       <Route exact path="/" component={HomeContainer} />
       <Route path="/about" component={About} />
-      <Route path="/find" component={Article} />
+      <Route path="/article" component={ArticleCards} />
+      <Route path="/post" component={PostCards} />
+      <Route path="/question" component={QuestionCards} />
+      <Route path="/comment" component={CommentCards} />
+      <Route path="/advertisement" component={AdsCard} />
     </Switch>
   </Fragment>
 );

@@ -1,0 +1,54 @@
+import React from 'react';
+import img from '../../../images/article-cover.png';
+import AvatarTwo from '../../Avatars/AvatarTwo';
+
+const Advertisement = (props) => {
+    return (
+        <div className={props.className + " card"}>
+            <div className= "img-container">
+                <img src= {img} className="card-img-top card-image" alt="" />
+            </div>
+            <div className="card-body">
+                <h5 className="card-title">{props.cardTitle}</h5>
+                <p className="card-text">{props.cardText}</p>
+                <div className= "note">
+                    <h6 className="small-text">Notes :</h6>
+                    <p className= "note-text">{props.noteText}</p>
+                </div>
+            </div>
+            <div className="card-footer">
+                <div className= "row">
+                    <div className= "col-4 mb-2"><span className= "detail">Classification :</span> <span className= "value">{props.classification}</span></div>
+                    <div className= "col-2 mb-2"><span className= "detail">Type :</span> <span className= "value">{props.type}</span></div>
+                    <div className= "col-3 mb-2"><span className= "detail">Age :</span> <span className= "value">{props.age}</span></div>
+                    <div className= "col-3 mb-2"><span className= "detail">Gender :</span> <span className= "value">{props.gender}</span></div>
+                    <div className= "col-4 mb-2"><span className= "detail">Date of Birth :</span> <span className= "value">{props.dateOfBirth}</span></div>
+                    <div className= "col-2 mb-2"><span className= "detail">Weight :</span> <span className= "value">{props.weigth}</span></div>
+                    <div className= "col-3 mb-2"><span className= "detail">Separation :</span> <span className= "value">{props.separation}</span></div>
+                    <div className= "col-12 mb-2"><span className= "detail">Vaccnation :</span> <span className= "value">{props.vaccnation}</span></div>
+                    <div className= "col-12 mb-2"><span className= "detail">Purty of The Platioon :</span> <br /><span className= "value">{props.purtyOfThePlatioon}</span></div>
+                    <div className= "col-12 mb-2"><span className= "detail">Distinctive Signs :</span> <br /><span className= "value">{props.distinctiveSigns}</span></div>
+                    <div className= "col-5 mb-2"><span className= "detail">License Number :</span> <span className= "value">{props.licenseNumber}</span></div>
+                    <div className= "col-5 mb-2"><span className= "detail">Price :</span> <span className= "value">{props.price}</span></div>
+                </div>
+                <div className= "row">
+                    <div className= "col-8">
+                        <AvatarTwo className= "avatar-four" name = "Terry Williams" span= "Manager" />
+                    </div>
+                    <div className= "icons col-4">
+                        <div className= "row">
+                            <div className= "col-7">
+                                <i className={props.icon_one + " icon-one"} aria-hidden="true"><span className= {props.number_one}>{props.number_one}</span></i>
+                            </div>
+                            <div className= "col-5">
+                                <i className={props.icon_two + " icon-two"} aria-hidden="true"><span className= {props.number_two}>{props.number_two}</span></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Advertisement;
