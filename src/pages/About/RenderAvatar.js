@@ -10,19 +10,19 @@ function RenderAvatar() {
             <hr />
             <div className= "row">
                 <div className= "col-1">
-                    <AvatarOne className= "avatar-one" text= "MA" />
+                    <AvatarTwo className= "avatar-one" text= "MA" />
                 </div>
                 <div className= "col-1">
-                    <AvatarOne className= "avatar-two" text= "MA" />
+                    <AvatarTwo className= "avatar-two" text= "MA" />
                 </div>
                 <div className= "col-1">
-                    <AvatarOne className= "avatar-three" text= "MA" />
+                    <AvatarTwo className= "avatar-three" text= "MA" />
                 </div>
                 <div className= " offset-2 col-3">
-                    <AvatarTwo className= "avatar-four" name = "Ashton Martin" />
+                    <AvatarTwo className= "avatar-four" name = "Ashton Martin" image= "../../images/placeholders/100X100.png" />
                 </div>
                 <div className= "col-3">
-                    <AvatarTwo className= "avatar-four" name = "Terry Williams" span= "Manager" />
+                    <AvatarTwo className= "avatar-four" name = "Terry Williams" span= "Manager" image= "../../images/placeholders/100X100.png" />
                 </div>
             </div>
             
