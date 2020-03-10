@@ -6,6 +6,7 @@ const Navbar = () => (
     <header className="row container">
         <Link to= "/">Home</Link>
         <Link to= "/about">About</Link>
+        <Link to= "/find">Find a doctor</Link>
     </header>
 );
 

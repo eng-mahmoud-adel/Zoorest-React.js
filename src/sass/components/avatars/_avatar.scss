@@ -30,3 +30,28 @@
     line-height: 56px;
     font-size: 12px;
 }
+
+.avatar-four {
+    overflow: hidden;
+    color: $dark-color;
+    .img-container {
+        width: 36px;
+        height: 36px;
+        float: left;
+        margin-right: $margin-12;
+        img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+    }
+    h6 {
+        float: left;
+        width: calc(100% - 48px);
+        margin-bottom: 0;
+    }
+    span {
+        display: block;
+        float: left;
+        color: $gray-color;
+    }
+}

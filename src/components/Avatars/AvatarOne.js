@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AvatarOne = () => {
+const AvatarOne = (props) => {
     return (
-        <div className="avatar-one">
-            MA
+        <div className= {props.className}>
+            {props.text}
         </div>
     )
 }
