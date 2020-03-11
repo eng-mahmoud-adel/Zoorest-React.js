@@ -239,7 +239,7 @@
 
 /* ***************************************************** */
 
-/* for top comment copmonent */
+/* for comment copmonent */
 .card-six {
     width: 828px;
     height: 272px;
@@ -274,9 +274,38 @@
 }
 
 /* ***************************************************** */
-
-/* for posts copmonent */
+/* for leave comment copmonent */
 .card-seven {
+    width: 828px;
+    height: 242px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    .card-title {
+        margin-bottom: 0;
+        color: $dark-color;
+        font-size: $font-size-24;
+        font-weight: bold;
+    }
+    .button {
+        text-align: right;
+    }
+    .card-body {
+        padding: 0;
+        .card-text {
+            margin-top: $margin-24;
+            padding: $padding-8;
+            font-size: $font-size-14;
+            color: $gray-color;
+            border: 1px solid $secondary-color;
+            border-radius: $border-radius-8;
+        }
+    }
+}
+
+/* ***************************************************** */
+
+/* for advertisement copmonent */
+.card-eight {
     width: 825px;
     height: 1185px;
     border-radius: $border-radius-8;
@@ -338,6 +367,112 @@
             .icon-one {
                 padding-right: $padding-16;
             }
+        }
+    }
+}
+
+/* ***************************************************** */
+
+/* for add post copmonent */
+.card-nine {
+    width: 258px;
+    height: 297px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    .card-title {
+        margin-bottom: 0;
+        color: $dark-color;
+        font-size: $font-size-18;
+        font-weight: bold;
+    }
+    .card-body {
+        padding: 0;
+        .card-text {
+            margin-top: $margin-24;
+            font-size: $font-size-14;
+            color: $gray-color;
+        }
+    }
+}
+
+/* ***************************************************** */
+
+/* for article two copmonent */
+.card-ten {
+    width: 825px;
+    height: 2207px;
+    border-radius: 0;
+    .card-title {
+        padding: $padding-64 $padding-24 0;
+        margin-bottom: 0;
+        color: $dark-color;
+        font-size: $font-size-48;
+        font-weight: bold;
+    }
+    .small-text {
+        padding: $padding-8 $padding-24 $padding-8;
+        font-size: $font-size-12;
+        color: $gray-color;
+    }
+    .icons {
+        padding-left: $padding-24;
+        .icon-one, .icon-two {
+            cursor: pointer;
+            span {
+                margin-left: $margin-8;
+                color: $gray-color;
+                font-size: $font-size-12;
+            }
+        }
+        .icon-one {
+            padding-right: $padding-16;
+        }
+    }
+    .img-container-one {
+        width: 777px;
+        height: 408px;
+        margin: $margin-32 auto;
+        .card-image {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .card-body {
+        padding: 0;
+        .card-text {
+            padding: 0 $padding-24 0;
+            font-size: $font-size-14;
+            color: $dark-color;
+        }
+        .img-container-two {
+            width: 773px;
+            height: 543px;
+            margin: $margin-32 auto $margin-36;
+            text-align: center;
+            .card-image {
+                width: 100%;
+                height: 100%;
+            }
+            .small-text-two {
+                margin: auto;
+                text-align: center;
+                padding: 0;
+            }
+        }
+    }
+    .card-footer {
+        height: 229px;
+        padding: $padding-16 $padding-24;
+        background-color: $light-color;
+        .hashtag {
+            padding-bottom: $padding-48;
+            .hash-text {
+                font-size: $font-size-14;
+                color: $dark-color;
+            }
+        }
+        .share {
+            padding-top: $padding-48;
         }
     }
 }
