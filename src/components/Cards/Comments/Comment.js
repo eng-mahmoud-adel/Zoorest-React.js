@@ -1,5 +1,6 @@
 import React from 'react';
-import AvatarTwo from '../../Avatars/AvatarTwo';
+import Avatar from '../../Avatars/Avatar';
+import image from "../../../images/placeholders/100X100.png";
 
 const Comment = (props) => {
     return (
@@ -11,7 +12,7 @@ const Comment = (props) => {
             <div className="card-footer">
                 <div className= "row">
                     <div className= "col-10">
-                        <AvatarTwo className= "avatar-four" name = "Terry Williams" span= "Manager" />
+                        <Avatar className= "avatar-four" name = "Terry Williams" span= "Manager" image= {image} />
                     </div>
                     <div className= "icon col-2">
                         <i className={props.icon + " icon"} aria-hidden="true"><span className= {props.number}>33333 likes</span></i>

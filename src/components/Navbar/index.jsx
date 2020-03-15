@@ -10,7 +10,8 @@ const Navbar = () => (
         <Link to= "/post">Posts</Link>
         <Link to= "/question">Question</Link>
         <Link to= "/comment">Comment</Link>
-        <Link to= "/advertisement">advertisement</Link>
+        <Link to= "/advertisement">Advertisement</Link>
+        <Link to= "/forms">Forms</Link>
 
     </header>
 );

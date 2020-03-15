@@ -26,7 +26,7 @@ input::-webkit-inner-spin-button {
 
 .text-area {
     width: 560px;
-    height: 116px;
+    height: 116px !important;
     border-radius: $border-radius-4;
     resize: none;
 }
@@ -61,7 +61,7 @@ input::-webkit-inner-spin-button {
     z-index: 2;
     line-height: 36px;
     color: $gray-color;
-    margin-left: -$margin-48;
+    margin-left: -$margin-28;
 }
 
 .input-icon-left {
@@ -75,7 +75,7 @@ input::-webkit-inner-spin-button {
     z-index: 2;
     line-height: 36px;
     color: $gray-color;
-    margin-left: $margin-12;
+    margin-left: $margin-8;
 }
 
 /* ----------------- */

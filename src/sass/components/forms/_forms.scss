@@ -1,0 +1,29 @@
+.login-form {
+    background-color: white;
+    width: 720px;
+    height: 645px;
+    border-radius: $border-radius-8;
+    padding: $padding-16;
+    .sign-up {
+        text-align: right;
+        display: block;
+        margin-right: $margin-8;
+    }
+    .background {
+        background-image: url('../../../images/article-cover.png');
+        width: 446px;
+        height: 330px;
+        opacity: 0.32;
+        background-size: cover;
+        margin: auto;
+        .title {
+            line-height: 330px;
+        }
+    }
+    .basic-input {
+        width: 479px;
+    }
+    .btn-info {
+        width: 479px;
+    }
+}

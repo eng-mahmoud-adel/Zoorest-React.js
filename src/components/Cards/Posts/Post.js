@@ -1,7 +1,9 @@
 import React from 'react';
 import img from '../../../images/article-cover.png';
-import AvatarTwo from '../../Avatars/AvatarTwo';
+import Avatar from '../../Avatars/Avatar';
 import SmallButton from '../../Buttons/SmallButtons/SmallButton';
+import image from "../../../images/placeholders/100X100.png";
+
 
 const Post = (props) => {
     return (
@@ -16,7 +18,7 @@ const Post = (props) => {
             <div className="card-footer">
                 <div className= "row">
                     <div className= "col-3">
-                        <AvatarTwo className= "avatar-four" name = "Terry Williams" span= "Manager" />
+                        <Avatar className= "avatar-four" name = "Terry Williams" span= "Manager" image= {image} />
                     </div>
                     <div className= "icons col-6">
                         <div className= "row">
