@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import AvatarTwo from '../../Avatars/AvatarTwo';
+import Avatar from '../../Avatars/Avatar';
 
 
 const TopQuestions_Members = (props) => {
@@ -14,10 +14,10 @@ const TopQuestions_Members = (props) => {
             </div>}
             {props.avatar && 
             <Fragment>
-                <AvatarTwo className= "avatar-four pb-4" name = "Terry Williams" span= "Manager" />
-                <AvatarTwo className= "avatar-four pb-4" name = "Terry Williams" span= "Manager" />
-                <AvatarTwo className= "avatar-four pb-4" name = "Terry Williams" span= "Manager" />
-                <AvatarTwo className= "avatar-four" name = "Terry Williams" span= "Manager" />
+                <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
+                <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
+                <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
+                <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
             </Fragment>
                 }
         </div>

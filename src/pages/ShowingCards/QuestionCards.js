@@ -2,7 +2,7 @@ import React from 'react';
 import Question from '../../components/Cards/Questions/Question';
 import Tag from '../../components/Tags/Tag';
 import TopQuestions_Members from '../../components/Cards/Questions/TopQuestions_Members';
-import AvatarTwo from '../../components/Avatars/AvatarTwo';
+import Avatar from '../../components/Avatars/Avatar';
 
 const QuestionCards = () => {
     return (
@@ -20,7 +20,7 @@ const QuestionCards = () => {
                         <Question className= "card-four" cardTitle= "Is this statement, “i see him last night” can be understood as “I saw him last night”?" cardTime= "2 hours ago" cardText= "Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal rights are at least unclear for many common Internet activities, such as posting a picture that belongs to someone else to a social media account, covering a popular song on a YouTube video, or writing fanfiction. " icon_one= "fa fa-commenting-o" icon_two= "fa fa-heart-o" number_one= "2" number_two= "3" tag= {Tag} />
                     </div>
                     <div className= "col-2">
-                        <TopQuestions_Members className= "card-five" cardTitle= "Top Members" avatar= {AvatarTwo} />
+                        <TopQuestions_Members className= "card-five" cardTitle= "Top Members" avatar= {Avatar} />
                     </div>
                 </div>
             </div>

@@ -33,14 +33,14 @@ function RenderInput() {
                             <MultiSelect />
                         </div>
                         <div className= "offset-1 col-6">
-                            <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "Input name" invalid= "form-control is-invalid" />
                         </div>
 
                         <div className= "col-6">
                             <UrlInput />
                         </div>
                         <div className= "col-6">
-                            <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "Input name" valid= "form-control is-valid" feedback= "Looks good!" />
                         </div>
 
                         <div className= "col-6">

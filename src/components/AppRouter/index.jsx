@@ -8,6 +8,7 @@ import PostCards from '../../pages/ShowingCards/PostCards';
 import QuestionCards from '../../pages/ShowingCards/QuestionCards';
 import CommentCards from '../../pages/ShowingCards/CommentCards';
 import AdsCard from '../../pages/ShowingCards/AdsCard';
+import Forms from '../../pages/ShowingForms/Forms';
 
 const AppRouter = () => (
   <Fragment>
@@ -19,6 +20,7 @@ const AppRouter = () => (
       <Route path="/question" component={QuestionCards} />
       <Route path="/comment" component={CommentCards} />
       <Route path="/advertisement" component={AdsCard} />
+      <Route path="/forms" component={Forms} />
     </Switch>
   </Fragment>
 );

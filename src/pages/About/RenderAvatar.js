@@ -1,6 +1,6 @@
 import React from 'react';
-import AvatarOne from '../../components/Avatars/AvatarOne';
-import AvatarTwo from '../../components/Avatars/AvatarTwo';
+import Avatar from '../../components/Avatars/Avatar';
+import image from "../../images/placeholders/100X100.png";
 
 function RenderAvatar() {
     return (
@@ -10,19 +10,19 @@ function RenderAvatar() {
             <hr />
             <div className= "row">
                 <div className= "col-1">
-                    <AvatarTwo className= "avatar-one" text= "MA" />
+                    <Avatar className= "avatar-one" text= "MA" />
                 </div>
                 <div className= "col-1">
-                    <AvatarTwo className= "avatar-two" text= "MA" />
+                    <Avatar className= "avatar-two" text= "MA" />
                 </div>
                 <div className= "col-1">
-                    <AvatarTwo className= "avatar-three" text= "MA" />
+                    <Avatar className= "avatar-three" text= "MA" />
                 </div>
                 <div className= " offset-2 col-3">
-                    <AvatarTwo className= "avatar-four" name = "Ashton Martin" image= "../../images/placeholders/100X100.png" />
+                    <Avatar className= "avatar-four" name= "Ashton Martin" image= {image} />
                 </div>
                 <div className= "col-3">
-                    <AvatarTwo className= "avatar-four" name = "Terry Williams" span= "Manager" image= "../../images/placeholders/100X100.png" />
+                    <Avatar className= "avatar-four" name= "Terry Williams" span= "Manager" image= {image} />
                 </div>
             </div>
             

@@ -1,6 +1,7 @@
 import React from 'react';
 import img from '../../../images/article-cover.png';
-import AvatarTwo from '../../Avatars/AvatarTwo';
+import Avatar from '../../Avatars/Avatar';
+import image from "../../../images/placeholders/100X100.png";
 
 const Advertisement = (props) => {
     return (
@@ -33,7 +34,7 @@ const Advertisement = (props) => {
                 </div>
                 <div className= "row">
                     <div className= "col-8">
-                        <AvatarTwo className= "avatar-four" name = "Terry Williams" span= "Manager" />
+                        <Avatar className= "avatar-four" name = "Terry Williams" span= "Manager" image= {image} />
                     </div>
                     <div className= "icons col-4">
                         <div className= "row">
