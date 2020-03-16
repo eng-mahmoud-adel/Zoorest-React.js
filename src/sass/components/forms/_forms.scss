@@ -1,29 +1,79 @@
+// for login component
 .login-form {
     background-color: white;
-    width: 720px;
     height: 645px;
     border-radius: $border-radius-8;
-    padding: $padding-16;
-    .sign-up {
-        text-align: right;
-        display: block;
-        margin-right: $margin-8;
-    }
+    padding: $padding-24;
     .background {
         background-image: url('../../../images/article-cover.png');
-        width: 446px;
-        height: 330px;
-        opacity: 0.32;
+        height: 300px;
         background-size: cover;
+        width: 440px;
         margin: auto;
         .title {
             line-height: 330px;
         }
     }
-    .basic-input {
-        width: 479px;
-    }
     .btn-info {
-        width: 479px;
+        width: 100%;
     }
 }
+/* ************************************************ */
+
+// for signup component
+.signup-form {
+    background-color: white;
+    height: 898px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    .btn-group {
+        width: 100%;
+    }
+    .btn-info {
+        width: 100%;
+    }
+}
+/* ************************************************ */
+
+// for add question component
+.question-form {
+    background-color: white;
+    height: 683px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    textarea {
+        width: 100%;
+    }
+    .btn-danger {
+        width: 100%;
+    }
+}
+/* ************************************************ */
+
+// for add post component
+.post-form {
+    background-color: white;
+    height: 1007px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    textarea {
+        width: 100%;
+        height: auto !important;
+    }
+    .btn-info {
+        width: 100%;
+    }
+}
+/* ************************************************ */
+
+// for add reminder component
+.reminder-form {
+    background-color: white;
+    height: 366px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    .btn-info, .btn-light {
+        width: 100%;
+    }
+}
+/* ************************************************ */
