@@ -4,6 +4,7 @@ import BasicInput from '../Inputs/BasicInput';
 import SmallButton from '../Buttons/SmallButtons/SmallButton';
 import SocialBtn from '../Buttons/CombinedButtons/SocialBtn';
 import MultiSelect from '../Inputs/MultiSelect';
+import DropFileWithButton from './DropFiles/DropFileWithButton';
 
 const SignUp = (props) => {
     return (
@@ -16,45 +17,69 @@ const SignUp = (props) => {
                 <div className= "my-2 mx-auto col-10">
                     <Size size= "btn-group-lg" textOne= "User" textTwo= "Doctor" textThree= "Clinic" />
                 </div>
-                <div className= "text-left">
-                    <div className= "my-3 mx-auto col-10">
-                        <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "First Name" />
+                <div className= "row justify-content-center">
+                    <div className= "my-3 col-10">
+                        <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Full Name" />
                     </div>
-                    <div className= "mb-3 mx-auto col-10">
+                    <div className= "mb-3 col-10">
                         <BasicInput className= "basic-input w-100" type= "email" placeholder= "email" label= "Email Address" />
                     </div>
-                    <div className= "mb-3 mx-auto col-10">
+                    <div className= "mb-3 col-10">
                         <BasicInput className= "basic-input w-100" type= "text" placeholder= "number" label= "Phone Number" />
                     </div>
-                    <div className= "mb-3 mx-auto col-10">
+                    <div className= "mb-3 col-10">
                         <BasicInput className= "basic-input w-100" type= "text" placeholder= "number" label= "Additional Phone Number" />
                     </div>
-                    <div className= "mb-3 offset-1 col-5 d-inline-block">
-                        <BasicInput className= "basic-input" type= "passwrod" placeholder= "password" label= "Password" />
+                    <div className= "mb-3 col-5">
+                        <BasicInput className= "basic-input w-100" type= "passwrod" placeholder= "password" label= "Password" />
                     </div>
-                    <div className= "mb-3 col-5 d-inline-block">
-                        <BasicInput className= "basic-input" type= "passwrod" placeholder= "password" label= "Confirm Password" />
+                    <div className= "mb-3 col-5">
+                        <BasicInput className= "basic-input w-100" type= "passwrod" placeholder= "password" label= "Confirm Password" />
                     </div>
-                    <div className= "mb-3 offset-1 col-5 d-inline-block">
-                        <MultiSelect />
-                    </div>
-                    <div className= "mb-3 col-5 d-inline-block">
-                        <MultiSelect />
-                    </div>
-                    <div className= "mb-3 mx-auto col-10">
-                        <MultiSelect />
-                    </div>
-                    <div className= "mb-5 mx-auto col-10">
+                    {props.user && 
+                    <div className= {props.user}>
+                        <div className= "mb-3 col-5">
+                            <MultiSelect />
+                        </div>
+                        <div className= "mb-3 col-5">
+                            <MultiSelect />
+                        </div>
+                        <div className= "mb-3 col-10">
+                            <MultiSelect />
+                        </div>
+                    </div>}
+                    {props.doctor && 
+                    <div className= {props.doctor}>
+                        <div className= "mb-3 col-5">
+                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Official doctor name" />
+                        </div>
+                        <div className= "mb-3 col-5">
+                            <BasicInput className= "input-icon-left w-100" type= "text" right_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" label= "Select your location" />
+                        </div>
+                        <div className= "mb-3 col-5">
+                            <MultiSelect />
+                        </div>
+                        <div className= "mb-3 col-5">
+                            <MultiSelect />
+                        </div>
+                        <div className= "mb-3 col-10">
+                            <DropFileWithButton />
+                        </div>
+                    </div>}
+                    <div className= "mb-4 col-8">
                         <SmallButton text= "Sign Up" color= "btn btn-info" size= "btn-sm" />
                     </div>
-                    <hr />
                 </div>
-                <div className= "text-center">
-                    <div className= "d-inline-block pr-0 col-4">
-                        <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Sign up with Facebook" social_icon= "fa fa-facebook-official fa-lg" />
+                <div className= "row justify-content-center">
+                    <span className= "line col-3 mb-3"></span>
+                    <span className= "line col-3 offset-1 mb-3"></span>
+                </div>
+                <div className= "row justify-content-center">
+                    <div className= "col-4 text-right pr-2">
+                        <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Facebook" social_icon= "fa fa-facebook-official fa-lg" />
                     </div>
-                    <div className= "d-inline-block pl-0 col-4">
-                        <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Sign Up with Google" social_icon= "fa fa-google fa-lg" />
+                    <div className= "col-4 pl-2">
+                        <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Google" social_icon= "fa fa-google fa-lg" />
                     </div>
                 </div>
             </div>

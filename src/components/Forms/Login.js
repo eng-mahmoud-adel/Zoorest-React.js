@@ -32,11 +32,11 @@ const Login = (props) => {
                     </div>
                     <hr />
                 </div>
-                <div className= "text-center">
-                    <div className= "d-inline-block pr-0 col-4">
+                <div className= "row justify-content-center">
+                    <div className= "col-4 text-right pr-2">
                         <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Facebook" social_icon= "fa fa-facebook-official fa-lg" />
                     </div>
-                    <div className= "d-inline-block pl-0 col-4">
+                    <div className= "col-4 pl-2">
                         <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Google" social_icon= "fa fa-google fa-lg" />
                     </div>
                 </div>

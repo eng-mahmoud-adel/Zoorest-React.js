@@ -1,6 +1,6 @@
 // for login component
 .login-form {
-    background-color: white;
+    background-color: $light-color;
     height: 645px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -22,8 +22,7 @@
 
 // for signup component
 .signup-form {
-    background-color: white;
-    height: 898px;
+    background-color: $light-color;
     border-radius: $border-radius-8;
     padding: $padding-24;
     .btn-group {
@@ -32,12 +31,16 @@
     .btn-info {
         width: 100%;
     }
+    .line {
+        display: inline-block;
+        border-top: 1px solid $secondary-color;
+    }
 }
 /* ************************************************ */
 
 // for add question component
 .question-form {
-    background-color: white;
+    background-color: $light-color;
     height: 683px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -52,7 +55,7 @@
 
 // for add post component
 .post-form {
-    background-color: white;
+    background-color: $light-color;
     height: 1007px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -68,12 +71,109 @@
 
 // for add reminder component
 .reminder-form {
-    background-color: white;
+    background-color: $light-color;
     height: 366px;
     border-radius: $border-radius-8;
     padding: $padding-24;
+    .text {
+        font-size: $font-size-14;
+    }
     .btn-info, .btn-light {
         width: 100%;
+    }
+}
+/* ************************************************ */
+
+// for upload album component
+.album-form {
+    background-color: $light-color;
+    height: 799px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    .text {
+        font-size: $font-size-14;
+    }
+    .btn-info, .btn-light {
+        width: 100%;
+    }
+}
+/* ************************************************ */
+
+// for location component
+.location-form {
+    background-color: $light-color;
+    height: 678px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    .text {
+        font-size: $font-size-14;
+        color: $gray-color;
+    }
+    .btn-info, .btn-light {
+        width: 100%;
+    }
+}
+/* ************************************************ */
+
+// for profile component
+.profile-form {
+    background-color: $light-color;
+    height: 1020px;
+    border-radius: $border-radius-8;
+    padding: $padding-48;
+    .text {
+        font-size: $font-size-14;
+        color: $gray-color;
+    }
+    .btn-info, .btn-light {
+        width: 100%;
+    }
+    textarea {
+        width: 100%;
+        height: 365px !important;
+    }
+}
+/* ************************************************ */
+
+// for add animal component
+.add-animal-form {
+    background-color: $light-color;
+    height: 933px;
+    border-radius: $border-radius-8;
+    padding: $padding-24;
+    .text {
+        font-size: $font-size-14;
+        color: $gray-color;
+    }
+    .step-one {
+        .avatars {
+            .avatar-one {
+                background-color: $info-color;
+            }
+        }
+        .btn-info, .btn-light, .btn-secondary {
+            width: 100%;
+        }
+    }
+    .step-two {
+        .avatars {
+            .avatar-one {
+                background-color: $info-color;
+            }
+        }
+        .btn-info, .btn-light, .btn-danger {
+            width: 100%;
+        }
+    }
+    .step-three {
+        .avatars {
+            .avatar-one {
+                background-color: $info-color;
+            }
+        }
+        .btn-info, .btn-light, .btn-danger {
+            width: 100%;
+        }
     }
 }
 /* ************************************************ */

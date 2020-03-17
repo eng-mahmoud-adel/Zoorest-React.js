@@ -8,8 +8,8 @@ const Reminder = (props) => {
         <form>
             <div className="form-group reminder-form col-7">
                 <h3 className= "title">{props.title}</h3>
-                <p>{props.text}</p>
-                <div className= "d-flex my-5">
+                <p className= "text">{props.text}</p>
+                <div className= "row my-5">
                     <div className= "col-6">
                         <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Title of your reminder" />
                     </div>
@@ -18,7 +18,7 @@ const Reminder = (props) => {
                         <MaterialUIPickers />
                     </div>
                 </div>
-                <div className= "d-flex">
+                <div className= "row">
                     <div className= "col-6">
                         <SmallButton text= "Cancel" color= "btn btn-light" size= "btn-sm" />
                     </div>
