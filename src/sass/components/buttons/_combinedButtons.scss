@@ -1,0 +1,44 @@
+%button {
+    background-color: $light-color;
+    color: $gray-color;
+    border-color: $gray-color;
+    &:hover {
+        background-color: $info-color;
+    }
+}
+
+.btn-group-lg {
+    height: 48px;
+    button {
+        @extend %button;
+    }
+}
+
+.btn-group-sm {
+    height: 36px;
+    font-size: $font-size-14;
+    button {
+        @extend %button;
+    }
+}
+
+.btn-social {
+    height: 36px;
+    font-size: $font-size-14;
+    .fa-facebook-official {
+        color: #4267B2;
+    }
+    .fa-google {
+        color: #EA4335;
+    }
+    .fa-instagram {
+        color: #EA4335;
+    }
+    .fa-twitter {
+        color: #1DA1F2;
+    }
+    span {
+        margin-left: $margin-16;
+        color: #919DAC;
+    }
+}

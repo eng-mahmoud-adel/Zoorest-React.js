@@ -1,0 +1,37 @@
+// for dropdown one component
+.dropdown {
+    height: 36px;
+    border-color: $ligh-dark-color;
+    optgroup {
+        font-size: $font-size-10;
+    }
+    option {
+        font-size: $font-size-14;
+    }
+}
+
+/* ----------------- */
+
+// for Dropdown Two component
+.dropdown-toggle {
+    height: 36px;
+    color: $gray-color;
+}
+
+.dropdown-toggle::after {
+    margin-left: 8.255em;
+}
+
+.dropdown-menu a {
+    font-size: $font-size-14;
+    padding: $padding-12 $padding-16;
+    color: $gray-color;
+}
+
+/* ----------------- */
+
+// for Date picker component
+
+.MuiTypography-body1 {
+    background-color: $light-white-color;
+}

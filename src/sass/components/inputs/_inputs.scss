@@ -1,0 +1,222 @@
+// to remove increase & decrease buttons from inputs type
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+%basic-input {
+    height: 36px;
+    border-radius: $border-radius-4;
+    border: 1px solid $secondary-color;
+    padding: $padding-8 $padding-12;
+    font-size: $font-size-14;
+    &::placeholder {
+        color: $gray-color;
+    }
+}
+
+.basic-input {
+    @extend %basic-input;
+    &:hover {
+        border: 2px solid $info-color;
+    }
+}
+
+.text-area {
+    height: 116px !important;
+    border-radius: $border-radius-4;
+    resize: none;
+}
+
+.input-group {
+    .input-group-text {
+        width: 73px;
+        height: 36px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border: 1px solid $secondary-color;
+    }
+    .url-input {
+        width: 188px;
+        height: 36px;
+        border-top-right-radius: $border-radius-4;
+        border-bottom-right-radius: $border-radius-4;
+        border: 1px solid $secondary-color;
+        padding: $padding-8 $padding-12;
+        border-left: 0;
+    }
+}
+
+.input-icon {
+    @extend %basic-input;
+    position: relative;
+    padding: $padding-8 $padding-12 $padding-8 $padding-36;
+    &:hover {
+        border: 2px solid $info-color;
+    }
+}
+
+.icon-right {
+    position: absolute;
+    z-index: 2;
+    line-height: 36px;
+    color: $gray-color;
+    margin-left: -$margin-28;
+}
+
+.input-icon-left {
+    @extend %basic-input;
+    position: relative;
+    padding: $padding-8 $padding-36 $padding-8 $padding-12;
+    &:hover {
+        border: 2px solid $info-color;
+    }
+}
+
+.icon-left {
+    position: absolute;
+    z-index: 2;
+    line-height: 36px;
+    color: $gray-color;
+    margin-left: $margin-8;
+}
+
+/* ----------------- */
+
+// for Time input One component
+.input-time-one {
+    @extend %basic-input;
+    width: 117px;
+    height: 36px;
+    padding: $padding-8 $padding-12 $padding-8 $padding-28;
+    position: relative;
+    &::placeholder {
+        font-size: $font-size-14;
+    }
+}
+
+.clock-icon {
+    position: absolute;
+    z-index: 2;
+    line-height: 36px;
+    margin-left: $margin-8;
+    color: $gray-color;
+}
+
+.hyphen {
+    margin: 0 ($margin-12 - 2px);
+    color: $gray-color;
+}
+
+/* ----------------- */
+
+// for Time input Two component
+.input-time-two {
+    @extend %basic-input;
+    width: 120px;
+    border-radius: 0;
+}
+
+.left {
+    border-right: 0;
+    border-top-left-radius: $border-radius-4 !important;
+    border-bottom-left-radius: $border-radius-4 !important;
+    padding-left: $padding-32;
+}
+
+.right {
+    border-left: 0;
+    border-top-right-radius: $border-radius-4 !important;
+    border-bottom-right-radius: $border-radius-4 !important;
+}
+
+.text-inbetween {
+    background-color: $light-color;
+    border: 1px solid $light-color;
+    height: 36px;
+    border-top: 1px solid $secondary-color;
+    border-bottom: 1px solid $secondary-color;
+    line-height: 36px;
+}
+
+/* ----------------- */
+
+// for counter component
+.counter-one {
+    width: 36px;
+    height: 36px;
+    border: 1px solid $secondary-color;
+    padding: $padding-8;
+    border-left: 0;
+    text-align: center;
+}
+
+.minus, .plus {
+    width: 42px;
+    height: 36px;
+    background-color: $secondary-color;
+    line-height: 30px;
+    text-align: center;
+    font-size: $font-size-32;
+    color: $dark-color;
+    background-color: $ligh-dark-color;
+    border-radius: none;
+    border: 1px solid $ligh-dark-color;
+}
+
+.minus {
+    border-top-left-radius: $border-radius-4;
+    border-bottom-left-radius: $border-radius-4;
+}
+
+.plus {
+    border-top-right-radius: $border-radius-4;
+    border-bottom-right-radius: $border-radius-4;
+}
+
+/* ----------------- */
+
+.counter-two {
+    width: 115px;
+    height: 36px;
+    border-radius: $border-radius-4;
+    border: 1px solid $secondary-color;
+    padding: $padding-8 $padding-12;
+    position: relative;
+}
+
+.increase, .decrease {
+    position: absolute;
+    width: 8px;
+    height: 14px;
+    cursor: pointer;
+    border: 2px solid $ligh-dark-color;
+    background-color: $ligh-dark-color;
+    border-radius: $border-radius-4;
+    color: $dark-color;
+    font-size: $font-size-10;
+}
+
+.increase {
+    top: 5px;
+    right: 3px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.decrease {
+    top: 18px;
+    right: 3px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.increase-icon, .decrease-icon {
+    position: absolute;
+    top: -2px;
+    right: 1.5px;
+}
+
+/* ----------------- */
+

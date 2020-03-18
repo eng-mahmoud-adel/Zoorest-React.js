@@ -1,0 +1,31 @@
+.tab {
+    height: 48px;
+    font-size: $font-size-14;
+    padding: 0;
+    border-radius: 0;
+    .tab-header {
+        background-color: $light-color;
+        color: $gray-color;
+        padding: 0;
+        border-bottom: 1px solid $secondary-color;
+        .tab-nav {
+            background-color: $light-color;
+            .tab-item {
+                line-height: 48px;
+                .tab-link {
+                    color: $gray-color;
+                    padding: 0;
+                    &:first-of-type {
+                        padding-left: 0;
+                        margin-right: $margin-24;
+                    }
+                    &:hover {
+                        color: $info-color;
+                        border-bottom: 3px solid $info-color;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
