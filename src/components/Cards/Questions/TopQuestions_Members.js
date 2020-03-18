@@ -19,7 +19,7 @@ const TopQuestions_Members = (props) => {
                 <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
                 <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
             </Fragment>
-                }
+            }
         </div>
     )
 }

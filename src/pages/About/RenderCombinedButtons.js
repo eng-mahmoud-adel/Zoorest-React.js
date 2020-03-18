@@ -12,13 +12,13 @@ function RenderCombinedButtons() {
                     <div className= "col-4 mb-2">
                         <Size size= "btn-group-lg" textOne= "S" textTwo= "M" textThree= "L" />
                     </div>
-                    <div className= "col-6">
+                    <div className= "col-3 offset-3">
                         <Size size= "btn-group-sm" textOne= "S" textTwo= "M" textThree= "L" />
                     </div>
                     <div className= "col-4">
                         <Size size= "btn-group-lg mb-4" textOne= "Daily" textTwo= "Monthly" textThree= "Yearly" />
                     </div>
-                    <div className= "col-6">
+                    <div className= "col-3 offset-3">
                         <Size size= "btn-group-sm" textOne= "Daily" textTwo= "Monthly" textThree= "Yearly" />
                     </div>
                     <div className= "col-3">

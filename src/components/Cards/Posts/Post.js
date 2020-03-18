@@ -9,7 +9,7 @@ const Post = (props) => {
     return (
         <div className={props.className + " card"}>
             <div className= "img-container">
-                <img src= {img} className="card-img-top card-image" alt="" />
+                <img src= {img} className="card-img-top img-fluid h-100" alt="" />
             </div>
             <div className="card-body">
                 <h5 className="card-title">{props.cardTitle}</h5>

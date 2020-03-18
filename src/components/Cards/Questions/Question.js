@@ -11,7 +11,7 @@ const Question = (props) => {
                 <small className="small-text">{props.cardTime}</small>
                 <h5 className="card-title">{props.cardTitle}</h5>
                 <p className="card-text">{props.cardText}</p>
-                <div className= "row tags">
+                <div className= "row">
                     <div className= "col-2">
                         <Tag className= "tag-one" text= "Tag" />
                     </div>

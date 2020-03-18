@@ -7,33 +7,37 @@ import SocialBtn from '../Buttons/CombinedButtons/SocialBtn';
 const Login = (props) => {
     return (
         <form>
-            <div className="form-group login-form">
-                <a className= "sign-up" href= "#">Sign up</a>
+            <div className="form-group login-form col-8">
+                <div className= "text-right">
+                    <a href= "#">Sign up</a>
+                </div>
                 <div className= "background">
-                    <h3 className= "title text-center">Login to your account</h3>
+                    <h3 className= "title text-center">{props.title}</h3>
                 </div>
                 <div className= "text-center">
-                    <div className= "mb-2">
+                    <div className= "my-2 mx-auto col-10">
                         <BasicInput className= "basic-input" type= "email" placeholder= "Email" />
                     </div>
-                    <div className= "mb-2">
+                    <div className= "mb-2 mx-auto col-10">
                         <BasicInput className= "basic-input" type= "password" placeholder= "Password" />
                     </div>
-                    <div className= "mb-2">
+                    <div className= "mb-2 offset-1 col-3 text-left">
                         <CheckBox text= "Remember me" id= "customCheck1" />
                     </div>
-                    <div className= "mb-2">
+                    <div className= "mb-2 mx-auto col-10">
                         <SmallButton text= "Login" color= "btn btn-info" size= "btn-sm" />
                     </div>
-                    <a href= "#">Forgot password?</a>
+                    <div className= "offset-1 col-10 text-left">
+                        <a href= "#">Forgot password?</a>
+                    </div>
                     <hr />
                 </div>
-                <div className= "row">
-                    <div className= "offset-2 col-4">
-                    <SocialBtn size= "btn-sm" color= "btn btn-light" text = "Login with Facebook" social_icon= "fa fa-facebook-official fa-lg" />
+                <div className= "row justify-content-center">
+                    <div className= "col-4 text-right pr-2">
+                        <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Facebook" social_icon= "fa fa-facebook-official fa-lg" />
                     </div>
-                    <div className= "col-4">
-                        <SocialBtn size= "btn-sm" color= "btn btn-light" text = "Login with Google" social_icon= "fa fa-google fa-lg" />
+                    <div className= "col-4 pl-2">
+                        <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Google" social_icon= "fa fa-google fa-lg" />
                     </div>
                 </div>
             </div>
