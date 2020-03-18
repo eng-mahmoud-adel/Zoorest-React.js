@@ -11,7 +11,7 @@ const UploadAlbum = (props) => {
                 <p className= "text text-center col-10 mx-auto mb-5">{props.text}</p>
 
                 <div className= "col-10 my-5">
-                    <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Title of your album" />
+                    <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Title of your album" />
                 </div>
                 <div className= "col-4 my-5">
                     <label>Upload photos</label>

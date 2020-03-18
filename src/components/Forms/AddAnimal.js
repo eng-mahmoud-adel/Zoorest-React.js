@@ -28,7 +28,7 @@ const AddAnimal = (props) => {
                     </div>
                     <div className= "row justify-content-center">
                         <div className= "col-5 my-5">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Animal name" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Animal name" />
                         </div>
                         <div className= "col-5 my-5">
                             <label>Date of birth</label>
@@ -106,7 +106,7 @@ const AddAnimal = (props) => {
                     <div className= "row justify-content-center">
                         
                         <div className= "col-5 my-2">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Vaccinations name" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Vaccinations name" />
                         </div>
                         <div className= "col-5 my-2">
                             <label>Vaccinations Date</label>

@@ -16,10 +16,10 @@ const Login = (props) => {
                 </div>
                 <div className= "text-center">
                     <div className= "my-2 mx-auto col-10">
-                        <BasicInput className= "basic-input w-100" type= "email" placeholder= "Email" />
+                        <BasicInput className= "basic-input" type= "email" placeholder= "Email" />
                     </div>
                     <div className= "mb-2 mx-auto col-10">
-                        <BasicInput className= "basic-input w-100" type= "password" placeholder= "Password" />
+                        <BasicInput className= "basic-input" type= "password" placeholder= "Password" />
                     </div>
                     <div className= "mb-2 offset-1 col-3 text-left">
                         <CheckBox text= "Remember me" id= "customCheck1" />

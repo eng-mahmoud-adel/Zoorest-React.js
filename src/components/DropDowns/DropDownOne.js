@@ -2,7 +2,7 @@ import React from 'react';
 
 const DropDownOne = () => {
     return (
-        <select className= "dropdown">
+        <select className= "dropdown w-100">
             <optgroup label="Graphic Resources">
                 <option value="First Point">First Point</option>
                 <option value="Second Point">Second Point</option>

@@ -6,7 +6,6 @@ input::-webkit-inner-spin-button {
 }
 
 %basic-input {
-    width: 260px;
     height: 36px;
     border-radius: $border-radius-4;
     border: 1px solid $secondary-color;
@@ -25,7 +24,6 @@ input::-webkit-inner-spin-button {
 }
 
 .text-area {
-    width: 560px;
     height: 116px !important;
     border-radius: $border-radius-4;
     resize: none;
@@ -146,12 +144,12 @@ input::-webkit-inner-spin-button {
 
 // for counter component
 .counter-one {
-        width: 36px;
-        height: 36px;
-        border: 1px solid $secondary-color;
-        padding: $padding-8;
-        border-left: 0;
-        text-align: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid $secondary-color;
+    padding: $padding-8;
+    border-left: 0;
+    text-align: center;
 }
 
 .minus, .plus {

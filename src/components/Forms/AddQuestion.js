@@ -12,7 +12,7 @@ const AddQuestion = (props) => {
                 <h3 className= "title text-center my-4">{props.title}</h3>
                 <div className= "text-left">
                     <div className= "my-3 mx-auto col-10">
-                        <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Title" />
+                        <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Title" />
                     </div>
                     <div className= "mb-3 mx-auto col-10">
                         <label>Body</label>

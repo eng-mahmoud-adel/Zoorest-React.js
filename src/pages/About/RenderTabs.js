@@ -7,7 +7,9 @@ function RenderTabs() {
             <hr />
             <h1>Tabs</h1>
             <hr />
-            <Tabs />
+            <div className= "col-5">
+                <Tabs />
+            </div>
         </div>
     )
 }

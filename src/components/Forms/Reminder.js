@@ -11,7 +11,7 @@ const Reminder = (props) => {
                 <p className= "text">{props.text}</p>
                 <div className= "row my-5">
                     <div className= "col-6">
-                        <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Title of your reminder" />
+                        <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Title of your reminder" />
                     </div>
                     <div className= "col-6">
                         <label>Date and time</label>

@@ -21,31 +21,31 @@ const AddPost = (props) => {
                             <MultiSelect />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Color" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Color" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Price" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Price" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "License Number" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "License Number" />
                         </div>
                     </div>
                     <div className= "col-5">
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Post Title" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Post Title" />
                         </div>
                         <div className= "mb-3">
                             <label>Gender</label>
                             <MultiSelect />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Classification" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Classification" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Currency" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Currency" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Vaccination" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Vaccination" />
                         </div>
                     </div>
                 </div>

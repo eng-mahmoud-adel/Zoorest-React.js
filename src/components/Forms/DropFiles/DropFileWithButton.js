@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 import {useDropzone} from 'react-dropzone';
+import SmallButton from '../../Buttons/SmallButtons/SmallButton';
 
 const baseStyle = {
     flex: 1,
@@ -39,10 +40,10 @@ const DropFileWithButton = (props) => {
     <div className="container">
       <div {...getRootProps({className: 'dropzone', style})}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here</p>
-        <button type="button" onClick={open}>
-          Choose
-        </button>
+        <div className= "col-8 text-center">
+          <p>Drag 'n' drop some files here</p>
+          <SmallButton text= "Choose" color= "btn btn-info" size= "btn-sm" />
+        </div>
       </div>
       <aside>
         <ul>{files}</ul>

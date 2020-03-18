@@ -22,33 +22,33 @@ const Profile = (props) => {
                 <div className= "row">
                     <div className= "col-6">
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Full name" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Full name" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "email" placeholder= "name" label= "Email address" />
+                            <BasicInput className= "basic-input" type= "email" placeholder= "name" label= "Email address" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Phone number" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Phone number" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Additional phone number" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Additional phone number" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "text" placeholder= "name" label= "Official doctor name" />
+                            <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Official doctor name" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "password" placeholder= "name" label= "Old password" />
+                            <BasicInput className= "basic-input" type= "password" placeholder= "name" label= "Old password" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "password" placeholder= "name" label= "New password" />
+                            <BasicInput className= "basic-input" type= "password" placeholder= "name" label= "New password" />
                         </div>
                         <div className= "mb-3">
-                            <BasicInput className= "basic-input w-100" type= "password" placeholder= "name" label= "Confirm new password" />
+                            <BasicInput className= "basic-input" type= "password" placeholder= "name" label= "Confirm new password" />
                         </div>
                     </div>
                     <div className= "col-6">
                         <div className= "mb-3">
-                            <BasicInput className= "input-icon-left w-100" type= "text" right_icon= "fa fa-commenting-o fa-lg" placeholder= "maadi street" label= "Select your location"/>
+                            <BasicInput className= "input-icon-left" type= "text" right_icon= "fa fa-commenting-o fa-lg" placeholder= "maadi street" label= "Select your location"/>
                         </div>
                         <div className= "mb-3">
                             <label>Country</label>

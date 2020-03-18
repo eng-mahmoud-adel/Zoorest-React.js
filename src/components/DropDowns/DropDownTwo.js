@@ -3,7 +3,7 @@ import {Dropdown} from 'react-bootstrap';
 
 function DropDownTwo(props) {
   return (
-    <Dropdown>
+    <Dropdown className= "w-100">
       <Dropdown.Toggle variant= {props.variant}>
         Dropdown Expanded
       </Dropdown.Toggle>

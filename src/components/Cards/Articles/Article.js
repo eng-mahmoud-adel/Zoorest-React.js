@@ -7,7 +7,7 @@ const Article = (props) => {
             <h5 className="card-title">{props.cardTitle}</h5>
             <small className="small-text">{props.cardTime}</small>
             <div className= "img-container">
-                <img src= {img} className="card-image" alt="" />
+                <img src= {img} className="img-fluid h-100 w-100" alt="" />
             </div>
             <div className="card-body">
                 {props.cardText && <p className="card-text">{props.cardText}</p>}
