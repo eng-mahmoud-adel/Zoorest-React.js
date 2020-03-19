@@ -1,7 +1,7 @@
 import React from 'react';
-import MaterialUIPickers from '../../components/DropDowns/DatePickerOne';
 import DropDownOne from '../../components/DropDowns/DropDownOne';
 import DropDownTwo from '../../components/DropDowns/DropDownTwo';
+import InlineDateTimePickerDemo from '../../components/DropDowns/DatePickerOne';
 
 function RenderDropdown() {
     return (
@@ -17,7 +17,7 @@ function RenderDropdown() {
                     <DropDownTwo variant= "light" size= "w-100"/>
                 </div>
                 <div className= "col-4">
-                    <MaterialUIPickers />
+                    <InlineDateTimePickerDemo />
                 </div>
             </div>
             

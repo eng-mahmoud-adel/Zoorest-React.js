@@ -1,6 +1,6 @@
 /* for articles component */
 .card-one {
-    height: 488px;
+    // height: 488px;
     border-radius: $border-radius-8;
     .card-title {
         padding: $padding-20 $padding-24 0;
@@ -14,11 +14,7 @@
         color: $gray-color;
     }
     .img-container {
-        height: 227px;
-        .card-image {
-            width: 100%;
-            height: 100%;
-        }
+        // height: 227px;
     }
     .card-body {
         padding: 0;
@@ -55,7 +51,7 @@
 
 /* for articles component */
 .card-two {
-    height: 488px;
+    // height: 488px;
     border-radius: $border-radius-8;
     .card-title {
         padding: $padding-20 $padding-24 0;
@@ -106,10 +102,10 @@
 
 /* for posts component */
 .card-three {
-    height: 507px;
+    // height: 507px;
     border-radius: $border-radius-8;
     .img-container {
-        height: 267px;
+        // height: 267px;
         .card-img-top {
             border-top-right-radius: $border-radius-8;
             border-top-left-radius: $border-radius-8;
@@ -132,7 +128,7 @@
     .card-footer {
         padding: $padding-16 $padding-24;
         background-color: $light-color;
-        height: 85px;
+        // height: 85px;
         .icons {
             .icon-one, .icon-two {
                 cursor: pointer;
@@ -153,7 +149,7 @@
 
 /* for question component */
 .card-four {
-    height: 414px;
+    // height: 414px;
     border-radius: $border-radius-8;
     padding: $padding-24;
     .small-text {
@@ -177,7 +173,7 @@
     .card-footer {
         padding: $padding-16 0;
         background-color: $light-color;
-        height: 85px;
+        // height: 85px;
         .icons {
             .icon-one, .icon-two {
                 cursor: pointer;
@@ -198,7 +194,7 @@
 
 /* for top questions_members component */
 .card-five {
-    height: 391px;
+    // height: 391px;
     border-radius: $border-radius-8;
     padding: $padding-24;
     .card-title {
@@ -220,7 +216,7 @@
 
 /* for comment component */
 .card-six {
-    height: 272px;
+    // height: 272px;
     border-radius: $border-radius-8;
     padding: $padding-24;
     .card-body {
@@ -253,7 +249,7 @@
 /* ***************************************************** */
 /* for leave comment component */
 .card-seven {
-    height: 242px;
+    // height: 242px;
     border-radius: $border-radius-8;
     padding: $padding-24;
     .card-title {
@@ -279,7 +275,7 @@
 
 /* for advertisement component */
 .card-eight {
-    height: 1185px;
+    // height: 1185px;
     border-radius: $border-radius-8;
     .img-container {
         height: 487px;
@@ -343,7 +339,7 @@
 
 /* for add post component */
 .card-nine {
-    height: 297px;
+    // height: 297px;
     border-radius: $border-radius-8;
     padding: $padding-24;
     .card-title {
@@ -366,7 +362,7 @@
 
 /* for article two component */
 .card-ten {
-    height: 2207px;
+    // height: 2207px;
     border-radius: 0;
     .card-title {
         padding: $padding-64 $padding-24 0;
@@ -410,7 +406,6 @@
         }
     }
     .card-footer {
-        height: 229px;
         padding: $padding-16 $padding-24;
         background-color: $light-color;
         .hashtag {
@@ -430,7 +425,7 @@
 
 /* for ask question component */
 .card-eleven {
-    height: 217px;
+    // height: 217px;
     border-radius: 0;
     .wrapper-one {
         border-bottom: 1px solid $secondary-color;

@@ -3,18 +3,18 @@ import SmallButton from '../../Buttons/SmallButtons/SmallButton';
 
 const AskQuestion = (props) => {
     return (
-        <div className={props.className + " card"}>
+        <div className={props.className + " card w-100"}>
             <div className= "row">
                 <div className= "col-10 mx-auto mb-5 mt-3">
-                <SmallButton text= "Ask a question" color= "btn btn-danger" size= "btn-sm" />
+                    <SmallButton text= "Ask a question" color= "btn btn-danger" size= "btn-sm" />
                 </div>
             </div>
-            <div className= "row text-center justify-content-center">
-                <div className= "col-4 wrapper-one">
+            <div className= "row text-center justify-content-center pb-4">
+                <div className= "col-5 wrapper-one pb-2">
                     <p className= "small-text">{props.cardTextOne}</p>
                     <p className= "card-text">{props.numberOne}</p>
                 </div>
-                <div className= "col-4 wrapper-two">
+                <div className= "col-5 wrapper-two pb-2">
                     <p className= "small-text">{props.cardTextOne}</p>
                     <p className= "card-text">{props.numberTwo}</p>
                 </div>

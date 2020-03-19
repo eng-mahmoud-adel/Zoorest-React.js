@@ -60,7 +60,7 @@ const Profile = (props) => {
                         </div>
                         <div className= "mb-3">
                             <label>About doctor</label>
-                            <TextArea />
+                            <TextArea rows= "6" />
                         </div>
                     </div>
                 </div>

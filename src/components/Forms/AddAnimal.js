@@ -2,8 +2,12 @@ import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import SmallButton from '../Buttons/SmallButtons/SmallButton';
 import DropFile from './DropFiles/DropFile';
-import MaterialUIPickers from '../DropDowns/DatePickerOne';
 import Avatar from '../Avatars/Avatar';
+import InlineDateTimePickerDemo from '../DropDowns/DatePickerOne';
+
+
+
+
 
 const AddAnimal = (props) => {
     return (
@@ -32,7 +36,7 @@ const AddAnimal = (props) => {
                         </div>
                         <div className= "col-5 my-5">
                             <label>Date of birth</label>
-                            <MaterialUIPickers />
+                            <InlineDateTimePickerDemo />
                         </div>
                     </div>
                     <div className= "col-3 offset-1 pl-0 my-5">
@@ -110,7 +114,7 @@ const AddAnimal = (props) => {
                         </div>
                         <div className= "col-5 my-2">
                             <label>Vaccinations Date</label>
-                            <MaterialUIPickers />
+                            {/* <MaterialUIPickers /> */}
                         </div>
                     </div>
                     <div className= "col-10 mx-auto pl-0 my-2">
