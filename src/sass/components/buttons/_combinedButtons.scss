@@ -8,14 +8,12 @@
 }
 
 .btn-group-lg {
-    height: 48px;
     button {
         @extend %button;
     }
 }
 
 .btn-group-sm {
-    height: 36px;
     font-size: $font-size-14;
     button {
         @extend %button;
@@ -23,7 +21,6 @@
 }
 
 .btn-social {
-    height: 36px;
     font-size: $font-size-14;
     .fa-facebook-official {
         color: #4267B2;

@@ -6,7 +6,6 @@ input::-webkit-inner-spin-button {
 }
 
 %basic-input {
-    height: 36px;
     border-radius: $border-radius-4;
     border: 1px solid $secondary-color;
     padding: $padding-8 $padding-12;
@@ -18,68 +17,40 @@ input::-webkit-inner-spin-button {
 
 .basic-input {
     @extend %basic-input;
-    &:hover {
+    &:focus {
         border: 2px solid $info-color;
     }
 }
 
 .text-area {
-    height: 116px !important;
     border-radius: $border-radius-4;
     resize: none;
 }
 
 .input-group {
-    .input-group-text {
-        width: 73px;
-        height: 36px;
+    .url-text {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        border: 1px solid $secondary-color;
+        border-right: 0;
     }
-    .url-input {
-        width: 188px;
-        height: 36px;
-        border-top-right-radius: $border-radius-4;
-        border-bottom-right-radius: $border-radius-4;
-        border: 1px solid $secondary-color;
-        padding: $padding-8 $padding-12;
-        border-left: 0;
+    .input-group-prepend {
+        .input-group-text {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border: 1px solid $secondary-color;
+        }
+        .icon {
+            background-color: $light-color;
+        }
     }
-}
-
-.input-icon {
-    @extend %basic-input;
-    position: relative;
-    padding: $padding-8 $padding-12 $padding-8 $padding-36;
-    &:hover {
-        border: 2px solid $info-color;
+    .input-group-append {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        
     }
-}
-
-.icon-right {
-    position: absolute;
-    z-index: 2;
-    line-height: 36px;
-    color: $gray-color;
-    margin-left: -$margin-28;
-}
-
-.input-icon-left {
-    @extend %basic-input;
-    position: relative;
-    padding: $padding-8 $padding-36 $padding-8 $padding-12;
-    &:hover {
-        border: 2px solid $info-color;
+    .icon {
+        background-color: $light-color;
     }
-}
-
-.icon-left {
-    position: absolute;
-    z-index: 2;
-    line-height: 36px;
-    color: $gray-color;
-    margin-left: $margin-8;
 }
 
 /* ----------------- */

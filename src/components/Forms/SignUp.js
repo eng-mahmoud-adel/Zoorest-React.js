@@ -72,6 +72,7 @@ const SignUp = (props) => {
                 </div>
                 <div className= "row justify-content-center">
                     <span className= "line col-3 mb-3"></span>
+                    <span className= "col-1">or</span>
                     <span className= "line col-3 offset-1 mb-3"></span>
                 </div>
                 <div className= "row justify-content-center">

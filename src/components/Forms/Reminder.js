@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import SmallButton from '../Buttons/SmallButtons/SmallButton';
-import MaterialUIPickers from '../DropDowns/DatePickerOne';
+import InlineDateTimePickerDemo from '../DropDowns/DatePickerOne';
 
 const Reminder = (props) => {
     return (
@@ -15,7 +15,7 @@ const Reminder = (props) => {
                     </div>
                     <div className= "col-6">
                         <label>Date and time</label>
-                        <MaterialUIPickers />
+                        <InlineDateTimePickerDemo />
                     </div>
                 </div>
                 <div className= "row">

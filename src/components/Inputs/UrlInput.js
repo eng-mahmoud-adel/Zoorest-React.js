@@ -3,8 +3,8 @@ import React from 'react';
 const UrlInput = () => {
     return (
         <div className="input-group mb-3">
-            <span className="input-group-text">https://</span>
-            <input type="text" className="url-input" placeholder="lstore.graphics" />
+            <span className="input-group-text url-text">https://</span>
+            <input type="text" className="form-control" placeholder="lstore.graphics" />
         </div>
     )
 }

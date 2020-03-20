@@ -4,14 +4,20 @@ import AppRouter from "./components/AppRouter";
 import Navbar from "./components/Navbar";
 import {BrowserRouter as Router} from "react-router-dom";
 
+// for date picking
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+
 
 
 function App() {
   return (
-      <Router>
+    <Router>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Navbar/>
         <AppRouter />
-      </Router>
+      </MuiPickersUtilsProvider>
+    </Router>
   );
 }
 

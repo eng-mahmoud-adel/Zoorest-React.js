@@ -1,6 +1,6 @@
 // for dropdown one component
 .dropdown {
-    height: 36px;
+    
     border-color: $ligh-dark-color;
     optgroup {
         font-size: $font-size-10;
@@ -14,7 +14,6 @@
 
 // for Dropdown Two component
 .dropdown-toggle {
-    height: 36px;
     color: $gray-color;
 }
 
@@ -32,6 +31,14 @@
 
 // for Date picker component
 
-.MuiTypography-body1 {
-    background-color: $light-white-color;
+.MuiPickersToolbar-toolbar {
+    background-color: #12B0C6 !important;
+}
+  
+  .MuiPickersDay-daySelected {
+    background-color: #12B0C6 !important;
+}
+  
+  .MuiTabs-flexContainer {
+    background-color: #12B0C6 !important;
 }
