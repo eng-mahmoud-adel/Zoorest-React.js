@@ -15,7 +15,7 @@ const Post = (props) => {
                 <h5 className="card-title">{props.cardTitle}</h5>
                 <p className="card-text">{props.cardText}</p>
             </div>
-            <div className="card-footer">
+            <div className="card-footer mt-5">
                 <div className= "row">
                     <div className= "col-3">
                         <Avatar className= "avatar-four" name = "Terry Williams" span= "Manager" image= {image} />
@@ -23,10 +23,10 @@ const Post = (props) => {
                     <div className= "icons col-6">
                         <div className= "row">
                             <div className= "offset-1 col-2">
-                                <i className={props.icon_one + " icon-one"} aria-hidden="true"><span className= {props.number_one}>2</span></i>
+                                <i className={props.icon_one + " icon-one"} aria-hidden="true"><span className= {props.number_one}>{props.number_one}</span></i>
                             </div>
                             <div className= "offset-2 col-1">
-                                <i className={props.icon_two + " icon-two"} aria-hidden="true"><span className= {props.number_two}>3</span></i>
+                                <i className={props.icon_two + " icon-two"} aria-hidden="true"><span className= {props.number_two}>{props.number_two}</span></i>
                             </div>
                         </div>
                     </div>

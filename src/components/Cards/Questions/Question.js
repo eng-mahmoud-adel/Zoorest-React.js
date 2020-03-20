@@ -11,7 +11,7 @@ const Question = (props) => {
                 <small className="small-text">{props.cardTime}</small>
                 <h5 className="card-title">{props.cardTitle}</h5>
                 <p className="card-text">{props.cardText}</p>
-                <div className= "row">
+                <div className= "row mb-3">
                     <div className= "col-2">
                         <Tag className= "tag-one" text= "Tag" />
                     </div>
@@ -23,8 +23,8 @@ const Question = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="card-footer">
-                <div className= "row">
+            <div className="card-footer pb-0">
+                <div className= "row align-items-center">
                     <div className= "col-3">
                         <Avatar className= "avatar-four" name = "Terry Williams" span= "Manager" image= {image} />
                     </div>

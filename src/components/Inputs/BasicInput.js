@@ -2,12 +2,14 @@ import React from 'react';
 
 const BasicInput = (props) => {
     return (
-        <div>
-            {props.left_icon && <i className= {props.left_icon + " icon-left"} aria-hidden="true"></i>}
-            {props.label && <label>{props.label}</label>}
-            <input type= {props.type} className={props.className + " " + props.valid + " w-100 " + props.invalid} placeholder= {props.placeholder} />
-            {props.feedback && <div className="valid-feedback">{props.feedback}</div>}
-            {props.right_icon && <i className= {props.right_icon + " icon-right"} aria-hidden="true"></i>}
+        <div className="input-group mb-3">
+            {props.left_icon && <div className="input-group-prepend">
+                <span className="input-group-text icon"><i className= {props.left_icon} aria-hidden="true"></i></span>
+            </div>}
+            <input type= {props.type} className= {props.className + " " + props.valid + " w-100 " + props.invalid + " form-control"} placeholder= {props.placeholder} />
+            {props.right_icon && <div className="input-group-append">
+                <span className="input-group-text icon"><i className= {props.right_icon} aria-hidden="true"></i></span>
+            </div>}
         </div>
     )
 }

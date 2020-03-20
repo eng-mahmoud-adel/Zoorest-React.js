@@ -29,7 +29,7 @@ function RenderInput() {
                             <BasicInput className= "basic-input" type= "text" placeholder= "Input name" />
                         </div>
 
-                        <div className= "col-3">
+                        <div className= "col-5 mb-2">
                             <MultiSelect />
                         </div>
                         <div className= "offset-1 col-6">
@@ -44,11 +44,11 @@ function RenderInput() {
                         </div>
 
                         <div className= "col-6">
-                            <BasicInput className= "input-icon" type= "text" left_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" />
+                            <BasicInput className= "basic-input" type= "text" left_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" />
                         </div>
 
                         <div className= "col-6">
-                            <BasicInput className= "input-icon-left" type= "text" right_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" />
+                            <BasicInput className= "basic-input" type= "text" right_icon= "fa fa-commenting-o fa-lg" placeholder= "Input name" />
                         </div>
 
                         {/* there is an error here in width of inputs ************************************* */}
@@ -69,10 +69,10 @@ function RenderInput() {
                 <div className= "col-4">
                     <div className= "row">
                         <div className= "col-12">
-                            <TextArea />
+                            <TextArea rows= "10" />
                         </div>
                         <div className= "col-12">
-                            <TextArea invalid= "is-invalid" text= "This filed is requiered" />
+                            <TextArea rows= "10" invalid= "is-invalid" text= "This filed is requiered" />
                         </div>
                     </div>
                 </div>
