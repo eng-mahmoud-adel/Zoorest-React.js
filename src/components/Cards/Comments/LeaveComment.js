@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import SmallButton from '../../Buttons/SmallButtons/SmallButton';
 
 const LeaveComment = (props) => {

@@ -8,15 +8,15 @@ const Tabs = () => {
             <div className="tab-header">
                 <ul className="nav tab-nav">
                 {tabs.map(item => <li className="nav-item tab-item">
-                        <a className="nav-link tab-link" href="#">{item}</a>
+                        <a className="nav-link tab-link" href="/">{item}</a>
                     </li>
                     )}
-                    
+
                 </ul>
             </div>
 
         </div>
     )
-}
+};
 
 export default Tabs;

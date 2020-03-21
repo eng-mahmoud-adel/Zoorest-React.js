@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export const dummyPosts = [
     {
         "id": 496,

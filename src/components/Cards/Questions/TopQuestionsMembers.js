@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Avatar from '../../Avatars/Avatar';
 
 
-const TopQuestions_Members = (props) => {
+const TopQuestionsMembers = (props) => {
     return (
         <div className={props.className + " card"}>
             <h5 className="card-title">{props.cardTitle}</h5>
@@ -12,7 +12,7 @@ const TopQuestions_Members = (props) => {
                 <p className="card-text">{props.cardText}</p>
                 <p className="card-text">{props.cardText}</p>
             </div>}
-            {props.avatar && 
+            {props.avatar &&
             <Fragment>
                 <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
                 <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
@@ -24,4 +24,4 @@ const TopQuestions_Members = (props) => {
     )
 }
 
-export default TopQuestions_Members;
+export default TopQuestionsMembers;

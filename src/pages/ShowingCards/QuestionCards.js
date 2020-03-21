@@ -1,7 +1,7 @@
 import React from 'react';
 import Question from '../../components/Cards/Questions/Question';
 import Tag from '../../components/Tags/Tag';
-import TopQuestions_Members from '../../components/Cards/Questions/TopQuestions_Members';
+import TopQuestionsMembers from '../../components/Cards/Questions/TopQuestionsMembers';
 import Avatar from '../../components/Avatars/Avatar';
 import AskQuestion from '../../components/Cards/Questions/AskQuestion';
 
@@ -26,10 +26,10 @@ const QuestionCards = () => {
                             <AskQuestion className= "card-eleven" cardTextOne= "Questions" cardTextTwo= "Answers" numberOne= "33333" numberTwo= "33333" />
                         </div>
                         <div className= "row mb-3">
-                            <TopQuestions_Members className= "card-five" cardTitle= "Top Questions" cardText= "How to approach applying for a job at a company ?" />
+                            <TopQuestionsMembers className= "card-five" cardTitle= "Top Questions" cardText= "How to approach applying for a job at a company ?" />
                         </div>
                         <div className= "row mb-3">
-                            <TopQuestions_Members className= "card-five" cardTitle= "Top Members" avatar= {Avatar} />
+                            <TopQuestionsMembers className= "card-five" cardTitle= "Top Members" avatar= {Avatar} />
                         </div>
                     </div>
                 </div>

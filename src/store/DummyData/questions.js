@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export const dummyQuestions = [
     {
         "id": 1776,

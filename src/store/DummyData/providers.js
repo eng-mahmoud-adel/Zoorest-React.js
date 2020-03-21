@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export const dummyProviders = [
     {
         "id": 396,
