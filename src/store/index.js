@@ -1,39 +1,45 @@
 import thunk from 'redux-thunk'
 import {routerMiddleware} from 'react-router-redux'
-import { createBrowserHistory } from 'history'
+import {createBrowserHistory} from 'history'
 import {createStore, compose, applyMiddleware} from 'redux'
 
 import {dummyArticles} from './DummyData/articles'
+import {dummyQuestions} from './DummyData/questions'
+import {dummyProviders} from './DummyData/providers'
+import {dummyTestimonials} from './DummyData/testimonials'
+import {dummyPosts} from './DummyData/posts'
 
 const initialState = {
     homepage: {
         isLoading: false,
         heroIsLoading: false,
         hero: {
-            title: "Test Title",
-            description: "Doggo ipsum much ruin diet super chub shoober borking doggo tungg, super chub doing me a frighten. You are doin me a concern wrinkler long bois long water shoob dat tungg tho heckin good boys and girls pats, heckin good boys maximum borkdrive ur givin me a spook the neighborhood pupper he made many woofs. Puggorino what a nice floof long doggo I am bekom fat, shooberino ur givin me a spook. Bork yapper puggorino maximum borkdrive, long doggo pupper. woofer stop it fren. Sub woofer doing me a frighten pupperino fat boi adorable doggo puggo, long water shoob doing me a frighten heck.",
+            title: "Healthy pets are Happy pets ",
+            description: "Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal rights are at least unclear for many common Internet activities, such as posting a picture that belongs",
             image: ""
         }
     },
     providers: {
-        sponsored: [{}, {}, {}, {}],
-        all: [],
+        sponsored: dummyProviders.slice(0, 4),
+        all: dummyProviders,
     },
     articles: {
         recent: dummyArticles.slice(0, 3),
         all: dummyArticles,
     },
     questions: {
-        recent: [{}, {}, {}, {}],
-        all: [],
+        recent: dummyQuestions.slice(0, 4),
+        all: dummyQuestions,
     },
-    posts: [
-        {categoryName: "", post: {}},
-        {categoryName: "", post: {}},
-        {categoryName: "", post: {}},
-        {categoryName: "", post: {}},
-    ],
-    testimonials: [{}, {}, {}, {}],
+    posts: {
+        sell: dummyPosts.filter(post => post.post_type === "sell"),
+        adopt: dummyPosts.filter(post => post.post_type === "adopt"),
+        mate: dummyPosts.filter(post => post.post_type === "mate"),
+        lost: dummyPosts.filter(post => post.post_type === "lost"),
+        product: dummyPosts.filter(post => post.post_type === "product"),
+       // all: dummyPosts,
+    },
+    testimonials: dummyTestimonials,
     authUser: null,
 };
 
