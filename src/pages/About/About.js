@@ -9,6 +9,7 @@ import RenderTabs from './RenderTabs';
 import RenderInput from './RenderInput';
 import RenderDropdown from './RenderDropdown';
 import RenderAvatar from './RenderAvatar';
+import RateBar from "../../components";
 
 
 
@@ -25,7 +26,12 @@ class About extends Component {
                 <RenderAvatar />
                 <RenderTabs />
                 <RenderInput />
+                <div className="container">
+                    <RateBar rate={3}/>
+                </div>
                 <RenderDropdown />
+
+
             </div>
         )
     }

@@ -17,11 +17,11 @@ function RenderDropdown() {
                     <DropDownTwo variant= "light" size= "w-100"/>
                 </div>
                 <div className= "col-4">
-                    <InlineDateTimePickerDemo />
+                    {/*<InlineDateTimePickerDemo />*/}
                 </div>
             </div>
-            
-            
+
+
         </div>
     )
 }
