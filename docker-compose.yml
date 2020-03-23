@@ -8,12 +8,12 @@ services:
     restart: unless-stopped
     tty: true
     working_dir: /var/www/html
-    environment:
-      - NODE_ENV=development
     env_file:
-      - docker/environments/production/.docker.nginx.env
-    ports:
-      - 80
+      - docker/environments/production/.env.docker.website
+    environment:
+      - NODE_ENV=production
+    expose:
+      - 3000 #default setup is used by a reverse proxy, change to "3001:3000" to run on localhost:3001 instead
     volumes:
       - ./:/var/www/html
       - /var/www/html/node_modules
