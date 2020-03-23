@@ -1,9 +1,15 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 // Variables
-@import "variables";
+@import "./sass/helpers/variables";
 // Bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap';
+
+
+
+// header
+@import './sass/layout/header';
+
 
 // Big & Small buttons
 @import './sass/components/buttons/big&smallButtons';
@@ -37,3 +43,7 @@
 
 // Forms
 @import './sass/components/forms/forms';
+
+
+// footer
+@import './sass/layout/footer';

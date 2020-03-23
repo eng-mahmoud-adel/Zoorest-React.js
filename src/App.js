@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
     return (
         <Fragment>
-            {/*Navbar Should always  show en each and every page*/}
+            {/*Navbar Should always  show in each and every page*/}
             <Navbar/>
 
             {/*Any Non*/}
@@ -15,7 +15,7 @@ function App() {
 
             {/*Todo general popups,alerts..(login,registration) that will overlay a screen should be placed here*/}
 
-            {/*Footer Should always  show en each and every page*/}
+            {/*Footer Should always  show in each and every page*/}
             <Footer/>
         </Fragment>
     );
