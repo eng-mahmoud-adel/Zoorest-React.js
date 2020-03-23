@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import HomeContainer from '../../pages/Home/index';
@@ -11,7 +11,7 @@ import AdsCard from '../../pages/ShowingCards/AdsCard';
 import Forms from '../../pages/ShowingForms/Forms';
 
 const AppRouter = () => (
-    <BrowserRouter>
+    <Fragment>
         <Switch>
             <Route exact path="/" component={HomeContainer}/>
             <Route path="/about" component={About}/>
@@ -22,7 +22,7 @@ const AppRouter = () => (
             <Route path="/advertisement" component={AdsCard}/>
             <Route path="/forms" component={Forms}/>
         </Switch>
-    </BrowserRouter>
+    </Fragment>
 );
 
 export default AppRouter;
