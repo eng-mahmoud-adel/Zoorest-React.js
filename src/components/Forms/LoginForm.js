@@ -3,13 +3,15 @@ import BasicInput from '../Inputs/BasicInput';
 import CheckBox from '../Buttons/CheckBoxes/CheckBox';
 import SmallButton from '../Buttons/SmallButtons/SmallButton';
 import SocialBtn from '../Buttons/CombinedButtons/SocialBtn';
+import {Modal} from "react-bootstrap";
 
-const Login = (props) => {
+const LoginForm = (props) => {
     return (
         <form>
             <div className="form-group login-form col-8">
                 <div className= "text-right">
-                    <a href= "#">Sign up</a>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                    <a href= "#" onClick={props.onSignupClicked}>Sign up</a>
                 </div>
                 <div className= "background">
                     <h3 className= "title text-center">{props.title}</h3>
@@ -43,6 +45,18 @@ const Login = (props) => {
             </div>
         </form>
     )
-}
+};
 
-export default Login;
+export const LoginFormModal = props => {
+    return (
+        <Modal {...props} onHide={props.onHide}
+               aria-labelledby="contained-modal-title-vcenter"
+               centered>
+            <Modal.Body>
+                <LoginForm onSignupClicked={props.onSignupClicked}/>
+            </Modal.Body>
+        </Modal>
+    );
+};
+
+export default LoginForm;

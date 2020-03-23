@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from '../../components/Forms/Login';
-import SignUp from '../../components/Forms/SignUp';
+import LoginForm from '../../components/Forms/LoginForm';
+import SignUpForm from '../../components/Forms/SignUpForm';
 import AddQuestion from '../../components/Forms/AddQuestion';
 import AddPost from '../../components/Forms/AddPost';
 import Reminder from '../../components/Forms/Reminder';
@@ -16,13 +16,13 @@ const Forms = () => {
             <hr />
             <h1>Login</h1>
             <hr />
-            <Login title= "Login to your account" />
+            <LoginForm title= "Login to your account" />
 
             <hr />
             <h1>Sign up</h1>
             <hr />
-            <SignUp title= "Sign Up with us" user= "row justify-content-center w-100" />
-            <SignUp title= "Sign Up with us" doctor= "row justify-content-center w-100" />
+            <SignUpForm title= "Sign Up with us" user= "row justify-content-center w-100" />
+            <SignUpForm title= "Sign Up with us" doctor= "row justify-content-center w-100" />
 
             <hr />
             <h1>Add Question</h1>

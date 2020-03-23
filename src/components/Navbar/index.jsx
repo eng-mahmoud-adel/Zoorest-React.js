@@ -1,26 +1,52 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import {Link} from 'react-router-dom';
 
 import logo from '../../images/logo.png';
 import {connect} from "react-redux";
 import BigButton from "../Buttons/BigButtons/BigButton";
 import Avatar from '../Avatars/Avatar';
-
-// jquery file
-import {jquery} from './jquery';
+import './jquery';
+import {SignUpFormModal} from "../Forms/SignUpForm";
+import {LoginFormModal} from "../Forms/LoginForm";
 
 const Auth = props => {
+    const [showSignUpModal, setShowSignUpModal] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+
+    const handleSignUpModalClose = () => setShowSignUpModal(false);
+    const handleSignUpModalShow = () => setShowSignUpModal(true);
+
+    const handleLoginModalClose = () => setShowLoginModal(false);
+    const handleLoginModalShow = () => setShowLoginModal(true);
+
+    const handelSignUpClicked = () => {
+        //hide active login modal
+        handleLoginModalClose();
+
+        //show sign-up modal
+        handleSignUpModalShow();
+    };
+
+    const handelLoginClicked = () => {
+        //hide active sign-up modal
+        handleSignUpModalClose();
+
+        //show login modal
+        handleLoginModalShow();
+
+    };
     return (
         <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
 
-            {props.authUser !== null ?
+            {props.authUser === null ?
                 <Fragment>
                     {/*Show Sign in and Sign up Buttons when there is no auth user*/}
                     <li className="nav-item mr-3">
-                        <Link className="nav-link" to="#">Login</Link>
+                        <Link className="nav-link" to="#" onClick={handleLoginModalShow}>Login</Link>
                     </li>
                     <li className="nav-item">
-                        <BigButton color="btn-info" text="Signup For Free" dataToggle= "modal" dataTarget= "#signUp" />
+                        <BigButton color="btn-info" text="Signup For Free"
+                                   onClick={handleSignUpModalShow}/>
                     </li>
                 </Fragment> :
 
@@ -28,11 +54,13 @@ const Auth = props => {
                     {/*There is authenticated User */}
 
                     {/*TODO: Add Avatar Image, name */}
-                    <Avatar className= "avatar-two" text= "MA" />
+                    <Avatar className="avatar-two" text="MA"/>
                 </Fragment>
             }
 
-
+            <LoginFormModal show={showLoginModal} onHide={handleLoginModalClose} onSignupClicked={handelSignUpClicked}/>
+            <SignUpFormModal show={showSignUpModal} onHide={handleSignUpModalClose}
+                             onLoginClicked={handelLoginClicked}/>
         </ul>
     );
 };

@@ -1,6 +1,5 @@
 import thunk from 'redux-thunk'
-import {routerMiddleware} from 'react-router-redux'
-import {createBrowserHistory} from 'history'
+
 import {createStore, compose, applyMiddleware} from 'redux'
 
 import {dummyArticles} from './DummyData/articles'
@@ -63,12 +62,11 @@ const reducer = (state = initialState, action) => {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const routerHistory = createBrowserHistory();
 
 const store = createStore(
     reducer,
     composeEnhancers(
-        applyMiddleware(thunk, routerMiddleware(routerHistory))
+        applyMiddleware(thunk)
     )
 );
 store.dispatch({
