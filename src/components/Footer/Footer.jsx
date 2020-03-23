@@ -33,19 +33,19 @@ const Footer = (props) => {
                         </ul>
                         <ul className="navbar-nav w-25 justify-content-end social-links">
                             <li className= "nav-item">
-                                <Link className= "nav-link" to= "https://www.facebook.com/zoorestEG/">
-                                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                                </Link>
+                                <a className= "nav-link" href= "https://www.facebook.com/zoorestEG/" target= "_blank">
+                                    <i className="fa fa-facebook-official" aria-hidden="true"></i>
+                                </a>
                             </li>
                             <li className= "nav-item">
-                                <Link className= "nav-link" to= "https://www.instagram.com/zoorest/">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                                </Link>
+                                <a className= "nav-link" href= "https://www.instagram.com/zoorest/" target= "_blank">
+                                    <i className="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
                             </li>
                             <li className= "nav-item">
-                                <Link className= "nav-link" to= "https://twitter.com/zoorest/">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </Link>
+                                <a className= "nav-link" href= "https://twitter.com/zoorest/" target= "_blank">
+                                    <i className="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
