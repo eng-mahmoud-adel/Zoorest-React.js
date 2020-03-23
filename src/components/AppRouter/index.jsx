@@ -22,7 +22,6 @@ const AppRouter = () => (
             <Route path="/advertisement" component={AdsCard}/>
             <Route path="/forms" component={Forms}/>
         </Switch>
-
     </BrowserRouter>
 );
 

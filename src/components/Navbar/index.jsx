@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import logo from '../../images/logo.png';
 import {connect} from "react-redux";
 import BigButton from "../Buttons/BigButtons/BigButton";
+import Avatar from '../Avatars/Avatar';
 
 const Auth = props => {
     return (
@@ -12,11 +13,11 @@ const Auth = props => {
             {props.authUser !== null ?
                 <Fragment>
                     {/*Show Sign in and Sign up Buttons when there is no auth user*/}
-                    <li className="nav-item">
+                    <li className="nav-item mr-3">
                         <Link className="nav-link" to="#">Login</Link>
                     </li>
                     <li className="nav-item">
-                        <BigButton color="btn-info" to="#" text="Signup For Free"/>
+                        <BigButton color="btn-info" text="Signup For Free" dataToggle= "modal" dataTarget= "#signUp" />
                     </li>
                 </Fragment> :
 
@@ -24,7 +25,7 @@ const Auth = props => {
                     {/*There is authenticated User */}
 
                     {/*TODO: Add Avatar Image, name */}
-                    User Data
+                    <Avatar className= "avatar-two" text= "MA" />
                 </Fragment>
             }
 
@@ -33,10 +34,9 @@ const Auth = props => {
     );
 };
 
-
 const Navbar = (props) => (
     <header>
-        <nav className="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+        <nav className="navbar fixed-top navbar-light navbar-expand-md bg-faded justify-content-center">
             <Link to="/" className="navbar-brand d-flex w-50 mr-auto">
                 <img src={logo} width={100} alt="logo"/>
             </Link>
@@ -48,19 +48,19 @@ const Navbar = (props) => (
             <div className="navbar-collapse collapse w-100" id="collapsingNavbar3">
 
                 <ul className="navbar-nav w-100 justify-content-center">
-                    <li className="nav-item active">
+                    <li className="nav-item mr-2">
                         <Link className="nav-link" to="/">Home</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item mx-2">
                         <Link className="nav-link" to="/question">Questions</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item mx-2">
                         <Link className="nav-link" to="/article">Articles</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="#">Find a doctor</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item ml-2">
                         <Link className="nav-link" to="/post">Adoptions</Link>
                     </li>
                 </ul>
@@ -68,7 +68,6 @@ const Navbar = (props) => (
                 <Auth authUser={props.authUser}/>
             </div>
         </nav>
-
     </header>
 );
 
