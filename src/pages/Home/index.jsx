@@ -44,7 +44,7 @@ const HomeContainer = props => {
             <section id="section-recent-articles" className="container">
                 {/*TODO https://trello.com/c/ib36x9yX/*/}
 
-                <RecentArticles articles={props.recentArticles}/>
+                <RecentArticles />
             </section>
 
             <section id="section-testimonials" className="container">
@@ -57,12 +57,12 @@ const HomeContainer = props => {
 };
 
 const mapStateToProps = (state) => ({
-    heroData: state.homepage.hero,
-    recentArticles: state.articles.recent,
-    sponsoredProviders: state.providers.sponsored,
-    recentQuestions: state.questions.recent,
-    recentPosts: state.posts.recent,
-    testimonials: state.testimonials,
+    // heroData: state.homepage.hero,
+    // recentArticles: state.articles.recent,
+    // sponsoredProviders: state.providers.sponsored,
+    // recentQuestions: state.questions.recent,
+    // recentPosts: state.posts.recent,
+    // testimonials: state.testimonials,
 
     //todo authUser: state.authUser,
 });

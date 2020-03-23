@@ -1,8 +1,18 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Article from "../../components/Cards/Articles/Article";
+import {connect} from "react-redux";
+import {getRecentArticles} from "../../store/actions/articles";
 
-const RecentArticles = props => {
-    const articles = props.articles;
+const mapStateToProps = (state) => ({
+    recentArticles: state.articles.recent,
+});
+const mapDispatchToProps = dispatch => ({
+    getRecentArticles: () => {
+        dispatch(getRecentArticles())
+    }
+});
+
+const RecentArticles = ({articles}) => {
 
     return (
         <div>
@@ -14,7 +24,7 @@ const RecentArticles = props => {
 
             <div className="row">
 
-                {articles ? articles.map((article,index) => (
+                {articles ? articles.map((article, index) => (
                     <div className="col-lg-4" key={index}>
                         {/*pass the current article to the component */}
                         <Article className="card-one" article={article} link_size="col-8" icons_size="col-4"/>
@@ -26,4 +36,16 @@ const RecentArticles = props => {
     );
 };
 
-export default RecentArticles;
+class RecentArticlesContainer extends Component {
+
+    componentDidMount() {
+        this.props.getRecentArticles();
+    }
+
+
+    render() {
+        return <RecentArticles articles={this.props.recentArticles}/>;
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecentArticlesContainer);

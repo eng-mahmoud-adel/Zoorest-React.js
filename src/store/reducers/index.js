@@ -4,22 +4,12 @@ import {routerReducer} from 'react-router-redux'
 
 // import notyReducer from './noty'
 import authReducer from './auth'
-// import threadReducer from './thread'
-// import threadsReducer from './threads'
-// import channelsReducer from './channels'
-// import editThreadReducer from './edit-thread'
-// import createReplyReducer from './create-reply'
-// import createThreadReducer from './create-thread'
+import articlesReducer from "./articles";
+
 
 const reducer = combineReducers({
-    auth: authReducer,
-    // channels: channelsReducer,
-    // thread: threadReducer,
-    // form: formReducer,
-    // noty: notyReducer,
-    // createThread: createThreadReducer,
-    // editThread: editThreadReducer,
-    // createReply: createReplyReducer,
+    articles: articlesReducer,
+    authUser: authReducer,
     router: routerReducer
 });
 
