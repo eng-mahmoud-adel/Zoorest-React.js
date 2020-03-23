@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  #PHP Service
+  website:
+    build:
+      context: .
+      dockerfile: docker/environments/development/Dockerfile
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www/html
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - docker/environments/production/.docker.nginx.env
+    ports:
+      - 80
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/node_modules
+    networks:
+      - default
+      - app-network
+
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+  default:
+    external:
+      name: nginx-proxy
