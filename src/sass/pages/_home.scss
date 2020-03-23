@@ -1,0 +1,17 @@
+/* start hero section */
+.hero-section {
+    margin-top: 100px;
+    .title {
+        color: $black-color;
+        font-size: $font-size-64;
+        margin-top: $margin-64;
+    }
+    .wrapper {
+        .desc {
+            padding: $padding-12 $padding-64 $padding-12 $padding-8;
+            color: $black-color;
+            font-size: $font-size-18;
+        }
+    }
+}
+/* end hero section */

@@ -8,11 +8,11 @@ import RecentQuestions from "./RecentQuestions";
 import RecentPosts from "./RecentPosts";
 import Testimonials from "./Testimonials";
 
-const HomeContainer = props => {
+const HomeContainer = (props) => {
 
     return (
         <Fragment>
-            <section id="section-hero" className="container">
+            <section id="section-hero" className="container hero-section">
                 {/*TODO https://trello.com/c/k437rjNI/*/}
 
                 <HeroSection data={props.heroData}/>
