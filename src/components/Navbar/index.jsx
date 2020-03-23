@@ -6,6 +6,9 @@ import {connect} from "react-redux";
 import BigButton from "../Buttons/BigButtons/BigButton";
 import Avatar from '../Avatars/Avatar';
 
+// jquery file
+import {jquery} from './jquery';
+
 const Auth = props => {
     return (
         <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
