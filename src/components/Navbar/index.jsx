@@ -68,7 +68,6 @@ const Navbar = (props) => (
                 <Auth authUser={props.authUser}/>
             </div>
         </nav>
-
     </header>
 );
 
