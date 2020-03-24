@@ -59,3 +59,29 @@
     }
 }
 /* end reacent questions section */
+
+/* start sponsored provider section */
+#section-nearest-provider {
+    padding: $padding-64 0;
+    .title {
+        padding-top: $padding-64;
+        color: $dark-color;
+        font-size: $font-size-32;
+    }
+    .wrapper {
+        h3 {
+            color: $dark-color;
+            font-size: $font-size-16;
+        }
+        p {
+            color: $gray-color;
+            font-size: $font-size-16;
+        }
+    }
+    .section-two {
+        background-image: url('../../images/assets/Group 26@3x.png');
+        background-size: cover;
+    }
+}
+
+/* end sponsored provider section */

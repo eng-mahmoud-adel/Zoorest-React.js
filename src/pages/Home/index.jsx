@@ -23,16 +23,16 @@ const HomeContainer = (props) => {
                 <DownloadAppSection downloadData= {props.downloadData}/>
             </section>
 
-            <section id="section-nearest-provider" className="container">
-                {/*TODO https://trello.com/c/eQEIbLS0/*/}
-
-                <SponsoredProviderSection providers={props.sponsoredProviders}/>
-            </section>
-
             <section id="section-recent-questions" className="container-fluid">
                 {/*TODO https://trello.com/c/GOceSjXD/*/}
 
                 <RecentQuestions questions={props.recentQuestions}/>
+            </section>
+            
+            <section id="section-nearest-provider" className="container">
+                {/*TODO https://trello.com/c/eQEIbLS0/*/}
+
+                <SponsoredProviderSection providers={props.sponsoredProviders}/>
             </section>
 
             <section id="section-recent-posts" className="container">
