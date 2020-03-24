@@ -5,11 +5,12 @@ import Avatar from '../../Avatars/Avatar';
 import image from "../../../images/placeholders/100X100.png";
 
 const Question = (props) => {
+    const {questions}= props;
     return (
         <div className={props.className + " card"}>
             <div className="card-body">
                 <small className="small-text">{props.cardTime}</small>
-                <h5 className="card-title">{props.cardTitle}</h5>
+                <h5 className="card-title">{questions? questions[0].title :props.cardTitle}</h5>
                 <p className="card-text">{props.cardText}</p>
                 <div className= "row mb-3">
                     <div className= "col-2">

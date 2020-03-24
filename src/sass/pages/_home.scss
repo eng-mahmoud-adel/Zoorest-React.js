@@ -1,5 +1,5 @@
 /* start hero section */
-.hero-section {
+#section-hero {
     margin-top: 100px;
     padding-bottom: $padding-64;
     .title {
@@ -18,7 +18,7 @@
 /* end hero section */
 
 /* start download app section */
-.download-app-section {
+#section-download-apps {
     padding: $padding-64 0;
     .title {
         color: $dark-color;
@@ -37,3 +37,25 @@
     }
 }
 /* end download app section */
+
+/* start reacent questions section */
+#section-recent-questions {
+    .image {
+        transform: translateY(-85px);
+    }
+    padding: $padding-64 0;
+    background-image: linear-gradient(#FBD3DF, #D0F0F4);
+    .wrapper {
+        .title {
+            padding: 0 $padding-8;
+            color: $dark-color;
+            font-size: $font-size-32;
+        }
+        .desc {
+            padding: $padding-12 $padding-64;
+            color: $black-color;
+            font-size: $font-size-18;
+        }
+    }
+}
+/* end reacent questions section */
