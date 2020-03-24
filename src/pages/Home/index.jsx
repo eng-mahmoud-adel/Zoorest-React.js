@@ -18,9 +18,9 @@ const HomeContainer = (props) => {
                 <HeroSection data={props.heroData}/>
             </section>
 
-            <section id="section-download-apps" className="container">
+            <section id="section-download-apps" className="container download-app-section">
                 {/*TODO https://trello.com/c/FGK2BmVx/*/}
-                <DownloadAppSection/>
+                <DownloadAppSection downloadData= {props.downloadData}/>
             </section>
 
             <section id="section-nearest-provider" className="container">
@@ -58,6 +58,8 @@ const HomeContainer = (props) => {
 
 const mapStateToProps = (state) => ({
     heroData: state.homepage.hero,
+    // i added DownloadData
+    downloadData: state.homepage.download,
     recentArticles: state.articles.recent,
     sponsoredProviders: state.providers.sponsored,
     recentQuestions: state.questions.recent,

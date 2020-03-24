@@ -1,6 +1,7 @@
 /* start hero section */
 .hero-section {
     margin-top: 100px;
+    padding-bottom: $padding-64;
     .title {
         color: $black-color;
         font-size: $font-size-64;
@@ -15,3 +16,24 @@
     }
 }
 /* end hero section */
+
+/* start download app section */
+.download-app-section {
+    padding: $padding-64 0;
+    .title {
+        color: $dark-color;
+        font-size: $font-size-32;
+    }
+    .wrap-section {
+        margin-top: $margin-64;
+        padding-top: $padding-64;
+        .wrapper {
+            .desc {
+                padding: $padding-12 $padding-64 $padding-12 $padding-8;
+                color: $gray-color;
+                font-size: $font-size-18;
+            }
+        }
+    }
+}
+/* end download app section */

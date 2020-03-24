@@ -17,6 +17,11 @@ const initialState = {
             title: "Healthy pets are Happy pets ",
             description: "Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal rights are at least unclear for many common Internet activities, such as posting a picture that belongs",
             image: ""
+        },
+        download: {
+            title: "Now Availible Free For Android and For IOS very soon.",
+            description: "Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi. Nullam vehicula nisi velit. ",
+            image: ""
         }
     },
     providers: {
