@@ -8,7 +8,8 @@ const DownloadAppSection = (props) => {
     return (
         <div className= "row">
             <div className= "col-md-6">
-                <img src= {DownloadImage} alt= "" className= "img-fluid" />
+                {/*todo mock-up image needs to be smaller little smaller maxWidth: "80%" masalan*/}
+                <img src= {DownloadImage} alt= "" className= "img-fluid"/>
             </div>
             <div className= "col-md-6 wrap-section">
                 <h1 className= "title font-weight-bold">{downloadData.title}</h1>

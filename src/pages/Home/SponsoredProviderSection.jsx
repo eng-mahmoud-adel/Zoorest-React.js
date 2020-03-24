@@ -4,7 +4,7 @@ import Provider from '../../components/Cards/Profiles/Provider';
 
 const SponsoredProviderSection = (props) => {
     return (
-        <div className= "row">
+        <div className= "row p-3">
             <div className= "col-md-5">
                 <h1 className= "title mb-5 font-weight-bold">Find the Nearest Doctor for your Pets in Seconds</h1>
                 <div className= "wrapper">

@@ -32,7 +32,7 @@ const initialState = {
         all: dummyArticles,
     },
     questions: {
-        recent: dummyQuestions.slice(0, 4),
+        recent: dummyQuestions.slice(0, 5),
         all: dummyQuestions,
     },
     posts: {
