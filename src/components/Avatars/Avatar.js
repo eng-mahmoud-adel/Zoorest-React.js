@@ -14,7 +14,7 @@ const Avatar = (props) => {
             {props.image && <Fragment>
                 <div className={props.className}>
                     <div className="img-container">
-                        <img src={props.image} alt="avatar"/>
+                        <img src={props.image} width={props.radius}  alt="avatar"/>
                     </div>
                     {props.name && <h6>{props.name}</h6>}
                     {props.span && <span>{props.span}</span>}

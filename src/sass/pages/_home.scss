@@ -63,6 +63,11 @@
 /* start sponsored provider section */
 #section-nearest-provider {
     padding: $padding-64 0;
+    background-image: url('../../images/assets/Bitmap@3x.png'),url('../../images/assets/Group 26@3x.png');
+    background-position: left top,right bottom;
+    background-size: contain,contain;
+    background-repeat: no-repeat,no-repeat;
+    background-color: $white;
     .title {
         padding-top: $padding-64;
         color: $dark-color;
@@ -78,10 +83,11 @@
             font-size: $font-size-16;
         }
     }
-    .section-two {
-        background-image: url('../../images/assets/Group 26@3x.png');
-        background-size: cover;
-    }
+    //.section-two {
+    //    background-image: url('../../images/assets/Group 26@3x.png');
+    //    background-size: cover;
+    //}
+
 }
 
 /* end sponsored provider section */

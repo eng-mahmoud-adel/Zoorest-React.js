@@ -13,26 +13,21 @@ const HomeContainer = (props) => {
     return (
         <Fragment>
             <section id="section-hero" className="container">
-                {/*TODO https://trello.com/c/k437rjNI/*/}
-
                 <HeroSection data={props.heroData}/>
             </section>
 
             <section id="section-download-apps" className="container">
-                {/*TODO https://trello.com/c/FGK2BmVx/*/}
-                <DownloadAppSection downloadData= {props.downloadData}/>
+                <DownloadAppSection downloadData={props.downloadData}/>
             </section>
 
             <section id="section-recent-questions" className="container-fluid">
-                {/*TODO https://trello.com/c/GOceSjXD/*/}
-
                 <RecentQuestions questions={props.recentQuestions}/>
             </section>
-            
-            <section id="section-nearest-provider" className="container">
-                {/*TODO https://trello.com/c/eQEIbLS0/*/}
 
-                <SponsoredProviderSection providers={props.sponsoredProviders}/>
+            <section id="section-nearest-provider" className="p-5">
+                <div className="container pt-4">
+                    <SponsoredProviderSection providers={props.sponsoredProviders}/>
+                </div>
             </section>
 
             <section id="section-recent-posts" className="container">

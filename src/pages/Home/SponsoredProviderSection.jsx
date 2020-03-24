@@ -1,6 +1,6 @@
 import React from 'react'
 import SmallButton from '../../components/Buttons/SmallButtons/SmallButton';
-import Profile from '../../components/Cards/Profiles/Profile';
+import Provider from '../../components/Cards/Profiles/Provider';
 
 const SponsoredProviderSection = (props) => {
     return (
@@ -21,18 +21,14 @@ const SponsoredProviderSection = (props) => {
             </div>
             <div className= "col-md-7 section-two">
                 <div className= "row">
-                    <div className= "col-md-6 mb-3">
-                        <Profile className= "card-twelve" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
-                    </div>
-                    <div className= "col-md-6 mb-3">
-                        <Profile className= "card-twelve" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
-                    </div>
-                    <div className= "col-md-6 mb-3">
-                        <Profile className= "card-twelve" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
-                    </div>
-                    <div className= "col-md-6 mb-3">
-                        <Profile className= "card-twelve" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
-                    </div>
+
+                    {props.providers && props.providers.map((provider,index)=>(
+                        <div className= "col-md-6 mb-3" key={index}>
+                            <Provider provider={provider} className= "card-twelve shadow-lg" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
+                        </div>
+                    )) }
+
+
                 </div>
             </div>
         </div>
