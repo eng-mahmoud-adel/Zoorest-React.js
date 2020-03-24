@@ -7,7 +7,7 @@ const RateBar = props => {
         [...Array(noOfStars)].map((n, index) => (
             /*TODO: Add hover functionality*/
             /*TODO: Add State to get the selected rating*/
-            <span key={index} className={"fa fa-star fa-2x p-1 " + ((index < rate) ? "text-info" : "text-secondary")}/>
+            <span key={index} className={"fa fa-star fa-lg p-1 " + ((index < rate) ? "text-info" : "text-secondary")}/>
         ))
     );
 };

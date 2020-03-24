@@ -12,7 +12,7 @@ const HomeContainer = (props) => {
 
     return (
         <Fragment>
-            <section id="section-hero" className="container hero-section">
+            <section id="section-hero" className="container">
                 {/*TODO https://trello.com/c/k437rjNI/*/}
 
                 <HeroSection data={props.heroData}/>
@@ -20,19 +20,19 @@ const HomeContainer = (props) => {
 
             <section id="section-download-apps" className="container">
                 {/*TODO https://trello.com/c/FGK2BmVx/*/}
-                <DownloadAppSection/>
+                <DownloadAppSection downloadData= {props.downloadData}/>
             </section>
 
+            <section id="section-recent-questions" className="container-fluid">
+                {/*TODO https://trello.com/c/GOceSjXD/*/}
+
+                <RecentQuestions questions={props.recentQuestions}/>
+            </section>
+            
             <section id="section-nearest-provider" className="container">
                 {/*TODO https://trello.com/c/eQEIbLS0/*/}
 
                 <SponsoredProviderSection providers={props.sponsoredProviders}/>
-            </section>
-
-            <section id="section-recent-questions" className="container">
-                {/*TODO https://trello.com/c/GOceSjXD/*/}
-
-                <RecentQuestions questions={props.recentQuestions}/>
             </section>
 
             <section id="section-recent-posts" className="container">
@@ -58,6 +58,8 @@ const HomeContainer = (props) => {
 
 const mapStateToProps = (state) => ({
     heroData: state.homepage.hero,
+    // i added DownloadData
+    downloadData: state.homepage.download,
     recentArticles: state.articles.recent,
     sponsoredProviders: state.providers.sponsored,
     recentQuestions: state.questions.recent,

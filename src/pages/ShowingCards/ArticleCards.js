@@ -1,6 +1,8 @@
 import React from 'react';
 import Article from '../../components/Cards/Articles/Article';
 import ArticleTwo from '../../components/Cards/Articles/ArticleTwo';
+import Profiles from './Profiles';
+import Profile from '../../components/Cards/Profiles/Profile';
 
 const ArticleCards = () => {
     return (

@@ -451,3 +451,17 @@
 }
 
 /* ***************************************************** */
+
+/* for profiles component */
+.card-twelve {
+    border-radius: $border-radius-8;
+    .card-title {
+        color: $dark-color;
+        font-size: $font-size-18;
+    }
+    .card-text {
+        color: $gray-color;
+        font-size: $font-size-14;
+    }
+}
+/* ***************************************************** */

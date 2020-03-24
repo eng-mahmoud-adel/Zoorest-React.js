@@ -1,9 +1,40 @@
 import React from 'react'
+import SmallButton from '../../components/Buttons/SmallButtons/SmallButton';
+import Profile from '../../components/Cards/Profiles/Profile';
 
-const SponsoredProviderSection = props => {
+const SponsoredProviderSection = (props) => {
     return (
-        <div>
-
+        <div className= "row">
+            <div className= "col-md-5">
+                <h1 className= "title mb-5 font-weight-bold">Find the Nearest Doctor for your Pets in Seconds</h1>
+                <div className= "wrapper">
+                    <h3 className= "font-weight-bold">Book your appointment now through our website</h3>
+                    <p>Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal rights are</p>
+                </div>
+                <div className= "wrapper">
+                    <h3 className= "font-weight-bold">Find out about the nearest clinics and see their evaluation before you visit</h3>
+                    <p>Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal rights are</p>
+                </div>
+                <div className= "w-50">
+                    <SmallButton text= "Find the Nearest Doctors Now" color= "btn btn-info" size= "btn-sm" />
+                </div>
+            </div>
+            <div className= "col-md-7 section-two">
+                <div className= "row">
+                    <div className= "col-md-6 mb-3">
+                        <Profile className= "card-twelve" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
+                    </div>
+                    <div className= "col-md-6 mb-3">
+                        <Profile className= "card-twelve" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
+                    </div>
+                    <div className= "col-md-6 mb-3">
+                        <Profile className= "card-twelve" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
+                    </div>
+                    <div className= "col-md-6 mb-3">
+                        <Profile className= "card-twelve" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
