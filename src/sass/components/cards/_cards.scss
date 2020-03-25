@@ -1,487 +1,573 @@
 /* for articles component */
 .card-one {
-    // height: 488px;
-    border-radius: $border-radius-8;
-    .card-title {
-        padding: $padding-20 $padding-24 0;
-        margin-bottom: 0;
-        color: $dark;
-        font-size: $font-size-24;
+  // height: 488px;
+  border-radius: $border-radius-8;
+
+  .card-title {
+    padding: $padding-20 $padding-24 0;
+    margin-bottom: 0;
+    color: $dark;
+    font-size: $font-size-24;
+  }
+
+  .small-text {
+    padding: $padding-8 $padding-24 $padding-16;
+    font-size: $font-size-12;
+    color: $gray-color;
+  }
+
+  .img-container {
+    // height: 227px;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      padding: $padding-8 $padding-24 0;
+      font-size: $font-size-14;
+      color: $gray-color;
     }
-    .small-text {
-        padding: $padding-8 $padding-24 $padding-16;
-        font-size: $font-size-12;
-        color: $gray-color;
+  }
+
+  .card-footer {
+    padding: $padding-16 $padding-24;
+    background-color: $light;
+
+    .card-link {
+      padding: $padding-16 0;
+      color: $blue-color;
     }
-    .img-container {
-        // height: 227px;
-    }
-    .card-body {
-        padding: 0;
-        .card-text {
-            padding: $padding-8 $padding-24 0;
-            font-size: $font-size-14;
-            color: $gray-color;
+
+    .icons {
+      .icon-one, .icon-two {
+        cursor: pointer;
+
+        span {
+          margin-left: $margin-8;
+          color: $gray-color;
+          font-size: $font-size-12;
         }
+      }
+
+      .icon-one {
+        padding-right: $padding-16;
+      }
     }
-    .card-footer {
-        padding: $padding-16 $padding-24;
-        background-color: $light;
-        .card-link {
-            padding: $padding-16 0;
-            color: $blue-color;
-        }
-        .icons {
-            .icon-one, .icon-two {
-                cursor: pointer;
-                span {
-                    margin-left: $margin-8;
-                    color: $gray-color;
-                    font-size: $font-size-12;
-                }
-            }
-            .icon-one {
-                padding-right: $padding-16;
-            }
-        }
-    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for articles component */
 .card-two {
-    // height: 488px;
-    border-radius: $border-radius-8;
-    .card-title {
-        padding: $padding-20 $padding-24 0;
-        margin-bottom: 0;
-        color: $dark;
-        font-size: $font-size-24;
+  // height: 488px;
+  border-radius: $border-radius-8;
+
+  .card-title {
+    padding: $padding-20 $padding-24 0;
+    margin-bottom: 0;
+    color: $dark;
+    font-size: $font-size-24;
+  }
+
+  .small-text {
+    padding: $padding-8 $padding-24 $padding-16;
+    font-size: $font-size-12;
+    color: $gray-color;
+  }
+
+  .img-container {
+    height: 227px;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      padding: $padding-8 $padding-24 0;
+      font-size: $font-size-14;
+      color: $gray-color;
     }
-    .small-text {
-        padding: $padding-8 $padding-24 $padding-16;
-        font-size: $font-size-12;
-        color: $gray-color;
+  }
+
+  .card-footer {
+    padding: $padding-16 $padding-24;
+    background-color: $light;
+
+    .card-link {
+      padding: $padding-16 0;
+      color: $blue-color;
     }
-    .img-container {
-        height: 227px;
-    }
-    .card-body {
-        padding: 0;
-        .card-text {
-            padding: $padding-8 $padding-24 0;
-            font-size: $font-size-14;
-            color: $gray-color;
+
+    .icons {
+      .icon-one, .icon-two {
+        cursor: pointer;
+
+        span {
+          margin-left: $margin-8;
+          color: $gray-color;
+          font-size: $font-size-12;
         }
+      }
+
+      .icon-one {
+        padding-right: $padding-16;
+      }
     }
-    .card-footer {
-        padding: $padding-16 $padding-24;
-        background-color: $light;
-        .card-link {
-            padding: $padding-16 0;
-            color: $blue-color;
-        }
-        .icons {
-            .icon-one, .icon-two {
-                cursor: pointer;
-                span {
-                    margin-left: $margin-8;
-                    color: $gray-color;
-                    font-size: $font-size-12;
-                }
-            }
-            .icon-one {
-                padding-right: $padding-16;
-            }
-        }
-    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for posts component */
 .card-three {
-    // height: 507px;
-    border-radius: $border-radius-8;
-    .img-container {
-        // height: 267px;
-        .card-img-top {
-            border-top-right-radius: $border-radius-8;
-            border-top-left-radius: $border-radius-8;
+  // height: 507px;
+  border-radius: $border-radius-8;
+
+  .img-container {
+    // height: 267px;
+    .card-img-top {
+      border-top-right-radius: $border-radius-8;
+      border-top-left-radius: $border-radius-8;
+    }
+  }
+
+  .card-title {
+    padding: $padding-20 $padding-24 0;
+    margin-bottom: 0;
+    color: $dark;
+    font-size: $font-size-24;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      padding: $padding-8 $padding-24 0;
+      font-size: $font-size-14;
+      color: $gray-color;
+    }
+  }
+
+  .card-footer {
+    padding: $padding-16 $padding-24;
+    background-color: $light;
+    // height: 85px;
+    .icons {
+      .icon-one, .icon-two {
+        cursor: pointer;
+
+        span {
+          margin-left: $margin-8;
+          color: $gray-color;
+          font-size: $font-size-12;
         }
+      }
+
+      .icon-one {
+        padding-right: $padding-16;
+      }
     }
-    .card-title {
-        padding: $padding-20 $padding-24 0;
-        margin-bottom: 0;
-        color: $dark;
-        font-size: $font-size-24;
-    }
-    .card-body {
-        padding: 0;
-        .card-text {
-            padding: $padding-8 $padding-24 0;
-            font-size: $font-size-14;
-            color: $gray-color;
-        }
-    }
-    .card-footer {
-        padding: $padding-16 $padding-24;
-        background-color: $light;
-        // height: 85px;
-        .icons {
-            .icon-one, .icon-two {
-                cursor: pointer;
-                span {
-                    margin-left: $margin-8;
-                    color: $gray-color;
-                    font-size: $font-size-12;
-                }
-            }
-            .icon-one {
-                padding-right: $padding-16;
-            }
-        }
-    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for question component */
 .card-four {
-    // height: 414px;
-    border-radius: $border-radius-8;
-    padding: $padding-24;
-    .small-text {
-        font-size: $font-size-12;
-        color: $gray-color;
+  // height: 414px;
+  border-radius: $border-radius-8;
+  padding: $padding-24;
+
+  .small-text {
+    font-size: $font-size-12;
+    color: $gray-color;
+  }
+
+  .card-title {
+    padding: $padding-20 0;
+    margin-bottom: 0;
+    color: $dark;
+    font-size: $font-size-18;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      padding: $padding-8 0;
+      font-size: $font-size-14;
+      color: $gray-color;
     }
-    .card-title {
-        padding: $padding-20 0;
-        margin-bottom: 0;
-        color: $dark;
-        font-size: $font-size-18;
-    }
-    .card-body {
-        padding: 0;
-        .card-text {
-            padding: $padding-8 0;
-            font-size: $font-size-14;
-            color: $gray-color;
+  }
+
+  .card-footer {
+    padding: $padding-16 0;
+    background-color: inherit;
+    // height: 85px;
+    .icons {
+      .icon-one, .icon-two {
+        cursor: pointer;
+
+        span {
+          margin-left: $margin-8;
+          color: $gray-color;
+          font-size: $font-size-12;
         }
+      }
+
+      .icon-one {
+        padding-right: $padding-16;
+      }
     }
-    .card-footer {
-        padding: $padding-16 0;
-        background-color: $light;
-        // height: 85px;
-        .icons {
-            .icon-one, .icon-two {
-                cursor: pointer;
-                span {
-                    margin-left: $margin-8;
-                    color: $gray-color;
-                    font-size: $font-size-12;
-                }
-            }
-            .icon-one {
-                padding-right: $padding-16;
-            }
-        }
-    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for top questions_members component */
 .card-five {
-    // height: 391px;
-    border-radius: $border-radius-8;
-    padding: $padding-24;
-    .card-title {
-        padding-bottom: $padding-24;
-        margin-bottom: 0;
-        color: $dark;
-        font-size: $font-size-18;
+  // height: 391px;
+  border-radius: $border-radius-8;
+  padding: $padding-24;
+
+  .card-title {
+    padding-bottom: $padding-24;
+    margin-bottom: 0;
+    color: $dark;
+    font-size: $font-size-18;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      border-bottom: 1px solid $secondary;
+      padding-bottom: $padding-16;
     }
-    .card-body {
-        padding: 0;
-        .card-text {
-            border-bottom: 1px solid $secondary;
-            padding-bottom: $padding-16;
-        }
-    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for comment component */
 .card-six {
-    // height: 272px;
-    border-radius: $border-radius-8;
-    padding: $padding-24;
-    .card-body {
-        padding: 0;
-        .small-text {
-            font-size: $font-size-12;
-            color: $gray-color;
-        }
-        .card-text {
-            padding-top: $padding-24;
-            font-size: $font-size-14;
-            color: $gray-color;
-        }
+  // height: 272px;
+  border-radius: $border-radius-8;
+  padding: $padding-24;
+
+  .card-body {
+    padding: 0;
+
+    .small-text {
+      font-size: $font-size-12;
+      color: $gray-color;
     }
-    .card-footer {
-        background-color: $light;
-        border-top: 0;
-        padding-bottom: 0;
-        .icon {
-            cursor: pointer;
-                span {
-                    margin-left: $margin-8;
-                    color: $gray-color;
-                    font-size: $font-size-12;
-                }
-        }
+
+    .card-text {
+      padding-top: $padding-24;
+      font-size: $font-size-14;
+      color: $gray-color;
     }
+  }
+
+  .card-footer {
+    background-color: $light;
+    border-top: 0;
+    padding-bottom: 0;
+
+    .icon {
+      cursor: pointer;
+
+      span {
+        margin-left: $margin-8;
+        color: $gray-color;
+        font-size: $font-size-12;
+      }
+    }
+  }
 }
 
 /* ***************************************************** */
 /* for leave comment component */
 .card-seven {
-    // height: 242px;
-    border-radius: $border-radius-8;
-    padding: $padding-24;
-    .card-title {
-        margin-bottom: 0;
-        color: $dark;
-        font-size: $font-size-24;
-        font-weight: bold;
+  // height: 242px;
+  border-radius: $border-radius-8;
+  padding: $padding-24;
+
+  .card-title {
+    margin-bottom: 0;
+    color: $dark;
+    font-size: $font-size-24;
+    font-weight: bold;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      margin-top: $margin-24;
+      padding: $padding-8;
+      font-size: $font-size-14;
+      color: $gray-color;
+      border: 1px solid $secondary;
+      border-radius: $border-radius-8;
     }
-    .card-body {
-        padding: 0;
-        .card-text {
-            margin-top: $margin-24;
-            padding: $padding-8;
-            font-size: $font-size-14;
-            color: $gray-color;
-            border: 1px solid $secondary;
-            border-radius: $border-radius-8;
-        }
-    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for advertisement component */
 .card-eight {
-    // height: 1185px;
-    border-radius: $border-radius-8;
-    .img-container {
-        height: 487px;
-        .card-img-top {
-            border-top-right-radius: $border-radius-8;
-            border-top-left-radius: $border-radius-8;
-        }
+  // height: 1185px;
+  border-radius: $border-radius-8;
+
+  .img-container {
+    height: 487px;
+
+    .card-img-top {
+      border-top-right-radius: $border-radius-8;
+      border-top-left-radius: $border-radius-8;
     }
-    .card-title {
-        padding: $padding-32 $padding-24 0;
-        margin-bottom: 0;
+  }
+
+  .card-title {
+    padding: $padding-32 $padding-24 0;
+    margin-bottom: 0;
+    color: $dark;
+    font-size: $font-size-18;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      padding: $padding-8 $padding-24 0;
+      font-size: $font-size-14;
+      color: $gray-color;
+    }
+
+    .note {
+      padding: 0 $padding-24;
+
+      .small-text {
+        color: $gray-color;
+        font-size: $font-size-16;
+      }
+
+      .note-text {
         color: $dark;
-        font-size: $font-size-18;
+        font-size: $font-size-14;
+      }
     }
-    .card-body {
-        padding: 0;
-        .card-text {
-            padding: $padding-8 $padding-24 0;
-            font-size: $font-size-14;
-            color: $gray-color;
-        }
-        .note {
-            padding: 0 $padding-24;
-            .small-text {
-                color: $gray-color;
-                font-size: $font-size-16;
-            }
-            .note-text {
-                color: $dark;
-                font-size: $font-size-14;
-            }
-        }
+  }
+
+  .card-footer {
+    padding: $padding-16 $padding-24;
+    background-color: $light;
+    height: 340px;
+
+    .detail {
+      color: $gray-color;
+
+      .value {
+        color: $dark;
+      }
     }
-    .card-footer {
-        padding: $padding-16 $padding-24;
-        background-color: $light;
-        height: 340px;
-        .detail {
-            color: $gray-color;
-            .value {
-                color: $dark;
-            }
+
+    .icons {
+      .icon-one, .icon-two {
+        cursor: pointer;
+
+        span {
+          margin-left: $margin-8;
+          color: $gray-color;
+          font-size: $font-size-12;
         }
-        .icons {
-            .icon-one, .icon-two {
-                cursor: pointer;
-                span {
-                    margin-left: $margin-8;
-                    color: $gray-color;
-                    font-size: $font-size-12;
-                }
-            }
-            .icon-one {
-                padding-right: $padding-16;
-            }
-        }
+      }
+
+      .icon-one {
+        padding-right: $padding-16;
+      }
     }
+  }
 }
 
 /* ***************************************************** */
 
 /* for add post component */
 .card-nine {
-    // height: 297px;
-    border-radius: $border-radius-8;
-    padding: $padding-24;
-    .card-title {
-        margin-bottom: 0;
-        color: $dark;
-        font-size: $font-size-18;
-        font-weight: bold;
+  // height: 297px;
+  border-radius: $border-radius-8;
+  padding: $padding-24;
+
+  .card-title {
+    margin-bottom: 0;
+    color: $dark;
+    font-size: $font-size-18;
+    font-weight: bold;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      margin-top: $margin-24;
+      font-size: $font-size-14;
+      color: $gray-color;
     }
-    .card-body {
-        padding: 0;
-        .card-text {
-            margin-top: $margin-24;
-            font-size: $font-size-14;
-            color: $gray-color;
-        }
-    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for article two component */
 .card-ten {
-    // height: 2207px;
-    border-radius: 0;
-    .card-title {
-        padding: $padding-64 $padding-24 0;
-        color: $dark;
-        font-size: $font-size-48;
-    }
-    .small-text {
-        padding: $padding-8 $padding-24 $padding-8;
-        font-size: $font-size-12;
+  // height: 2207px;
+  border-radius: 0;
+
+  .card-title {
+    padding: $padding-64 $padding-24 0;
+    color: $dark;
+    font-size: $font-size-48;
+  }
+
+  .small-text {
+    padding: $padding-8 $padding-24 $padding-8;
+    font-size: $font-size-12;
+    color: $gray-color;
+  }
+
+  .icons {
+    padding-left: $padding-24;
+
+    .icon-one, .icon-two {
+      cursor: pointer;
+
+      span {
+        margin-left: $margin-8;
         color: $gray-color;
+        font-size: $font-size-12;
+      }
     }
-    .icons {
-        padding-left: $padding-24;
-        .icon-one, .icon-two {
-            cursor: pointer;
-            span {
-                margin-left: $margin-8;
-                color: $gray-color;
-                font-size: $font-size-12;
-            }
-        }
-        .icon-one {
-            padding-right: $padding-16;
-        }
+
+    .icon-one {
+      padding-right: $padding-16;
     }
-    .img-container-one {
-        height: 408px;
-        margin: $margin-32 auto;
+  }
+
+  .img-container-one {
+    height: 408px;
+    margin: $margin-32 auto;
+  }
+
+  .card-body {
+    padding: 0;
+
+    .card-text {
+      padding: 0 $padding-24 0;
+      font-size: $font-size-14;
+      color: $dark;
     }
-    .card-body {
-        padding: 0;
-        .card-text {
-            padding: 0 $padding-24 0;
-            font-size: $font-size-14;
-            color: $dark;
-        }
-        .img-container-two {
-            height: 543px;
-            margin: $margin-32 auto $margin-36;
-            text-align: center;
-        }
+
+    .img-container-two {
+      height: 543px;
+      margin: $margin-32 auto $margin-36;
+      text-align: center;
     }
-    .card-footer {
-        padding: $padding-16 $padding-24;
-        background-color: $light;
-        .hashtag {
-            padding-bottom: $padding-48;
-            .hash-text {
-                font-size: $font-size-14;
-                color: $dark;
-            }
-        }
-        .share {
-            padding-top: $padding-48;
-        }
+  }
+
+  .card-footer {
+    padding: $padding-16 $padding-24;
+    background-color: $light;
+
+    .hashtag {
+      padding-bottom: $padding-48;
+
+      .hash-text {
+        font-size: $font-size-14;
+        color: $dark;
+      }
     }
+
+    .share {
+      padding-top: $padding-48;
+    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for ask question component */
 .card-eleven {
-    // height: 217px;
-    border-radius: 0;
-    .wrapper-one {
-        border-bottom: 1px solid $secondary;
-        border-right: 1px solid $secondary;
-        .small-text {
-            font-size: $font-size-12;
-            color: $gray-color;
-        }
-        .card-text {
-            color: $dark;
-        }
+  // height: 217px;
+  border-radius: 0;
+
+  .wrapper-one {
+    border-bottom: 1px solid $secondary;
+    border-right: 1px solid $secondary;
+
+    .small-text {
+      font-size: $font-size-12;
+      color: $gray-color;
     }
-    .wrapper-two {
-        border-bottom: 1px solid $secondary;
-        .small-text {
-            font-size: $font-size-12;
-            color: $gray-color;
-        }
-        .card-text {
-            color: $dark;
-        }
+
+    .card-text {
+      color: $dark;
     }
+  }
+
+  .wrapper-two {
+    border-bottom: 1px solid $secondary;
+
+    .small-text {
+      font-size: $font-size-12;
+      color: $gray-color;
+    }
+
+    .card-text {
+      color: $dark;
+    }
+  }
 }
 
 /* ***************************************************** */
 
 /* for profiles component */
 .card-twelve {
-    border-radius: $border-radius-8;
-    .card-title {
-        color: $dark;
-        font-size: $font-size-18;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        .ellipsis::after {
-            content: "...";
-            position: absolute;
-            right: -12px;
-            bottom: 4px;
-        }
+  border-radius: $border-radius-8;
+
+  .card-title {
+    color: $dark;
+    font-size: $font-size-18;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .ellipsis::after {
+      content: "...";
+      position: absolute;
+      right: -12px;
+      bottom: 4px;
     }
-    .card-text {
-        color: $gray-color;
-        font-size: $font-size-14;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2; /* number of lines to show */
-        .ellipsis::after {
-            content: "...";
-            position: absolute;
-            right: -12px;
-            bottom: 4px;
-        }
+  }
+
+  .card-text {
+    color: $gray-color;
+    font-size: $font-size-14;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    .ellipsis::after {
+      content: "...";
+      position: absolute;
+      right: -12px;
+      bottom: 4px;
     }
+  }
 }
 /* ***************************************************** */
