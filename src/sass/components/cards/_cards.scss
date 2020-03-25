@@ -17,7 +17,10 @@
   }
 
   .img-container {
-    // height: 227px;
+    .card-img {
+      height: 14rem !important;
+      object-fit: cover;
+    }
   }
 
   .card-body {
@@ -32,7 +35,7 @@
 
   .card-footer {
     padding: $padding-16 $padding-24;
-    background-color: $light;
+    background-color: unset;
 
     .card-link {
       padding: $padding-16 0;
@@ -126,8 +129,12 @@
   border-radius: $border-radius-8;
 
   .img-container {
-    // height: 267px;
+    background-color: rgba(0, 0, 0, 0.6);
+
     .card-img-top {
+      height: 14rem !important;
+      object-fit: scale-down;
+
       border-top-right-radius: $border-radius-8;
       border-top-left-radius: $border-radius-8;
     }
@@ -152,7 +159,7 @@
 
   .card-footer {
     padding: $padding-16 $padding-24;
-    background-color: $light;
+    background-color: unset;
     // height: 85px;
     .icons {
       .icon-one, .icon-two {
@@ -570,4 +577,5 @@
     }
   }
 }
+
 /* ***************************************************** */

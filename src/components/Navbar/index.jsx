@@ -8,6 +8,8 @@ import Avatar from '../Avatars/Avatar';
 import './jquery';
 import {SignUpFormModal} from "../Forms/SignUpForm";
 import {LoginFormModal} from "../Forms/LoginForm";
+import {Nav} from "react-bootstrap";
+import BaseNavbar from "react-bootstrap/Navbar";
 
 const Auth = props => {
     const [showSignUpModal, setShowSignUpModal] = useState(false);
@@ -41,13 +43,14 @@ const Auth = props => {
             {props.authUser === null ?
                 <Fragment>
                     {/*Show Sign in and Sign up Button when there is no auth user*/}
-                    <li className="nav-item mr-3">
+                    <Nav.Item as="li" className="mr-3">
                         <Link className="nav-link" to="#" onClick={handleLoginModalShow}>Login</Link>
-                    </li>
-                    <li className="nav-item">
+                    </Nav.Item>
+
+                    <Nav.Item as="li">
                         <Index color="btn-info" text="Signup For Free"
                                onClick={handleSignUpModalShow}/>
-                    </li>
+                    </Nav.Item>
                 </Fragment> :
 
                 <Fragment>
@@ -67,38 +70,43 @@ const Auth = props => {
 
 const Navbar = (props) => (
     <header>
-        <nav className="navbar fixed-top navbar-light navbar-expand-md bg-faded justify-content-center">
-            <Link to="/" className="navbar-brand d-flex w-50 mr-auto">
-                <img src={logo} width={100} alt="logo"/>
-            </Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#collapsingNavbar3">
-                <span className="navbar-toggler-icon"/>
-            </button>
+        {/*className="navbar fixed-top navbar-light navbar-expand-md bg-faded justify-content-center"*/}
+        <BaseNavbar fixed="top" expand="md" bg="faded" className="justify-content-center">
 
-            <div className="navbar-collapse collapse w-100" id="collapsingNavbar3">
+            <BaseNavbar.Brand href="/" className={"d-flex w-50 mr-auto"}>
+                <img
+                    src={logo}
+                    width={100}
+                    className="d-inline-block align-top"
+                    alt="zoorest brand logo"
+                />
+            </BaseNavbar.Brand>
 
-                <ul className="navbar-nav w-100 justify-content-center">
-                    <li className="nav-item mr-2">
+            <BaseNavbar.Toggle aria-controls="collapsingNavbar"/>
+
+            <BaseNavbar.Collapse className="w-100" id="collapsingNavbar">
+
+                <Nav as="ul" className="navbar-nav w-100 justify-content-center">
+                    <Nav.Item as="li">
                         <Link className="nav-link" to="/">Home</Link>
-                    </li>
-                    <li className="nav-item mx-2">
+                    </Nav.Item>
+                    <Nav.Item as="li">
                         <Link className="nav-link" to="/question">Questions</Link>
-                    </li>
-                    <li className="nav-item mx-2">
+                    </Nav.Item>
+                    <Nav.Item as="li">
                         <Link className="nav-link" to="/article">Articles</Link>
-                    </li>
-                    <li className="nav-item">
+                    </Nav.Item>
+                    <Nav.Item as="li">
                         <Link className="nav-link" to="#">Find a doctor</Link>
-                    </li>
-                    <li className="nav-item ml-2">
+                    </Nav.Item>
+                    <Nav.Item as="li">
                         <Link className="nav-link" to="/post">Adoptions</Link>
-                    </li>
-                </ul>
+                    </Nav.Item>
+                </Nav>
 
                 <Auth authUser={props.authUser}/>
-            </div>
-        </nav>
+            </BaseNavbar.Collapse>
+        </BaseNavbar>
     </header>
 );
 

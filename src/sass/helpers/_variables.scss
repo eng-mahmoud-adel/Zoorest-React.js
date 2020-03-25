@@ -22,6 +22,8 @@ $light-white-color: #FAFBFD;      // for date picker component
 $blue-color: #2EBCCF;             // for text in card links
 $black-color: #000;
 
+$card-border-color:                 rgba($black-color, .05) !default;
+
 // font-sizes
 $font-size-64: 64px;
 $font-size-48: 48px;

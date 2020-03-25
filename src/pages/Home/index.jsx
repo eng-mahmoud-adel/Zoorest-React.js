@@ -58,7 +58,7 @@ const mapStateToProps = (state) => ({
     recentArticles: state.articles.recent,
     sponsoredProviders: state.providers.sponsored,
     recentQuestions: state.questions.recent,
-    recentPosts: state.posts.recent,
+    recentPosts: state.posts,
     testimonials: state.testimonials,
 
     //todo authUser: state.authUser,
