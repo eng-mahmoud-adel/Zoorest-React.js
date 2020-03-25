@@ -2,7 +2,8 @@ import React from 'react';
 import {useState} from 'react';
 
 const Tabs = () => {
-    const [tabs, setTabs] = useState (["Curent tab","Second Tab", "Third Tab", "Fourth Tab" ]);
+    const [tabs, setTabs] = useState (["Current tab", "Second Tab", "Third Tab", "Fourth Tab"]);
+
     return (
         <div className="tab text-center">
             <div className="tab-header">
