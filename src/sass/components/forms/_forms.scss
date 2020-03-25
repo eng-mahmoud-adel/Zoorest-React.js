@@ -1,6 +1,6 @@
 // for login component
 .login-form {
-    background-color: $light-color;
+    background-color: $light;
     height: 645px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -19,19 +19,19 @@
 
 // for signup component
 .signup-form {
-    background-color: $light-color;
+    background-color: $light;
     border-radius: $border-radius-8;
     padding: $padding-24;
     .line {
         display: inline-block;
-        border-top: 1px solid $secondary-color;
+        border-top: 1px solid $secondary;
     }
 }
 /* ************************************************ */
 
 // for add question component
 .question-form {
-    background-color: $light-color;
+    background-color: $light;
     height: 683px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -40,7 +40,7 @@
 
 // for add post component
 .post-form {
-    background-color: $light-color;
+    background-color: $light;
     height: 1080px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -49,7 +49,7 @@
 
 // for add reminder component
 .reminder-form {
-    background-color: $light-color;
+    background-color: $light;
     height: 366px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -61,7 +61,7 @@
 
 // for upload album component
 .album-form {
-    background-color: $light-color;
+    background-color: $light;
     height: 799px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -73,7 +73,7 @@
 
 // for location component
 .location-form {
-    background-color: $light-color;
+    background-color: $light;
     height: 678px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -86,7 +86,7 @@
 
 // for profile component
 .profile-form {
-    background-color: $light-color;
+    background-color: $light;
     height: 1020px;
     border-radius: $border-radius-8;
     padding: $padding-48;
@@ -99,7 +99,7 @@
 
 // for add animal component
 .add-animal-form {
-    background-color: $light-color;
+    background-color: $light;
     height: 933px;
     border-radius: $border-radius-8;
     padding: $padding-24;
@@ -110,21 +110,21 @@
     .step-one {
         .avatars {
             .avatar-one {
-                background-color: $info-color;
+                background-color: $info;
             }
         }
     }
     .step-two {
         .avatars {
             .avatar-one {
-                background-color: $info-color;
+                background-color: $info;
             }
         }
     }
     .step-three {
         .avatars {
             .avatar-one {
-                background-color: $info-color;
+                background-color: $info;
             }
         }
     }

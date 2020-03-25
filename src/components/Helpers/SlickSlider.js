@@ -9,33 +9,28 @@ import {connect} from "react-redux";
 class Responsive extends Component {
     render() {
         var settings = {
+            rtl: false,//todo use variable when site localization is added
             dots: true,
             infinite: true,
             arrows: false,
-            speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            initialSlide: 0,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            slidesToShow: 2,
+            centerMode: true,
+            centerPadding: '60px',
+            lazyLoad: 'ondemand',
             responsive: [
                 {
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
+                        centerPadding: '40px',
                     }
                 },
                 {
                     breakpoint: 480,
                     settings: {
                         slidesToShow: 1,
-                        slidesToScroll: 1
+                        centerPadding: '40px',
                     }
                 }
             ]
@@ -45,8 +40,8 @@ class Responsive extends Component {
             <div className="my-5">
                 <Slider {...settings}>
                     {questions ? questions.map((question, index) => (
-                        <div className=" col" key={index}>
-                            <Question question={question} className="card-four" tag={Tag}/>
+                        <div className="slick-slide" key={index}>
+                            <Question key={index} question={question} className="card-four" tag={Tag}/>
                         </div>
                     )) : <h1>loading</h1>}
                 </Slider>

@@ -1,9 +1,9 @@
 %button {
-    background-color: $light-color;
+    background-color: $light;
     color: $gray-color;
     border-color: $gray-color;
     &:hover {
-        background-color: $info-color;
+        background-color: $info;
     }
 }
 

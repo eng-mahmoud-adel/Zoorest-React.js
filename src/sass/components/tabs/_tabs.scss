@@ -3,12 +3,12 @@
     padding: 0;
     border-radius: 0;
     .tab-header {
-        background-color: $light-color;
+        background-color: $light;
         color: $gray-color;
         padding: 0;
-        border-bottom: 1px solid $secondary-color;
+        border-bottom: 1px solid $secondary;
         .tab-nav {
-            background-color: $light-color;
+            background-color: $light;
             .tab-item {
                 line-height: 48px;
                 .tab-link {
@@ -19,8 +19,8 @@
                         margin-right: $margin-24;
                     }
                     &:hover {
-                        color: $info-color;
-                        border-bottom: 3px solid $info-color;
+                        color: $info;
+                        border-bottom: 3px solid $info;
                         font-weight: bold;
                     }
                 }

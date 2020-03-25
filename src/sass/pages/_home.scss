@@ -21,7 +21,7 @@
 #section-download-apps {
     padding: $padding-64 0;
     .title {
-        color: $dark-color;
+        color: $dark;
         font-size: $font-size-32;
     }
     .wrap-section {
@@ -48,7 +48,7 @@
     .wrapper {
         .title {
             padding: 0 $padding-8;
-            color: $dark-color;
+            color: $dark;
             font-size: $font-size-32;
         }
         .desc {
@@ -70,12 +70,12 @@
     background-color: $white;
     .title {
         padding-top: $padding-64;
-        color: $dark-color;
+        color: $dark;
         font-size: $font-size-32;
     }
     .wrapper {
         h3 {
-            color: $dark-color;
+            color: $dark;
             font-size: $font-size-16;
         }
         p {
