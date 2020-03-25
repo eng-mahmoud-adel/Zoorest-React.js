@@ -102,3 +102,13 @@
     }
 }
 /* end recent posts section */
+
+/* start recent articles section */
+#section-recent-articles {
+    padding: $padding-64 0;
+    .title {
+        color: $dark;
+        font-size: $font-size-32;
+    }
+}
+/* end recent articles section */
