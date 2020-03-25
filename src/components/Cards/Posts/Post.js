@@ -12,8 +12,8 @@ const Post = (props) => {
                 <img src= {img} className="card-img-top img-fluid h-100" alt="" />
             </div>
             <div className="card-body">
-                <h5 className="card-title">{props.cardTitle}</h5>
-                <p className="card-text">{props.cardText}</p>
+                <h5 className="card-title">{props.data? props.data.name : props.cardTitle}</h5>
+                <p className="card-text">{props.data? props.data.description : props.cardText}</p>
             </div>
             <div className="card-footer mt-5">
                 <div className= "row">

@@ -23,7 +23,7 @@ const Provider = (props) => {
                         <RateBar rate={provider.provider_data.rate ? provider.provider_data.rate : 5}/>
                     </div>
                     <div className="col-md-5">
-                        <FontAwesomeIcon icon={faEye}  size="xs"/>
+                        <FontAwesomeIcon icon={faEye} size="xs"/>
                         <span> {provider ? provider.account_views : props.number} Views</span>
                     </div>
                 </div>

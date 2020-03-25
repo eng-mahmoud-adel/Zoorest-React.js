@@ -24,16 +24,17 @@ const HomeContainer = (props) => {
                 <RecentQuestions questions={props.recentQuestions}/>
             </section>
 
-            <section id="section-nearest-provider" className="p-5">
+            <section id="section-nearest-provider" className="">
                 <div className="container pt-4">
                     <SponsoredProviderSection providers={props.sponsoredProviders}/>
                 </div>
             </section>
 
-            <section id="section-recent-posts" className="container">
+            <section id="section-recent-posts" className="">
                 {/*TODO https://trello.com/c/aCBqlXgN/*/}
-
-                <RecentPosts data={props.recentPosts}/>
+                <div className="container pt-4">
+                    <RecentPosts data={props.recentPosts}/>
+                </div>
             </section>
 
             <section id="section-recent-articles" className="container">
