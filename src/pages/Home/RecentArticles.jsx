@@ -17,7 +17,7 @@ const RecentArticles = props => {
                 {articles ? articles.map((article,index) => (
                     <div className="col-lg-4" key={index}>
                         {/*pass the current article to the component */}
-                        <Article className="card-one" article={article} link_size="col-8" icons_size="col-4"/>
+                        <Article className="article-card" article={article} link_size="col-8" icons_size="col-4"/>
                     </div>
                 )) : <h1>loading</h1>}
 

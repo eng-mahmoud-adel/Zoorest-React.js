@@ -24,7 +24,7 @@ const SponsoredProviderSection = (props) => {
 
                     {props.providers && props.providers.map((provider,index)=>(
                         <div className= "col-md-6 mb-3" key={index}>
-                            <Provider provider={provider} className= "card-twelve shadow-lg" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
+                            <Provider provider={provider} className= "provider-card shadow-lg" cardTitle= "Helen Figueroa" cardText= "Here, I focus on a range of items and features that we use in life without giving them" icon= "fa fa-eye" number= "2312 Views" />
                         </div>
                     )) }
 

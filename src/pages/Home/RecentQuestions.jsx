@@ -28,7 +28,7 @@ const RecentQuestions = (props) => {
 
             <SlickSlider>
                 {questions ? questions.map((question, index) => (
-                    <Question key={index} question={question} className="card-four shadow-sm" tag={Tag}/>
+                    <Question key={index} question={question} className="question-card shadow-sm" tag={Tag}/>
                 )) : <h1>loading</h1>}
             </SlickSlider>
         </div>

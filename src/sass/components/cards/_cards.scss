@@ -1,5 +1,5 @@
 /* for articles component */
-.card-one {
+.article-card {
   // height: 488px;
   border-radius: $border-radius-8;
 
@@ -60,7 +60,7 @@
 /* ***************************************************** */
 
 /* for articles component */
-.card-two {
+.article-card-wide {
   // height: 488px;
   border-radius: $border-radius-8;
 
@@ -121,7 +121,7 @@
 /* ***************************************************** */
 
 /* for posts component */
-.card-three {
+.post-card {
   // height: 507px;
   border-radius: $border-radius-8;
 
@@ -175,7 +175,7 @@
 /* ***************************************************** */
 
 /* for question component */
-.card-four {
+.question-card {
   // height: 414px;
   border-radius: $border-radius-8;
   padding: $padding-24;
@@ -227,7 +227,7 @@
 /* ***************************************************** */
 
 /* for top questions_members component */
-.card-five {
+.top-membes-card {
   // height: 391px;
   border-radius: $border-radius-8;
   padding: $padding-24;
@@ -252,7 +252,7 @@
 /* ***************************************************** */
 
 /* for comment component */
-.card-six {
+.comment-card {
   // height: 272px;
   border-radius: $border-radius-8;
   padding: $padding-24;
@@ -291,7 +291,7 @@
 
 /* ***************************************************** */
 /* for leave comment component */
-.card-seven {
+.leave-comment-card {
   // height: 242px;
   border-radius: $border-radius-8;
   padding: $padding-24;
@@ -320,7 +320,7 @@
 /* ***************************************************** */
 
 /* for advertisement component */
-.card-eight {
+.advertisement-card {
   // height: 1185px;
   border-radius: $border-radius-8;
 
@@ -398,7 +398,7 @@
 /* ***************************************************** */
 
 /* for add post component */
-.card-nine {
+.add-post-card {
   // height: 297px;
   border-radius: $border-radius-8;
   padding: $padding-24;
@@ -424,7 +424,7 @@
 /* ***************************************************** */
 
 /* for article two component */
-.card-ten {
+.article-details-card {
   // height: 2207px;
   border-radius: 0;
 
@@ -501,7 +501,7 @@
 /* ***************************************************** */
 
 /* for ask question component */
-.card-eleven {
+.ask-question-card {
   // height: 217px;
   border-radius: 0;
 
@@ -536,7 +536,7 @@
 /* ***************************************************** */
 
 /* for profiles component */
-.card-twelve {
+.provider-card {
   border-radius: $border-radius-8;
 
   .card-title {
