@@ -4,7 +4,7 @@ import img from '../../../images/article-cover.png';
 const Article = (props) => {
     const model = props.article;
     return (
-        <div className={props.className + " card"}>
+        <div className={"card article-card"}>
             <h5 className="card-title">{model ? model.title : props.cardTitle}</h5>
             <small className="small-text">{model ? model.human_created_at : props.cardTime}</small>
             <div className="img-container">

@@ -1,6 +1,6 @@
 import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
+import Button from '../Buttons/Button/Button';
 import InlineDateTimePickerDemo from '../DropDowns/DatePickerOne';
 
 const Reminder = (props) => {
@@ -20,10 +20,10 @@ const Reminder = (props) => {
                 </div>
                 <div className= "row">
                     <div className= "col-6">
-                        <SmallButton text= "Cancel" color= "btn btn-light" size= "btn-sm" />
+                        <Button text= "Cancel" color= "btn btn-light" size= "btn-sm" />
                     </div>
                     <div className= "col-6">
-                        <SmallButton text= "Add" color= "btn btn-info" size= "btn-sm" />
+                        <Button text= "Add" color= "btn btn-info" size= "btn-sm" />
                     </div>
                 </div>
             </div>

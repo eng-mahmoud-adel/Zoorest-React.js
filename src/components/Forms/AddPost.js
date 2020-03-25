@@ -2,7 +2,7 @@ import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import TextArea from '../Inputs/TextArea';
 import MultiSelect from '../Inputs/MultiSelect';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
+import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 
 const AddPost = (props) => {
@@ -61,7 +61,7 @@ const AddPost = (props) => {
                     <DropFile />
                 </div>
                 <div className= "mb-5 mx-auto text-center col-4">
-                    <SmallButton text= "Add post" color= "btn btn-info" size= "btn-sm" />
+                    <Button text= "Add post" color= "btn btn-info" size= "btn-sm" />
                 </div>
             </div>
         </form>

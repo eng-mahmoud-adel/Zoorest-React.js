@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import logo from '../../images/logo.png';
 import {connect} from "react-redux";
-import BigButton from "../Buttons/BigButtons/BigButton";
+import Index from "../Buttons/Button/Button";
 import Avatar from '../Avatars/Avatar';
 import './jquery';
 import {SignUpFormModal} from "../Forms/SignUpForm";
@@ -40,13 +40,13 @@ const Auth = props => {
 
             {props.authUser === null ?
                 <Fragment>
-                    {/*Show Sign in and Sign up Buttons when there is no auth user*/}
+                    {/*Show Sign in and Sign up Button when there is no auth user*/}
                     <li className="nav-item mr-3">
                         <Link className="nav-link" to="#" onClick={handleLoginModalShow}>Login</Link>
                     </li>
                     <li className="nav-item">
-                        <BigButton color="btn-info" text="Signup For Free"
-                                   onClick={handleSignUpModalShow}/>
+                        <Index color="btn-info" text="Signup For Free"
+                               onClick={handleSignUpModalShow}/>
                     </li>
                 </Fragment> :
 

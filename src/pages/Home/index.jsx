@@ -20,8 +20,9 @@ const HomeContainer = (props) => {
                 <DownloadAppSection downloadData={props.downloadData}/>
             </section>
 
-            <section id="section-recent-questions" className="container-fluid">
+            <section id="section-recent-questions">
                 <RecentQuestions questions={props.recentQuestions}/>
+
             </section>
 
             <section id="section-nearest-provider" className="">
@@ -31,14 +32,12 @@ const HomeContainer = (props) => {
             </section>
 
             <section id="section-recent-posts" className="">
-                {/*TODO https://trello.com/c/aCBqlXgN/*/}
                 <div className="container pt-4">
                     <RecentPosts data={props.recentPosts}/>
                 </div>
             </section>
 
             <section id="section-recent-articles" className="container">
-                {/*TODO https://trello.com/c/ib36x9yX/*/}
 
                 <RecentArticles articles={props.recentArticles}/>
             </section>

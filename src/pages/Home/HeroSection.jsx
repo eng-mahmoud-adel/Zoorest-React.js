@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroImage from '../../images/assets/Group 12@3x.png';
-import SmallButton from '../../components/Buttons/SmallButtons/SmallButton';
+import Button from '../../components/Buttons/Button/Button';
 
 const HeroSection = (props) => {
     const {data}= props;
@@ -13,7 +13,7 @@ const HeroSection = (props) => {
                     <img src= {data.image} alt="" />
                 </div>
                 <div className= "w-50">
-                    <SmallButton text= "Find the Nearest Doctors Now" color= "btn btn-info" size= "btn-sm" />
+                    <Button text= "Find the Nearest Doctors Now" color= "btn btn-info" size= "btn-sm" />
                 </div>
             </div>
 

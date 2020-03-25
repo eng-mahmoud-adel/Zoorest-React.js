@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from '../../Avatars/Avatar';
-import SmallButton from '../../Buttons/SmallButtons/SmallButton';
+import Button from '../../Buttons/Button/Button';
 import RateBar from '../..';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
@@ -29,7 +29,7 @@ const Provider = (props) => {
                 </div>
                 <p className="card-text align-content-center">{provider ? provider.description : props.cardText}</p>
                 <div className="w-75 mx-auto">
-                    <SmallButton text="View Profile" color="btn btn-light" size="btn-xs"/>
+                    <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
                 </div>
             </div>
         </div>

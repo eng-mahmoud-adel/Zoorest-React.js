@@ -1,5 +1,5 @@
 import React from 'react';
-import SmallButton from '../../Buttons/SmallButtons/SmallButton';
+import Button from '../../Buttons/Button/Button';
 
 const LeaveComment = (props) => {
     return (
@@ -9,7 +9,7 @@ const LeaveComment = (props) => {
                     <h5 className="card-title">{props.cardTitle}</h5>
                 </div>
                 <div className= "col-3">
-                    <SmallButton text= "Comment" color= "btn btn-info" size= "btn-sm" />
+                    <Button text= "Comment" color= "btn btn-info" size= "btn-sm" />
                 </div>
             </div>
             <div className="card-body">

@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleMap from './googleMap/GoogleMap';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
+import Button from '../Buttons/Button/Button';
 
 const Location = (props) => {
     return (
@@ -14,10 +14,10 @@ const Location = (props) => {
                 </div>
                 <div className= "row">
                     <div className= "ml-auto col-6">
-                        <SmallButton text= "Cancel" color= "btn btn-light" size= "btn-sm" />
+                        <Button text= "Cancel" color= "btn btn-light" size= "btn-sm" />
                     </div>
                     <div className= "mr-auto col-6">
-                        <SmallButton text= "Save Location" color= "btn btn-info" size= "btn-sm" />
+                        <Button text= "Save Location" color= "btn btn-info" size= "btn-sm" />
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Size from '../Buttons/CombinedButtons/Size';
 import BasicInput from '../Inputs/BasicInput';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
+import Button from '../Buttons/Button/Button';
 import SocialBtn from '../Buttons/CombinedButtons/SocialBtn';
 import MultiSelect from '../Inputs/MultiSelect';
 import DropFileWithButton from './DropFiles/DropFileWithButton';
@@ -76,7 +76,7 @@ const SignUpForm = (props) => {
                         </div>
                     </div>}
                     <div className="mb-4 col-9">
-                        <SmallButton text="Sign Up" color="btn btn-info" size="btn-sm"/>
+                        <Button text="Sign Up" color="btn btn-info" size="btn-sm"/>
                     </div>
                 </div>
                 <div className="row justify-content-center">

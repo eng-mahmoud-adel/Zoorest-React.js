@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import CheckBox from '../Buttons/CheckBoxes/CheckBox';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
+import Button from '../Buttons/Button/Button';
 import SocialBtn from '../Buttons/CombinedButtons/SocialBtn';
 import {Modal} from "react-bootstrap";
 
@@ -27,7 +27,7 @@ const LoginForm = (props) => {
                         <CheckBox text= "Remember me" id= "customCheck1" />
                     </div>
                     <div className= "mb-2 mx-auto col-10">
-                        <SmallButton text= "Login" color= "btn btn-info" size= "btn-sm" />
+                        <Button text= "Login" color= "btn btn-info" size= "btn-sm" />
                     </div>
                     <div className= "offset-1 col-10 text-left">
                         <a href= "#">Forgot password?</a>

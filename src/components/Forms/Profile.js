@@ -2,7 +2,7 @@ import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import TextArea from '../Inputs/TextArea';
 import MultiSelect from '../Inputs/MultiSelect';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
+import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 
 const Profile = (props) => {
@@ -15,7 +15,7 @@ const Profile = (props) => {
                         <DropFile />
                     </div>
                     <div className= "col-3 mt-3">
-                        <SmallButton text= "Upload your profile picture" color= "btn btn-info" size= "btn-sm" />
+                        <Button text= "Upload your profile picture" color= "btn btn-info" size= "btn-sm" />
                         <p className= "text mt-2">{props.text}</p>
                     </div>
                 </div>

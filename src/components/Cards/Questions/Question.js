@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from '../../Tags/Tag';
-import SmallButton from '../../Buttons/SmallButtons/SmallButton';
+import Button from '../../Buttons/Button/Button';
 import Avatar from '../../Avatars/Avatar';
 import image from "../../../images/placeholders/100X100.png";
 
@@ -52,7 +52,7 @@ const Question = (props) => {
                         </div>
                     </div>
                     <div className="col">
-                        <SmallButton text="Add answer" color="btn btn-info" size="btn-xs"/>
+                        <Button text="Add answer" color="btn btn-info" size="btn-xs"/>
                     </div>
                 </div>
             </div>

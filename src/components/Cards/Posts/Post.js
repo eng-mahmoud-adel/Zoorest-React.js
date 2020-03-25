@@ -1,7 +1,7 @@
 import React from 'react';
 import img from '../../../images/article-cover.png';
 import Avatar from '../../Avatars/Avatar';
-import SmallButton from '../../Buttons/SmallButtons/SmallButton';
+import Button from '../../Buttons/Button/Button';
 import image from "../../../images/placeholders/100X100.png";
 
 
@@ -31,7 +31,7 @@ const Post = (props) => {
                         </div>
                     </div>
                     <div className= "col-3">
-                        <SmallButton text= "Contact owner" color= "btn btn-info" size= "btn-sm" />
+                        <Button text= "Contact owner" color= "btn btn-info" size= "btn-sm" />
                     </div>
                 </div>
             </div>

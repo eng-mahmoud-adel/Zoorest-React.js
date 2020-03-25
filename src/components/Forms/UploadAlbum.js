@@ -1,6 +1,6 @@
 import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
-import SmallButton from '../Buttons/SmallButtons/SmallButton';
+import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 
 const UploadAlbum = (props) => {
@@ -19,10 +19,10 @@ const UploadAlbum = (props) => {
                 </div>
                 <div className= "row">
                     <div className= "ml-auto col-4">
-                        <SmallButton text= "Cancel" color= "btn btn-light" size= "btn-sm" />
+                        <Button text= "Cancel" color= "btn btn-light" size= "btn-sm" />
                     </div>
                     <div className= "mr-auto col-4">
-                        <SmallButton text= "Add" color= "btn btn-info" size= "btn-sm" />
+                        <Button text= "Add" color= "btn btn-info" size= "btn-sm" />
                     </div>
                 </div>
             </div>
