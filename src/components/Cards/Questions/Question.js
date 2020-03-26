@@ -6,21 +6,21 @@ import image from "../../../images/placeholders/100X100.png";
 import Card from "react-bootstrap/Card";
 
 const Question = (props) => {
-    const question = props.question;
+    const model = props.model;
     return (
-        <Card className={props.className}>
+        <Card className={`question-card my-2 w-100 ${props.className ? props.className : ""}`}>
             <Card.Body>
-                <Card.Subtitle className="small-text">{/*{question ? question.human_created_at : }*/}2 hours ago</Card.Subtitle>
-                <Card.Title>{question ? question.title : props.cardTitle}</Card.Title>
-                <Card.Text>{question ? question.description.substring(0, 150) : props.cardText}</Card.Text>
+                <Card.Subtitle className="small-text">{model ? model.created_at : "x hours ago"}</Card.Subtitle>
+                <Card.Title>{model ? model.title : props.cardTitle}</Card.Title>
+                <Card.Text>{model ? model.description.substring(0, 150) : props.cardText}</Card.Text>
                 <div className="row mb-3">
-                    <div className="col">
+                    <div className="col-2">
                         <Tag className="tag-two" text="#Tag"/>
                     </div>
-                    <div className="col">
+                    <div className="col-2">
                         <Tag className="tag-one" text="#Tag"/>
                     </div>
-                    <div className="col">
+                    <div className="col-2">
                         <Tag className="tag-two" text="#Tag"/>
                     </div>
                 </div>
@@ -28,9 +28,9 @@ const Question = (props) => {
             <Card.Footer className="pb-0">
                 <div className="row align-items-center">
                     <div className="col">
-                        {question ?
-                            <Avatar className="avatar-four" name={question.author.name} radius={70}
-                                    image={question.author.image_url}/>
+                        {model ?
+                            <Avatar className="avatar-four" name={model.author.name} radius={70}
+                                    image={model.author.image_url}/>
                             :
                             <Avatar className="avatar-four" name="Terry Williams" span="Manager" image={image}/>
                         }
@@ -40,15 +40,15 @@ const Question = (props) => {
                             <div className="col-4">
 
                                 <i className="fa fa-commenting-o icon-one" aria-hidden="true"><span
-                                    className="2">0</span></i>
+                                    className="2">{model ? model.replies_count : 0}</span></i>
                             </div>
                             <div className="col-4">
                                 <i className="fa fa-eye icon-two" aria-hidden="true"><span
-                                    className="3">{question ? question.views : 0}</span></i>
+                                    className="3">{model ? model.views : 0}</span></i>
                             </div>
                             <div className="col-4">
                                 <i className="fa fa-heart-o icon-two" aria-hidden="true"><span
-                                    className="3">{question ? question.favourites : 0}</span></i>
+                                    className="3">{model ? model.favourites : 0}</span></i>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import RecentArticles from "./RecentArticles";
 import {connect} from "react-redux";
 import HeroSection from "./HeroSection";
@@ -7,8 +7,13 @@ import SponsoredProviderSection from "./SponsoredProviderSection";
 import RecentQuestions from "./RecentQuestions";
 import RecentPosts from "./RecentPosts";
 import Testimonials from "./Testimonials";
+import {getRecentArticles} from "../../store/actions/articles";
 
 const HomeContainer = (props) => {
+
+    useEffect(() => {
+        props.getRecentArticles()
+    }, []); //
 
     return (
         <Fragment>
@@ -39,7 +44,7 @@ const HomeContainer = (props) => {
 
             <section id="section-recent-articles" className="container">
 
-                <RecentArticles />
+                <RecentArticles articles={props.recentArticles}/>
             </section>
 
             <section id="section-testimonials" className="container">
@@ -49,20 +54,26 @@ const HomeContainer = (props) => {
             </section>
         </Fragment>
     );
-};
+}
 
 const mapStateToProps = (state) => ({
-    heroData: state.homepage.hero,
-// i added DownloadData
-    downloadData: state.homepage.download,
+    heroData: state.homepage.heroSection,
+    downloadData: state.homepage.downloadAppSection,
+    recentQuestionsData: state.homepage.recentQuestionsSection,
+
     recentArticles: state.articles.recent,
     sponsoredProviders: state.providers.sponsored,
     recentQuestions: state.questions.recent,
     recentPosts: state.posts,
     testimonials: state.testimonials,
 
-    //todo authUser: state.authUser,
+    authUser: state.authUser,
 });
 
-export default connect(mapStateToProps)(HomeContainer);
+const mapDispatchToProps = dispatch => ({
+    getRecentArticles: () => {
+        dispatch(getRecentArticles());
+    }
+});
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
 

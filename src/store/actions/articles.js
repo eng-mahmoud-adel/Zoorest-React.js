@@ -9,8 +9,8 @@ export const GET_ARTICLES_LOADED = 'GET_ARTICLES_LOADED';
 export const GET_ARTICLES_LOADING = 'GET_ARTICLES_LOADING';
 
 export const getRecentArticles = (limit = 3) => async (dispatch, getState) => {
-    const response = await axios.get(`${config.apiUrl}v1/articles?limit=${limit}`);
-
+    const response = await axios.get(`${config.apiUrl}articles?perPage=${limit}`);
+    console.log(response);
     //todo check for response errors
     dispatch({
         type: GET_RECENT_ARTICLES,
@@ -33,17 +33,17 @@ export const getArticles = (id, page = 1) => async (dispatch) => {
     })
 };
 
-export const createReply = (threadId, data) => async (dispatch, getState) => {
-    const response = await axios.post(`${config.apiUrl}/threads/${threadId}/replies`, data, {
-        headers: {
-            Authorization: `Bearer ${getState().auth.accessToken}`
-        }
-    });
-
-    dispatch({
-        type: ARTICLE_CREATED,
-        payload: response.data
-    });
-
-    dispatch(getArticles(threadId))
-};
+// export const createReply = (threadId, data) => async (dispatch, getState) => {
+//     const response = await axios.post(`${config.apiUrl}/threads/${threadId}/replies`, data, {
+//         headers: {
+//             Authorization: `Bearer ${getState().auth.accessToken}`
+//         }
+//     });
+//
+//     dispatch({
+//         type: ARTICLE_CREATED,
+//         payload: response.data
+//     });
+//
+//     dispatch(getArticles(threadId))
+// };

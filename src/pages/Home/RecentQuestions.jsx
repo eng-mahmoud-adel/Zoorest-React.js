@@ -59,7 +59,7 @@ const RecentQuestions = (props) => {
 
             <SlickSlider settings={slickSettings}>
                 {questions ? questions.map((question, index) => (
-                    <Question key={index} question={question} className="question-card " tag={Tag}/>
+                    <Question key={index} model={question} className="question-card " tag={Tag}/>
                 )) : <h1>loading</h1>}
             </SlickSlider>
         </Fragment>

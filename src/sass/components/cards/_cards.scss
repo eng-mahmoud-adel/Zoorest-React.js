@@ -510,7 +510,7 @@
 /* for ask question component */
 .ask-question-card {
   // height: 217px;
-  border-radius: 0;
+  border-radius: $border-radius-8;
 
   .wrapper-one {
     border-bottom: 1px solid $secondary;
