@@ -39,7 +39,7 @@ const HomeContainer = (props) => {
 
             <section id="section-recent-articles" className="container">
 
-                <RecentArticles articles={props.recentArticles}/>
+                <RecentArticles />
             </section>
 
             <section id="section-testimonials" className="container">
@@ -53,7 +53,7 @@ const HomeContainer = (props) => {
 
 const mapStateToProps = (state) => ({
     heroData: state.homepage.hero,
-    // i added DownloadData
+// i added DownloadData
     downloadData: state.homepage.download,
     recentArticles: state.articles.recent,
     sponsoredProviders: state.providers.sponsored,
