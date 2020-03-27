@@ -48,9 +48,12 @@
 /* ************** pages *********** */
 
 // Home page
-@import './sass/pages/home';;
+@import './sass/pages/home';
 
 /* ************** pages *********** */
 
 // footer
 @import './sass/layout/footer';
+
+// Question Pages
+@import './sass/pages/questions/index';

@@ -9,7 +9,9 @@ import CommentCards from '../../pages/ShowingCards/CommentCards';
 import AdsCard from '../../pages/ShowingCards/AdsCard';
 import Forms from '../../pages/ShowingForms/Forms';
 import QuestionIndex from "../../pages/Questions";
-import QuestionCards from "../../pages/ShowingCards/QuestionCards";
+// import QuestionCards from "../../pages/ShowingCards/QuestionCards";
+import singleQuestionReducer from "../../pages/Questions/SingleQuestion";
+import AllQuestionsContainer from "../../pages/Questions/AllQestions";
 
 const AppRouter = () => (
     <Fragment>
@@ -18,8 +20,11 @@ const AppRouter = () => (
             <Route path="/about" component={About}/>
             <Route path="/article" component={ArticleCards}/>
             <Route path="/post" component={PostCards}/>
-            <Route path="/demo-question" component={QuestionCards}/>
-            <Route path="/question" component={QuestionIndex}/>
+            {/*<Route path="/demo-question" component={QuestionCards}/>*/}
+
+            <Route path="/question/:id" component={singleQuestionReducer}/>
+            <Route path="/question" component={AllQuestionsContainer}/>
+
             <Route path="/comment" component={CommentCards}/>
             <Route path="/advertisement" component={AdsCard}/>
             <Route path="/forms" component={Forms}/>

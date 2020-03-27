@@ -7,13 +7,13 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Override Bootstrap Colors
+$accent-color: #E8215D;
 $info: #12B0C6;
-$danger: #FF3E1D;
+$danger: $accent-color;
 $secondary: #D7E1EA;
 $primary: #03C3EC;
 $success: #A7E521;
 $warning: #FFD422;
-$accent-color: #E8215D;
 $light: #FFFFFF;
 $gray-color: #778699;           // for texts in secondary-color
 $dark: #2C3F58;           // for texts in ligh-color

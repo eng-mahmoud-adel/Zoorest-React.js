@@ -4,13 +4,14 @@ import Button from '../../Buttons/Button/Button';
 import Avatar from '../../Avatars/Avatar';
 import image from "../../../images/placeholders/100X100.png";
 import Card from "react-bootstrap/Card";
+import {Link} from "react-router-dom";
 
 const Question = (props) => {
     const model = props.model;
     return (
         <Card className={`question-card my-2 w-100 ${props.className ? props.className : ""}`}>
             <Card.Body>
-                <Card.Subtitle className="small-text">{model ? model.created_at : "x hours ago"}</Card.Subtitle>
+                <Card.Subtitle className="small-text">{model ? model.human_created_at : "x hours ago"}</Card.Subtitle>
                 <Card.Title>{model ? model.title : props.cardTitle}</Card.Title>
                 <Card.Text>{model ? model.description.substring(0, 150) : props.cardText}</Card.Text>
                 <div className="row mb-3">
@@ -52,8 +53,12 @@ const Question = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col">
-                        <Button text="Add answer" color="btn btn-info" size="btn-xs"/>
+
+                    {/*todo hide this button when in details page*/}
+                    <div className="col text-center">
+                        {!props.hide_add_answer &&
+                        <Link to={`/question/${model && model.id}`} className={"btn btn-info btn-xs text-white"}>Add
+                            Answer</Link>}
                     </div>
                 </div>
             </Card.Footer>

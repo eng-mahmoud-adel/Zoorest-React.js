@@ -4,14 +4,16 @@ import authReducer from './auth'
 import articlesReducer from "./articles";
 import homePageReducer from "./page-reducers/homepage";
 import providersReducer from "./providers";
-import questionsReducer from "./questions";
+import questionsReducer from "./questions/indexPage";
 import testimonialsReducer from "./testimonials";
 import postsReducer from "./posts";
 import questionsPageReducer from "./page-reducers/questions_page";
+import singleQuestionReducer from "./questions/indexQuestionPage";
 
 const reducer = combineReducers({
     homepage: homePageReducer,
     questionsPage: questionsPageReducer,
+    singleQuestionPage: singleQuestionReducer,
 
     articles: articlesReducer,
     authUser: authReducer,

@@ -1,21 +1,26 @@
 import React from 'react';
 import Button from '../../Buttons/Button/Button';
+import {Card, Col, Row} from "react-bootstrap";
+import {Form} from "redux-form";
+import TextArea from "../../Inputs/TextArea";
 
 const LeaveComment = (props) => {
     return (
-        <div className={props.className + " card"}>
-            <div className= "row">
-                <div className= "col-9">
-                    <h5 className="card-title">{props.cardTitle}</h5>
-                </div>
-                <div className= "col-3">
-                    <Button text= "Comment" color= "btn btn-info" size= "btn-sm" />
-                </div>
-            </div>
-            <div className="card-body">
-                <p className="card-text">{props.cardText}</p>
-            </div>
-        </div>
+        <Card className={"leave-comment-card w-100"}>
+            <Row>
+                <Col xs="9">
+                    <Card.Title className="card-title">Leave a comment</Card.Title>
+                </Col>
+                <Col xs="3">
+                    <Button text="Comment" color="btn btn-info" size="btn-sm"/>
+                </Col>
+            </Row>
+            <Card.Body>
+                <Card.Text>
+                    <TextArea rows={5}/>
+                </Card.Text>
+            </Card.Body>
+        </Card>
     )
 }
 

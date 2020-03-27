@@ -1,54 +1,62 @@
-import React, {Fragment} from 'react'
+import React, {useEffect, useReducer, useState} from 'react'
 import PropTypes from 'prop-types';
 
 import Tag from "../Tags/Tag";
-import Button from "../Buttons/Button/Button";
+import LazyLoad from 'react-lazyload';
+import InfiniteScroll from "react-infinite-scroll-component";
 
-const LazyList = ({
-                      data,
-                      emptyMessage = "No Data",
-                      loadMoreMessage = "Load More",
-                      component
-                  }) => {
+const LazyList = props => {
 
-    const RenderItem = component;
-    const items = data;
+    const RenderItem = props.component;
+    // const RenderItemPlaceholder = props.placeholderComponent;
+    const {data, links} = props.data;
+    const [hasMore, setHasMore] = useState(true);
+    useEffect(() => {
+        if(links){
+            setHasMore(links.hasMoreData());
+        }
+    }, [links]);
+
+    const fetchMore = () => {
+        console.log("fetchMore");
+        //dispatch a load more action that fetches new items and  appends to ro previous state
+        if (props.fetchMoreData)
+            props.fetchMoreData(links.getNextLink());
+    };
+
+    const refresh = () => {
+        console.log("refreshing");
+        //dispatch a refresh action that clears the items and re-fetches them
+        if (props.refresh)
+            props.refresh();
+    };
+
     return (
-        <Fragment>
-            {(items && items.length > 0) ?
-                items.map((item, index) => (
-                    <RenderItem key={index} model={item} tag={Tag}/>
-                )) :
+        <InfiniteScroll
+            {...props}
+            dataLength={data.length} //This is important field to render the next data
+            next={fetchMore}
+            hasMore={hasMore}
 
-                //if there are no data, render empty Message prop
-                //todo stylize message
-                <h4>{emptyMessage}</h4>}
+            refreshFunction={refresh}
+            loader={<h4>Getting More Loading...</h4>}
+            pullDownToRefreshThreshold={100}>
 
-            {/* show load more button if there is more data to load*/}
-            {/*todo implement show/hide button functionality*/}
+            {data.map((item) => (
+                <LazyLoad key={props.component.name + "_" + item.id} unmountIfInvisible={true} once={true}
+                          placeholder={<h5 className="lazy loading">loading...</h5>}>
+                    <RenderItem model={item} tag={Tag}/>
+                </LazyLoad>
+            ))}
 
-            {items && items.length > 0 && <div className="row mt-4">
-                <div className="col-6 mx-auto">
-                    <Button
-                        text={loadMoreMessage}
-                        className={"w-50"}
-                        variant={"light"}
-                        onClick={() => {
-                            /*todo implement load more*/
-                        }}
-                        size={"lg"}/>
-
-                </div>
-            </div>
-            }
-        </Fragment>
+        </InfiniteScroll>
     );
 };
 
 LazyList.propTypes = {
-    data: PropTypes.array.isRequired,
+    data: PropTypes.object.isRequired,
     emptyMessage: PropTypes.string,
-    component: PropTypes.object.isRequired,
+    // component: PropTypes.node.isRequired,
 };
 
 export default LazyList;
