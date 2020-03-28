@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux";
 import {
+    getMoreQuestionComments,
+    getQuestionComments,
     getSingleQuestion
 } from "../../../store/actions/questions";
 
@@ -17,13 +19,14 @@ import LazyList from "../../../components/DataList";
 const SingleQuestionContainer = props => {
     const pageData = props.pageData;
 
-    const {getSingleQuestion} = props;
+    const {getSingleQuestion, getComments, getMoreComments} = props;
     const {id} = props.match.params;
     console.log(props.singleQuestion);
 
     useEffect(() => {
         //todo load model only if its not passed as object (opening url directly)
         getSingleQuestion(id);
+        getComments(id);
     }, [getSingleQuestion, id]);
 
     return (
@@ -63,17 +66,17 @@ const SingleQuestionContainer = props => {
                         </div>
 
                         <div className="row">
-                            <LeaveComment />
+                            <LeaveComment/>
                         </div>
 
 
                         <div className="row my-3">
-                            <LazyList
-                                data={{data:[{},{}],links:null}}
+                            {!props.singleQuestion.loadingComments ? <LazyList
+                                data={props.singleQuestion.comments}
                                 component={Comment}
                                 placeholderComponent={Comment}
-                                // fetchMoreData={()=>{}}
-                                // refresh={()=>{}}
+                                fetchMoreData={getMoreComments}
+                                refresh={getComments}
                                 endMessage={
                                     <p style={{textAlign: 'center'}}>
                                         <b>Yay! You have seen it all</b>
@@ -87,7 +90,7 @@ const SingleQuestionContainer = props => {
                                     <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
                                 }
 
-                            />
+                            /> : <h2>No Comments</h2>}
                         </div>
                     </div>
                     <div className="col-3 px-5 d-none d-lg-block">
@@ -121,7 +124,10 @@ const mapDispatchToProps = dispatch => ({
         dispatch(getSingleQuestion(slug));
     },
     getComments: (slug) => {
-        //todo dispatch(getSingleQuestion(slug));
+        dispatch(getQuestionComments(slug));
+    },
+    getMoreComments: (nextPageUrl) => {
+        dispatch(getMoreQuestionComments(nextPageUrl));
     },
     leaveComment: () => {
         //todo implement

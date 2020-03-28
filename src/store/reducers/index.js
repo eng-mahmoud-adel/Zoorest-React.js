@@ -8,7 +8,7 @@ import questionsReducer from "./questions/indexPage";
 import testimonialsReducer from "./testimonials";
 import postsReducer from "./posts";
 import questionsPageReducer from "./page-reducers/questions_page";
-import singleQuestionReducer from "./questions/indexQuestionPage";
+import singleQuestionReducer from "./questions/singleQuestionPage";
 import modalReducer from "./modal";
 
 const reducer = combineReducers({
