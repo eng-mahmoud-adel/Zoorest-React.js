@@ -124,13 +124,39 @@
 
 /* start sponsored provider section */
 #section-nearest-provider {
-  padding: $padding-64 0;
-  background-image: url('../../images/assets/Bitmap@3x.png'), url('../../images/assets/Group 26@3x.png');
-  background-position: left top, right bottom;
-  background-size: contain, contain;
-  background-repeat: no-repeat, no-repeat;
+  //padding: $padding-64 0;
+  //background-image: url('../../images/assets/Bitmap@3x.png'), url('../../images/assets/Group 26@3x.png');
+  //background-position: left top, right bottom;
+  //background-size: contain, contain;
+  //background-repeat: no-repeat, no-repeat;
   background-color: $white;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  #left-background{
+    width: 30%;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background-image: url('../../images/assets/Bitmap@3x.png');
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
 
+  #right-background{
+    width: 60%;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-image: url('../../images/assets/Group 26@3x.png');
+    background-position: right bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+
+  }
   .title {
     padding-top: $padding-64;
     color: $dark;

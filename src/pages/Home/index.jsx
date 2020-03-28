@@ -30,7 +30,10 @@ const HomeContainer = (props) => {
 
             </section>
 
-            <section id="section-nearest-provider" className="">
+            <section id="section-nearest-provider" className="h-100">
+                <div id="left-background" className="h-100"/>
+                <div id="right-background" className="h-100"/>
+
                 <div className="container pt-4">
                     <SponsoredProviderSection providers={props.sponsoredProviders}/>
                 </div>
