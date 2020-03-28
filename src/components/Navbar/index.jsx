@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 
 import logo from '../../images/logo.png';
@@ -6,50 +6,35 @@ import {connect} from "react-redux";
 import Index from "../Buttons/Button/Button";
 import Avatar from '../Avatars/Avatar';
 import './jquery';
-import {SignUpFormModal} from "../Forms/SignUpForm";
-import {LoginFormModal} from "../Forms/LoginForm";
 import {Nav} from "react-bootstrap";
 import BaseNavbar from "react-bootstrap/Navbar";
+import {showModal} from "../../store/actions/modal";
+import LoginForm from "../Forms/LoginForm";
+import SignUpForm from "../Forms/SignUpForm";
 
-const Auth = props => {
-    const [showSignUpModal, setShowSignUpModal] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(false);
+const Auth = ({authUser, showModal}) => {
 
-    const handleSignUpModalClose = () => setShowSignUpModal(false);
-    const handleSignUpModalShow = () => setShowSignUpModal(true);
-
-    const handleLoginModalClose = () => setShowLoginModal(false);
-    const handleLoginModalShow = () => setShowLoginModal(true);
-
-    const handelSignUpClicked = () => {
-        //hide active login modal
-        handleLoginModalClose();
-
-        //show sign-up modal
-        handleSignUpModalShow();
+    const showSignUpModal = () => {
+        showModal(SignUpForm);
     };
 
-    const handelLoginClicked = () => {
-        //hide active sign-up modal
-        handleSignUpModalClose();
-
-        //show login modal
-        handleLoginModalShow();
-
+    const showSignInModal = () => {
+        showModal(LoginForm);
     };
+
     return (
         <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
 
-            {props.authUser === null ?
+            {!authUser.user ?
                 <Fragment>
                     {/*Show Sign in and Sign up Button when there is no auth user*/}
                     <Nav.Item as="li" className="mr-3">
-                        <Link className="nav-link" to="#" onClick={handleLoginModalShow}>Login</Link>
+                        <Link className="nav-link" to="#" onClick={showSignInModal}>Login</Link>
                     </Nav.Item>
 
                     <Nav.Item as="li">
                         <Index color="btn-info" text="Signup For Free"
-                               onClick={handleSignUpModalShow}/>
+                               onClick={showSignUpModal}/>
                     </Nav.Item>
                 </Fragment> :
 
@@ -61,16 +46,12 @@ const Auth = props => {
                 </Fragment>
             }
 
-            <LoginFormModal show={showLoginModal} onHide={handleLoginModalClose} onSignupClicked={handelSignUpClicked}/>
-            <SignUpFormModal show={showSignUpModal} onHide={handleSignUpModalClose}
-                             onLoginClicked={handelLoginClicked}/>
         </ul>
     );
 };
 
 const Navbar = (props) => (
     <header>
-        {/*className="navbar fixed-top navbar-light navbar-expand-md bg-faded justify-content-center"*/}
         <BaseNavbar fixed="top" expand="md" bg="faded" className="justify-content-center">
 
             <BaseNavbar.Brand href="/" className={"d-flex w-50 mr-auto"}>
@@ -104,7 +85,7 @@ const Navbar = (props) => (
                     </Nav.Item>
                 </Nav>
 
-                <Auth authUser={props.authUser}/>
+                <Auth authUser={props.authUser} showModal={props.showModal}/>
             </BaseNavbar.Collapse>
         </BaseNavbar>
     </header>
@@ -114,4 +95,10 @@ const mapStateToProps = (state) => ({
     authUser: state.authUser,
 });
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = dispatch => ({
+    showModal: (component) => {
+        dispatch(showModal(component));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

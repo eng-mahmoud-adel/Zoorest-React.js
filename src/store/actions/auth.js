@@ -6,6 +6,11 @@ import config from '../../config'
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
+export const SHOW_SIGNUP_MODAL = 'SHOW_SIGNUP_MODAL';
+export const HIDE_SIGNUP_MODAL = 'HIDE_SIGNUP_MODAL';
+export const SHOW_SIGNIN_MODAL = 'SHOW_SIGNIN_MODAL';
+export const HIDE_SIGNIN_MODAL = 'HIDE_SIGNIN_MODAL';
+
 export const loginUser = (values) => async (dispatch) => {
     try {
         const response = await axios.post(`${config.apiUrl}/login`, {

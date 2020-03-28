@@ -5,7 +5,6 @@ import Button from '../Buttons/Button/Button';
 import SocialBtn from '../Buttons/CombinedButtons/SocialBtn';
 import MultiSelect from '../Inputs/MultiSelect';
 import DropFileWithButton from './DropFiles/DropFileWithButton';
-import {Modal} from "react-bootstrap";
 
 const SignUpForm = (props) => {
     return (
@@ -97,17 +96,5 @@ const SignUpForm = (props) => {
             </div>
         </form>
     )
-};
-
-export const SignUpFormModal = props => {
-    return (
-        <Modal {...props} onHide={props.onHide}
-               aria-labelledby="contained-modal-title-vcenter"
-               centered>
-            <Modal.Body>
-                <SignUpForm onLoginClicked={props.onLoginClicked}/>
-            </Modal.Body>
-        </Modal>
-    );
 };
 export default SignUpForm;

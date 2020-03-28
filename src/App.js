@@ -3,6 +3,7 @@ import './App.css';
 import AppRouter from "./components/AppRouter";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer/Footer";
+import Modal from "./components/Modal";
 
 function App() {
     return (
@@ -14,7 +15,7 @@ function App() {
             <AppRouter/>
 
             {/*Todo general popups,alerts..(login,registration) that will overlay a screen should be placed here*/}
-
+            <Modal/>
             {/*Footer Should always  show in each and every page*/}
             <Footer/>
         </Fragment>

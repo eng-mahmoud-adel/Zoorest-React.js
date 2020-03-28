@@ -9,11 +9,13 @@ import testimonialsReducer from "./testimonials";
 import postsReducer from "./posts";
 import questionsPageReducer from "./page-reducers/questions_page";
 import singleQuestionReducer from "./questions/indexQuestionPage";
+import modalReducer from "./modal";
 
 const reducer = combineReducers({
     homepage: homePageReducer,
     questionsPage: questionsPageReducer,
     singleQuestionPage: singleQuestionReducer,
+    modal: modalReducer,
 
     articles: articlesReducer,
     authUser: authReducer,

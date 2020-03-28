@@ -3,7 +3,6 @@ import BasicInput from '../Inputs/BasicInput';
 import CheckBox from '../Buttons/CheckBoxes/CheckBox';
 import Button from '../Buttons/Button/Button';
 import SocialBtn from '../Buttons/CombinedButtons/SocialBtn';
-import {Modal} from "react-bootstrap";
 
 const LoginForm = (props) => {
     return (
@@ -46,17 +45,4 @@ const LoginForm = (props) => {
         </form>
     )
 };
-
-export const LoginFormModal = props => {
-    return (
-        <Modal {...props} onHide={props.onHide}
-               aria-labelledby="contained-modal-title-vcenter"
-               centered>
-            <Modal.Body>
-                <LoginForm onSignupClicked={props.onSignupClicked}/>
-            </Modal.Body>
-        </Modal>
-    );
-};
-
 export default LoginForm;
