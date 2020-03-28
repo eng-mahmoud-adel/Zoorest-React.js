@@ -1,8 +1,8 @@
 import {GET_ARTICLES, GET_RECENT_ARTICLES} from "../actions/articles";
-// import {dummyArticles} from './DummyData/articles'
+import {dummyArticles} from '../DummyData/articles'
 
 const initialState = {
-    recent: [],
+    recent: dummyArticles.splice(0,3),
     all: [],
 };
 

@@ -9,7 +9,7 @@ const Article = (props) => {
             <Card.Title>{model ? model.title : props.cardTitle}</Card.Title>
             <small className="small-text">{model ? model.human_created_at : props.cardTime}</small>
             <div className="img-container">
-                <Card.Img variant={null} src={model ? model.image_url : img} className="img-fluid h-100 w-100" alt=""/>
+                <Card.Img variant={null} src={model ? model.photo.path_small : img} className="img-fluid h-100 w-100" alt=""/>
             </div>
             <Card.Body>
                 <Card.Text>{model ? model.cleaned_body.substring(0, 200) : props.cardText}...</Card.Text>

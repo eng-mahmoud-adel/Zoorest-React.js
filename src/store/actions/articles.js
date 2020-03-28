@@ -9,13 +9,20 @@ export const GET_ARTICLES_LOADED = 'GET_ARTICLES_LOADED';
 export const GET_ARTICLES_LOADING = 'GET_ARTICLES_LOADING';
 
 export const getRecentArticles = (limit = 3) => async (dispatch, getState) => {
-    const response = await axios.get(`${config.apiUrl}articles?perPage=${limit}`);
-    console.log(response);
-    //todo check for response errors
-    dispatch({
-        type: GET_RECENT_ARTICLES,
-        payload: response.data.data,
-    })
+    const response = await axios
+        .get(`${config.apiUrl}articles?perPage=${limit}`)
+        .then(
+            (response) => {
+                console.log(response.data);
+                dispatch({
+                    type: GET_RECENT_ARTICLES,
+                    payload: response.data.data,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
 };
 
 export const getArticles = (id, page = 1) => async (dispatch) => {

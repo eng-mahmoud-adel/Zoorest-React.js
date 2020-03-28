@@ -54,7 +54,7 @@ const HomeContainer = (props) => {
             </section>
         </Fragment>
     );
-}
+};
 
 const mapStateToProps = (state) => ({
     heroData: state.homepage.heroSection,
@@ -63,7 +63,7 @@ const mapStateToProps = (state) => ({
 
     recentArticles: state.articles.recent,
     sponsoredProviders: state.providers.sponsored,
-    recentQuestions: state.questions.recent,
+    recentQuestions: state.questions.recent_questions,
     recentPosts: state.posts,
     testimonials: state.testimonials,
 

@@ -7,12 +7,13 @@ import {
     GET_RECENT_QUESTIONS
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
+import {dummyQuestions} from "../../DummyData/questions";
 
 const initialState = {
     recent: new ModelPaginatedResource(),
     not_answered: new ModelPaginatedResource(),
     most_common: new ModelPaginatedResource(),
-    recent_questions: [],
+    recent_questions: dummyQuestions,
 };
 
 const questionsReducer = (state = initialState, action) => {
