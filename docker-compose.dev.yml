@@ -12,8 +12,8 @@ services:
       - docker/environments/development/.env.docker.website
     environment:
       - NODE_ENV=development
-    expose:
-      - 3000 #default setup is used by a reverse proxy, change to "3001:3000" to run on localhost:3001 instead
+    ports:
+      - 3001:3000 #default setup is used by a reverse proxy, change to "3001:3000" to run on localhost:3001 instead
     volumes:
       - ./:/var/www/html
       - /var/www/html/node_modules
