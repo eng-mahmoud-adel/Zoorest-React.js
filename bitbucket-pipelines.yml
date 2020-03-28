@@ -24,8 +24,8 @@ pipelines:
         script:
           - apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
           - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && git fetch && git checkout --force ${BITBUCKET_COMMIT}"
-          - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && npm install"
-          - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && pm2 restart npm -- start"
+          - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && docker-compose -f docker-compose.dev.yml exec website npm install"
+          - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && docker-compose -f docker-compose.dev.yml restart"
 #    - step:
 #        name: Build and Deploy production
 #        image: alpine
