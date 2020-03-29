@@ -9,86 +9,87 @@ import DropFileWithButton from './DropFiles/DropFileWithButton';
 const SignUpForm = (props) => {
     return (
         <form>
-            <div className="form-group signup-form col-8">
+            <div className="form-group signup-form">
                 <div className="text-right">
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a href="#" onClick={props.onLoginClicked}>Login</a>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
-                <h3 className="title text-center mb-5 mt-3">{props.title}</h3>
-                <div className="my-2 mx-auto col-10">
+                <h3 className="title text-center mb-5 mt-3 font-weight-bold">Sign Up with Us</h3>
+                <div className="my-2 mx-auto col-md-10">
                     <Size size="btn-group-lg" textOne="User" textTwo="Doctor" textThree="Clinic"/>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="my-3 col-10">
-                        <BasicInput className="basic-input" type="text" placeholder="name" label="Full Name"/>
+                    <div className="my-3 col-md-10">
+                        <label className= "font-weight-bold">Full Name</label>
+                        <BasicInput className="basic-input" type="text" placeholder="name" />
                     </div>
-                    <div className="mb-3 col-10">
-                        <BasicInput className="basic-input" type="email" placeholder="email" label="Email Address"/>
+                    <div className="mb-3 col-md-10">
+                        <label className= "font-weight-bold">Email Address</label>
+                        <BasicInput className="basic-input" type="email" placeholder="email" />
                     </div>
-                    <div className="mb-3 col-10">
-                        <BasicInput className="basic-input" type="text" placeholder="number" label="Phone Number"/>
+                    <div className="mb-3 col-md-10">
+                        <label className= "font-weight-bold">Phone Number</label>
+                        <BasicInput className="basic-input" type="text" placeholder="number" />
                     </div>
-                    <div className="mb-3 col-10">
-                        <BasicInput className="basic-input" type="text" placeholder="number"
-                                    label="Additional Phone Number"/>
+                    <div className="mb-3 col-md-10">
+                        <label className= "font-weight-bold">Additional Phone Number</label>
+                        <BasicInput className="basic-input" type="text" placeholder="number" />
                     </div>
-                    <div className="mb-3 col-5">
-                        <BasicInput className="basic-input" type="passwrod" placeholder="password" label="Password"/>
+                    <div className="mb-3 col-md-5">
+                        <label className= "font-weight-bold">Password</label>
+                        <BasicInput className="basic-input" type="password" placeholder="password" />
                     </div>
-                    <div className="mb-3 col-5">
-                        <BasicInput className="basic-input" type="passwrod" placeholder="password"
-                                    label="Confirm Password"/>
+                    <div className="mb-3 col-md-5">
+                        <label className= "font-weight-bold">Confirm Password</label>
+                        <BasicInput className="basic-input" type="password" placeholder="password" />
                     </div>
                     {props.user &&
                     <div className={props.user}>
-                        <div className="mb-3 col-5">
+                        <div className="mb-3 col-md-5">
                             <MultiSelect/>
                         </div>
-                        <div className="mb-3 col-5">
+                        <div className="mb-3 col-md-5">
                             <MultiSelect/>
                         </div>
-                        <div className="mb-3 col-10">
+                        <div className="mb-3 col-md-10">
                             <MultiSelect/>
                         </div>
                     </div>}
                     {props.doctor &&
                     <div className={props.doctor}>
-                        <div className="mb-3 col-5">
-                            <BasicInput className="basic-input" type="text" placeholder="name"
-                                        label="Official doctor name"/>
+                        <div className="mb-3 col-md-5">
+                            <label className= "font-weight-bold">Official doctor name</label>
+                            <BasicInput className="basic-input" type="text" placeholder="name" />
                         </div>
-                        <div className="mb-3 col-5">
+                        <div className="mb-3 col-md-5">
+                            <label className= "font-weight-bold">Select your location</label>
                             <BasicInput className="input-icon-left" type="text" right_icon="fa fa-commenting-o fa-lg"
-                                        placeholder="Input name" label="Select your location"/>
+                                placeholder="Input name" />
                         </div>
-                        <div className="mb-3 col-5">
+                        <div className="mb-3 col-md-5">
                             <MultiSelect/>
                         </div>
-                        <div className="mb-3 col-5">
+                        <div className="mb-3 col-md-5">
                             <MultiSelect/>
                         </div>
-                        <div className="mb-3 col-10">
+                        <div className="mb-3 col-md-10">
                             <DropFileWithButton/>
                         </div>
                     </div>}
-                    <div className="mb-4 col-9">
+                    <div className="mb-4 col-md-9">
                         <Button text="Sign Up" color="btn btn-info" size="btn-sm"/>
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <span className="line col-3 mb-3"></span>
-                    <span className="col-1">or</span>
-                    <span className="line col-3 offset-1 mb-3"></span>
+                    <span className="line col-md-3 mb-3"></span>
+                    <span className="line col-md-3 offset-1 mb-3"></span>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col-4 text-right pr-2">
+                    <div className="col-md-4 text-right pr-2">
                         <SocialBtn size="btn-sm" color="btn btn-light" text="Login with Facebook"
                                    social_icon="fa fa-facebook-official fa-lg"/>
                     </div>
-                    <div className="col-4 pl-2">
+                    <div className="col-md-4 pl-2">
                         <SocialBtn size="btn-sm" color="btn btn-light" text="Login with Google"
                                    social_icon="fa fa-google fa-lg"/>
                     </div>

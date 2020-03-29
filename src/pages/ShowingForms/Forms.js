@@ -12,19 +12,21 @@ import AddAnimal from '../../components/Forms/AddAnimal';
 
 const Forms = () => {
     return (
-        <div>
-            <div className= "container col-md-6 mx-auto">
-                <hr />
-                <h1>Login</h1>
-                <hr />
+        <div className= "container mt-5">
+            <hr />
+            <h1>Login</h1>
+            <hr />
+            <div className= "col-md-6 mx-auto">
                 <LoginForm />
             </div>
 
             <hr />
             <h1>Sign up</h1>
             <hr />
-            <SignUpForm title= "Sign Up with us" user= "row justify-content-center w-100" />
-            <SignUpForm title= "Sign Up with us" doctor= "row justify-content-center w-100" />
+            <div className= "container col-md-12 mx-auto">
+                <SignUpForm user= "row justify-content-center w-100" />
+                <SignUpForm doctor= "row justify-content-center w-100" />
+            </div>
 
             <hr />
             <h1>Add Question</h1>

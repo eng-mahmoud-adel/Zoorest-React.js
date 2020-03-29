@@ -3,22 +3,24 @@
     background-color: $light;
     border-radius: $border-radius-8;
     padding: $padding-24;
-    .wrapper {
-        position: relative;
-        .title {
-            color: $dark;
-            font-size: $font-size-24;
-            line-height: 275px;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('../../../images/assets/pic@3x.png');
-            background-size: contain;
-            background-repeat: no-repeat;
+    .container {
+        padding: 0 $padding-64;
+        .wrapper {
+            position: relative;
+            .title {
+                color: $dark;
+                font-size: $font-size-24;
+                line-height: 445px;
+            }
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('../../../images/assets/pic@3x.png');
+                background-size: cover;
+            }
         }
     }
 }
@@ -29,6 +31,11 @@
     background-color: $light;
     border-radius: $border-radius-8;
     padding: $padding-24;
+    color: $dark;
+    .title {
+        color: $dark;
+        font-size: $font-size-24;
+    }
     .line {
         display: inline-block;
         border-top: 1px solid $secondary;

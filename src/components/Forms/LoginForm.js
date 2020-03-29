@@ -34,10 +34,10 @@ const LoginForm = (props) => {
                         </div>
                         <hr />
                     <div className= "row justify-content-center">
-                        <div className= "col-md-6 text-right pr-2">
+                        <div className= "col-md-5 text-right pr-2">
                             <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Facebook" social_icon= "fa fa-facebook-official fa-lg" />
                         </div>
-                        <div className= "col-md-6 pl-2">
+                        <div className= "col-md-5 pl-2">
                             <SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Google" social_icon= "fa fa-google fa-lg" />
                         </div>
                     </div>
