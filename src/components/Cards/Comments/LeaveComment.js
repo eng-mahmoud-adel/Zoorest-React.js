@@ -1,27 +1,42 @@
 import React from 'react';
 import Button from '../../Buttons/Button/Button';
-import {Card, Col, Row} from "react-bootstrap";
-import {Form} from "redux-form";
-import TextArea from "../../Inputs/TextArea";
+import {Card, Col, Form} from "react-bootstrap";
+import {reduxForm, Field} from "redux-form";
 
-const LeaveComment = (props) => {
+const LeaveCommentForm = ({pristine,handleSubmit}) => {
     return (
         <Card className={"leave-comment-card w-100"}>
-            <Row>
-                <Col xs="9">
-                    <Card.Title className="card-title">Leave a comment</Card.Title>
-                </Col>
-                <Col xs="3">
-                    <Button text="Comment" color="btn btn-info" size="btn-sm"/>
-                </Col>
-            </Row>
+            <Form onSubmit={handleSubmit}>
+                <Form.Row>
+                    <Col xs="9">
+                        <Card.Title className="card-title">Leave a comment</Card.Title>
+                    </Col>
+                    <Col xs="3">
+                        <Button type="submit" text="Comment" variant="info" size="btn-sm"
+                                disabled={pristine}/>
+                    </Col>
+                </Form.Row>
+
+            </Form>
             <Card.Body>
                 <Card.Text>
-                    <TextArea rows={5}/>
+
+                    <Field as="textarea"
+                           name={"body"}
+                           component="input"
+                           type="textarea"
+                           className={"form-control"}
+                           rows="5"/>
+                    {/*<Form.Control as={"textarea"} rows={"5"}/>*/}
+
                 </Card.Text>
             </Card.Body>
         </Card>
     )
-}
+};
 
-export default LeaveComment;
+
+// export default LeaveCommentForm;
+export default reduxForm({
+    form: 'leave-comment-form'
+})(LeaveCommentForm);

@@ -26,9 +26,15 @@ const SingleQuestionContainer = props => {
     useEffect(() => {
         //todo load model only if its not passed as object (opening url directly)
         getSingleQuestion(id);
-        getComments(id);
     }, [getSingleQuestion, id]);
 
+    useEffect(() => {
+        getComments(id);
+    }, [getComments, id]);
+
+    const handleCommentSubmitted = (values) => {
+        console.log(values)
+    };
     return (
         <div id="questions-index">
             <div className="jumbotron jumbotron-fluid " style={{backgroundImage: `url(${BannerImage})`}}>
@@ -66,31 +72,22 @@ const SingleQuestionContainer = props => {
                         </div>
 
                         <div className="row">
-                            <LeaveComment/>
+                            <LeaveComment onSubmit={handleCommentSubmitted}/>
                         </div>
 
 
                         <div className="row my-3">
-                            {!props.singleQuestion.loadingComments ? <LazyList
-                                data={props.singleQuestion.comments}
-                                component={Comment}
-                                placeholderComponent={Comment}
-                                fetchMoreData={getMoreComments}
-                                refresh={getComments}
-                                endMessage={
-                                    <p style={{textAlign: 'center'}}>
-                                        <b>Yay! You have seen it all</b>
-                                    </p>
-                                }
-                                pullDownToRefresh
-                                pullDownToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                                }
-                                releaseToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                                }
+                            <div className="col-12 mx-0">
+                                {!props.singleQuestion.loadingComments ?
+                                    <LazyList
 
-                            /> : <h2>No Comments</h2>}
+                                        data={props.singleQuestion.comments}
+                                        component={Comment}
+                                        placeholderComponent={Comment}
+                                        fetchMoreData={getMoreComments}
+                                        refresh={getComments}
+                                    /> : <h2>No Comments</h2>}
+                            </div>
                         </div>
                     </div>
                     <div className="col-3 px-5 d-none d-lg-block">

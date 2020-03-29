@@ -147,7 +147,12 @@ export const getQuestionComments = (id, limit = 5) => async (dispatch, getState)
                 dispatch({
                     type: GET_QUESTION_COMMENTS,
                     payload: response.data,
-                })
+                });
+
+                dispatch({
+                    type: GET_QUESTION_COMMENTS_LOADED,
+                    payload: response.data,
+                });
             },
             (error) => {
                 console.log(error.response);
@@ -163,6 +168,11 @@ export const getMoreQuestionComments = (nextPageUrl) => async (dispatch, getStat
                 console.log(response.data);
                 dispatch({
                     type: GET_MORE_QUESTION_COMMENTS,
+                    payload: response.data,
+                });
+
+                dispatch({
+                    type: GET_QUESTION_COMMENTS_LOADED,
                     payload: response.data,
                 });
             },
