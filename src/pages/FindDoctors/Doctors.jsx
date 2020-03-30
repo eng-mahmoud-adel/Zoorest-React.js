@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Provider from '../../components/Cards/Profiles/Provider';
 import CheckBox from '../../components/Buttons/CheckBoxes/CheckBox';
 import BasicInput from '../../components/Inputs/BasicInput';
+import BillBoard from '../../components/Cards/BillBoard/BillBoard';
 
 const Doctors = (props) => {
     const {providers}= props;
@@ -43,10 +44,8 @@ const Doctors = (props) => {
                 </div>
             </section>
 
-            <section className= "bill-board col-md-10 mx-auto my-5">
-                <div className= "">
-                    bill board
-                </div>
+            <section className= "col-md-10 mx-auto my-5">
+                <BillBoard />
             </section>
 
             <section className= "normal-doctors">
