@@ -545,6 +545,15 @@
 /* for profiles component */
 .provider-card {
   border-radius: $border-radius-8;
+  overflow: hidden;
+  color: $dark;
+
+  .pro-title {
+    background-color: $info;
+    transform: rotate(-45deg);
+    left: -35px;
+    color: $light;
+  }
 
   .card-title {
     color: $dark;
@@ -575,6 +584,10 @@
       right: -12px;
       bottom: 4px;
     }
+  }
+
+  .price {
+    color: $info;
   }
 }
 

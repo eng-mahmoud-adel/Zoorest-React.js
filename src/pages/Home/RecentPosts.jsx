@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import PostImage from '../../images/assets/Group 22@3x.png';
+import PostImage from '../../images/assets/images/Group 22@3x.png';
 import Tabs from 'react-bootstrap/Tabs';
 import Post from '../../components/Cards/Posts/Post';
 import Tab from "react-bootstrap/Tab";

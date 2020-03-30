@@ -50,10 +50,15 @@
 // Home page
 @import './sass/pages/home';
 
-/* ************** pages *********** */
+// Question Pages
+@import './sass/pages/questions/index';
+
+// Doctors Page
+@import './sass/pages/doctors/doctors';
+
+/* ********************** */
 
 // footer
 @import './sass/layout/footer';
 
-// Question Pages
-@import './sass/pages/questions/index';
+

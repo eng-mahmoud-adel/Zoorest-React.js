@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import Button from '../../components/Buttons/Button/Button';
 import AnimalImage
-    from '../../images/assets/kisspng-cat-dog-veterinarian-pet-clinique-vtrinaire-5b0b7de8a47a66.0097244915274797846737@3x.png';
+    from '../../images/assets/images/kisspng-cat-dog-veterinarian-pet-clinique-vtrinaire-5b0b7de8a47a66.0097244915274797846737@3x.png';
 import SlickSlider from '../../components/Helpers/SlickSlider';
 import Question from "../../components/Cards/Questions/Question";
 import Tag from "../../components/Tags/Tag";

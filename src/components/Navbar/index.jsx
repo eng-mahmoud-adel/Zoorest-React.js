@@ -78,7 +78,7 @@ const Navbar = (props) => (
                         <Link className="nav-link" to="/article">Articles</Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Link className="nav-link" to="#">Find a doctor</Link>
+                        <Link className="nav-link" to="/doctor">Find a doctor</Link>
                     </Nav.Item>
                     <Nav.Item as="li">
                         <Link className="nav-link" to="/post">Adoptions</Link>

@@ -1,0 +1,17 @@
+.title {
+    margin-top: $margin-64;
+    padding-top: $padding-64;
+    color: $dark;
+    h1 {
+        font-size: $font-size-48;
+    }
+    p {
+        font-size: $font-size-18;
+    }
+}
+
+.bill-board {
+    background-color: $accent-color;
+    height: 250px;
+    max-height: 250px;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroImage from '../../images/assets/Group 12@3x.png';
+import HeroImage from '../../images/assets/images/Group 12@3x.png';
 import Button from '../../components/Buttons/Button/Button';
 
 const HeroSection = (props) => {
