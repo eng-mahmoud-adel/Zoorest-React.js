@@ -3,6 +3,7 @@ import PostImage from '../../images/assets/images/Group 22@3x.png';
 import Tabs from 'react-bootstrap/Tabs';
 import Post from '../../components/Cards/Posts/Post';
 import Tab from "react-bootstrap/Tab";
+import LazyLoad from "react-lazyload";
 
 const RecentPosts = (props) => {
     const data = props.data;
@@ -13,7 +14,10 @@ const RecentPosts = (props) => {
             <h1 className="title font-weight-bold d-lg-none">Join the Largest Community for adoption and lost Pets</h1>
 
             <div className="col-lg-6 mt-5">
-                <img src={PostImage} alt="" className="img-fluid"/>
+                <LazyLoad unmountIfInvisible={true} once={true}
+                          placeholder={<h5 className="lazy loading">loading...</h5>}>
+                    <img src={PostImage} alt="" className="img-fluid"/>
+                </LazyLoad>
             </div>
             <div className="col-lg-6">
                 <h1 className="title font-weight-bold d-none d-lg-block">Join the Largest Community for adoption and

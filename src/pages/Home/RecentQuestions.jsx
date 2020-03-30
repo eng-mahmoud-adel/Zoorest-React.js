@@ -5,6 +5,7 @@ import AnimalImage
 import SlickSlider from '../../components/Helpers/SlickSlider';
 import Question from "../../components/Cards/Questions/Question";
 import Tag from "../../components/Tags/Tag";
+import LazyLoad from "react-lazyload";
 
 const RecentQuestions = (props) => {
     const slickSettings = {
@@ -43,7 +44,10 @@ const RecentQuestions = (props) => {
         <Fragment>
             <div className="row mr-0">
                 <div className="col-md-3 image">
-                    <img src={AnimalImage} alt="" className="img-fluid"/>
+                    <LazyLoad unmountIfInvisible={true} once={true}
+                              placeholder={<h5 className="lazy loading">loading...</h5>}>
+                        <img src={AnimalImage} alt="" className="img-fluid"/>
+                    </LazyLoad>
                 </div>
                 <div className="col-md-8 text-center wrapper">
                     <h1 className="title font-weight-bold">Share Your Questions and let the professional doctors help

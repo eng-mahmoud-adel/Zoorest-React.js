@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import LazyLoad from "react-lazyload";
 
 const Avatar = (props) => {
     return (
@@ -14,7 +15,9 @@ const Avatar = (props) => {
             {props.image && <Fragment>
                 <div className={props.className}>
                     <div className="img-container">
-                        <img src={props.image} width={props.radius}  alt="avatar"/>
+                        <LazyLoad unmountIfInvisible={true} once={true}>
+                            <img src={props.image} width={props.radius} alt="avatar"/>
+                        </LazyLoad>
                     </div>
                     {props.name && <h6>{props.name}</h6>}
                     {props.span && <span>{props.span}</span>}
