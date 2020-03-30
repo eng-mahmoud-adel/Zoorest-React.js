@@ -8,7 +8,7 @@ import {
 
 import Question from "../../../components/Cards/Questions/Question";
 import {Breadcrumb} from "react-bootstrap";
-import BannerImage from "../../../images/assets/Bg@3x.png";
+import BannerImage from "../../../images/assets/images/Bg@3x.png";
 import AskQuestion from "../../../components/Cards/Questions/AskQuestion";
 import TopQuestionsMembers from "../../../components/Cards/Questions/TopQuestionsMembers";
 import Avatar from "../../../components/Avatars/Avatar";

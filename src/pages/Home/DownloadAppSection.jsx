@@ -1,7 +1,7 @@
 import React from 'react';
-import DownloadImage from '../../images/assets/Group 18@3x.png';
-import googlePlayImage from '../../images/play-store.png';
-import appStoreImage from '../../images/app-store.png';
+import DownloadImage from '../../images/assets/images/Group 18@3x.png';
+import googlePlayImage from '../../images/assets/images/Google Play Badge US@3x.png';
+import appStoreImage from '../../images/assets/images/Group 27@3x.png';
 
 const DownloadAppSection = (props) => {
     const {downloadData}= props;
@@ -16,11 +16,11 @@ const DownloadAppSection = (props) => {
                 <div className= "wrapper">
                     <p className= "desc">{downloadData.description}</p>
                     <div className= "row">
-                        <div className= "w-50">
-                            <img src= {googlePlayImage} alt="" className= "img-fluid" />
+                        <div className= "col-md-6">
+                            <a href= "https://play.google.com/store/apps/details?id=com.zoorest.zoorestapp" target= "_blank"><img src= {googlePlayImage} alt="" className= "img-fluid" /></a>
                         </div>
-                        <div className= "w-50">
-                            <img src= {appStoreImage} alt="" className= "img-fluid" />
+                        <div className= "col-md-6">
+                            <a href= "#" target= "_blank"><img src= {appStoreImage} alt="" className= "img-fluid" /></a>
                         </div>
                     </div>
                 </div>

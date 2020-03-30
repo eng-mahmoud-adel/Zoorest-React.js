@@ -12,6 +12,8 @@ import QuestionIndex from "../../pages/Questions";
 // import QuestionCards from "../../pages/ShowingCards/QuestionCards";
 import singleQuestionReducer from "../../pages/Questions/SingleQuestion";
 import AllQuestionsContainer from "../../pages/Questions/AllQestions";
+import Doctors from '../../pages/FindDoctors/Doctors';
+
 
 const AppRouter = () => (
     <Fragment>
@@ -26,6 +28,9 @@ const AppRouter = () => (
             <Route path="/question" component={AllQuestionsContainer}/>
 
             <Route path="/comment" component={CommentCards}/>
+
+            <Route path="/doctor" component={Doctors}/>
+
             <Route path="/advertisement" component={AdsCard}/>
             <Route path="/forms" component={Forms}/>
         </Switch>

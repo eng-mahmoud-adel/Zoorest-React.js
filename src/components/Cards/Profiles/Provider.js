@@ -5,12 +5,19 @@ import RateBar from '../..';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEye} from '@fortawesome/free-solid-svg-icons'
 import Card from "react-bootstrap/Card";
+import Tag from '../../Tags/Tag';
 
 const Provider = (props) => {
     const {provider} = props;
     return (
         <Card className={`provider-card ${props.className}`}>
             <Card.Body className="text-center">
+                {provider.provider_data.sponsored_until === null ? <div className= "row">
+                    <div className= "col-md-5 pro-title">Pro</div>
+                    <div className= "offset-md-2 col-md-5">
+                        <Tag className= "tag-one" text= "Nearby" />
+                    </div>
+                </div> : ""}
                 <div className="d-flex justify-content-center my-3">
                     {provider ?
                         <Avatar className="avatar-three" image={provider.image_url}
@@ -29,9 +36,18 @@ const Provider = (props) => {
                     </div>
                 </div>
                 <Card.Text className="align-content-center">{provider ? provider.description : props.cardText}</Card.Text>
-                <div className="w-75 mx-auto">
+                {provider.provider_data.examination_price ? <p>Examination Fee: <span className= "price">{provider.provider_data.examination_price}</span></p> : ""}
+                    {provider.has_appointments ?
+                    <div className= "row">
+                        <div className= "col-md-4">
+                            <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
+                        </div>
+                        <div className= "col-md-8">
+                            <Button text="Make an Appointment" color="btn btn-info" size="btn-xs"/>
+                        </div>
+                    </div> : <div className="w-75 mx-auto">
                     <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
-                </div>
+                </div>}
             </Card.Body>
         </Card>
     )
