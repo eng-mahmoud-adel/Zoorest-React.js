@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEye} from '@fortawesome/free-solid-svg-icons'
 import Card from "react-bootstrap/Card";
 import Tag from '../../Tags/Tag';
+import { Link } from 'react-router-dom';
 
 const Provider = (props) => {
     const {provider} = props;
@@ -40,13 +41,13 @@ const Provider = (props) => {
                     {provider.has_appointments ?
                     <div className= "row">
                         <div className= "col-md-4">
-                            <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
+                            <Link to= {`/doctor/profile/${provider.id}`}><Button text="View Profile" color="btn btn-light" size="btn-xs"/></Link>
                         </div>
                         <div className= "col-md-8">
                             <Button text="Make an Appointment" color="btn btn-info" size="btn-xs"/>
                         </div>
                     </div> : <div className="w-75 mx-auto">
-                    <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
+                    <Link to= {`/doctor/profile/${provider.id}`}><Button text="View Profile" color="btn btn-light" size="btn-xs"/></Link>
                 </div>}
             </Card.Body>
         </Card>

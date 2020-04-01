@@ -8,6 +8,7 @@ export const dummyProviders = [
         "type": "provider",
         "image": "http:\/\/cdn.zoorest.com\/uploads\/images\/23_01_2020_01_01_41_5e29802187165_45991351_1530514993758995_444224941257129984_n.jpg",
         "description": "\u0627\u0644\u0645\u0631\u0643\u0632 \u0627\u0644\u0628\u064a\u0637\u0631\u064a \u0627\u0644\u0631\u0626\u064a\u0633\u064a animal medical center.. \u0643\u0634\u0641 - \u062c\u0631\u0627\u062d\u0629 - \u0633\u0648\u0646\u0627\u0631 - \u0627\u0633\u062a\u0636\u0627\u0641\u0629 - \u0645\u062a\u0627\u0628\u0639\u0627\u062a \u0648 \u0643\u0634\u0641 \u0645\u0646\u0632\u0644\u064a - \u0627\u0643\u0633\u0633\u0648\u0627\u0631\u0627\u062a - \u062c\u0645\u064a\u0639 \u0627\u0644\u0627\u062f\u0648\u064a\u0629 \u0648 \u0627\u0644\u062a\u0637\u0639\u064a\u0645\u0627\u062a",
+        "about": null,
         "phone": "01062331146",
         "created_at": {"date": "2018-11-13 16:03:23.000000", "timezone_type": 3, "timezone": "Africa\/Cairo"},
         "updated_at": {"date": "2020-03-21 18:39:35.000000", "timezone_type": 3, "timezone": "Africa\/Cairo"},
