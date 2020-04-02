@@ -1,3 +1,4 @@
+/* start Doctors component */
 .title {
     margin-top: $margin-64;
     padding-top: $padding-64;
@@ -9,3 +10,19 @@
         font-size: $font-size-18;
     }
 }
+/* end Doctors component */
+
+/* start Info component */
+.doctor-info {
+    padding: $padding-8;
+    .card-title {
+        color: $dark;
+    }
+    .card-text {
+        color: $gray-color;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+    }
+}
+/* end Info component */

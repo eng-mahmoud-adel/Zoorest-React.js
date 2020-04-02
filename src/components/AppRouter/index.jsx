@@ -13,7 +13,7 @@ import QuestionIndex from "../../pages/Questions";
 import singleQuestionReducer from "../../pages/Questions/SingleQuestion";
 import AllQuestionsContainer from "../../pages/Questions/AllQestions";
 import Doctors from '../../pages/FindDoctors/Doctors';
-
+import DoctorProfile from '../../pages/FindDoctors/Doctor/index';
 
 const AppRouter = () => (
     <Fragment>
@@ -29,7 +29,8 @@ const AppRouter = () => (
 
             <Route path="/comment" component={CommentCards}/>
 
-            <Route path="/doctor" component={Doctors}/>
+            <Route exact path="/doctor" component={Doctors}/>
+            <Route path="/doctor/profile/:id" component={DoctorProfile}/>
 
             <Route path="/advertisement" component={AdsCard}/>
             <Route path="/forms" component={Forms}/>
