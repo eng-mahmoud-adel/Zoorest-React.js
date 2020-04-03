@@ -5,7 +5,7 @@ import {Card,Row,Col} from "react-bootstrap";
 const Article = (props) => {
     const model = props.article;
     return (
-        <Card className={"card article-card m-1"}>
+        <Card className={"article-card m-1"}>
             <Card.Title>{model ? model.title : props.cardTitle}</Card.Title>
             <small className="small-text">{model ? model.human_created_at : props.cardTime}</small>
             <div className="img-container">

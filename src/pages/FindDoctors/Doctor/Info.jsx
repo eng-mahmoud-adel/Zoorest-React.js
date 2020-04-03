@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Card } from 'react-bootstrap';
+import Booking from '../../../components/Cards/Booking/Booking';
 
 const Info = (props) => {
 
@@ -45,7 +46,7 @@ const Info = (props) => {
                 </div>
 
                 <div className= "col-md-5">
-                
+                    <Booking />
                 </div>
             </div>
         </Fragment>
