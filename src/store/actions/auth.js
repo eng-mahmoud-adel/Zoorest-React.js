@@ -1,15 +1,15 @@
 import axios from 'axios'
 import {SubmissionError} from 'redux-form'
 
-import config from '../../config'
+import ApiService from "../../services/ApiService";
 
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const loginUser = (values) => async (dispatch) => {
 
-    await axios
-        .post(`${config.apiUrl}auth/login`, values)
+    await ApiService
+        .post(`auth/login`, values)
         .then(
             (response) => {
                 console.log(response);
@@ -29,7 +29,7 @@ export const loginUser = (values) => async (dispatch) => {
 
 export const registerUser = (values) => async (dispatch) => {
     try {
-        const response = await axios.post(`${config.apiUrl}/register`, {
+        const response = await ApiService.post(`auth/register`, {
             name: values.name,
             email: values.email,
             password: values.password
