@@ -6,29 +6,25 @@ import config from '../../config'
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
-export const SHOW_SIGNUP_MODAL = 'SHOW_SIGNUP_MODAL';
-export const HIDE_SIGNUP_MODAL = 'HIDE_SIGNUP_MODAL';
-export const SHOW_SIGNIN_MODAL = 'SHOW_SIGNIN_MODAL';
-export const HIDE_SIGNIN_MODAL = 'HIDE_SIGNIN_MODAL';
-
 export const loginUser = (values) => async (dispatch) => {
-    try {
-        const response = await axios.post(`${config.apiUrl}/login`, {
-            email: values.email,
-            password: values.password
-        });
 
-        localStorage.setItem('authUser', JSON.stringify(response.data.data))
+    await axios
+        .post(`${config.apiUrl}auth/login`, values)
+        .then(
+            (response) => {
+                console.log(response);
+                localStorage.setItem('authUser', JSON.stringify(response.data));
 
-        dispatch({
-            type: LOGIN_USER,
-            payload: response.data.data
-        })
-    } catch (errors) {
-        throw new SubmissionError({
-            _error: 'Invalid credentials.'
-        })
-    }
+                dispatch({
+                    type: LOGIN_USER,
+                    payload: response.data,
+                    accessToken: response.headers.authorization,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
 };
 
 export const registerUser = (values) => async (dispatch) => {
