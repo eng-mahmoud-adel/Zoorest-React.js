@@ -12,6 +12,33 @@
 }
 /* end Doctors component */
 
+/* start profile */
+.profile {
+    color: $dark;
+    h2 {
+        font-size: $font-size-48;
+    }
+    .views {
+        span {
+            font-size: $font-size-18;
+        }
+    }
+    .contact {
+        i {
+            color: $info;
+        }
+        span {
+            font-size: $font-size-18;
+        }
+    }
+    .address {
+        span {
+            font-size: $font-size-18;
+        }
+    }
+}
+/* end profile */
+
 /* start Info component */
 .doctor-info {
     padding: $padding-8;
