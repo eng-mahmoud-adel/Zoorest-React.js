@@ -1,3 +1,3 @@
 export default {
-  apiUrl: 'http://localhost:8080/api/v2/'
+  apiUrl: 'https://dev.api.zoorest.com/api/v2/'
 }
