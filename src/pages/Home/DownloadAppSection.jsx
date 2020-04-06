@@ -8,7 +8,7 @@ const DownloadAppSection = (props) => {
     const {downloadData} = props;
     return (
         <div className="row">
-            <div className="col-md-6">
+            <div className="image-section col-md-6">
                 {/*todo mock-up image needs to be smaller little smaller maxWidth: "80%" masalan*/}
                 <LazyLoad unmountIfInvisible={true} once={true}
                           placeholder={<h5 className="lazy loading">loading...</h5>}>
@@ -20,7 +20,7 @@ const DownloadAppSection = (props) => {
                 <div className="wrapper">
                     <p className="desc">{downloadData.description}</p>
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-sm-4">
                             <a href="https://play.google.com/store/apps/details?id=com.zoorest.zoorestapp"
                                target="_blank">
                                 <LazyLoad unmountIfInvisible={true} once={true}
@@ -29,11 +29,11 @@ const DownloadAppSection = (props) => {
                                 </LazyLoad>
                             </a>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-sm-4">
                             <a href="#" target="_blank">
                                 <LazyLoad unmountIfInvisible={true} once={true}
                                           placeholder={<h5 className="lazy loading">loading...</h5>}>
-                                    <img src={appStoreImage} alt="" className="img-fluid"/>
+                                    <img src={appStoreImage} alt="" className="img-fluid app-store-image"/>
                                 </LazyLoad>
                             </a>
                         </div>
