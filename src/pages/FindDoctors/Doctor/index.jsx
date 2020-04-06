@@ -14,7 +14,7 @@ const DoctorProfile = (props) => {
 
     return (
         <div className= "container profile my-5 pt-5">
-            {provider.map(provider => provider.id == id ? <div className= "row">
+            {provider.map(provider => provider.id == id ? <div className= "row" key= {provider.id}>
                 <div className= "col-md-1">
                     <Avatar className= "avatar-four" image= {provider.image} radius={70} />
                 </div>
