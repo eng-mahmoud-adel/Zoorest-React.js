@@ -215,8 +215,40 @@
   h1 {
     font-size: $font-size-32;
   }
+  .slick-slider {
+    .slick-slide {
+      padding: 0 $padding-8;
+      &:nth-of-type(even) .testimonial-card,
+      &:nth-of-type(even) .card-footer {
+        background-color: $info;
+        color: $light;
+      }
+    }
+    .slick-dots {
+      li {
+        width: 40px;
+        height: 3px;
+        background: $secondary;
+        &:hover {
+          background: $info;
+        }
+        button {
+          width: 40px;
+          height: 5px;
+          &::before {
+            color: transparent;
+            opacity: 0;
+          }
+        }
+      }
+      li.slick-active {
+        background: $info;
+      }
+    }
+  }
   .testimonial-card {
     border-radius: $border-radius-8;
+    box-shadow: -10px 10px 10px #E9EBEC;
     .card-title {
       background-color: #F8FAFD;
       border-radius: 50%;
@@ -229,20 +261,20 @@
         line-height: 50px;
       }
     }
-  }
-  .card-body {
-    .card-text {
-      font-size: $font-size-16;
+    .card-body {
+      .card-text {
+        font-size: $font-size-16;
+      }
     }
-  }
-  .card-footer {
-    background-color: $light;
-    border-top: none;
-    p {
-      font-size: $font-size-18;
-    }
-    span {
-      font-size: $font-size-12;
+    .card-footer {
+      background-color: $light;
+      border-top: none;
+      p {
+        font-size: $font-size-18;
+      }
+      span {
+        font-size: $font-size-12;
+      }
     }
   }
 }
