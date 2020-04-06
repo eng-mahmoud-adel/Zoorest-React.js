@@ -56,10 +56,11 @@ const HomeContainer = (props) => {
                 <RecentArticles articles={props.recentArticles}/>
             </section>
 
-            <section id="section-testimonials" className="container">
+            <section id="section-testimonials" className="">
                 {/*TODO https://trello.com/c/p5aLLffM/*/}
-
-                <Testimonials testimonials={props.testimonials}/>
+                <div className="container py-5">
+                    <Testimonials testimonials={props.testimonials}/>
+                </div>
             </section>
         </Fragment>
     );

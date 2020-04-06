@@ -16,7 +16,7 @@ export const dummyTestimonials = [
         date: "Feb 12, 2019"
     },
     {
-        text: "Play Dead sit nap lazy dog wet nose Tigger run fast fish lazy cat wagging hamster toy field yawn feathers ferret yawn aquarium.",
+        text: "Play Dead sit nap lazy dog wet nose Tigger run fast fish lazy cat wagging hamster toy field yawn feathers ferret yawn aquarium field yawn feathers ferret yawn aquarium field yawn feathers ferret yawn aquarium field yawn feathers ferret yawn aquarium.",
         author_name: "User 4",
         date: "Feb 12, 2019"
     },

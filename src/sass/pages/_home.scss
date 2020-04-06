@@ -23,6 +23,13 @@
 /* start download app section */
 #section-download-apps {
   padding: $padding-64 0;
+  .image-section {
+    img {
+      max-width: 70%;
+      display: block;
+      margin: auto;
+    }
+  }
 
   .title {
     color: $dark;
@@ -30,14 +37,14 @@
   }
 
   .wrap-section {
-    margin-top: $margin-64;
-    padding-top: $padding-64;
-
     .wrapper {
       .desc {
         padding: $padding-12 $padding-64 $padding-12 $padding-8;
         color: $gray-color;
         font-size: $font-size-18;
+      }
+      .app-store-image {
+        transform: translateY(-7px);
       }
     }
   }
@@ -204,3 +211,75 @@
     }
 }
 /* end recent articles section */
+
+/* start section-testimonials */
+#section-testimonials {
+  color: $dark;
+  padding: $padding-64 0;
+  background-image: url('../../images/assets/images/Bitmap3@3x.png');
+  background-size: cover;
+  background-color: $light;
+  h1 {
+    font-size: $font-size-32;
+  }
+  .slick-slider {
+    .slick-slide {
+      padding: 0 $padding-8;
+      &:nth-of-type(even) .testimonial-card,
+      &:nth-of-type(even) .card-footer {
+        background-color: $info;
+        color: $light;
+      }
+    }
+    .slick-dots {
+      li {
+        width: 40px;
+        height: 3px;
+        background: $secondary;
+        &:hover {
+          background: $info;
+        }
+        button {
+          width: 40px;
+          height: 5px;
+          &::before {
+            color: transparent;
+            opacity: 0;
+          }
+        }
+      }
+      li.slick-active {
+        background: $info;
+      }
+    }
+  }
+  .testimonial-card {
+    border-radius: $border-radius-8;
+    box-shadow: -10px 10px 10px #E9EBEC;
+    .card-title {
+      background-color: #F8FAFD;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      transform: translateY(-20px);
+      padding: $padding-12 $padding-8;
+    }
+    .card-body {
+      .card-text {
+        font-size: $font-size-16;
+      }
+    }
+    .card-footer {
+      background-color: $light;
+      border-top: none;
+      p {
+        font-size: $font-size-18;
+      }
+      span {
+        font-size: $font-size-12;
+      }
+    }
+  }
+}
+
+/* end section-testimonials */

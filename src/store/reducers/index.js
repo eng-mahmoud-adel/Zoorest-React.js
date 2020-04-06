@@ -22,7 +22,7 @@ const reducer = combineReducers({
     authUser: authReducer,
     providers: providersReducer,
     questions: questionsReducer,
-    test: testimonialsReducer,
+    testimonials: testimonialsReducer,
     posts: postsReducer,
     form: formReducer,
 });

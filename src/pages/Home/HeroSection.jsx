@@ -3,6 +3,7 @@ import HeroImage from '../../images/assets/images/Group 12@3x.png';
 import Button from '../../components/Buttons/Button/Button';
 import LazyLoad from "react-lazyload";
 import Tag from "../../components/Tags/Tag";
+import { Link } from 'react-router-dom';
 
 const HeroSection = (props) => {
     const {data} = props;
@@ -15,7 +16,7 @@ const HeroSection = (props) => {
                     <img src={data.image} alt=""/>
                 </div>
                 <div className="w-50">
-                    <Button text="Find the Nearest Doctors Now" color="btn btn-info" size="btn-sm"/>
+                    <Link to= "/doctor"><Button text="Find the Nearest Doctors Now" color="btn btn-info" size="btn-sm" /></Link>
                 </div>
             </div>
 
