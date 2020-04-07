@@ -20,7 +20,7 @@ const DownloadAppSection = (props) => {
                 <div className="wrapper">
                     <p className="desc">{downloadData.description}</p>
                     <div className="row">
-                        <div className="col-sm-4">
+                        <div className="col-4">
                             <a href="https://play.google.com/store/apps/details?id=com.zoorest.zoorestapp"
                                target="_blank">
                                 <LazyLoad unmountIfInvisible={true} once={true}
@@ -29,7 +29,7 @@ const DownloadAppSection = (props) => {
                                 </LazyLoad>
                             </a>
                         </div>
-                        <div className="col-sm-4">
+                        <div className="col-4">
                             <a href="#" target="_blank">
                                 <LazyLoad unmountIfInvisible={true} once={true}
                                           placeholder={<h5 className="lazy loading">loading...</h5>}>

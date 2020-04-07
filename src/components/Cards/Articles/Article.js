@@ -18,7 +18,7 @@ const Article = (props) => {
                 <Row>
                     <Col xs="8">
                         {/*TODO: Redirect to Article Page and pass the model object/id*/}
-                        <a href="/" className="card-link">Read More</a>
+                        <a href="/article" className="card-link">Read More</a>
                     </Col>
 
                     <Col xs="4">
