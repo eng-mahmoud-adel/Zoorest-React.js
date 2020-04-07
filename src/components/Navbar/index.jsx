@@ -23,7 +23,7 @@ const Auth = ({authUser, showModal}) => {
     };
 
     return (
-        <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
+        <ul className="nav navbar-nav ml-auto w-100 justify-content-end auth">
 
             {!authUser.user ?
                 <Fragment>
@@ -67,7 +67,7 @@ const Navbar = (props) => (
 
             <BaseNavbar.Collapse className="w-100" id="collapsingNavbar">
 
-                <Nav as="ul" className="navbar-nav w-100 justify-content-center">
+                <Nav as="ul" className="navbar-nav w-100 justify-content-between">
                     <Nav.Item as="li">
                         <Link className="nav-link" to="/">Home</Link>
                     </Nav.Item>
@@ -78,7 +78,7 @@ const Navbar = (props) => (
                         <Link className="nav-link" to="/article">Articles</Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Link className="nav-link" to="/doctor">Find a doctor</Link>
+                        <Link className="nav-link find-doctor" to="/doctor">Find a doctor</Link>
                     </Nav.Item>
                     <Nav.Item as="li">
                         <Link className="nav-link" to="/post">Adoptions</Link>

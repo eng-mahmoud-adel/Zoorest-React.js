@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Size from '../Buttons/CombinedButtons/Size';
 import BasicInput from '../Inputs/BasicInput';
 import Button from '../Buttons/Button/Button';
@@ -7,6 +7,29 @@ import MultiSelect from '../Inputs/MultiSelect';
 import DropFileWithButton from './DropFiles/DropFileWithButton';
 
 const SignUpForm = (props) => {
+    const [value, setValue] = useState({
+        value: "",
+        valid: "",
+        invalid: "",
+        name: /[a-z]{5, }/gi,
+    })
+
+
+    const validation = (e) => {
+        const userValue= e.target.value;
+        value.name.test(userValue) ?
+        setValue({
+            value: userValue,
+            valid: "is-valid",
+        })
+        :
+        setValue({
+            value: userValue,
+            valid: "is-invalid",
+        })
+        
+    }
+
     return (
         <form>
             <div className="form-group signup-form">
@@ -14,14 +37,14 @@ const SignUpForm = (props) => {
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a href="#" onClick={props.onLoginClicked}>Login</a>
                 </div>
-                <h3 className="title text-center mb-5 mt-3 font-weight-bold">Sign Up with Us</h3>
+                <h3 className="title text-center mt-3 mb-5 pt-0 font-weight-bold">Sign Up with Us</h3>
                 <div className="my-2 mx-auto col-md-10">
                     <Size size="btn-group-lg" textOne="User" textTwo="Doctor" textThree="Clinic"/>
                 </div>
                 <div className="row justify-content-center">
                     <div className="my-3 col-md-10">
                         <label className= "font-weight-bold">Full Name</label>
-                        <BasicInput className="basic-input" type="text" placeholder="name" />
+                        <BasicInput className= {`basic-input + ${value.valid}`} type="text" placeholder="name" value= {value.value} validation= {validation} />
                     </div>
                     <div className="mb-3 col-md-10">
                         <label className= "font-weight-bold">Email Address</label>

@@ -6,6 +6,7 @@ import SlickSlider from '../../components/Helpers/SlickSlider';
 import Question from "../../components/Cards/Questions/Question";
 import Tag from "../../components/Tags/Tag";
 import LazyLoad from "react-lazyload";
+import { Link } from 'react-router-dom';
 
 const RecentQuestions = (props) => {
     const slickSettings = {
@@ -43,20 +44,20 @@ const RecentQuestions = (props) => {
     return (
         <Fragment>
             <div className="row mr-0">
-                <div className="col-md-3 image">
+                <div className="col-md-3 col-sm-4 image">
                     <LazyLoad unmountIfInvisible={true} once={true}
                               placeholder={<h5 className="lazy loading">loading...</h5>}>
                         <img src={AnimalImage} alt="" className="img-fluid"/>
                     </LazyLoad>
                 </div>
-                <div className="col-md-8 text-center wrapper">
-                    <h1 className="title font-weight-bold">Share Your Questions and let the professional doctors help
+                <div className="col-md-7 col-sm-12 text-center wrapper">
+                    <h1 className="title font-weight-bold mt-0">Share Your Questions and let the professional doctors help
                         pet become better</h1>
-                    <p className="desc">Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada
+                    <p className="desc mb-0">Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada
                         enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi. Nullam vehicula
                         nisi velit.</p>
-                    <div className="w-25 mx-auto">
-                        <Button text="Find the Nearest Doctors Now" color="btn btn-info" size="btn-sm"/>
+                    <div className="col-xl-4 col-lg-5 col-md-7 col-sm-5 mx-auto">
+                        <Link to= "/doctor"><Button text="Find the Nearest Doctors Now" color="btn btn-info" size="btn-sm"/></Link>
                     </div>
                 </div>
             </div>
