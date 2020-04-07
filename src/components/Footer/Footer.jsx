@@ -1,36 +1,44 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../../images/logo.png';
+import {Nav} from "react-bootstrap";
+import BaseNavbar from "react-bootstrap/Navbar";
 
 const Footer = (props) => {
     return (
         <footer className= "footer">
             <div className= "container">
-                <nav className="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
-                    <Link to="/" className="navbar-brand d-flex w-25 mr-auto">
-                        <img src={logo} width={100} alt="logo"/>
-                    </Link>
-                    <div className="navbar-collapse collapse w-100" id="collapsingNavbar3">
-                        <ul className="navbar-nav w-100 justify-content-center">
-                            <li className="nav-item mr-2">
+                <BaseNavbar expand="md" bg="faded" className="justify-content-center">
+                    <BaseNavbar.Brand href="/" className={"d-flex w-50 mr-auto"}>
+                        <img
+                            src={logo}
+                            width={100}
+                            className="d-inline-block align-top"
+                            alt="zoorest brand logo"
+                        />
+                    </BaseNavbar.Brand>
+                    <BaseNavbar.Toggle aria-controls="collapsingNavbar"/>
+                    <BaseNavbar.Collapse className="w-100" id="collapsingNavbar">
+                        <Nav as="ul" className="navbar-nav w-100 justify-content-center">
+                            <Nav.Item as="li">
                                 <Link className="nav-link" to="/">Home</Link>
-                            </li>
-                            <li className="nav-item mx-2">
+                            </Nav.Item>
+                            <Nav.Item as="li">
                                 <Link className="nav-link" to="/question">Questions</Link>
-                            </li>
-                            <li className="nav-item mx-2">
+                            </Nav.Item>
+                            <Nav.Item as="li">
                                 <Link className="nav-link" to="/article">Articles</Link>
-                            </li>
-                            <li className="nav-item mx-2">
-                                <Link className="nav-link" to="#">Find a doctor</Link>
-                            </li>
-                            <li className="nav-item mx-2">
-                                <Link className="nav-link" to="#">Terms &amp; Conditions</Link>
-                            </li>
-                            <li className="nav-item ml-2">
-                                <Link className="nav-link" to="#">Privacy Policy</Link>
-                            </li>
-                        </ul>
+                            </Nav.Item>
+                            <Nav.Item as="li">
+                                <Link className="nav-link find-doctor" to="/doctor">Find a doctor</Link>
+                            </Nav.Item>
+                            <Nav.Item as="li">
+                                <Link className="nav-link conditions" to="#">Terms &amp; Conditions</Link>
+                            </Nav.Item>
+                            <Nav.Item as="li">
+                                <Link className="nav-link policy" to="#">Privacy Policy</Link>
+                            </Nav.Item>
+                        </Nav>
                         <ul className="navbar-nav w-25 justify-content-end social-links">
                             <li className= "nav-item">
                                 <a className= "nav-link" href= "https://www.facebook.com/zoorestEG/" target= "_blank">
@@ -48,8 +56,8 @@ const Footer = (props) => {
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </nav>
+                    </BaseNavbar.Collapse>
+                </BaseNavbar>
                 <div className= "copy-right text-center">
                     All copyrights Reserved 2020. Zoorest&copy;
                 </div>
