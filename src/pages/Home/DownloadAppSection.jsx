@@ -8,14 +8,14 @@ const DownloadAppSection = (props) => {
     const {downloadData} = props;
     return (
         <div className="row">
-            <div className="image-section col-md-6">
+            <div className="image-section col-md-6 order-md-1 order-2">
                 {/*todo mock-up image needs to be smaller little smaller maxWidth: "80%" masalan*/}
                 <LazyLoad unmountIfInvisible={true} once={true}
                           placeholder={<h5 className="lazy loading">loading...</h5>}>
                     <img src={DownloadImage} alt="" className="img-fluid"/>
                 </LazyLoad>
             </div>
-            <div className="col-md-6 wrap-section">
+            <div className="col-md-6 wrap-section order-md-2 order-1 text-center text-md-left mb-5">
                 <h1 className="title font-weight-bold">{downloadData.title}</h1>
                 <div className="wrapper">
                     <p className="desc">{downloadData.description}</p>
