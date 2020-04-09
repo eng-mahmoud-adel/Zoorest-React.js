@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {
     getMoreQuestionComments,
     getQuestionComments,
-    getSingleQuestion
+    getSingleQuestion, setSingleQuestion
 } from "../../../store/actions/questions";
 
 import Question from "../../../components/Cards/Questions/Question";
@@ -17,20 +17,36 @@ import Comment from "../../../components/Cards/Comments/Comment";
 import LazyList from "../../../components/DataList";
 
 const SingleQuestionContainer = props => {
-    const pageData = props.pageData;
+    const {
+        getSingleQuestion,
+        getComments,
+        getMoreComments,
+        setSingleQuestion,
+        incrementViews,
+    } = props;
 
-    const {getSingleQuestion, getComments, getMoreComments} = props;
+    const {
+        pageData,
+        questions
+    } = props;
     const {id} = props.match.params;
-    console.log(props.singleQuestion);
+    const cached_question = questions.find(question => question.id = id)
 
     useEffect(() => {
-        //todo load model only if its not passed as object (opening url directly)
-        getSingleQuestion(id);
-    }, [getSingleQuestion, id]);
+        if (cached_question) {
+            setSingleQuestion(cached_question)
+        } else {
+            getSingleQuestion(id);
+        }
+    }, [setSingleQuestion, getSingleQuestion, id, cached_question]);
 
     useEffect(() => {
         getComments(id);
     }, [getComments, id]);
+
+    useEffect(() => {
+        incrementViews(id);
+    }, [incrementViews, id]);
 
     const handleCommentSubmitted = (values) => {
         console.log(values)
@@ -80,7 +96,6 @@ const SingleQuestionContainer = props => {
                             <div className="col-12 mx-0">
                                 {!props.singleQuestion.loadingComments ?
                                     <LazyList
-
                                         data={props.singleQuestion.comments}
                                         component={Comment}
                                         placeholderComponent={Comment}
@@ -112,6 +127,7 @@ const SingleQuestionContainer = props => {
 };
 const mapStateToProps = (state) => ({
     pageData: state.questionsPage,
+    questions: state.questions.all,
     singleQuestion: state.singleQuestionPage,
     authUser: state.authUser,
 });
@@ -119,6 +135,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
     getSingleQuestion: (slug) => {
         dispatch(getSingleQuestion(slug));
+    },
+    setSingleQuestion: (question) => {
+        dispatch(setSingleQuestion(question));
     },
     getComments: (slug) => {
         dispatch(getQuestionComments(slug));

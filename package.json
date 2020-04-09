@@ -59,14 +59,18 @@
   },
   "hintConfig": {
     "connector": {
-        "name": "connectorName"
+      "name": "connectorName"
     },
-    "formatters": ["formatterName"],
-    "parsers": ["parserName"],
+    "formatters": [
+      "formatterName"
+    ],
+    "parsers": [
+      "parserName"
+    ],
     "hints": {
-        "hint1": "error",
-        "hint2": "warning",
-        "hint3": "off"
+      "hint1": "error",
+      "hint2": "warning",
+      "hint3": "off"
     },
     "hintsTimeout": 120000
   },

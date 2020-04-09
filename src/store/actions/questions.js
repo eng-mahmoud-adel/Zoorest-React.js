@@ -139,6 +139,17 @@ export const getSingleQuestion = (id) => async (dispatch) => {
 
 };
 
+export const setSingleQuestion = (question) => async (dispatch) => {
+    dispatch({
+        type: GET_QUESTION,
+        payload: question
+    });
+
+    dispatch({
+        type: GET_QUESTION_LOADED
+    })
+};
+
 
 export const getQuestionComments = (id, limit = 5) => async (dispatch) => {
     await axios.get(`${config.apiUrl}questions/${id}/comments?perPage=${limit}`)
