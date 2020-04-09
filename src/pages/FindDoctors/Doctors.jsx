@@ -17,19 +17,19 @@ const Doctors = (props) => {
             <section className= "pro-doctors">
                 <div className= "mb-3">(213) Doctor</div>
                 <div className= "row">
-                    <div className= "col-md-2">
+                    <div className= "col-lg-2 col-md-3 mb-3 mb-lg-0">
                         <span>Country:</span>
                     </div>
-                    <div className= "col-md-2">
+                    <div className= "col-lg-2 col-md-3 mb-3 mb-lg-0">
                         <span>Governrate:</span>
                     </div>
-                    <div className= "col-md-2">
+                    <div className= "col-lg-2 col-md-3 mb-3 mb-lg-0">
                         <span>Rating:</span>
                     </div>
-                    <div className= "col-md-3">
+                    <div className= "col-lg-3 col-sm-6 col-8 mb-3 mb-lg-0">
                         <CheckBox text= "Show only nearby doctors" id= "customCheck1" />
                     </div>
-                    <div className= "col-md-3">
+                    <div className= "col-lg-3 col-sm-6 col-8">
                         <BasicInput className= "basic-input" type= "text" right_icon= "fa fa-search fa-lg" placeholder= "Start searching for anything" />
                     </div>
                 </div>
