@@ -44,19 +44,19 @@ const RecentQuestions = (props) => {
     return (
         <Fragment>
             <div className="row mr-0">
-                <div className="col-md-3 col-sm-4 image">
+                <div className="col-xl-3 col-lg-3 col-md-3 col-sm-4 image">
                     <LazyLoad unmountIfInvisible={true} once={true}
                               placeholder={<h5 className="lazy loading">loading...</h5>}>
                         <img src={AnimalImage} alt="" className="img-fluid"/>
                     </LazyLoad>
                 </div>
-                <div className="col-md-7 col-sm-12 text-center wrapper">
+                <div className="col-xl-7 col-lg-8 col-md-9 text-center wrapper">
                     <h1 className="title font-weight-bold mt-0">Share Your Questions and let the professional doctors help
                         pet become better</h1>
                     <p className="desc mb-0">Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada
                         enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi. Nullam vehicula
                         nisi velit.</p>
-                    <div className="col-xl-4 col-lg-5 col-md-7 col-sm-5 mx-auto">
+                    <div className="col-lg-6 col-md-7 col-sm-5 col-11 mx-auto">
                         <Link to= "/doctor"><Button text="Find the Nearest Doctors Now" color="btn btn-info" size="btn-sm"/></Link>
                     </div>
                 </div>

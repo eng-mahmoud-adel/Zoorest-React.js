@@ -85,16 +85,30 @@
   background-image: linear-gradient(#FBD3DF, #D0F0F4);
 
   .wrapper {
+    @media (max-width: 575.98px) {
+      padding: 0 $padding-8;
+    }
+    // for small screens
+    @media (min-width: 576px) {
+      padding: 0 $padding-64;
+    }
     .title {
+      font-size: $font-size-32;
       padding: 0 $padding-8;
       color: $dark;
-      font-size: $font-size-32;
     }
 
     .desc {
-      padding: $padding-12 $padding-64;
       color: $black-color;
       font-size: $font-size-18;
+      // for extra small screens
+      @media (max-width: 575.98px) {
+        padding: $padding-12 $padding-8;
+      }
+      // for small screens
+      @media (min-width: 576px) {
+        padding: $padding-12 $padding-36;
+      }
     }
   }
 
