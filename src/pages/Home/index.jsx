@@ -23,7 +23,7 @@ const HomeContainer = (props) => {
 
     return (
         <Fragment>
-            <section id="section-hero" className="container">
+            <section id="section-hero" className="container pt-sm-5 pt-0 pb-5">
                 <HeroSection data={props.heroData}/>
             </section>
 

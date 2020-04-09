@@ -17,25 +17,25 @@ const Doctors = (props) => {
             <section className= "pro-doctors">
                 <div className= "mb-3">(213) Doctor</div>
                 <div className= "row">
-                    <div className= "col-md-2">
+                    <div className= "col-lg-2 col-md-3 mb-3 mb-lg-0">
                         <span>Country:</span>
                     </div>
-                    <div className= "col-md-2">
+                    <div className= "col-lg-2 col-md-3 mb-3 mb-lg-0">
                         <span>Governrate:</span>
                     </div>
-                    <div className= "col-md-2">
+                    <div className= "col-lg-2 col-md-3 mb-3 mb-lg-0">
                         <span>Rating:</span>
                     </div>
-                    <div className= "col-md-3">
+                    <div className= "col-lg-3 col-sm-6 col-8 mb-3 mb-lg-0">
                         <CheckBox text= "Show only nearby doctors" id= "customCheck1" />
                     </div>
-                    <div className= "col-md-3">
+                    <div className= "col-lg-3 col-sm-6 col-8">
                         <BasicInput className= "basic-input" type= "text" right_icon= "fa fa-search fa-lg" placeholder= "Start searching for anything" />
                     </div>
                 </div>
                 <div className="row">
                     {providers && providers.map((provider, index) => (
-                        <div className="col-md-4" key={index}>
+                        <div className="col-lg-4 col-md-6 mb-3 mb-lg-0" key={index}>
                             <Provider provider={provider} className="shadow-lg" cardTitle="Helen Figueroa"
                                 cardText="Here, I focus on a range of items and features that we use in life without giving them"
                                 icon="fa fa-eye" number="2312 Views"/>
@@ -51,7 +51,7 @@ const Doctors = (props) => {
             <section className= "normal-doctors">
                 <div className="row">
                     {providers && providers.map((provider, index) => (
-                        <div className="col-md-4" key={index}>
+                        <div className="col-lg-4 col-md-6 mb-3 mb-lg-0" key={index}>
                             <Provider provider={provider} className="shadow-lg my-3" cardTitle="Helen Figueroa"
                                 cardText="Here, I focus on a range of items and features that we use in life without giving them"
                                 icon="fa fa-eye" number="2312 Views"/>
