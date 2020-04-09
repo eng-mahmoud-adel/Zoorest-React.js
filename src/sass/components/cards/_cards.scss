@@ -8,6 +8,7 @@
     margin-bottom: 0;
     color: $dark;
     font-size: $font-size-24;
+    @include ellipsis(2)
   }
 
   .small-text {
@@ -30,6 +31,8 @@
       padding: $padding-8 $padding-24 0;
       font-size: $font-size-14;
       color: $gray-color;
+      @include ellipsis(3)
+
     }
   }
 
@@ -206,6 +209,8 @@
       padding: $padding-8 0;
       font-size: $font-size-14;
       color: $gray-color;
+      @include ellipsis(3)
+
     }
   }
 
@@ -569,32 +574,14 @@
   .card-title {
     color: $dark;
     font-size: $font-size-18;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
-    .ellipsis::after {
-      content: "...";
-      position: absolute;
-      right: -12px;
-      bottom: 4px;
-    }
+    @include ellipsis(1)
   }
 
   .card-text {
     color: $gray-color;
     font-size: $font-size-14;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    .ellipsis::after {
-      content: "...";
-      position: absolute;
-      right: -12px;
-      bottom: 4px;
-    }
+    @include ellipsis(2)
   }
 
   .price {
@@ -606,9 +593,9 @@
 
 /* for bill-board component */
 .bill-board {
-    background-color: $accent-color;
-    height: 250px;
-    max-height: 250px;
+  background-color: $accent-color;
+  height: 250px;
+  max-height: 250px;
 }
 
 /* ***************************************************** */
@@ -617,21 +604,25 @@
 .booking-card {
   border-radius: $border-radius-8;
   color: $dark;
+
   .card-title {
     background-color: $info;
     border-top-right-radius: $border-radius-8;
     border-top-left-radius: $border-radius-8;
   }
+
   .date {
     color: $info;
     font-size: $font-size-18;
   }
+
   .week {
     .day {
       button {
         border-color: transparent;
         color: $dark;
         border-radius: $border-radius-8;
+
         &:hover, &:focus {
           background-color: $info;
           color: $light;
@@ -639,14 +630,17 @@
       }
     }
   }
+
   .card-text {
     font-size: $font-size-14;;
   }
+
   .time {
     button {
       border-color: rgba(0, 0, 0, 0.05);
       border-radius: $border-radius-8;
       color: $dark;
+
       &:hover, &:focus {
         color: $light;
       }

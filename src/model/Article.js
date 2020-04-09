@@ -135,7 +135,7 @@ class Article extends Model {
     }
 
     getLocalizedCleanedBody(locale) {
-        return this._getLocalizedField("title", locale)
+        return this._getLocalizedField("cleaned_body", locale)
     }
 }
 

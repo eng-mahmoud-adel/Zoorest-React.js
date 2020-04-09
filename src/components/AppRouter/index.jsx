@@ -8,8 +8,6 @@ import PostCards from '../../pages/ShowingCards/PostCards';
 import CommentCards from '../../pages/ShowingCards/CommentCards';
 import AdsCard from '../../pages/ShowingCards/AdsCard';
 import Forms from '../../pages/ShowingForms/Forms';
-import QuestionIndex from "../../pages/Questions";
-// import QuestionCards from "../../pages/ShowingCards/QuestionCards";
 import singleQuestionReducer from "../../pages/Questions/SingleQuestion";
 import AllQuestionsContainer from "../../pages/Questions/AllQestions";
 import Doctors from '../../pages/FindDoctors/Doctors';
