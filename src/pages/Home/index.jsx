@@ -15,10 +15,10 @@ const HomeContainer = (props) => {
     const {getRecentArticles, login} = props;
     useEffect(() => {
         getRecentArticles();
-        login({
-            "email": "rami.amro.ahmed@gmail.com",
-            "password": "123456",
-        });
+        // login({
+        //     "email": "rami.amro.ahmed@gmail.com",
+        //     "password": "123456",
+        // });
     }, [getRecentArticles, login]);
 
     return (

@@ -1,5 +1,6 @@
 import {GET_ARTICLES, GET_RECENT_ARTICLES} from "../actions/articles";
 import {dummyArticles} from '../DummyData/articles'
+import Article from "../../model/Article";
 
 const initialState = {
     recent: dummyArticles.splice(0,3),
@@ -11,7 +12,7 @@ const articlesReducer = (state = initialState, action) => {
         case GET_RECENT_ARTICLES:
             return {
                 ...state,
-                recent: action.payload,
+                recent: action.payload.map(item=>new Article(item)),
             };
         case GET_ARTICLES:
             return {

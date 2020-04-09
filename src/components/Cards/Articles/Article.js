@@ -1,24 +1,26 @@
 import React from 'react';
 import img from '../../../images/article-cover.png';
-import {Card,Row,Col} from "react-bootstrap";
+import {Card, Row, Col} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const Article = (props) => {
     const model = props.article;
     return (
         <Card className={"article-card m-1"}>
-            <Card.Title>{model ? model.title : props.cardTitle}</Card.Title>
+            <Card.Title>{model ? model.getLocalizedTitle() : props.cardTitle}</Card.Title>
             <small className="small-text">{model ? model.human_created_at : props.cardTime}</small>
             <div className="img-container">
-                <Card.Img variant={null} src={model ? model.photo.path_small : img} className="img-fluid h-100 w-100" alt=""/>
+                <Card.Img variant={null} src={model ? model.photo.path_small : img} className="img-fluid h-100 w-100"
+                          alt=""/>
             </div>
             <Card.Body>
-                <Card.Text>{model ? model.cleaned_body.substring(0, 200) : props.cardText}...</Card.Text>
+                <Card.Text>{model ? model.getLocalizedCleanedBody().substring(0, 200) : props.cardText}...</Card.Text>
             </Card.Body>
             <Card.Footer>
                 <Row>
                     <Col xs="8">
                         {/*TODO: Redirect to Article Page and pass the model object/id*/}
-                        <a href="/article" className="card-link">Read More</a>
+                        <Link to={`/article/${model.getLocalizedSlug()}`} className="card-link">Read More</Link>
                     </Col>
 
                     <Col xs="4">

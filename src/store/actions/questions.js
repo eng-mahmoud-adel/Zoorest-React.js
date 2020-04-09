@@ -21,7 +21,7 @@ export const GET_MORE_QUESTION_COMMENTS = 'GET_MORE_QUESTION_COMMENTS';
 export const GET_QUESTION_COMMENTS_LOADING = 'GET_QUESTION_COMMENTS_LOADING';
 export const GET_QUESTION_COMMENTS_LOADED = 'GET_QUESTION_COMMENTS_LOADED';
 
-export const getRecentQuestions = (limit = 5) => async (dispatch, getState) => {
+export const getRecentQuestions = (limit = 5) => async (dispatch) => {
     await axios.get(`${config.apiUrl}questions?perPage=${limit}`)
         .then(
             (response) => {
@@ -37,7 +37,7 @@ export const getRecentQuestions = (limit = 5) => async (dispatch, getState) => {
 
 };
 
-export const getMoreRecentQuestions = (nextPageUrl) => async (dispatch, getState) => {
+export const getMoreRecentQuestions = (nextPageUrl) => async (dispatch) => {
     await axios.get(nextPageUrl)
         .then(
             (response) => {
@@ -53,7 +53,7 @@ export const getMoreRecentQuestions = (nextPageUrl) => async (dispatch, getState
 
 };
 
-export const getNotAnsweredQuestions = (limit = 5) => async (dispatch, getState) => {
+export const getNotAnsweredQuestions = (limit = 5) => async (dispatch) => {
     await axios.get(`${config.apiUrl}questions?perPage=${limit}&query_type=not_answered`)
         .then(
             (response) => {
@@ -68,7 +68,7 @@ export const getNotAnsweredQuestions = (limit = 5) => async (dispatch, getState)
         );
 };
 
-export const getMoreNotAnsweredQuestions = (nextPageUrl) => async (dispatch, getState) => {
+export const getMoreNotAnsweredQuestions = (nextPageUrl) => async (dispatch) => {
     await axios.get(nextPageUrl)
         .then(
             (response) => {
@@ -83,7 +83,7 @@ export const getMoreNotAnsweredQuestions = (nextPageUrl) => async (dispatch, get
         );
 };
 
-export const getMostCommonQuestions = (limit = 5) => async (dispatch, getState) => {
+export const getMostCommonQuestions = (limit = 5) => async (dispatch) => {
 
     await axios.get(`${config.apiUrl}questions?perPage=${limit}&query_type=common`)
         .then(
@@ -99,7 +99,7 @@ export const getMostCommonQuestions = (limit = 5) => async (dispatch, getState) 
         );
 };
 
-export const getMoreMostCommonQuestions = (nextPageUrl) => async (dispatch, getState) => {
+export const getMoreMostCommonQuestions = (nextPageUrl) => async (dispatch) => {
     await axios.get(nextPageUrl)
         .then(
             (response) => {
@@ -140,7 +140,7 @@ export const getSingleQuestion = (id) => async (dispatch) => {
 };
 
 
-export const getQuestionComments = (id, limit = 5) => async (dispatch, getState) => {
+export const getQuestionComments = (id, limit = 5) => async (dispatch) => {
     await axios.get(`${config.apiUrl}questions/${id}/comments?perPage=${limit}`)
         .then(
             (response) => {
@@ -161,7 +161,7 @@ export const getQuestionComments = (id, limit = 5) => async (dispatch, getState)
 
 };
 
-export const getMoreQuestionComments = (nextPageUrl) => async (dispatch, getState) => {
+export const getMoreQuestionComments = (nextPageUrl) => async (dispatch) => {
     await axios.get(nextPageUrl)
         .then(
             (response) => {
@@ -182,7 +182,7 @@ export const getMoreQuestionComments = (nextPageUrl) => async (dispatch, getStat
         );
 };
 
-// export const createReply = (threadId, data) => async (dispatch, getState) => {
+// export const createReply = (threadId, data) => async (dispatch) => {
 //     const response = await axios.post(`${config.apiUrl}/threads/${threadId}/replies`, data, {
 //         headers: {
 //             Authorization: `Bearer ${getState().auth.accessToken}`

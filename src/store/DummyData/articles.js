@@ -1,4 +1,7 @@
 /* eslint-disable no-useless-escape */
+import Article from "../../model/Article";
+import Image from "../../model/Image";
+
 export const dummyArticles = [
     {
         "id": 43,
@@ -455,7 +458,7 @@ export const dummyArticles = [
             "human_created_at": "3 months ago",
             "human_updated_at": "20 hours ago"
         },
-        "photo": {
+        "photo": new Image({
             "id": 1108,
             "qquuid": "d52d042c-0a0f-4455-9764-573a9eae4e46",
             "name": "51917-44.jpg",
@@ -470,8 +473,8 @@ export const dummyArticles = [
             "search_key": "http:\/\/cdn.zoorest.com\/uploads\/images\/23_12_2019_08_12_52_5e010df4d88ec_51917-44.jpg",
             "created_at": {"date": "2019-12-23 20:56:52.000000", "timezone_type": 3, "timezone": "Africa\/Cairo"},
             "updated_at": {"date": "2019-12-23 20:56:52.000000", "timezone_type": 3, "timezone": "Africa\/Cairo"}
-        },
+        }),
         "human_publish_on": "3 months ago",
         "human_created_at": "23 hours ago",
         "human_updated_at": "23 hours ago"
-    }]
+    }].map(item => new Article(item))
