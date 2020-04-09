@@ -14,10 +14,7 @@ const SignUpForm = (props) => {
         console.log(values);
     }
 
-    const showComponent = (component) => {
-        // return component;
-        console.log("hi");
-    }
+    const [active, setActive] = useState("user");
     
     return (
         <Formik 
@@ -40,7 +37,7 @@ const SignUpForm = (props) => {
                         </div>
                         <h3 className="title text-center mt-3 mb-5 pt-0 font-weight-bold">Sign Up with Us</h3>
                         <div className="my-2 mx-auto col-md-10">
-                            <Size size="btn-group-lg" showComponent= {showComponent} />
+                            <Size size="btn-group-lg" tabs= {["user", "doctor", "clinic"]} onTabClick= {(item) => setActive(item)} />
                         </div>
                         <div className="row justify-content-center">
                             <div className="my-3 col-md-10">
@@ -73,10 +70,9 @@ const SignUpForm = (props) => {
                                 <BasicInput className= {`basic-input ${values.confirmPassword == "" ? "" : (!errors.confirmPassword ? "is-valid": "is-invalid")}`} name= "password" type="password" value= {values.confirmPassword} placeholder="password" handleChange= {handleChange} handleBlur= {handleBlur} />
                                 {errors.confirmPassword && touched.confirmPassword && <div style= {{color: "red"}}>{errors.confirmPassword}</div>}
                             </div>
-
-                            {/* i want to check the value first if doctor or user then it will render the following 2 components */}
                             
-                            {showComponent(
+                            {active === "user" ? 
+                                (
                                 <div className= "row justify-content-center w-100">
                                     <div className="mb-3 col-md-5">
                                         <MultiSelect/>
@@ -88,35 +84,35 @@ const SignUpForm = (props) => {
                                         <MultiSelect/>
                                     </div>
                                 </div>
+                                ) 
+                                :
+                                (active === "doctor" || active ==="clinic") ?
+                                (
+                                    <div className= "row justify-content-center w-100">
+                                        <div className="mb-3 col-md-5">
+                                            <label className= "font-weight-bold">Official doctor name</label>
+                                            <BasicInput className= {`basic-input ${values.name == "" ? "" : (!errors.name ? "is-valid": "is-invalid")}`} name= "name" type="text" value= {values.name} placeholder="name" handleChange= {handleChange} handleBlur= {handleBlur} />
+                                            {errors.name && touched.name && <div style= {{color: "red"}}>{errors.name}</div>}
+                                        </div>
+                                        <div className="mb-3 col-md-5">
+                                            <label className= "font-weight-bold">Select your location</label>
+                                            <BasicInput className="input-icon-left" type="text" right_icon="fa fa-commenting-o fa-lg"
+                                                placeholder="Input name" />
+                                        </div>
+                                        <div className="mb-3 col-md-5">
+                                            <MultiSelect/>
+                                        </div>
+                                        <div className="mb-3 col-md-5">
+                                            <MultiSelect/>
+                                        </div>
+                                        <div className="mb-3 col-md-10">
+                                            <DropFileWithButton/>
+                                        </div>
+                                    </div>
                                 )
+                                :
+                                ""
                             }
-
-                            {/* or this */}
-                            
-                            {/* {showComponent(
-                                <div className= "row justify-content-center w-100">
-                                    <div className="mb-3 col-md-5">
-                                        <label className= "font-weight-bold">Official doctor name</label>
-                                        <BasicInput className= {`basic-input ${values.name == "" ? "" : (!errors.name ? "is-valid": "is-invalid")}`} name= "name" type="text" value= {values.name} placeholder="name" handleChange= {handleChange} handleBlur= {handleBlur} />
-                                        {errors.name && touched.name && <div style= {{color: "red"}}>{errors.name}</div>}
-                                    </div>
-                                    <div className="mb-3 col-md-5">
-                                        <label className= "font-weight-bold">Select your location</label>
-                                        <BasicInput className="input-icon-left" type="text" right_icon="fa fa-commenting-o fa-lg"
-                                            placeholder="Input name" />
-                                    </div>
-                                    <div className="mb-3 col-md-5">
-                                        <MultiSelect/>
-                                    </div>
-                                    <div className="mb-3 col-md-5">
-                                        <MultiSelect/>
-                                    </div>
-                                    <div className="mb-3 col-md-10">
-                                        <DropFileWithButton/>
-                                    </div>
-                                </div>
-                                )
-                            } */}
 
                             <div className="mb-4 col-md-9">
                                 <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick= {handleSubmit} disabled= {!isValid || isSubmitting} />
