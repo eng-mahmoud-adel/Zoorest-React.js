@@ -1,12 +1,9 @@
 /* start hero section */
 #section-hero {
   margin-top: 100px;
-  padding-bottom: $padding-64;
-
   .title {
     color: $black-color;
     font-size: $font-size-64;
-    margin-top: $margin-64;
   }
 
   .wrapper {
@@ -25,9 +22,24 @@
   padding: $padding-64 0;
   .image-section {
     img {
-      max-width: 70%;
       display: block;
       margin: auto;
+      // for extra small screens
+      @media (max-width: 575.98px) {
+        max-width: 60%;
+      }
+      // for small screens
+      @media (min-width: 576px) {
+        max-width: 70%;
+      }
+      // for medium screens
+      @media (min-width: 768px) {
+        max-width: 90%;
+      }
+      // for large screens
+      @media (min-width: 992px) {
+        max-width: 70%;
+      }
     }
   }
 
@@ -39,9 +51,20 @@
   .wrap-section {
     .wrapper {
       .desc {
-        padding: $padding-12 $padding-64 $padding-12 $padding-8;
         color: $gray-color;
         font-size: $font-size-18;
+        // for extra small screens
+        @media (max-width: 575.98px) {
+          padding: $padding-12 0 $padding-12 0;
+        }
+        // for small screens
+        @media (min-width: 576px) {
+          padding: $padding-12 0 $padding-12 0;
+        }
+        // for large screens
+        @media (min-width: 992px) {
+          padding: $padding-12 $padding-64 $padding-12 $padding-8;
+        }
       }
       .app-store-image {
         transform: translateY(-7px);
