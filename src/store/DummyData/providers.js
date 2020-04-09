@@ -67,6 +67,7 @@ export const dummyProviders = [
             "payment_plane_type": "cash",
             "type": "\u0639\u064a\u0627\u062f\u0629",
             "sponsored_until": null,
+            "nearby": true,
             "sponsored_color": "#dc2c5c",
             "upcoming_appointments_count": 299,
             "has_appointments": true,

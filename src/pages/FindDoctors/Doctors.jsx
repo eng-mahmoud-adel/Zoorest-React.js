@@ -35,7 +35,7 @@ const Doctors = (props) => {
                 </div>
                 <div className="row">
                     {providers && providers.map((provider, index) => (
-                        <div className="col-md-4" key={index}>
+                        <div className="col-lg-4 col-md-6 mb-3 mb-lg-0" key={index}>
                             <Provider provider={provider} className="shadow-lg" cardTitle="Helen Figueroa"
                                 cardText="Here, I focus on a range of items and features that we use in life without giving them"
                                 icon="fa fa-eye" number="2312 Views"/>
@@ -51,7 +51,7 @@ const Doctors = (props) => {
             <section className= "normal-doctors">
                 <div className="row">
                     {providers && providers.map((provider, index) => (
-                        <div className="col-md-4" key={index}>
+                        <div className="col-lg-4 col-md-6 mb-3 mb-lg-0" key={index}>
                             <Provider provider={provider} className="shadow-lg my-3" cardTitle="Helen Figueroa"
                                 cardText="Here, I focus on a range of items and features that we use in life without giving them"
                                 icon="fa fa-eye" number="2312 Views"/>

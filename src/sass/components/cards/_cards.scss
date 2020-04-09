@@ -551,8 +551,19 @@
   .pro-title {
     background-color: $info;
     transform: rotate(-45deg);
-    left: -35px;
     color: $light;
+    // for extra small screens
+    @media (max-width: 575.98px) {
+      left: -60px;
+    }
+    // for small screens
+    @media (min-width: 576px) {
+      left: -80px;
+    }
+    // for medium screens
+    @media (min-width: 768px) {
+      left: -50px;
+    }
   }
 
   .card-title {
