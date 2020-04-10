@@ -2,11 +2,11 @@ import React from 'react';
 import Avatar from '../../Avatars/Avatar';
 import Button from '../../Buttons/Button/Button';
 import RateBar from '../..';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEye} from '@fortawesome/free-solid-svg-icons'
 import Card from "react-bootstrap/Card";
 import Tag from '../../Tags/Tag';
 import { Link } from 'react-router-dom';
+import {ViewsIcon} from "../../Icons";
 
 const Provider = (props) => {
     const {provider} = props;
@@ -15,11 +15,11 @@ const Provider = (props) => {
             <Card.Body className="text-center">
                 {<div className= "row">
                     {provider.provider_data.sponsored_until === null ?
-                        <div className= "col-7 pro-title">Pro</div> 
+                        <div className= "col-7 pro-title">Pro</div>
                         : ""
                     }
 
-                    {provider.provider_data.nearby === true ? 
+                    {provider.provider_data.nearby === true ?
                         <div className= "col-5">
                             <Tag className= "tag-one" text= "Nearby" />
                         </div> : ""
@@ -38,8 +38,8 @@ const Provider = (props) => {
                         <RateBar rate={provider.provider_data.rate ? provider.provider_data.rate : 5}/>
                     </div>
                     <div className="col-md-5">
-                        <FontAwesomeIcon icon={faEye} size="xs"/>
-                        <span> {provider ? provider.account_views : props.number} Views</span>
+                        <ViewsIcon value={provider ? provider.account_views : props.number} text={"Views"}/>
+
                     </div>
                 </div>
                 <Card.Text className="align-content-center">{provider ? provider.description : props.cardText}</Card.Text>

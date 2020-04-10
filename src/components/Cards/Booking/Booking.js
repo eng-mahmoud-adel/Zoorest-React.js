@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Card,Row,Col} from "react-bootstrap";
 import Button from '../../Buttons/Button/Button';
+import {SearchIcon} from "../../Icons";
 
 const Booking = () => {
     // const [time, setTime]= useState("");
@@ -39,7 +40,9 @@ const Booking = () => {
                     </Row>
                 </div>
                 <h5 className= "font-weight-bold">Available Start Time</h5>
-                <Card.Text className= "font-weight-bold"><i class="fa fa-search mr-2" aria-hidden="true"></i>Examination Fee : 200 EGP</Card.Text>
+                <Card.Text className= "font-weight-bold">
+                    <SearchIcon className={"mr-2"} text={"Examination Fee : 200 EGP"}/>
+                </Card.Text>
                 <div className= "time mb-3">
                     <Row>
                         <Col md= {4} className= "mb-2 pr-1">

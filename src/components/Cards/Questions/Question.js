@@ -5,6 +5,8 @@ import Avatar from '../../Avatars/Avatar';
 import image from "../../../images/placeholders/100X100.png";
 import Card from "react-bootstrap/Card";
 import {Link} from "react-router-dom";
+import {CommentsIcon, HeartIcon, ViewsIcon} from "../../Icons";
+import {MdComment, MdRemoveRedEye} from "react-icons/all";
 
 const Question = (props) => {
     const model = props.model;
@@ -39,17 +41,13 @@ const Question = (props) => {
                     <div className="icons col-xl-4 col-md-6 mb-3 mb-xl-0">
                         <div className="row">
                             <div className="col-4">
-
-                                <i className="fa fa-commenting-o icon-one" aria-hidden="true"><span
-                                    className="2">{model ? model.replies_count : 0}</span></i>
+                                <CommentsIcon value={model ? model.replies_count || 0 : 0}/>
                             </div>
                             <div className="col-4">
-                                <i className="fa fa-eye icon-two" aria-hidden="true"><span
-                                    className="3">{model ? model.views : 0}</span></i>
+                                <ViewsIcon value={model ? model.views || 0 : 0}/>
                             </div>
                             <div className="col-4">
-                                <i className="fa fa-heart-o icon-two" aria-hidden="true"><span
-                                    className="3">{model ? model.favourites : 0}</span></i>
+                                <HeartIcon value={model ? model.favourites || 0 : 0}/>
                             </div>
                         </div>
                     </div>

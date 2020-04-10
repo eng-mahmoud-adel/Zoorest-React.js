@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import logo from '../../images/logo.png';
 import {Nav} from "react-bootstrap";
 import BaseNavbar from "react-bootstrap/Navbar";
+import {FacebookIcon, InstagramIcon, TwitterIcon} from "../Icons";
 
 const Footer = (props) => {
     return (
@@ -42,17 +43,19 @@ const Footer = (props) => {
                         <ul className="navbar-nav w-25 justify-content-end social-links">
                             <li className= "nav-item">
                                 <a className= "nav-link" href= "https://www.facebook.com/zoorestEG/" target= "_blank">
-                                    <i className="fa fa-facebook-official" aria-hidden="true"></i>
+                                    <FacebookIcon/>
                                 </a>
                             </li>
                             <li className= "nav-item">
                                 <a className= "nav-link" href= "https://www.instagram.com/zoorest/" target= "_blank">
-                                    <i className="fa fa-instagram" aria-hidden="true"></i>
+                                    <InstagramIcon/>
+
                                 </a>
                             </li>
                             <li className= "nav-item">
                                 <a className= "nav-link" href= "https://twitter.com/zoorest/" target= "_blank">
-                                    <i className="fa fa-twitter" aria-hidden="true"></i>
+                                    <TwitterIcon/>
+
                                 </a>
                             </li>
                         </ul>

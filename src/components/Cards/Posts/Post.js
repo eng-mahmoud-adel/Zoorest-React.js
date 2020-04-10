@@ -4,6 +4,7 @@ import Avatar from '../../Avatars/Avatar';
 import Button from '../../Buttons/Button/Button';
 import image from "../../../images/placeholders/100X100.png";
 import {Card, Col, Row} from "react-bootstrap";
+import {CommentsIcon, HeartIcon} from "../../Icons";
 
 
 const Post = (props) => {
@@ -27,12 +28,12 @@ const Post = (props) => {
                     <div className="icons col-6">
                         <Row>
                             <div className="offset-1 col-2">
-                                <i className="fa fa-commenting-o icon-one" aria-hidden="true"><span
-                                    className="2">2</span></i>
+                                <CommentsIcon value={2}/>
+
                             </div>
                             <div className="offset-2 col-1">
-                                <i className="fa fa-heart-o icon-two" aria-hidden="true"><span
-                                    className="3">3</span></i>
+                                <HeartIcon value={3}/>
+
                             </div>
                         </Row>
                     </div>

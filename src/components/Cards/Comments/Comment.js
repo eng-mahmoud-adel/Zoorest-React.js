@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from '../../Avatars/Avatar';
 import {Card, Col, Row} from "react-bootstrap";
+import {CommentsIcon} from "../../Icons";
 
 const Comment = (props) => {
     const {model} = props;
@@ -20,8 +21,7 @@ const Comment = (props) => {
                                 span="Manager" image={model.author.image_url}/>
                     </Col>
                     <Col xs={2} className="icon">
-                        <i className={"icon fa fa-heart-o"} aria-hidden="true">
-                            <span>0</span></i>
+                        <CommentsIcon value={0}/>
                     </Col>
                 </Row>
             </Card.Footer>
