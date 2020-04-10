@@ -51,12 +51,10 @@ const DropFile = (props) => {
   ]);
 
   return (
-    <div className="container">
       <div {...getRootProps({style})}>
         <input {...getInputProps()} />
         <p className= "text-center"><span className= "rounded-circle mx-auto d-block w-50 text-white bg-info">+</span> <span className= "d-block">Upload</span> </p>
       </div>
-    </div>
   );
 }
 

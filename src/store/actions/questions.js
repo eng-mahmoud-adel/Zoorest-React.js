@@ -1,7 +1,4 @@
-import axios from 'axios'
-
-import config from '../../config'
-import {GET_RECENT_ARTICLES} from "./articles";
+import ApiService from "../../services/ApiService";
 
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const GET_RECENT_QUESTIONS = 'GET_RECENT_QUESTIONS';
@@ -21,8 +18,14 @@ export const GET_MORE_QUESTION_COMMENTS = 'GET_MORE_QUESTION_COMMENTS';
 export const GET_QUESTION_COMMENTS_LOADING = 'GET_QUESTION_COMMENTS_LOADING';
 export const GET_QUESTION_COMMENTS_LOADED = 'GET_QUESTION_COMMENTS_LOADED';
 
+export const CREATE_QUESTION_COMMENT = 'CREATE_QUESTION_COMMENT';
+
+const ENDPOINT = 'questions'
+const CommentsEndpoint = 'comments/'
+
+
 export const getRecentQuestions = (limit = 5) => async (dispatch) => {
-    await axios.get(`${config.apiUrl}questions?perPage=${limit}`)
+    await ApiService.get(`${ENDPOINT}?perPage=${limit}`)
         .then(
             (response) => {
                 dispatch({
@@ -38,7 +41,7 @@ export const getRecentQuestions = (limit = 5) => async (dispatch) => {
 };
 
 export const getMoreRecentQuestions = (nextPageUrl) => async (dispatch) => {
-    await axios.get(nextPageUrl)
+    await ApiService.get(nextPageUrl)
         .then(
             (response) => {
                 dispatch({
@@ -54,7 +57,7 @@ export const getMoreRecentQuestions = (nextPageUrl) => async (dispatch) => {
 };
 
 export const getNotAnsweredQuestions = (limit = 5) => async (dispatch) => {
-    await axios.get(`${config.apiUrl}questions?perPage=${limit}&query_type=not_answered`)
+    await ApiService.get(`${ENDPOINT}?perPage=${limit}&query_type=not_answered`)
         .then(
             (response) => {
                 dispatch({
@@ -69,7 +72,7 @@ export const getNotAnsweredQuestions = (limit = 5) => async (dispatch) => {
 };
 
 export const getMoreNotAnsweredQuestions = (nextPageUrl) => async (dispatch) => {
-    await axios.get(nextPageUrl)
+    await ApiService.get(nextPageUrl)
         .then(
             (response) => {
                 dispatch({
@@ -85,7 +88,7 @@ export const getMoreNotAnsweredQuestions = (nextPageUrl) => async (dispatch) => 
 
 export const getMostCommonQuestions = (limit = 5) => async (dispatch) => {
 
-    await axios.get(`${config.apiUrl}questions?perPage=${limit}&query_type=common`)
+    await ApiService.get(`${ENDPOINT}?perPage=${limit}&query_type=common`)
         .then(
             (response) => {
                 dispatch({
@@ -100,7 +103,7 @@ export const getMostCommonQuestions = (limit = 5) => async (dispatch) => {
 };
 
 export const getMoreMostCommonQuestions = (nextPageUrl) => async (dispatch) => {
-    await axios.get(nextPageUrl)
+    await ApiService.get(nextPageUrl)
         .then(
             (response) => {
                 dispatch({
@@ -118,7 +121,7 @@ export const getSingleQuestion = (id) => async (dispatch) => {
     dispatch({
         type: GET_QUESTION_LOADING
     });
-    await axios.get(`${config.apiUrl}questions/${id}`)
+    await ApiService.get(`${ENDPOINT}/${id}`)
         .then(
             (response) => {
 
@@ -152,7 +155,7 @@ export const setSingleQuestion = (question) => async (dispatch) => {
 
 
 export const getQuestionComments = (id, limit = 5) => async (dispatch) => {
-    await axios.get(`${config.apiUrl}questions/${id}/comments?perPage=${limit}`)
+    await ApiService.get(`${ENDPOINT}/${id}/comments?perPage=${limit}`)
         .then(
             (response) => {
                 dispatch({
@@ -173,7 +176,7 @@ export const getQuestionComments = (id, limit = 5) => async (dispatch) => {
 };
 
 export const getMoreQuestionComments = (nextPageUrl) => async (dispatch) => {
-    await axios.get(nextPageUrl)
+    await ApiService.get(nextPageUrl)
         .then(
             (response) => {
                 console.log(response.data);
@@ -193,17 +196,33 @@ export const getMoreQuestionComments = (nextPageUrl) => async (dispatch) => {
         );
 };
 
-// export const createReply = (threadId, data) => async (dispatch) => {
-//     const response = await axios.post(`${config.apiUrl}/threads/${threadId}/replies`, data, {
-//         headers: {
-//             Authorization: `Bearer ${getState().auth.accessToken}`
-//         }
-//     });
-//
-//     dispatch({
-//         type: QUESTION_CREATED,
-//         payload: response.data
-//     });
-//
-//     dispatch(getQuestions(threadId))
-// };
+export const addComment = (question_id, data, callback) => async (dispatch, getState) => {
+
+    await ApiService
+        .post(`${ENDPOINT}/${question_id}/${CommentsEndpoint}`,
+            data,
+            {
+                headers: {
+                    Authorization: `Bearer ${getState().authUser.accessToken}`
+                }
+            })
+        .then(
+            (response) => {
+                dispatch({
+                    type: CREATE_QUESTION_COMMENT,
+                    payload: response.data.data,
+                });
+
+                if(callback) {
+                    callback();
+                }
+            },
+            (error) => {
+                console.log(error.response);
+
+                if(callback) {
+                    callback();
+                }
+            }
+        );
+}

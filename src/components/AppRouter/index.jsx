@@ -9,7 +9,7 @@ import CommentCards from '../../pages/ShowingCards/CommentCards';
 import AdsCard from '../../pages/ShowingCards/AdsCard';
 import Forms from '../../pages/ShowingForms/Forms';
 import singleQuestionReducer from "../../pages/Questions/details";
-import AllQuestionsContainer from "../../pages/Questions";
+import AllQuestionsContainer from "../../pages/Questions/index";
 import Doctors from '../../pages/FindDoctors/Doctors';
 import DoctorProfile from '../../pages/FindDoctors/Doctor/index';
 

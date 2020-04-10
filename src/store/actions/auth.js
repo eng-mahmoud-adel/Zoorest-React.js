@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {SubmissionError} from 'redux-form'
 
 import ApiService from "../../services/ApiService";
@@ -13,7 +12,10 @@ export const loginUser = (values) => async (dispatch) => {
         .then(
             (response) => {
                 console.log(response);
-                localStorage.setItem('authUser', JSON.stringify(response.data));
+                localStorage.setItem('authUser', JSON.stringify({
+                    user: response.data,
+                    accessToken: response.headers.authorization
+                }));
 
                 dispatch({
                     type: LOGIN_USER,

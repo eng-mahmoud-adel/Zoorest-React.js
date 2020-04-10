@@ -1,6 +1,5 @@
 import {combineReducers} from 'redux'
 
-import {reducer as formReducer} from 'redux-form'
 import authReducer from './auth'
 import articlesReducer from "./articles";
 import homePageReducer from "./page-reducers/homepage";
@@ -24,7 +23,6 @@ const reducer = combineReducers({
     questions: questionsReducer,
     testimonials: testimonialsReducer,
     posts: postsReducer,
-    form: formReducer,
 });
 
 export default reducer

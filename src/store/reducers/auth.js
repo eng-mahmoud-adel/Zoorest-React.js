@@ -1,6 +1,6 @@
 import {LOGIN_USER, LOGOUT_USER} from '../actions/auth'
 
-const authUser = null;//JSON.parse(localStorage.getItem('authUser'));
+const authUser = JSON.parse(localStorage.getItem('authUser'));
 const initialState = {
     user: authUser ? authUser.user : null,
     accessToken: authUser ? authUser.access_token : null

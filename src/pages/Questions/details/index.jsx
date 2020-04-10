@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux";
 import {
+    addComment,
     getMoreQuestionComments,
     getQuestionComments,
     getSingleQuestion, setSingleQuestion
@@ -8,13 +9,12 @@ import {
 
 import Question from "../../../components/Cards/Questions/Question";
 import {Breadcrumb} from "react-bootstrap";
-import BannerImage from "../../../images/assets/images/Bg@3x.png";
-import AskQuestion from "../../../components/Cards/Questions/AskQuestion";
-import TopQuestionsMembers from "../../../components/Cards/Questions/TopQuestionsMembers";
-import Avatar from "../../../components/Avatars/Avatar";
-import LeaveComment from "../../../components/Cards/Comments/LeaveComment";
+import LeaveCommentForm from "../../../components/Cards/Comments/LeaveComment";
 import Comment from "../../../components/Cards/Comments/Comment";
 import LazyList from "../../../components/DataList";
+import QuestionBasePage from "../_layout";
+import {showModal} from "../../../store/actions/modal";
+import LoginForm from "../../../components/Forms/LoginForm";
 
 const SingleQuestionContainer = props => {
     const {
@@ -23,12 +23,11 @@ const SingleQuestionContainer = props => {
         getMoreComments,
         setSingleQuestion,
         incrementViews,
+        leaveComment,
+        showModal
     } = props;
 
-    const {
-        pageData,
-        questions
-    } = props;
+    const {questions, stateData, authUser} = props;
     const {id} = props.match.params;
     const cached_question = questions.find(question => question.id = id)
 
@@ -48,87 +47,75 @@ const SingleQuestionContainer = props => {
         incrementViews(id);
     }, [incrementViews, id]);
 
-    const handleCommentSubmitted = (values) => {
-        console.log(values)
+    const handleCommentSubmitted = (values, {setSubmitting}) => {
+        console.log(authUser);
+        debugger;
+        if ("undefined" === typeof authUser.accessToken) {
+
+            setSubmitting(false)
+            showModal(LoginForm);
+
+        } else {
+
+            leaveComment(id, values, () => {
+                setSubmitting(false)
+            });
+
+        }
+
     };
+
     return (
-        <div id="questions-index">
-            <div className="jumbotron jumbotron-fluid " style={{backgroundImage: `url(${BannerImage})`}}>
-                <div className="container text-center">
-                    <h3 className="banner-title">{pageData.banner_title}</h3>
-                    <p>{pageData.banner_description}</p>
-                </div>
-            </div>
-            <div className="container mt-5">
-                <div className="row">
-                    <div className="col-12 col-lg-9">
 
-                        {/*breadcrumbs*/}
-                        <div className="row">
-                            <Breadcrumb className={"w-100"}>
-                                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                                <Breadcrumb.Item href="/questions">
-                                    Library
-                                </Breadcrumb.Item>
-                                <Breadcrumb.Item active>Question {id}</Breadcrumb.Item>
-                            </Breadcrumb>
+        <QuestionBasePage>
 
-                        </div>
+            {/*breadcrumbs*/}
+            <div className="row">
+                <Breadcrumb className={"w-100"}>
+                    <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/questions">
+                        Library
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item active>Question {id}</Breadcrumb.Item>
+                </Breadcrumb>
 
-                        {/*post Item*/}
-
-                        <div className="row">
-                            {props.singleQuestion.loading === false &&
-                            <Question model={props.singleQuestion.model} hide_add_answer={true}/>}
-                        </div>
-                        {/*comments*/}
-
-                        <div className="row mx-2 my-4">
-                            <h4>X Answers</h4>
-                        </div>
-
-                        <div className="row">
-                            <LeaveComment onSubmit={handleCommentSubmitted}/>
-                        </div>
-
-
-                        <div className="row my-3">
-                            <div className="col-12 mx-0">
-                                {!props.singleQuestion.loadingComments ?
-                                    <LazyList
-                                        data={props.singleQuestion.comments}
-                                        component={Comment}
-                                        placeholderComponent={Comment}
-                                        fetchMoreData={getMoreComments}
-                                        refresh={getComments}
-                                    /> : <h2>No Comments</h2>}
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-3 px-5 d-none d-lg-block">
-                        <div className="row mb-3">
-                            <AskQuestion cardTextOne="Questions" cardTextTwo="Answers"
-                                         numberOne="33333" numberTwo="33333"/>
-                        </div>
-                        <div className="row mb-3 d-none d-lg-block">
-                            <TopQuestionsMembers className="top-membes-card" cardTitle="Top Questions"
-                                                 cardText="How to approach applying for a job at a company ?"/>
-                        </div>
-                        <div className="row mb-3 d-none d-lg-block">
-                            <TopQuestionsMembers className="top-membes-card" cardTitle="Top Members"
-                                                 avatar={Avatar}/>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-        </div>
+            {/*post Item*/}
+
+            <div className="row">
+                {stateData.loading === false &&
+                <Question model={stateData.model} hide_add_answer={true}/>}
+            </div>
+            {/*comments*/}
+
+            <div className="row mx-2 my-4">
+                <h4>{stateData.model.replies_count} Answers</h4>
+            </div>
+
+            <div className="row">
+                <LeaveCommentForm onSubmit={handleCommentSubmitted} withImages/>
+            </div>
+
+            <div className="row my-3">
+                <div className="col-12 mx-0">
+                    {!stateData.loadingComments ?
+                        <LazyList
+                            data={stateData.comments}
+                            component={Comment}
+                            placeholderComponent={Comment}
+                            fetchMoreData={getMoreComments}
+                            refresh={getComments}
+                        /> : <h2>No Comments</h2>}
+                </div>
+            </div>
+        </QuestionBasePage>
     );
 };
 const mapStateToProps = (state) => ({
     pageData: state.questionsPage,
     questions: state.questions.all,
-    singleQuestion: state.singleQuestionPage,
+    stateData: state.singleQuestionPage,
     authUser: state.authUser,
 });
 
@@ -145,14 +132,17 @@ const mapDispatchToProps = dispatch => ({
     getMoreComments: (nextPageUrl) => {
         dispatch(getMoreQuestionComments(nextPageUrl));
     },
-    leaveComment: () => {
-        //todo implement
+    leaveComment: (question_id, data, callback) => {
+        dispatch(addComment(question_id, data, callback));
     },
     incrementViews: () => {
         //todo implement
     },
     favorite: () => {
         //todo implement
+    },
+    showModal: (component) => {
+        dispatch(showModal(component));
     }
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SingleQuestionContainer);

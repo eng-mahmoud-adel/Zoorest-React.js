@@ -1,4 +1,3 @@
-import config from './../../config'
 import ApiService from "../../services/ApiService";
 
 export const GET_ARTICLES = 'GET_ARTICLES';

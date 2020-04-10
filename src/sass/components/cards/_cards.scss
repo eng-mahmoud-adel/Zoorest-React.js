@@ -316,15 +316,14 @@
   }
 
   .card-body {
-    padding: 0;
+    border: 1px solid $secondary;
+    border-radius: $border-radius-8;
 
     .card-text {
       margin-top: $margin-24;
       padding: $padding-8;
       font-size: $font-size-14;
       color: $gray-color;
-      border: 1px solid $secondary;
-      border-radius: $border-radius-8;
     }
   }
 }

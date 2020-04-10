@@ -1,4 +1,5 @@
 import {
+    CREATE_QUESTION_COMMENT,
     GET_MORE_QUESTION_COMMENTS,
     GET_QUESTION,
     GET_QUESTION_COMMENTS,
@@ -48,6 +49,14 @@ const singleQuestionReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loadingComments: false
+            };
+        case CREATE_QUESTION_COMMENT:
+            return {
+                ...state,
+                comments: new ModelPaginatedResource({
+                    ...state.comments,
+                    data: [action.payload, ...state.comments.data],
+                }),
             };
 
         default:
