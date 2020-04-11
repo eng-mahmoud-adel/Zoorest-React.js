@@ -54,23 +54,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "hintConfig": {
-    "connector": {
-      "name": "connectorName"
-    },
-    "formatters": [
-      "formatterName"
-    ],
-    "parsers": [
-      "parserName"
-    ],
-    "hints": {
-      "hint1": "error",
-      "hint2": "warning",
-      "hint3": "off"
-    },
-    "hintsTimeout": 120000
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -85,8 +68,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@hint/hint-meta-theme-color": "^3.2.2"
   }
 }
