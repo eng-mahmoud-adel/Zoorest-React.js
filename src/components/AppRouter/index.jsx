@@ -8,10 +8,11 @@ import PostCards from '../../pages/ShowingCards/PostCards';
 import CommentCards from '../../pages/ShowingCards/CommentCards';
 import AdsCard from '../../pages/ShowingCards/AdsCard';
 import Forms from '../../pages/ShowingForms/Forms';
-import singleQuestionReducer from "../../pages/Questions/details";
-import AllQuestionsContainer from "../../pages/Questions/index";
+import QuestionDetails from "../../pages/Questions/details";
+import QuestionsAll from "../../pages/Questions";
 import Doctors from '../../pages/FindDoctors/Doctors';
 import DoctorProfile from '../../pages/FindDoctors/Doctor/index';
+import AuthRoute from "../Auth";
 
 const AppRouter = () => (
     <Fragment>
@@ -22,13 +23,19 @@ const AppRouter = () => (
             <Route path="/post" component={PostCards}/>
             {/*<Route path="/demo-question" component={QuestionCards}/>*/}
 
-            <Route path="/question/:id" component={singleQuestionReducer}/>
-            <Route path="/question" component={AllQuestionsContainer}/>
+            <Route path="/question/:id" component={QuestionDetails}/>
+            <Route path="/question" component={QuestionsAll}/>
 
             <Route path="/comment" component={CommentCards}/>
 
             <Route exact path="/doctor" component={Doctors}/>
             <Route path="/doctor/profile/:id" component={DoctorProfile}/>
+            {/*todo <AuthRoute
+            path="/doctor/profile/:id/edit"
+            component={}
+            props={}
+            isAuthenticated={check if auth user exists}
+            />*/}
 
             <Route path="/advertisement" component={AdsCard}/>
             <Route path="/forms" component={Forms}/>
