@@ -4,6 +4,7 @@ import ApiService from "../../services/ApiService";
 
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
+export const GET_USER_DATA = 'GET_USER_DATA';
 
 export const loginUser = (values) => async (dispatch) => {
 
@@ -12,15 +13,40 @@ export const loginUser = (values) => async (dispatch) => {
         .then(
             (response) => {
                 console.log(response);
-                localStorage.setItem('authUser', JSON.stringify({
-                    user: response.data,
-                    accessToken: response.headers.authorization
-                }));
+
+                //save only the access token locally, and get user data using this key
+                localStorage.setItem('access_token', response.headers.authorization);
 
                 dispatch({
                     type: LOGIN_USER,
                     payload: response.data,
                     accessToken: response.headers.authorization,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
+
+export const getAuthData = () => async (dispatch, getState) => {
+
+    //if there is no access token in the state, dont attempt to retrieve data
+    if (!getState().authUser.accessToken) {
+        return;
+    }
+    await ApiService
+        .post(`auth/getData`, {}, {
+            headers: {
+                Authorization: `Bearer ${getState().authUser.accessToken}`
+            }
+        })
+        .then(
+            (response) => {
+                console.log(response);
+                dispatch({
+                    type: GET_USER_DATA,
+                    payload: response.data,
                 })
             },
             (error) => {

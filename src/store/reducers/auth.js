@@ -1,9 +1,8 @@
-import {LOGIN_USER, LOGOUT_USER} from '../actions/auth'
+import {GET_USER_DATA, LOGIN_USER, LOGOUT_USER} from '../actions/auth'
 
-const authUser = JSON.parse(localStorage.getItem('authUser'));
 const initialState = {
-    user: authUser ? authUser.user : null,
-    accessToken: authUser ? authUser.access_token : null
+    user: null,
+    accessToken: localStorage.getItem('access_token')
 };
 
 const authReducer = (state = initialState, action) => {
@@ -13,6 +12,11 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload,
                 accessToken: action.accessToken
+            };
+        case GET_USER_DATA:
+            return {
+                ...state,
+                user: action.payload,
             };
         case LOGOUT_USER:
             return {
