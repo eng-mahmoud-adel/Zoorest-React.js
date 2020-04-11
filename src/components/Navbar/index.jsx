@@ -11,10 +11,9 @@ import BaseNavbar from "react-bootstrap/Navbar";
 import {showModal} from "../../store/actions/modal";
 import LoginForm from "../Forms/LoginForm";
 import SignUpForm from "../Forms/SignUpForm";
-import {Trans} from "react-i18next";
-import { withTranslation } from 'react-i18next';
 
-const Auth = ({authUser, showModal,t}) => {
+const Auth = ({authUser, showModal}) => {
+
     const showSignUpModal = () => {
         showModal(SignUpForm);
     };
@@ -30,9 +29,7 @@ const Auth = ({authUser, showModal,t}) => {
                 <Fragment>
                     {/*Show Sign in and Sign up Button when there is no auth user*/}
                     <Nav.Item as="li" className="mr-3">
-                        <Link className="nav-link" to="#" onClick={showSignInModal}>
-                            <Trans>login</Trans>
-                        </Link>
+                        <Link className="nav-link" to="#" onClick={showSignInModal}>Login</Link>
                     </Nav.Item>
 
                     <Nav.Item as="li">
@@ -72,19 +69,19 @@ const Navbar = (props) => (
 
                 <Nav as="ul" className="navbar-nav w-100 justify-content-between">
                     <Nav.Item as="li">
-                        <Link className="nav-link" to="/"><Trans>home</Trans></Link>
+                        <Link className="nav-link" to="/">Home</Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Link className="nav-link" to="/question"><Trans>questions</Trans></Link>
+                        <Link className="nav-link" to="/question">Questions</Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Link className="nav-link" to="/article"><Trans>articles</Trans></Link>
+                        <Link className="nav-link" to="/article">Articles</Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Link className="nav-link find-doctor" to="/doctor"><Trans>find_doc</Trans></Link>
+                        <Link className="nav-link find-doctor" to="/doctor">Find a doctor</Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Link className="nav-link" to="/post"><Trans>posts</Trans></Link>
+                        <Link className="nav-link" to="/post">Adoptions</Link>
                     </Nav.Item>
                 </Nav>
 
