@@ -18,7 +18,7 @@ const Doctors = (props) => {
 
             <section className= "pro-doctors">
                 <div className= "mb-3">(213) Doctor</div>
-                <div className= "row">
+                <div className= "row mb-3">
                     <div className= "col-lg-2 col-md-3 mb-3 mb-lg-0">
                         <span>Country:</span>
                     </div>

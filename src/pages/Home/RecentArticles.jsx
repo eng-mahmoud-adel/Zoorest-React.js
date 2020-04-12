@@ -35,7 +35,7 @@ const RecentArticles = props => {
     return (
         <Fragment>
             <div className="row">
-                <h2 className="col-md-3 title font-weight-bold">Recent Articles</h2>
+                <h2 className="col-md-3 title font-weight-bold mt-0 pt-0">Recent Articles</h2>
                 <div className="col-md-6"/>
                 <a href="/articles" className="col-md-3">See More Articles</a>{/*todo localise*/}
             </div>
