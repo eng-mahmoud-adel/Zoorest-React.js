@@ -7,7 +7,7 @@ const SponsoredProviderSection = (props) => {
     return (
         <div className="row p-3">
             <div className="col-lg-5 mb-4 mb-md-4">
-                <h1 className="title mb-5 mt-0 font-weight-bold">Find the Nearest Doctor for your Pets in Seconds</h1>
+                <h1 className="title mb-5 mt-0 font-weight-bold">Find the Nearest Doctor<br /> for your Pets in Seconds</h1>
                 <div className="wrapper mb-4">
                     <h3 className="font-weight-bold">Book your appointment now through our website</h3>
                     <p>Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal

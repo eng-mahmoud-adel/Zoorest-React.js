@@ -28,7 +28,7 @@
     padding: 0;
 
     .card-text {
-      padding: $padding-8 $padding-24 0;
+      padding: $padding-8 $padding-24 $padding-12;
       font-size: $font-size-14;
       color: $gray-color;
       @include ellipsis(3)
@@ -91,7 +91,7 @@
     padding: 0;
 
     .card-text {
-      padding: $padding-8 $padding-24 0;
+      padding: $padding-8 $padding-24 $padding-12;
       font-size: $font-size-14;
       color: $gray-color;
     }
@@ -558,15 +558,29 @@
     color: $light;
     // for extra small screens
     @media (max-width: 575.98px) {
-      left: -60px;
+      left: -80px;
     }
     // for small screens
     @media (min-width: 576px) {
-      left: -80px;
+      left: -135px;
     }
     // for medium screens
     @media (min-width: 768px) {
-      left: -50px;
+      left: -80px;
+    }
+    // for large screens
+    @media (min-width: 992px) {
+      left: -60px;
+    }
+    // for extra large screens
+    @media (min-width: 1200px) {
+      left: -80px;
+    }
+  }
+
+  .img-container {
+    img {
+      height: 70px;
     }
   }
 
@@ -580,6 +594,7 @@
   .card-text {
     color: $gray-color;
     font-size: $font-size-14;
+    height: 44px;
     @include ellipsis(2)
   }
 

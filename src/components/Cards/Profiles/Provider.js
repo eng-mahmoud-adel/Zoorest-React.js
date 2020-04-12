@@ -5,21 +5,27 @@ import RateBar from '../..';
 import Card from "react-bootstrap/Card";
 import Tag from '../../Tags/Tag';
 import {Link} from 'react-router-dom';
+import Booking from '../Booking/Booking';
 import {ViewsIcon} from "../../Icons";
 
 const Provider = (props) => {
-    const {provider} = props;
+    const {provider, showModal} = props;
+
+    const showAppointmentModal = () => {
+        showModal(Booking);
+    };
+
     return (
         <Card className={`provider-card ${props.className}`}>
             <Card.Body className="text-center">
                 {<div className= "row">
                     {provider.provider_data.sponsored_until === null ?
-                        <div className= "col-7 pro-title">Pro</div>
+                        <div className= "col-8 pro-title">Pro</div>
                         : ""
                     }
 
                     {provider.provider_data.nearby === true ?
-                        <div className= "col-5">
+                        <div className= "col-4">
                             <Tag className= "tag-one" text= "Nearby" />
                         </div> : ""
                     }
@@ -32,7 +38,7 @@ const Provider = (props) => {
                     }
                 </div>
                 <Card.Title className="font-weight-bold">{provider ? provider.name : props.cardTitle}</Card.Title>
-                <div className="row">
+                <div className="row mb-2">
                     <div className="col-md-7">
                         <RateBar rate={provider.provider_data.rate ? provider.provider_data.rate : 5}/>
                     </div>
@@ -41,18 +47,22 @@ const Provider = (props) => {
 
                     </div>
                 </div>
-                <Card.Text className="align-content-center">{provider ? provider.description : props.cardText}</Card.Text>
+                <Card.Text className="align-content-center mb-1">{provider ? provider.description : props.cardText}</Card.Text>
                 {provider.provider_data.examination_price ? <p>Examination Fee: <span className= "price">{provider.provider_data.examination_price}</span></p> : ""}
                     {provider.has_appointments ?
                     <div className= "row">
-                        <div className= "col-xl-4 mb-2 mb-xl-0">
-                            <Link to= {`/doctor/profile/${provider.id}`}><Button text="View Profile" color="btn btn-light" size="btn-xs"/></Link>
+                        <div className= "col-xl-4 pl-xl-2 pr-xl-0 mb-2 mb-xl-0">
+                            <Link to= {`/doctor/profile/${provider.id}`}>
+                                <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
+                            </Link>
                         </div>
                         <div className= "col-xl-8">
-                            <Button text="Make an Appointment" color="btn btn-info" size="btn-xs"/>
+                            <Button text="Make an Appointment" color="btn btn-info" size="btn-xs" onClick= {showAppointmentModal}/>
                         </div>
                     </div> : <div className="w-75 mx-auto">
-                    <Link to= {`/doctor/profile/${provider.id}`}><Button text="View Profile" color="btn btn-light" size="btn-xs"/></Link>
+                    <Link to= {`/doctor/profile/${provider.id}`}>
+                        <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
+                    </Link>
                 </div>}
             </Card.Body>
         </Card>
