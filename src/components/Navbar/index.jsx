@@ -11,6 +11,7 @@ import BaseNavbar from "react-bootstrap/Navbar";
 import {showModal} from "../../store/actions/modal";
 import LoginForm from "../Forms/LoginForm";
 import SignUpForm from "../Forms/SignUpForm";
+import {withTranslation} from 'react-i18next';
 
 const Auth = ({authUser, showModal}) => {
 
@@ -54,42 +55,43 @@ const Navbar = (props) => (
     <header>
         <BaseNavbar fixed="top" expand="md" bg="faded" className="justify-content-center">
 
-            <BaseNavbar.Brand href="/" className={"d-flex w-50 mr-auto"}>
-                <img
-                    src={logo}
-                    width={100}
-                    className="d-inline-block align-top"
-                    alt="zoorest brand logo"
-                />
-            </BaseNavbar.Brand>
+                <BaseNavbar.Brand href="/" className={"d-flex w-50 mr-auto"}>
+                    <img
+                        src={logo}
+                        width={100}
+                        className="d-inline-block align-top"
+                        alt="zoorest brand logo"
+                    />
+                </BaseNavbar.Brand>
 
-            <BaseNavbar.Toggle aria-controls="collapsingNavbar"/>
+                <BaseNavbar.Toggle aria-controls="collapsingNavbar"/>
 
-            <BaseNavbar.Collapse className="w-100" id="collapsingNavbar">
+                <BaseNavbar.Collapse className="w-100" id="collapsingNavbar">
 
-                <Nav as="ul" className="navbar-nav w-100 justify-content-between">
-                    <Nav.Item as="li">
-                        <Link className="nav-link" to="/">Home</Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                        <Link className="nav-link" to="/question">Questions</Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                        <Link className="nav-link" to="/article">Articles</Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                        <Link className="nav-link find-doctor" to="/doctor">Find a doctor</Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                        <Link className="nav-link" to="/post">Adoptions</Link>
-                    </Nav.Item>
-                </Nav>
+                    <Nav as="ul" className="navbar-nav w-100 justify-content-between">
+                        <Nav.Item as="li">
+                            <Link className="nav-link" to="/">{t('home')}</Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Link className="nav-link" to="/question">{t('questions')}</Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Link className="nav-link" to="/article">{t('articles')}</Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Link className="nav-link find-doctor" to="/doctor">{t('find_doc')}</Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Link className="nav-link" to="/post">{t('posts')}</Link>
+                        </Nav.Item>
+                    </Nav>
 
-                <Auth authUser={props.authUser} showModal={props.showModal}/>
-            </BaseNavbar.Collapse>
-        </BaseNavbar>
-    </header>
-);
+                    <Auth authUser={props.authUser} showModal={props.showModal}/>
+                </BaseNavbar.Collapse>
+            </BaseNavbar>
+        </header>
+    )
+};
 
 const mapStateToProps = (state) => ({
     authUser: state.authUser,
@@ -101,4 +103,4 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Navbar));
