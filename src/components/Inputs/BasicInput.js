@@ -2,7 +2,7 @@ import React from 'react';
 
 const BasicInput = (props) => {
     return (
-        <div className="input-group mb-3">
+        <div className="input-group">
             {props.left_icon && <div className="input-group-prepend">
                 <span className="input-group-text icon"><i className= {props.left_icon} aria-hidden="true"></i></span>
             </div>}
