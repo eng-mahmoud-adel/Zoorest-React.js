@@ -20,23 +20,23 @@ const Post = (props) => {
                 <Card.Text>{props.data ? props.data.description : props.cardText}</Card.Text>
             </Card.Body>
             <Card.Footer className="mt-5">
-                <Row>
-                    <div className="col-3">
+                <Row className= "justify-content-between">
+                    <div className="col-xl-4 col-lg-5 col-sm-5 col-7 mb-2 mb-xl-0">
                         <Avatar className="avatar-four" name="Terry Williams" span="Manager" image={image}/>
                     </div>
-                    <div className="icons col-6">
+                    <div className="icons col-xl-3 col-lg-4 col-sm-3 col-5">
                         <Row>
-                            <div className="offset-1 col-2">
+                            <div>
                                 <i className="fa fa-commenting-o icon-one" aria-hidden="true"><span
                                     className="2">2</span></i>
                             </div>
-                            <div className="offset-2 col-1">
+                            <div className="offset-4">
                                 <i className="fa fa-heart-o icon-two" aria-hidden="true"><span
                                     className="3">3</span></i>
                             </div>
                         </Row>
                     </div>
-                    <Col xs={3}>
+                    <Col xs={6} sm={5} lg={5} xl={4}>
                         <Button text="Contact owner" color="btn btn-info" size="btn-sm"/>
                     </Col>
                 </Row>
