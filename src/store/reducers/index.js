@@ -9,6 +9,7 @@ import testimonialsReducer from "./testimonials";
 import postsReducer from "./posts";
 import questionsPageReducer from "./page-reducers/questions_page";
 import singleQuestionReducer from "./questions/singleQuestionPage";
+import i18nReducer from "./i18n";
 import modalReducer from "./modal";
 
 const reducer = combineReducers({
@@ -23,6 +24,7 @@ const reducer = combineReducers({
     questions: questionsReducer,
     testimonials: testimonialsReducer,
     posts: postsReducer,
+    i18n: i18nReducer,
 });
 
 export default reducer

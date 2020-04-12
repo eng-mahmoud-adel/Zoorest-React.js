@@ -13,8 +13,7 @@ import LoginForm from "../Forms/LoginForm";
 import SignUpForm from "../Forms/SignUpForm";
 import {withTranslation} from 'react-i18next';
 
-const Auth = ({authUser, showModal}) => {
-
+const Auth = withTranslation()(({authUser, showModal, t}) => {
     const showSignUpModal = () => {
         showModal(SignUpForm);
     };
@@ -30,7 +29,9 @@ const Auth = ({authUser, showModal}) => {
                 <Fragment>
                     {/*Show Sign in and Sign up Button when there is no auth user*/}
                     <Nav.Item as="li" className="mr-3">
-                        <Link className="nav-link" to="#" onClick={showSignInModal}>Login</Link>
+                        <Link className="nav-link" to="#" onClick={showSignInModal}>
+                            {t('login')}
+                        </Link>
                     </Nav.Item>
 
                     <Nav.Item as="li">
@@ -49,11 +50,14 @@ const Auth = ({authUser, showModal}) => {
 
         </ul>
     );
-};
+});
 
-const Navbar = (props) => (
-    <header>
-        <BaseNavbar fixed="top" expand="md" bg="faded" className="justify-content-center">
+const Navbar = (props) => {
+    const {t} = props;
+
+    return (
+        <header>
+            <BaseNavbar fixed="top" expand="md" bg="faded" className="justify-content-center">
 
                 <BaseNavbar.Brand href="/" className={"d-flex w-50 mr-auto"}>
                     <img
