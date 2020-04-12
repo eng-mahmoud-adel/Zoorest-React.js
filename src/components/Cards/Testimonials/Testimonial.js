@@ -7,7 +7,7 @@ const Testimonial = (props) => {
     return (
         <Card className={`testimonial-card my-4 ${props.className ? props.className : ""}`}>
             <Card.Title className= "mx-auto mb-0">
-                <img src= {QuoteImage} className= "img-fluid" />
+                <img src={QuoteImage} className="img-fluid" alt="quote"/>
             </Card.Title>
             <Card.Body className= "py-0">
                 <Card.Text>{testimonial ? testimonial.text.substring(0, 220) : ""}</Card.Text>

@@ -12,7 +12,6 @@ import QuestionDetails from "../../pages/Questions/details";
 import QuestionsAll from "../../pages/Questions";
 import Doctors from '../../pages/FindDoctors/Doctors';
 import DoctorProfile from '../../pages/FindDoctors/Doctor/index';
-import AuthRoute from "../Auth";
 
 const AppRouter = () => (
     <Fragment>

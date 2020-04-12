@@ -45,10 +45,7 @@ const DropFile = (props) => {
     ...(isDragActive ? activeStyle : {}),
     ...(isDragAccept ? acceptStyle : {}),
     ...(isDragReject ? rejectStyle : {})
-  }), [
-    isDragActive,
-    isDragReject
-  ]);
+  }), [isDragAccept, isDragActive, isDragReject]);
 
   return (
       <div {...getRootProps({style})}>

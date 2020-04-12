@@ -42,18 +42,21 @@ const Footer = (props) => {
                         </Nav>
                         <ul className="navbar-nav w-25 justify-content-end social-links">
                             <li className= "nav-item">
-                                <a className= "nav-link" href= "https://www.facebook.com/zoorestEG/" target= "_blank">
+                                <a className="nav-link" href="https://www.facebook.com/zoorestEG/"
+                                   rel="noopener noreferrer" target="_blank">
                                     <FacebookIcon/>
                                 </a>
                             </li>
                             <li className= "nav-item">
-                                <a className= "nav-link" href= "https://www.instagram.com/zoorest/" target= "_blank">
+                                <a className="nav-link" href="https://www.instagram.com/zoorest/"
+                                   rel="noopener noreferrer" target="_blank">
                                     <InstagramIcon/>
 
                                 </a>
                             </li>
                             <li className= "nav-item">
-                                <a className= "nav-link" href= "https://twitter.com/zoorest/" target= "_blank">
+                                <a className="nav-link" href="https://twitter.com/zoorest/" rel="noopener noreferrer"
+                                   target="_blank">
                                     <TwitterIcon/>
 
                                 </a>

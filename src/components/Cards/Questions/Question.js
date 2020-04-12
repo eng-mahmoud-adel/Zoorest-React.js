@@ -6,7 +6,6 @@ import image from "../../../images/placeholders/100X100.png";
 import Card from "react-bootstrap/Card";
 import {Link} from "react-router-dom";
 import {CommentsIcon, HeartIcon, ViewsIcon} from "../../Icons";
-import {MdComment, MdRemoveRedEye} from "react-icons/all";
 
 const Question = (props) => {
     const model = props.model;

@@ -2,10 +2,9 @@ import React from 'react';
 import Avatar from '../../Avatars/Avatar';
 import Button from '../../Buttons/Button/Button';
 import RateBar from '../..';
-import {faEye} from '@fortawesome/free-solid-svg-icons'
 import Card from "react-bootstrap/Card";
 import Tag from '../../Tags/Tag';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {ViewsIcon} from "../../Icons";
 
 const Provider = (props) => {

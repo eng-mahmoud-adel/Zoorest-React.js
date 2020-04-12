@@ -14,8 +14,8 @@ const LoginForm = (props) => {
                 </div>
                 <div className= "container">
                     <div className= "wrapper">
-                        <div className= "overlay"></div>
-                        <h3 className= "title text-center font-weight-bold">Login to your account</h3>
+                        <div className="overlay"/>
+                        <h3 className="title text-center font-weight-bold">Login to your account</h3>
                         <div>
                             <BasicInput className= "basic-input" type= "email" placeholder= "Email" />
                         </div>

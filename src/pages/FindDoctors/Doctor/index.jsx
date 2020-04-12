@@ -15,7 +15,7 @@ const DoctorProfile = (props) => {
 
     return (
         <div className="container profile my-5 pt-5">
-            {provider.map(provider => provider.id == id ? <div className="row" key={provider.id}>
+            {provider.map(provider => provider.id === id ? <div className="row" key={provider.id}>
                 <div className="col-md-1">
                     <Avatar className="avatar-four" image={provider.image} radius={70}/>
                 </div>
@@ -47,7 +47,7 @@ const DoctorProfile = (props) => {
                     <div className="address mt-2">
                         {provider ? <span>{provider.provider_data.address}</span> : null} | <a
                         href={provider ? `https://www.google.com/maps/@${provider.provider_data.geo_lat},${provider.provider_data.geo_lng},15z` : "#"}
-                        className="font-weight-bold" target="_blank">Show on Maps</a>
+                        className="font-weight-bold" target="_blank" rel="noopener noreferrer">Show on Maps</a>
                     </div>
 
                 </div>

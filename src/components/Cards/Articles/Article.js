@@ -1,10 +1,9 @@
 import React from 'react';
-import {Card, Row, Col} from "react-bootstrap";
+import {Card, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import LazyList from "../../DataList";
 import LazyLoad from "react-lazyload";
-import {MdComment} from "react-icons/all";
 import {CommentsIcon, HeartIcon} from "../../Icons";
 
 const Article = (props) => {
