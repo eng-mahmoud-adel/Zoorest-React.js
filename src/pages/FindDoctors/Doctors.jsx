@@ -4,9 +4,11 @@ import Provider from '../../components/Cards/Profiles/Provider';
 import CheckBox from '../../components/Buttons/CheckBoxes/CheckBox';
 import BasicInput from '../../components/Inputs/BasicInput';
 import BillBoard from '../../components/Cards/BillBoard/BillBoard';
+import {showModal} from "../../store/actions/modal";
 
 const Doctors = (props) => {
     const {providers}= props;
+
     return (
         <div className= "container mt-5">
             <section className= "title">
@@ -36,7 +38,7 @@ const Doctors = (props) => {
                 <div className="row">
                     {providers && providers.map((provider, index) => (
                         <div className="col-lg-4 col-md-6 mb-3 mb-lg-0" key={index}>
-                            <Provider provider={provider} className="shadow-lg" cardTitle="Helen Figueroa"
+                            <Provider provider={provider} showModal={props.showModal} className="shadow-lg" cardTitle="Helen Figueroa"
                                 cardText="Here, I focus on a range of items and features that we use in life without giving them"
                                 icon="fa fa-eye" number="2312 Views"/>
                         </div>
@@ -52,11 +54,11 @@ const Doctors = (props) => {
                 <div className="row">
                     {providers && providers.map((provider, index) => (
                         <div className="col-lg-4 col-md-6 mb-3 mb-lg-0" key={index}>
-                            <Provider provider={provider} className="shadow-lg my-3" cardTitle="Helen Figueroa"
+                            <Provider provider={provider} showModal={props.showModal} className="shadow-lg my-3" cardTitle="Helen Figueroa"
                                 cardText="Here, I focus on a range of items and features that we use in life without giving them"
                                 icon="fa fa-eye" number="2312 Views"/>
 
-                            <Provider provider={provider} className="shadow-lg" cardTitle="Helen Figueroa"
+                            <Provider provider={provider} showModal={props.showModal} className="shadow-lg" cardTitle="Helen Figueroa"
                             cardText="Here, I focus on a range of items and features that we use in life without giving them"
                             icon="fa fa-eye" number="2312 Views"/>
                         </div>
@@ -69,6 +71,12 @@ const Doctors = (props) => {
 
 const mapStateToProps = (state) => ({
     providers: state.providers.sponsored.slice(0, 3)
-})
+});
 
-export default connect(mapStateToProps)(Doctors);
+const mapDispatchToProps = dispatch => ({
+    showModal: (component) => {
+        dispatch(showModal(component));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Doctors);

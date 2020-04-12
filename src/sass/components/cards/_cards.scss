@@ -554,15 +554,29 @@
     color: $light;
     // for extra small screens
     @media (max-width: 575.98px) {
-      left: -60px;
+      left: -80px;
     }
     // for small screens
     @media (min-width: 576px) {
-      left: -80px;
+      left: -135px;
     }
     // for medium screens
     @media (min-width: 768px) {
-      left: -50px;
+      left: -80px;
+    }
+    // for large screens
+    @media (min-width: 992px) {
+      left: -60px;
+    }
+    // for extra large screens
+    @media (min-width: 1200px) {
+      left: -80px;
+    }
+  }
+
+  .img-container {
+    img {
+      height: 70px;
     }
   }
 
@@ -572,29 +586,13 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    .ellipsis::after {
-      content: "...";
-      position: absolute;
-      right: -12px;
-      bottom: 4px;
-    }
   }
 
   .card-text {
     color: $gray-color;
     font-size: $font-size-14;
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    .ellipsis::after {
-      content: "...";
-      position: absolute;
-      right: -12px;
-      bottom: 4px;
-    }
+    height: 44px;
   }
 
   .price {
