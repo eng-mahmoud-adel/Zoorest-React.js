@@ -239,6 +239,21 @@
         color: $dark;
         font-size: $font-size-32;
     }
+    .nav-tabs {
+      border-bottom-color: $secondary;
+      a {
+        background-color: $light;
+        border: none;
+        color: $gray-color;
+        outline: none;
+        font-weight: bold;
+        border-bottom: 1px solid $secondary;
+        &:focus {
+          color: $info;
+          border-bottom: 2px solid $info;
+        }
+      }
+    }
 }
 /* end recent posts section */
 

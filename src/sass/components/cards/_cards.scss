@@ -62,67 +62,6 @@
 
 /* ***************************************************** */
 
-/* for articles component */
-.article-card-wide {
-  // height: 488px;
-  border-radius: $border-radius-8;
-
-  .card-title {
-    padding: $padding-20 $padding-24 0;
-    margin-bottom: 0;
-    color: $dark;
-    font-size: $font-size-24;
-  }
-
-  .small-text {
-    padding: $padding-8 $padding-24 $padding-16;
-    font-size: $font-size-12;
-    color: $gray-color;
-  }
-
-  .img-container {
-    height: 227px;
-  }
-
-  .card-body {
-    padding: 0;
-
-    .card-text {
-      padding: $padding-8 $padding-24 $padding-12;
-      font-size: $font-size-14;
-      color: $gray-color;
-    }
-  }
-
-  .card-footer {
-    padding: $padding-16 $padding-24;
-    background-color: $light;
-
-    .card-link {
-      padding: $padding-16 0;
-      color: $blue-color;
-    }
-
-    .icons {
-      .icon-one, .icon-two {
-        cursor: pointer;
-
-        span {
-          margin-left: $margin-8;
-          color: $gray-color;
-          font-size: $font-size-12;
-        }
-      }
-
-      .icon-one {
-        padding-right: $padding-16;
-      }
-    }
-  }
-}
-
-/* ***************************************************** */
-
 /* for posts component */
 .post-card {
   // height: 507px;

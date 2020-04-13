@@ -25,7 +25,8 @@ const RecentPosts = (props) => {
 
                 <Tabs id="controlled-tab-example"
                       activeKey={key}
-                      onSelect={(k) => setKey(k)}>
+                      onSelect={(k) => setKey(k)}
+                      className= "mb-4">
 
                     {
                         Object.keys(data).map((key, index1) => {
