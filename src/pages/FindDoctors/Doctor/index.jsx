@@ -15,7 +15,7 @@ const DoctorProfile = (props) => {
     return (
         <div className= "container profile my-5 pt-5">
             {provider.map(provider => provider.id == id ? <div className= "row" key= {provider.id}>
-                <div className= "col-xl-2 col-md-3 col-sm-3 col-12">
+                <div className= "provider-image col-xl-2 col-md-3 col-sm-3 col-12">
                     <Avatar className= "avatar-four" image= {provider.image} radius={70} />
                 </div>
                 

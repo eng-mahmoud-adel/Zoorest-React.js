@@ -16,12 +16,12 @@ const Article = (props) => {
             </Card.Body>
             <Card.Footer>
                 <Row>
-                    <Col xs="8">
+                    <Col xs={9} md={7} lg={7} xl={8}>
                         {/*TODO: Redirect to Article Page and pass the model object/id*/}
                         <a href="/article" className="card-link">Read More</a>
                     </Col>
 
-                    <Col xs="4">
+                    <Col xs={3} md={5} lg={5} xl={4} className= "text-right">
                         <div className="icons">
 
                             <i className="fa fa-commenting-o icon-one" aria-hidden="true">
