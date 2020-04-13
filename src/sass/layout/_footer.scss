@@ -2,34 +2,32 @@
 footer {
     background-color: $light;
     .navbar {
-        .navbar-collapse {
-            .navbar-nav {
-                .nav-item {
-                    .nav-link {
-                        color: $gray-color;
-                        font-size: $font-size-14;
-                        &:hover {
-                            border-bottom: 1px solid $info;
-                        }
-                        &:focus {
-                            color: $dark;
-                            border-bottom: 1px solid $info;
-                            font-weight: bold;
-                        }
-                        i {
-                            color: $black-color;
-                        }
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    color: $gray-color;
+                    font-size: $font-size-14;
+                    &:hover {
+                        border-bottom: 1px solid $info;
+                    }
+                    &:focus {
+                        color: $dark;
+                        border-bottom: 1px solid $info;
+                        font-weight: bold;
+                    }
+                    i {
+                        color: $black-color;
                     }
                 }
-                .find-doctor {
-                    min-width: 101.42px;
-                }
-                .conditions {
-                    min-width: 141.16px;
-                }
-                .policy {
-                    min-width: 104.91px;
-                }
+            }
+            .find-doctor {
+                min-width: 101.42px;
+            }
+            .conditions {
+                min-width: 141.16px;
+            }
+            .policy {
+                min-width: 104.91px;
             }
         }
     }

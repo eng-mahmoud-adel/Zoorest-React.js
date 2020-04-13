@@ -23,11 +23,12 @@ const Article = (props) => {
             </Card.Body>
             <Card.Footer>
                 <Row>
-                    <Col xs="8">
+                    <Col xs={9} md={7} lg={7} xl={8}>
                         <Link to={`/article/${model ? model.getLocalizedSlug():""}`} className="card-link">Read More</Link>
+
                     </Col>
 
-                    <Col xs="4">
+                    <Col xs={3} md={5} lg={5} xl={4} className= "text-right">
                         <div className="icons">
                             <div className="row">
 

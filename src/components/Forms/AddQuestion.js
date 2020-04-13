@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import TextArea from '../Inputs/TextArea';
-import MultiSelect from '../Inputs/MultiSelect';
+import {TagsSelect} from '../Inputs/MultiSelect';
 import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 
@@ -20,7 +20,7 @@ const AddQuestion = (props) => {
                     </div>
                     <div className= "mb-3 mx-auto col-10">
                         <label>Tags</label>
-                        <MultiSelect />
+                        <TagsSelect />
                     </div>
                     <div className= "mb-5 mx-auto text-center col-4">
                         <Button text= "Ask a question" color= "btn btn-danger" size= "btn-sm" />

@@ -19,22 +19,22 @@ const Booking = () => {
                 <span className="date font-weight-bold">January 2020</span>
                 <div className= "week mt-2 mb-4 text-center">
                     <Row>
-                        <Col md= {2} className= "day">
+                        <Col xs= {3} sm= {4} lg= {3} xl= {2} className= "day">
                             <Button text= "Mon 21" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {2} className= "day">
+                        <Col xs= {3} sm= {4} lg= {3} xl= {2} className= "day">
                             <Button text= "Mon 21" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {2} className= "day">
+                        <Col xs= {3} sm= {4} lg= {3} xl= {2} className= "day">
                             <Button text= "Mon 21" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {2} className= "day">
+                        <Col xs= {3} sm= {4} lg= {3} xl= {2} className= "day">
                             <Button text= "Mon 21" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {2} className= "day">
+                        <Col xs= {3} sm= {4} lg= {3} xl= {2} className= "day">
                             <Button text= "Mon 21" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {2} className= "day">
+                        <Col xs= {3} sm= {4} lg= {3} xl= {2} className= "day">
                             <Button text= "Mon 21" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
                     </Row>
@@ -45,37 +45,37 @@ const Booking = () => {
                 </Card.Text>
                 <div className= "time mb-3">
                     <Row>
-                        <Col md= {4} className= "mb-2 pr-1">
+                        <Col xs= {4} className= "mb-2 pr-1">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" onClick= {() => setDisable("")} />
                         </Col>
-                        <Col md= {4} className= "mb-2 px-2">
+                        <Col xs= {4} className= "mb-2 px-2">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 pl-1">
+                        <Col xs= {4} className= "mb-2 pl-1">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 pr-1">
+                        <Col xs= {4} className= "mb-2 pr-1">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 px-2">
+                        <Col xs= {4} className= "mb-2 px-2">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 pl-1">
+                        <Col xs= {4} className= "mb-2 pl-1">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 pr-1">
+                        <Col xs= {4} className= "mb-2 pr-1">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 px-2">
+                        <Col xs= {4} className= "mb-2 px-2">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 pl-1">
+                        <Col xs= {4} className= "mb-2 pl-1">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 pr-1">
+                        <Col xs= {4} className= "mb-2 pr-1">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
-                        <Col md= {4} className= "mb-2 px-2">
+                        <Col xs= {4} className= "mb-2 px-2">
                             <Button text= "10-11 AM" color= "btn btn-outline-info" size= "btn-sm" />
                         </Col>
                     </Row>
