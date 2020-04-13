@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import TextArea from '../Inputs/TextArea';
-import MultiSelect from '../Inputs/MultiSelect';
+import {MultiSelect} from '../Inputs/MultiSelect';
 import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 

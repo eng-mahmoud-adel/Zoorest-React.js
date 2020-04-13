@@ -1,33 +1,76 @@
-import React from 'react';
-import Select from 'react-select';
+import React, {useState} from 'react';
+import Select from "react-select";
+import Creatable from 'react-select/creatable';
+import makeAnimated from 'react-select/animated';
+import PropTypes from "prop-types";
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
+const animatedComponents = makeAnimated();
 
-class MultiSelect extends React.Component {
-  state = {
-    selectedOption: null,
-  };
-  handleChange = selectedOption => {
-    this.setState(
-      { selectedOption },
-      () => console.log(`Option selected:`, this.state.selectedOption)
-    );
-  };
-  render() {
-    const { selectedOption } = this.state;
-
+// https://react-select.com/home
+export const MultiSelect = ({options,name,className,classNamePrefix}) => {
+    const [selectedOption, setSelectedOption] = useState(null);
+    // const handleChange = selectedOption => {
+    //     setSelectedOption(selectedOption);
+    // };
     return (
-      <Select
-        value={selectedOption}
-        onChange={this.handleChange}
-        options={options}
-      />
+        <Select
+            isMulti
+            isRtl={false}
+            components={animatedComponents}
+            value={selectedOption}
+            onChange={setSelectedOption}
+
+
+            options={options}
+            name={name}
+            className={className}
+            classNamePrefix={classNamePrefix}
+        />
     );
-  }
+
 }
 
-export default MultiSelect;
+//https://react-select.com/creatable
+export const TagsSelect = ({options,name,className,classNamePrefix}) => {
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const handleChange = (newValue: any, actionMeta: any) => {
+        console.group('Value Changed');
+        console.log(newValue);
+        console.log(`action: ${actionMeta.action}`);
+        console.groupEnd();
+        setSelectedOption(newValue);
+    };
+
+    return (
+        <Creatable
+            isMulti
+            isClearable
+            components={animatedComponents}
+            value={selectedOption}
+            onChange={handleChange}
+
+
+
+            options={options}
+            name={name}
+            className={className}
+            classNamePrefix={classNamePrefix}
+        />
+    );
+}
+
+MultiSelect.propTypes = {
+    options: PropTypes.array.isRequired,
+    name: PropTypes.string,
+    className: PropTypes.string,
+    classNamePrefix: PropTypes.string,
+};
+
+TagsSelect.propTypes = {
+    options: PropTypes.array.isRequired,
+    name: PropTypes.string,
+    className: PropTypes.string,
+    classNamePrefix: PropTypes.string,
+};
+

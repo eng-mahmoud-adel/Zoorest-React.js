@@ -3,7 +3,7 @@ import Size from '../Buttons/CombinedButtons/Size';
 import BasicInput from '../Inputs/BasicInput';
 import Button from '../Buttons/Button/Button';
 import SocialBtn from '../Buttons/CombinedButtons/SocialBtn';
-import MultiSelect from '../Inputs/MultiSelect';
+import {MultiSelect} from '../Inputs/MultiSelect';
 import DropFileWithButton from './DropFiles/DropFileWithButton';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -96,8 +96,7 @@ const SignUpForm = (props) => {
                                         </div>
                                         <div className="mb-3 col-md-5">
                                             <label className= "font-weight-bold">Select your location</label>
-                                            <BasicInput className="input-icon-left" type="text" right_icon="fa fa-commenting-o fa-lg"
-                                                placeholder="Input name" />
+                                            <MultiSelect/>
                                         </div>
                                         <div className="mb-3 col-md-5">
                                             <MultiSelect/>

@@ -6,7 +6,8 @@ import CounterOne from '../../components/Inputs/CounterOne';
 import CounterTwo from '../../components/Inputs/CounterTwo';
 import TimeInputOne from '../../components/Inputs/TimeInputOne';
 import TimeInputTwo from '../../components/Inputs/TimeInputTwo';
-import MultiSelect from '../../components/Inputs/MultiSelect';
+import {MultiSelect} from '../../components/Inputs/MultiSelect';
+import {TagsSelect} from '../../components/Inputs/MultiSelect';
 
 function RenderInput() {
     return (
