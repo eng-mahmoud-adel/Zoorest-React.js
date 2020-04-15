@@ -1,11 +1,9 @@
 import ApiService from "../../services/ApiService";
 
-
-import {GET_RECENT_ARTICLES} from './articles';
-
-export const HOMEPAGE_RECENT_QUESTIONS= "HOMEPAGE_RECENT_QUESTIONS";
-export const RECENT_POSTS= "RECENT_POSTS";
-export const GET_TESTIMONIALS= "GET_TESTIMONIALS";
+export const HOMEPAGE_RECENT_QUESTIONS = "HOMEPAGE_RECENT_QUESTIONS";
+export const HOMEPAGE_RECENT_POSTS = "HOMEPAGE_RECENT_POSTS";
+export const HOMEPAGE_TESTIMONIALS = "HOMEPAGE_TESTIMONIALS";
+export const HOMEPAGE_RECENT_ARTICLES = "HOMEPAGE_RECENT_ARTICLES";
 
 export const getHomeData = () => async (dispatch) => {
     await ApiService.get(`page/home`)
@@ -18,21 +16,21 @@ export const getHomeData = () => async (dispatch) => {
                 });
 
                 dispatch({
-                    type: RECENT_POSTS,
+                    type: HOMEPAGE_RECENT_POSTS,
                     payload: response.data.recent_posts
                 });
 
                 dispatch({
-                    type: GET_RECENT_ARTICLES,
+                    type: HOMEPAGE_RECENT_ARTICLES,
                     payload: response.data.recent_articles
                 });
 
                 dispatch({
-                    type: GET_TESTIMONIALS,
+                    type: HOMEPAGE_TESTIMONIALS,
                     payload: response.data.testimonials
                 });
 
-                
+
             },
             (error) => {
                 console.log(error.response);

@@ -1,5 +1,5 @@
 import {dummyPosts} from "../DummyData/posts";
-import {RECENT_POSTS} from '../actions/home';
+import {HOMEPAGE_RECENT_POSTS} from '../actions/home';
 import Post from "../../model/Post";
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
 
 const postsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case RECENT_POSTS:
+        case HOMEPAGE_RECENT_POSTS:
             return {
                 ...state,
                 sell: action.payload.sell.map(item => new Post(item)),

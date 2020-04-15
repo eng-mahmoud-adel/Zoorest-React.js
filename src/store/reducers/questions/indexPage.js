@@ -7,8 +7,10 @@ import {
     GET_RECENT_QUESTIONS,
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
-import Question from "../../../model/Question";
+
 import {dummyQuestions} from "../../DummyData/questions";
+import {HOMEPAGE_RECENT_QUESTIONS} from "../../actions/home";
+import Question from "../../../model/Question";
 
 const initialState = {
     recent: new ModelPaginatedResource(),
@@ -20,7 +22,7 @@ const initialState = {
 
 const questionsReducer = (state = initialState, action) => {
     switch (action.type) {
-        
+
         case GET_RECENT_QUESTIONS:
             return {
                 ...state,
@@ -71,6 +73,12 @@ const questionsReducer = (state = initialState, action) => {
                     links: action.payload.links,
                     meta: action.payload.meta,
                 }),
+                all: state.all.concat(action.payload.data)
+            };
+        case HOMEPAGE_RECENT_QUESTIONS:
+            return {
+                ...state,
+                recent_questions: action.payload.map(item => new Question(item)),
                 all: state.all.concat(action.payload.data)
             };
 
