@@ -225,4 +225,5 @@ export const addComment = (question_id, data, callback) => async (dispatch, getS
                 }
             }
         );
-}
+};
+

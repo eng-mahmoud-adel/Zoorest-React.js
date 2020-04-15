@@ -4,9 +4,10 @@ import {
     GET_MORE_RECENT_QUESTIONS,
     GET_MOST_COMMON_QUESTIONS,
     GET_NOT_ANSWERED_QUESTIONS,
-    GET_RECENT_QUESTIONS
+    GET_RECENT_QUESTIONS,
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
+import Question from "../../../model/Question";
 import {dummyQuestions} from "../../DummyData/questions";
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
 
 const questionsReducer = (state = initialState, action) => {
     switch (action.type) {
+        
         case GET_RECENT_QUESTIONS:
             return {
                 ...state,

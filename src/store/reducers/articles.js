@@ -12,7 +12,7 @@ const articlesReducer = (state = initialState, action) => {
         case GET_RECENT_ARTICLES:
             return {
                 ...state,
-                recent: action.payload.map(item=>new Article(item)),
+                recent: action.payload.map(item => new Article(item)),
             };
         case GET_ARTICLES:
             return {

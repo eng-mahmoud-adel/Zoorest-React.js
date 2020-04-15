@@ -17,7 +17,7 @@ export const getRecentArticles = (limit = 3) => async (dispatch) => {
                 console.log(response.data);
                 dispatch({
                     type: GET_RECENT_ARTICLES,
-                    payload: response.data.data,
+                    payload: response.data.data
                 })
             },
             (error) => {

@@ -10,10 +10,10 @@ const Testimonial = (props) => {
                 <img src={QuoteImage} className="img-fluid" alt="quote"/>
             </Card.Title>
             <Card.Body className= "py-0">
-                <Card.Text>{testimonial ? testimonial.text.substring(0, 220) : ""}</Card.Text>
+                <Card.Text>{testimonial ? testimonial.text.en : ""}</Card.Text>
             </Card.Body>
             <Card.Footer>
-                <p className= "mb-0">{testimonial ? testimonial.author_name : ""}</p>
+                <p className= "mb-0">{testimonial ? testimonial.client_name.en : ""}</p>
                 <span>{testimonial ? testimonial.date : ""}</span>
             </Card.Footer>
         </Card>
