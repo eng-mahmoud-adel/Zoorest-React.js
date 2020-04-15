@@ -4,7 +4,7 @@ import {
     GET_MORE_RECENT_QUESTIONS,
     GET_MOST_COMMON_QUESTIONS,
     GET_NOT_ANSWERED_QUESTIONS,
-    GET_RECENT_QUESTIONS
+    GET_RECENT_QUESTIONS,
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 import Question from "../../../model/Question";
@@ -20,11 +20,11 @@ const initialState = {
 
 const questionsReducer = (state = initialState, action) => {
     switch (action.type) {
+        
         case GET_RECENT_QUESTIONS:
             return {
                 ...state,
-                // recent: new ModelPaginatedResource(action.payload),
-                recent: action.payload.map(item => (new ModelPaginatedResource(new Question(item)))),
+                recent: new ModelPaginatedResource(action.payload),
                 all: state.all.concat(action.payload.data)
             };
         case GET_MORE_RECENT_QUESTIONS:
