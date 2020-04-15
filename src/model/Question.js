@@ -22,7 +22,7 @@ class Question extends Model {
         this._is_favorite = object.is_favorite
         this._image_url = object.image_url
         this._text = object.text
-        this._user = new User(object.user)
+        this._author = new User(object.author)
         this._images = new Image(object.photo)
     }
 
@@ -137,7 +137,7 @@ class Question extends Model {
     set image_url(value) {
         this._image_url = value;
     }
- 
+
     get text() {
         return this._text;
     }
