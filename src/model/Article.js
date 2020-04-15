@@ -1,5 +1,6 @@
 import Model from "./Model";
 import Image from "./Image";
+import User from "./User";
 
 class Article extends Model {
 
@@ -13,7 +14,7 @@ class Article extends Model {
         this._cleaned_body = object.cleaned_body
         this._comments_count = object.comments_count || 0;
         this._favorites = object.favorites || 0;
-        this._author = object.author //todo new User(object.author)
+        this._author = new User(object.author)
         this._photo = new Image(object.photo)
 
         this._is_favorite = object.is_favorite
@@ -126,7 +127,7 @@ class Article extends Model {
         this._comments_count = value;
     }
 
-    getLocalizedSlug(locale) {
+    getLocalizedSlug(locale = "ar") {
         return this._getLocalizedField("slug", locale)
     }
 
@@ -134,8 +135,8 @@ class Article extends Model {
         return this._getLocalizedField("title", locale)
     }
 
-    getLocalizedCleanedBody(locale) {
-        return this._getLocalizedField("cleaned_body", locale)
+    getLocalizedCleanedBody(locale = "ar") {
+        return this._getLocalizedField("cleaned-body", locale)
     }
 }
 

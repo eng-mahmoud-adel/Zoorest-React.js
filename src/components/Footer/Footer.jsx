@@ -42,20 +42,20 @@ const Footer = (props) => {
                         <li className= "nav-item">
                                 <a className="nav-link" href="https://www.facebook.com/zoorestEG/"
                                    rel="noopener noreferrer" target="_blank">
-                                    <FacebookIcon/>
+                                    <FacebookIcon color= "black"/>
                             </a>
                         </li>
                         <li className= "nav-item">
                                 <a className="nav-link" href="https://www.instagram.com/zoorest/"
                                    rel="noopener noreferrer" target="_blank">
-                                    <InstagramIcon/>
+                                    <InstagramIcon color= "black"/>
 
                             </a>
                         </li>
                         <li className= "nav-item">
                                 <a className="nav-link" href="https://twitter.com/zoorest/" rel="noopener noreferrer"
                                    target="_blank">
-                                    <TwitterIcon/>
+                                    <TwitterIcon color= "black"/>
 
                             </a>
                         </li>

@@ -9,17 +9,19 @@ import RecentPosts from "./RecentPosts";
 import Testimonials from "./Testimonials";
 import {getRecentArticles} from "../../store/actions/articles";
 import {loginUser} from "../../store/actions/auth";
+import {getHomeData} from "../../store/actions/home";
 
 const HomeContainer = (props) => {
 
-    const {getRecentArticles, login} = props;
+    const {getRecentArticles, login, getHomeData} = props;
     useEffect(() => {
         getRecentArticles();
         login({
             "email": "rami.amro.ahmed@gmail.com",
             "password": "123456",
         });
-    }, [getRecentArticles, login]);
+        getHomeData();
+    }, [getRecentArticles, login, getHomeData]);
 
     return (
         <Fragment>
@@ -86,6 +88,9 @@ const mapDispatchToProps = dispatch => ({
     },
     login: (values) => {
         dispatch(loginUser(values))
+    },
+    getHomeData: () => {
+        dispatch(getHomeData());
     }
 });
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
