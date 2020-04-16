@@ -11,9 +11,13 @@ import {getRecentArticles} from "../../store/actions/articles";
 import {loginUser} from "../../store/actions/auth";
 import {getHomeData} from "../../store/actions/home";
 
-const HomeContainer = (props) => {
+const HomeContainer = (
+    {
+        currentLocale, heroData, downloadData, recentQuestions, sponsoredProviders,
+        recentPosts, recentArticles, testimonials,
+        getRecentArticles, login, getHomeData
+    }) => {
 
-    const {getRecentArticles, login, getHomeData} = props;
     useEffect(() => {
         getRecentArticles();
         login({
@@ -26,15 +30,15 @@ const HomeContainer = (props) => {
     return (
         <Fragment>
             <section id="section-hero" className="container pt-sm-5 pt-0 pb-5">
-                <HeroSection data={props.heroData}/>
+                <HeroSection currentLocale={currentLocale} data={heroData}/>
             </section>
 
             <section id="section-download-apps" className="container">
-                <DownloadAppSection downloadData={props.downloadData}/>
+                <DownloadAppSection currentLocale={currentLocale} downloadData={downloadData}/>
             </section>
 
             <section id="section-recent-questions">
-                <RecentQuestions questions={props.recentQuestions}/>
+                <RecentQuestions currentLocale={currentLocale} questions={recentQuestions}/>
 
             </section>
 
@@ -43,25 +47,24 @@ const HomeContainer = (props) => {
                 <div id="right-background" className="h-100"/>
 
                 <div className="container pt-4">
-                    <SponsoredProviderSection providers={props.sponsoredProviders}/>
+                    <SponsoredProviderSection currentLocale={currentLocale} providers={sponsoredProviders}/>
                 </div>
             </section>
 
             <section id="section-recent-posts" className="">
                 <div className="container pt-4">
-                    <RecentPosts data={props.recentPosts}/>
+                    <RecentPosts currentLocale={currentLocale} data={recentPosts}/>
                 </div>
             </section>
 
             <section id="section-recent-articles" className="container">
 
-                <RecentArticles articles={props.recentArticles}/>
+                <RecentArticles currentLocale={currentLocale} articles={recentArticles}/>
             </section>
 
             <section id="section-testimonials" className="">
-                {/*TODO https://trello.com/c/p5aLLffM/*/}
                 <div className="container py-5">
-                    <Testimonials testimonials={props.testimonials}/>
+                    <Testimonials currentLocale={currentLocale} testimonials={testimonials}/>
                 </div>
             </section>
         </Fragment>
@@ -78,6 +81,7 @@ const mapStateToProps = (state) => ({
     recentQuestions: state.questions.recent_questions,
     recentPosts: state.posts,
     testimonials: state.testimonials,
+    currentLocale: state.i18n.value,
 
     authUser: state.authUser,
 });

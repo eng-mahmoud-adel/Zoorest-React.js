@@ -4,23 +4,23 @@ import Button from '../../components/Buttons/Button/Button';
 import LazyLoad from "react-lazyload";
 import {Link} from 'react-router-dom';
 
-const HeroSection = (props) => {
-    const {data: section} = props;
-    const locale = "en";
+const HeroSection = ({data: section, currentLocale}) => {
+
     return (
         <div className="row">
             <div className="col-lg-6">
-                <h1 className="title font-weight-bold mt-0">{section.getFiledValueByName("title", locale)}</h1>
+                <h1 className="title font-weight-bold mt-0">{section.getFiledValueByName("title", currentLocale)}</h1>
                 <div className="wrapper">
-                    <p className="desc">{section.getFiledValueByName("description", locale)}</p>
+                    <p className="desc">{section.getFiledValueByName("description", currentLocale)}</p>
                     <img src={section.image} alt=""/>
                 </div>
                 {
                     /*Dont Show the button if it has no text*/
-                    section.getFiledValueByName("button_text", locale) &&
+                    section.getFiledValueByName("button_text", currentLocale) &&
                     <div className="col-xl-6 col-lg-7 col-md-5 col-9 pl-0 mb-5">
-                        <Link to={section.getFiledValueByName("button_action", locale)}>
-                            <Button text={section.getFiledValueByName("button_text", locale)} color="btn btn-info"
+                        <Link to={section.getFiledValueByName("button_action", currentLocale)}>
+                            <Button text={section.getFiledValueByName("button_text", currentLocale)}
+                                    color="btn btn-info"
                                     size="btn-sm"/>
                         </Link>
                     </div>
