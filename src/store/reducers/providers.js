@@ -1,7 +1,7 @@
 import {dummyProviders} from "../DummyData/providers";
 // import {dummyArticles} from './DummyData/articles'
 import {HOMEPAGE_SPONSORED_PROVIDERS} from '../actions/home';
-import Providers from "../../model/Providers";
+import User from "../../model/User";
 
 const initialState = {
     sponsored: dummyProviders.slice(0, 4),
@@ -14,7 +14,7 @@ const providersReducer = (state = initialState, action) => {
         case HOMEPAGE_SPONSORED_PROVIDERS:
             return {
                 ...state,
-                sponsored: action.payload.map(item => new Providers(item))
+                sponsored: action.payload.map(item => new User(item))
             }
 
         default:

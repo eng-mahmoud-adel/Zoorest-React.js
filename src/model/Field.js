@@ -6,7 +6,7 @@ class Field extends Model {
         super();
         this._label = object.label
         this._value = object.value
-        this._type = object.type
+        // this._type = object.type
     }
 
 
@@ -26,12 +26,16 @@ class Field extends Model {
         this._value = value;
     }
 
-    get type() {
-        return this._type;
-    }
+    // get type() {
+    //     return this._type;
+    // }
+    //
+    // set type(value) {
+    //     this._type = value;
+    // }
 
-    set type(value) {
-        this._type = value;
+    getLocalizedField(field_name, locale) {
+        return super._getLocalizedField(field_name, locale);
     }
 }
 

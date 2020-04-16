@@ -18,22 +18,22 @@ export const getHomeData = () => async (dispatch) => {
 
                 dispatch({
                     type: HOMEPAGE_HERO_SECTION,
-                    payload: response.data.page.sections.filter(section => section.name == "Hero" ? section.name == "Hero" : "")
+                    payload: response.data.page.sections.filter(section => section.name == "Hero")[0]
                 });
 
                 dispatch({
                     type: HOMEPAGE_DOWNLOAD_APP_SECTION,
-                    payload: response.data.page.sections.filter(section => section.name == "Download app" ? section.name == "Hero" : "")
+                    payload: response.data.page.sections.filter(section => section.name === "Download app")[0]
                 });
 
                 dispatch({
                     type: HOMEPAGE_RECENT_QUESTIONS_SECTION,
-                    payload: response.data.page.sections.filter(section => section.name == "Recent questions" ? section.name == "Hero" : "")
+                    payload: response.data.page.sections.filter(section => section.name === "Recent questions")[0]
                 });
 
                 dispatch({
                     type: HOMEPAGE_NEAREST_PROVIDER_SECTION,
-                    payload: response.data.page.sections.filter(section => section.name == "Sponsored providers" ? section.name == "Hero" : "")
+                    payload: response.data.page.sections.filter(section => section.name === "Sponsored providers")[0]
                 });
 
                 dispatch({

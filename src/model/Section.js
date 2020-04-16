@@ -5,7 +5,11 @@ class Section extends Model {
     constructor(object = {}) {
         super();
         this._name = object.name;
-        this._fields = object.fields.map(field => new Field(field));
+        this._fields = [];
+
+        if (object.fields) {
+            this._fields = object.fields.map(field => new Field(field));
+        }
     }
 
     get name() {
@@ -31,7 +35,7 @@ class Section extends Model {
         if (null === field || "undefined" === typeof (field)) {
             return "";
         }
-        return field.value._getLocalizedField("value", locale);
+        return field.getLocalizedField("value", locale);
     }
 }
 

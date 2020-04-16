@@ -1,8 +1,8 @@
 import Model from './Model';
 
-class SingleProvider extends Model {
+class Provider extends Model {
 
-    constructor(object= {}) {
+    constructor(object = {}) {
         super();
 
         this._id = object.id
@@ -183,7 +183,7 @@ class SingleProvider extends Model {
     set payment_plane_type(value) {
         this._payment_plane_type = value;
     }
-    
+
     get type() {
         return this._type;
     }
@@ -191,7 +191,7 @@ class SingleProvider extends Model {
     set type(value) {
         this._type = value;
     }
-    
+
     get sponsored_until() {
         return this._sponsored_until;
     }
@@ -199,7 +199,7 @@ class SingleProvider extends Model {
     set sponsored_until(value) {
         this._sponsored_until = value;
     }
-    
+
     get sponsored_color() {
         return this._sponsored_color;
     }
@@ -207,7 +207,7 @@ class SingleProvider extends Model {
     set sponsored_color(value) {
         this._sponsored_color = value;
     }
-    
+
     get official_name() {
         return this._official_name;
     }
@@ -215,7 +215,7 @@ class SingleProvider extends Model {
     set official_name(value) {
         this._official_name = value;
     }
-    
+
     get slug() {
         return this._slug;
     }
@@ -223,7 +223,7 @@ class SingleProvider extends Model {
     set slug(value) {
         this._slug = value;
     }
-    
+
     get upcoming_appointments_count() {
         return this._upcoming_appointments_count;
     }
@@ -231,7 +231,7 @@ class SingleProvider extends Model {
     set upcoming_appointments_count(value) {
         this._upcoming_appointments_count = value;
     }
-    
+
     get has_appointments() {
         return this._has_appointments;
     }
@@ -247,7 +247,7 @@ class SingleProvider extends Model {
     set is_on_payed_plane(value) {
         this._is_on_payed_plane = value;
     }
-    
+
     get image_url() {
         return this._image_url;
     }
@@ -255,7 +255,7 @@ class SingleProvider extends Model {
     set image_url(value) {
         this._image_url = value;
     }
-    
+
     get certificate_url() {
         return this._certificate_url;
     }
@@ -295,7 +295,7 @@ class SingleProvider extends Model {
     set human_created_at(value) {
         this._human_created_at = value;
     }
-    
+
     get human_updated_at() {
         return this._human_updated_at;
     }
@@ -306,4 +306,4 @@ class SingleProvider extends Model {
 
 }
 
-export default SingleProvider;
+export default Provider;

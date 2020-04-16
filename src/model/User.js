@@ -1,4 +1,5 @@
 import Model from "./Model";
+import Provider from "./Provider";
 
 class User extends Model {
 
@@ -33,7 +34,11 @@ class User extends Model {
         this._district_name = object.district_name
         this._age = object.age
         this._text = object.text
+        this._is_liked = object.is_liked
         this._photo = object.photo
+        if (object.provider) {
+            this._provider = new Provider(object.provider)
+        }
         this._human_created_at = object.human_created_at
         this._human_updated_at = object.human_updated_at
 
@@ -182,7 +187,7 @@ class User extends Model {
     set district_id(value) {
         this._district_id = value;
     }
-    
+
     get calls_count() {
         return this._calls_count;
     }
@@ -190,7 +195,7 @@ class User extends Model {
     set calls_count(value) {
         this._calls_count = value;
     }
-    
+
     get slug() {
         return this._slug;
     }
@@ -198,7 +203,7 @@ class User extends Model {
     set slug(value) {
         this._slug = value;
     }
-    
+
     get upcoming_appointments_count() {
         return this._upcoming_appointments_count;
     }
@@ -206,7 +211,7 @@ class User extends Model {
     set upcoming_appointments_count(value) {
         this._upcoming_appointments_count = value;
     }
-    
+
     get has_appointments() {
         return this._has_appointments;
     }
@@ -214,7 +219,7 @@ class User extends Model {
     set has_appointments(value) {
         this._has_appointments = value;
     }
-    
+
     get is_favorite() {
         return this._is_favorite;
     }
@@ -222,7 +227,7 @@ class User extends Model {
     set is_favorite(value) {
         this._is_favorite = value;
     }
-    
+
     get image_url() {
         return this._image_url;
     }
@@ -230,7 +235,7 @@ class User extends Model {
     set image_url(value) {
         this._image_url = value;
     }
-    
+
     get country_name() {
         return this._country_name;
     }
@@ -246,7 +251,7 @@ class User extends Model {
     set city_name(value) {
         this._city_name = value;
     }
-    
+
     get district_name() {
         return this._district_name;
     }
@@ -254,7 +259,7 @@ class User extends Model {
     set district_name(value) {
         this._district_name = value;
     }
-    
+
     get age() {
         return this._age;
     }
@@ -271,12 +276,28 @@ class User extends Model {
         this._text = value;
     }
 
+    get is_liked() {
+        return this._is_liked;
+    }
+
+    set is_liked(value) {
+        this._is_liked = value;
+    }
+
     get photo() {
         return this._photo;
     }
 
     set photo(value) {
         this._photo = value;
+    }
+
+    get provider() {
+        return this._provider;
+    }
+
+    set provider(value) {
+        this._provider = value;
     }
 
     get human_created_at() {
@@ -286,7 +307,7 @@ class User extends Model {
     set human_created_at(value) {
         this._human_created_at = value;
     }
-    
+
     get human_updated_at() {
         return this._human_updated_at;
     }
