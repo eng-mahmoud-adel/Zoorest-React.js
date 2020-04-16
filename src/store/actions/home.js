@@ -1,9 +1,10 @@
 import ApiService from "../../services/ApiService";
 
 export const HOMEPAGE_RECENT_QUESTIONS = "HOMEPAGE_RECENT_QUESTIONS";
+export const HOMEPAGE_SPONSORED_PROVIDERS = "HOMEPAGE_SPONSORED_PROVIDERS";
 export const HOMEPAGE_RECENT_POSTS = "HOMEPAGE_RECENT_POSTS";
-export const HOMEPAGE_TESTIMONIALS = "HOMEPAGE_TESTIMONIALS";
 export const HOMEPAGE_RECENT_ARTICLES = "HOMEPAGE_RECENT_ARTICLES";
+export const HOMEPAGE_TESTIMONIALS = "HOMEPAGE_TESTIMONIALS";
 
 export const getHomeData = () => async (dispatch) => {
     await ApiService.get(`page/home`)
@@ -13,6 +14,11 @@ export const getHomeData = () => async (dispatch) => {
                 dispatch({
                     type: HOMEPAGE_RECENT_QUESTIONS,
                     payload: response.data.recent_questions
+                });
+
+                dispatch({
+                    type: HOMEPAGE_SPONSORED_PROVIDERS,
+                    payload: response.data.sponsored_providers
                 });
 
                 dispatch({
