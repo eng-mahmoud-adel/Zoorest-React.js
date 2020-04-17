@@ -1,10 +1,12 @@
 import React from 'react';
 
-function SocialBtn(props) {
+//TODO refactor this Component so that it reuses Our Button Component
+function SocialBtn({size, color, social_icon, text, onClick, disabled}) {
     return (
-        <button type="button" className={props.size + " " + props.color + " btn-social w-100"}>
-            {props.social_icon && <i className= {props.social_icon} aria-hidden="true"></i>}
-            <span>{props.text}</span>
+        <button onClick={onClick} type="button" disabled={disabled}
+                className={size + " " + color + " btn-social w-100"}>
+            {social_icon && <i className={social_icon} aria-hidden="true"/>}
+            <span>{text}</span>
         </button>
     )
 }

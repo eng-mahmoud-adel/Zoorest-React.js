@@ -8,24 +8,19 @@ import RecentQuestions from "./RecentQuestions";
 import RecentPosts from "./RecentPosts";
 import Testimonials from "./Testimonials";
 import {getRecentArticles} from "../../store/actions/articles";
-import {loginUser} from "../../store/actions/auth";
 import {getHomeData} from "../../store/actions/home";
 
 const HomeContainer = (
     {
         currentLocale, heroData, downloadData, recentQuestions, sponsoredProviders,
         recentPosts, recentArticles, testimonials,
-        getRecentArticles, login, getHomeData
+        getRecentArticles, getHomeData
     }) => {
 
     useEffect(() => {
         getRecentArticles();
-        login({
-            "email": "rami.amro.ahmed@gmail.com",
-            "password": "123456",
-        });
         getHomeData();
-    }, [getRecentArticles, login, getHomeData]);
+    }, [getRecentArticles, getHomeData]);
 
     return (
         <Fragment>
@@ -89,9 +84,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
     getRecentArticles: () => {
         dispatch(getRecentArticles());
-    },
-    login: (values) => {
-        dispatch(loginUser(values))
     },
     getHomeData: () => {
         dispatch(getHomeData());

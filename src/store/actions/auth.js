@@ -1,15 +1,16 @@
 import {SubmissionError} from 'redux-form'
 
 import ApiService from "../../services/ApiService";
+import LoginRequest from "../../model/Request/LoginRequest";
 
-export const LOGIN_USER = 'LOGIN_USER';
-export const LOGOUT_USER = 'LOGOUT_USER';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 export const GET_USER_DATA = 'GET_USER_DATA';
 
-export const loginUser = (values) => async (dispatch) => {
+export const login = (request: LoginRequest) => async (dispatch) => {
 
     await ApiService
-        .post(`auth/login`, values)
+        .post(`auth/login`, request.toJSON())
         .then(
             (response) => {
                 console.log(response);
@@ -18,7 +19,7 @@ export const loginUser = (values) => async (dispatch) => {
                 localStorage.setItem('access_token', response.headers.authorization);
 
                 dispatch({
-                    type: LOGIN_USER,
+                    type: LOGIN,
                     payload: response.data,
                     accessToken: response.headers.authorization,
                 })
@@ -64,7 +65,7 @@ export const registerUser = (values) => async (dispatch) => {
         });
 
         dispatch({
-            type: LOGIN_USER,
+            type: LOGIN,
             payload: response.data.data
         })
     } catch (errors) {
@@ -78,6 +79,6 @@ export const registerUser = (values) => async (dispatch) => {
 export const logoutUser = () => (dispatch) => {
     localStorage.removeItem('authUser');
     dispatch({
-        type: LOGOUT_USER
+        type: LOGOUT
     })
 };

@@ -1,4 +1,4 @@
-import {GET_USER_DATA, LOGIN_USER, LOGOUT_USER} from '../actions/auth'
+import {GET_USER_DATA, LOGIN, LOGOUT} from '../actions/auth'
 
 const initialState = {
     user: null,
@@ -7,7 +7,7 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOGIN_USER:
+        case LOGIN:
             return {
                 ...state,
                 user: action.payload,
@@ -18,7 +18,7 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload,
             };
-        case LOGOUT_USER:
+        case LOGOUT:
             return {
                 ...state,
                 user: null,
