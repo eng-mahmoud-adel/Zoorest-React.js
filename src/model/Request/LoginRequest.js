@@ -90,7 +90,7 @@ class LoginRequest extends Request {
     toJSON() {
 
         let json = {
-            "raw_response": JSON.stringify(this.raw_response),
+            // "raw_response": JSON.stringify(this.raw_response),
             // "social": this.social,
             "name": this.name,
             "image": this.image,

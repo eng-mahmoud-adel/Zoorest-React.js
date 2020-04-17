@@ -6,14 +6,16 @@ import FacebookLoginBtn from "./SocialButtons/FacebookLoginBtn";
 import GoogleLoginBtn from "./SocialButtons/GoogleLoginBtn";
 import LoginRequest from "../../model/Request/LoginRequest";
 import {login} from "../../store/actions/auth";
+import {connect} from "react-redux";
 
-const LoginForm = (props) => {
+const LoginForm = ({login, onSignupClicked}) => {
 
     const handleLogin = (loginRequest: LoginRequest) => {
-
+        login(loginRequest)
     }
 
     const handleNormalLogin = (data) => {
+        console.log(data)
         handleLogin(new LoginRequest()
             .setUserEmail(data.email)
             .setUserPassword(data.password)
@@ -53,7 +55,7 @@ const LoginForm = (props) => {
             <div className="form-group login-form">
                 <div className="text-right">
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href="#" onClick={props.onSignupClicked}>Sign up</a>
+                    <a href="#" onClick={onSignupClicked}>Sign up</a>
                 </div>
                 <div className="container">
                     <div className="wrapper">
@@ -103,4 +105,4 @@ const mapDispatchToProps = dispatch => ({
         dispatch(login(request))
     },
 });
-export default LoginForm;
+export default connect(null, mapDispatchToProps)(LoginForm);

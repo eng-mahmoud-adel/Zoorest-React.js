@@ -17,7 +17,7 @@ const GoogleLoginBtn = ({onResponse}) => {
             buttonText="Login"
             onSuccess={onResponse}
             onFailure={onResponse}
-            isSignedIn={true}
+            // isSignedIn={true}
             cookiePolicy={'single_host_origin'}
         />
     );
