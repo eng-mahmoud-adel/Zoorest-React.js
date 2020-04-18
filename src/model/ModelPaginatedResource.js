@@ -2,10 +2,15 @@ import Link from "./pagination/Link";
 import Meta from "./pagination/Meta";
 
 class ModelPaginatedResource {
-    constructor(object = {data: [], links: {}, meta: {}}) {
+    constructor(object = {data: [], links: {}, meta: {}}, dataType = null) {
         this._data = object.data;
         this._links = new Link(object.links);
         this._meta = new Meta(object.meta);
+
+        if (dataType != null) {
+            this._data = this._data.map(item => new dataType(item))
+        }
+
     }
 
     get data() {

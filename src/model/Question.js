@@ -9,16 +9,16 @@ class Question extends Model {
 
         this._id = object.id
         this._user_id = object.user_id
-        this._title= object.title
+        this._title = object.title
         this._category = object.category
         this._description = object.description
-        this._views= object.views
-        this._favourites= object.favourites
-        this._closed= object.closed
+        this._views_count = object.views_count
+        this._likes_count = object.likes_count
+        this._closed = object.closed
         this._created_at = object.created_at
         this._updated_at = object.updated_at
         this._slug = object.slug
-        this._replies_count= object.replies_count
+        this._replies_count = object.replies_count
         this._is_favorite = object.is_favorite
         this._image_url = object.image_url
         this._text = object.text
@@ -88,6 +88,10 @@ class Question extends Model {
 
     set closed(value) {
         this._closed = value;
+    }
+
+    get views_count() {
+        return this._views_count;
     }
 
     get created_at() {
@@ -162,6 +166,33 @@ class Question extends Model {
         this._photo = value;
     }
 
+    set views_count(value) {
+        this._views_count = value;
+    }
+
+    get likes_count() {
+        return this._likes_count;
+    }
+
+    set likes_count(value) {
+        this._likes_count = value;
+    }
+
+    get images() {
+        return this._images;
+    }
+
+    set images(value) {
+        this._images = value;
+    }
+
+    isClosed() {
+        return this.closed === 0;
+    }
+
+    getLocalizedSlug(locale = "ar") {
+        return this._getLocalizedField("slug", locale)
+    }
 }
 
 export default Question;

@@ -1,13 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {IoMdHeart, IoMdHeartEmpty} from "react-icons/io";
-import {MdComment, MdRemoveRedEye, MdPhone} from "react-icons/md";
-import {FaFacebookSquare, FaInstagram, FaTwitter, FaSearch} from "react-icons/fa";
+import {MdComment, MdPhone, MdRemoveRedEye} from "react-icons/md";
+import {FaFacebookSquare, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
 
 
-export const HeartIcon = (props) => {
-    const Component = props.is_active ? IoMdHeart : IoMdHeartEmpty;
+export const HeartIcon = ({onClick, is_active, value}) => {
+    const [selected, setSelected] = useState(is_active || false);
+    const Component = selected ? IoMdHeart : IoMdHeartEmpty;
+
+    const handleClick = () => {
+        setSelected(true);
+        if (onClick) {
+            onClick(selected, setSelected);
+        }
+    }
+
     return (
-        <span className="icon-group"> <Component {...props} /> {props.value}  </span>
+        <span className="icon-group">
+            <Component onClick={handleClick} color={selected ? "red" : ""}/> {value}  </span>
     );
 };
 

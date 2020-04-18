@@ -4,7 +4,9 @@ import {
     addComment,
     getMoreQuestionComments,
     getQuestionComments,
-    getSingleQuestion, setSingleQuestion
+    getSingleQuestion,
+    setSingleQuestion,
+    viewQuestion
 } from "../../../store/actions/questions";
 
 import Question from "../../../components/Cards/Questions/Question";
@@ -16,20 +18,16 @@ import QuestionBasePage from "../_layout";
 import {showModal} from "../../../store/actions/modal";
 import LoginForm from "../../../components/Forms/LoginForm";
 
-const SingleQuestionContainer = props => {
-    const {
-        getSingleQuestion,
-        getComments,
-        getMoreComments,
-        setSingleQuestion,
-        incrementViews,
-        leaveComment,
-        showModal
-    } = props;
+const SingleQuestionContainer = (
+    {
+        getSingleQuestion, getComments, getMoreComments, setSingleQuestion,
+        incrementViews, leaveComment, showModal,
+        questions, stateData, authUser,
+        match
+    }) => {
 
-    const {questions, stateData, authUser} = props;
-    const {id} = props.match.params;
-    const cached_question = questions.find(question => question.id = id)
+    const {id} = match.params;
+    const cached_question = questions.find(question => ((question.id = id) || (question.slug = id)))
 
     useEffect(() => {
         if (cached_question) {
@@ -49,7 +47,6 @@ const SingleQuestionContainer = props => {
 
     const handleCommentSubmitted = (values, {setSubmitting}) => {
         console.log(authUser);
-        debugger;
         if ("undefined" === typeof authUser.accessToken) {
 
             setSubmitting(false)
@@ -73,8 +70,8 @@ const SingleQuestionContainer = props => {
             <div className="row">
                 <Breadcrumb className={"w-100"}>
                     <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                    <Breadcrumb.Item href="/questions">
-                        Library
+                    <Breadcrumb.Item href="/question">
+                        Questions
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active>Question {id}</Breadcrumb.Item>
                 </Breadcrumb>
@@ -93,9 +90,9 @@ const SingleQuestionContainer = props => {
                 <h4>{stateData.model.replies_count} Answers</h4>
             </div>
 
-            <div className="row">
+            {(!stateData.loading && !stateData.model.isClosed()) && <div className="row">
                 <LeaveCommentForm onSubmit={handleCommentSubmitted} withImages/>
-            </div>
+            </div>}
 
             <div className="row my-3">
                 <div className="col-12 mx-0">
@@ -135,8 +132,8 @@ const mapDispatchToProps = dispatch => ({
     leaveComment: (question_id, data, callback) => {
         dispatch(addComment(question_id, data, callback));
     },
-    incrementViews: () => {
-        //todo implement
+    incrementViews: (question_id) => {
+        dispatch(viewQuestion(question_id))
     },
     favorite: () => {
         //todo implement

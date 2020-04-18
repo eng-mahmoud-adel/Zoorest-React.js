@@ -6,16 +6,28 @@ import image from "../../../images/placeholders/100X100.png";
 import Card from "react-bootstrap/Card";
 import {Link} from "react-router-dom";
 import {CommentsIcon, HeartIcon, ViewsIcon} from "../../Icons";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {likeQuestion, unlikeQuestion} from "../../../store/actions/questions";
 
-const Question = (props) => {
-    const model = props.model;
+const Question = ({model, className, hide_add_answer, currentLocale = "ar", like, unlike}) => {
+
+    const handleLike = (is_liked, setIsLiked) => {
+        if (is_liked) {
+            unlike(model.getKey());
+        } else {
+            like(model.getKey());
+        }
+    }
+
     return (
-        <Card className={`question-card my-2 w-100 ${props.className ? props.className : ""}`}>
+        <Card className={`question-card my-2 w-100 ${className || ""}`}>
             <Card.Body>
-                <Card.Subtitle className="small-text">{model ? model.human_created_at : "x hours ago"}</Card.Subtitle>
-                <Card.Title>{model ? model.title : props.cardTitle}</Card.Title>
-                <Card.Text>{model ? model.description.substring(0, 150) : props.cardText}</Card.Text>
+                <Card.Subtitle className="small-text">{model.human_created_at}</Card.Subtitle>
+                <Card.Title>{model.title}</Card.Title>
+                <Card.Text>{model.description.substring(0, 150)}</Card.Text>
                 <div className="row mb-3">
+
                     <div className="col-xl-3 col-md-4 col-sm-5 mb-1 mb-md-0">
                         <Tag className="tag-two" text="#Tag"/>
                     </div>
@@ -31,7 +43,10 @@ const Question = (props) => {
                 <div className="row">
                     <div className="col-xl-4 col-md-6 mb-3 mb-xl-0">
                         {model ?
-                            <Avatar className="avatar-four" name={model.author.name} radius={70}
+                            <Avatar className="avatar-four"
+                                    name={model.author.name}
+                                    radius={70}
+                                    span={`Joined Since ${model.author.created_at}`}
                                     image={model.author.image_url}/>
                             :
                             <Avatar className="avatar-four" name="Terry Williams" span="Manager" image={image}/>
@@ -40,21 +55,20 @@ const Question = (props) => {
                     <div className="icons col-xl-4 col-md-6 mb-3 mb-xl-0">
                         <div className="row">
                             <div className="col-4">
-                                <CommentsIcon value={model ? model.replies_count || 0 : 0}/>
+                                <CommentsIcon value={model.replies_count}/>
                             </div>
                             <div className="col-4">
-                                <ViewsIcon value={model ? model.views || 0 : 0}/>
+                                <ViewsIcon value={model.views_count}/>
                             </div>
                             <div className="col-4">
-                                <HeartIcon value={model ? model.favourites || 0 : 0}/>
+                                <HeartIcon onClick={handleLike} is_active={model.is_liked} value={model.likes_count}/>
                             </div>
                         </div>
                     </div>
 
-                    {/*todo hide this button when in details page*/}
                     <div className="col-xl-4 col-md-6 text-center">
-                        {!props.hide_add_answer &&
-                        <Link to={`/question/${model && model.id}`}>
+                        {(!hide_add_answer || !model.isClosed()) &&
+                        <Link to={`/question/${model.id/*getLocalizedSlug(currentLocale)*/}`}>
                             <Button text="Add Answer" variant={"info"} size="btn-sm"/>
                         </Link>}
                     </div>
@@ -64,4 +78,17 @@ const Question = (props) => {
     )
 };
 
-export default Question;
+Question.propTypes = {
+    model: PropTypes.object.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+    like: (id) => {
+        dispatch(likeQuestion(id));
+    },
+    unlike: (id) => {
+        dispatch(unlikeQuestion(id));
+    }
+});
+
+export default connect(null, mapDispatchToProps)(Question);

@@ -18,7 +18,7 @@ const Comment = (props) => {
                     <Col xs={10}>
                         <Avatar className="avatar-four" user={model.author}
                                 name={model && model.author.name}
-                                span="Manager" image={model.author.image_url}/>
+                                image={model.author.image_url}/>
                     </Col>
                     <Col xs={2} className="icon">
                         <CommentsIcon value={0}/>

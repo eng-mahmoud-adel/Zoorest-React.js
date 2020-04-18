@@ -6,8 +6,10 @@ import {
     GET_QUESTION_COMMENTS_LOADED,
     GET_QUESTION_LOADED,
     GET_QUESTION_LOADING,
+    UPDATE_QUESTION,
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
+import Question from "../../../model/Question";
 
 const initialState = {
     model: {},
@@ -22,7 +24,12 @@ const singleQuestionReducer = (state = initialState, action) => {
         case GET_QUESTION:
             return {
                 ...state,
-                model: action.payload,
+                model: new Question(action.payload),
+            };
+        case UPDATE_QUESTION:
+            return {
+                ...state,
+                model: new Question(action.payload),
             };
         case GET_QUESTION_LOADED:
             return {
@@ -55,7 +62,7 @@ const singleQuestionReducer = (state = initialState, action) => {
                 ...state,
                 comments: new ModelPaginatedResource({
                     ...state.comments,
-                    data: [action.payload, ...state.comments.data],
+                    data: [new Question(action.payload), ...state.comments.data],
                 }),
             };
 

@@ -8,7 +8,6 @@ import {
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 
-import {dummyQuestions} from "../../DummyData/questions";
 import {HOMEPAGE_RECENT_QUESTIONS} from "../../actions/home";
 import Question from "../../../model/Question";
 
@@ -16,7 +15,7 @@ const initialState = {
     recent: new ModelPaginatedResource(),
     not_answered: new ModelPaginatedResource(),
     most_common: new ModelPaginatedResource(),
-    recent_questions: dummyQuestions,
+    recent_questions: [],
     all: [],
 };
 
@@ -26,14 +25,14 @@ const questionsReducer = (state = initialState, action) => {
         case GET_RECENT_QUESTIONS:
             return {
                 ...state,
-                recent: new ModelPaginatedResource(action.payload),
-                all: state.all.concat(action.payload.data)
+                recent: new ModelPaginatedResource(action.payload, Question),
+                all: state.all.concat(action.payload.data.map(item => new Question(item)))
             };
         case GET_MORE_RECENT_QUESTIONS:
             return {
                 ...state,
                 recent: new ModelPaginatedResource({
-                    data: state.recent.data.concat(action.payload.data),
+                    data: state.recent.data.concat(action.payload.data.map(item => new Question(item))),
                     links: action.payload.links,
                     meta: action.payload.meta,
                 }),
@@ -43,43 +42,43 @@ const questionsReducer = (state = initialState, action) => {
         case GET_NOT_ANSWERED_QUESTIONS:
             return {
                 ...state,
-                not_answered: new ModelPaginatedResource(action.payload),
-                all: state.all.concat(action.payload.data)
+                not_answered: new ModelPaginatedResource(action.payload, Question),
+                all: state.all.concat(action.payload.data.map(item => new Question(item)))
 
             };
         case GET_MORE_NOT_ANSWERED_QUESTIONS:
             return {
                 ...state,
                 not_answered: new ModelPaginatedResource({
-                    data: state.not_answered.data.concat(action.payload.data),
+                    data: state.not_answered.data.concat(action.payload.data.map(item => new Question(item))),
                     links: action.payload.links,
                     meta: action.payload.meta,
                 }),
-                all: state.all.concat(action.payload.data)
+                all: state.all.concat(action.payload.data.map(item => new Question(item)))
 
             };
         case GET_MOST_COMMON_QUESTIONS:
             return {
                 ...state,
-                most_common: new ModelPaginatedResource(action.payload),
-                all: state.all.concat(action.payload.data)
+                most_common: new ModelPaginatedResource(action.payload, Question),
+                all: state.all.concat(action.payload.data.map(item => new Question(item)))
 
             };
         case GET_MORE_COMMON_QUESTIONS:
             return {
                 ...state,
                 most_common: new ModelPaginatedResource({
-                    data: state.most_common.data.concat(action.payload.data),
+                    data: state.most_common.data.concat(action.payload.data.map(item => new Question(item))),
                     links: action.payload.links,
                     meta: action.payload.meta,
                 }),
-                all: state.all.concat(action.payload.data)
+                all: state.all.concat(action.payload.data.map(item => new Question(item)))
             };
         case HOMEPAGE_RECENT_QUESTIONS:
             return {
                 ...state,
                 recent_questions: action.payload.map(item => new Question(item)),
-                all: state.all.concat(action.payload.data)
+                all: state.all.concat(action.payload.map(item => new Question(item)))
             };
 
         default:
