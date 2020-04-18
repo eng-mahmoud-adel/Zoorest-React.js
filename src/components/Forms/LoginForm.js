@@ -19,35 +19,43 @@ const LoginForm = ({login, onSignupClicked}) => {
         handleLogin(new LoginRequest()
             .setUserEmail(data.email)
             .setUserPassword(data.password)
+            .setRememberMe(false)
         )
     }
 
     const handleFacebookLogin = (data) => {
         console.log(data)
 
-        handleLogin(
-            new LoginRequest()
-                .setProviderKey(data.googleId)
-                .setFacebookLogin()
-                .setRawResponse(data)
-                .setUserEmail(data.profileObj.email)
-                .setUserName(data.profileObj.name)
-                .setUserImage(data.profileObj.image)
-        )
+        if (!data.error) {
+            handleLogin(
+                new LoginRequest()
+                    .setProviderKey(data.id)
+                    .setFacebookLogin()
+                    .setRawResponse(data)
+                    .setRememberMe(false)
+                    .setUserEmail(data.email)
+                    .setUserName(data.name)
+                    .setUserImage(data.picture.data.url)
+            )
+        }
+
     }
 
     const handleGoogleLogin = (data) => {
         console.log(data)
+        if (!data.error) {
 
-        handleLogin(
-            new LoginRequest()
-                .setProviderKey(data.googleId)
-                .setGoogleLogin()
-                .setRawResponse(data)
-                .setUserEmail(data.profileObj.email)
-                .setUserName(data.profileObj.name)
-                .setUserImage(data.profileObj.image)
-        )
+            handleLogin(
+                new LoginRequest()
+                    .setProviderKey(data.googleId)
+                    .setGoogleLogin()
+                    .setRawResponse(data)
+                    .setRememberMe(false)
+                    .setUserEmail(data.profileObj.email)
+                    .setUserName(data.profileObj.name)
+                    .setUserImage(data.profileObj.image)
+            )
+        }
     }
 
     return (

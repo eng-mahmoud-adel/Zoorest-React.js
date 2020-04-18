@@ -1,13 +1,14 @@
 import React from 'react'
 import {GoogleLogin} from 'react-google-login';
 import SocialBtn from "../../Buttons/CombinedButtons/SocialBtn";
+import config from '../../../config'
 
 
 //https://developers.google.com/identity/sign-in/web/people
 const GoogleLoginBtn = ({onResponse}) => {
     return (
         <GoogleLogin
-            clientId="924742163414-ds5occ9n2lp7hl2f3skemotibeo3jn45.apps.googleusercontent.com"
+            clientId={config.googleClientId}
             render={renderProps => (
                 <SocialBtn onClick={renderProps.onClick} disabled={renderProps.disabled} size="btn-sm"
                            color="btn btn-light" text="Login with Google" social_icon="fa fa-google fa-lg"/>

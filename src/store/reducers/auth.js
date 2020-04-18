@@ -2,7 +2,7 @@ import {GET_USER_DATA, LOGIN, LOGOUT} from '../actions/auth'
 
 const initialState = {
     user: null,
-    accessToken: localStorage.getItem('access_token')
+    accessToken: sessionStorage.getItem('access_token') || localStorage.getItem('access_token')
 };
 
 const authReducer = (state = initialState, action) => {

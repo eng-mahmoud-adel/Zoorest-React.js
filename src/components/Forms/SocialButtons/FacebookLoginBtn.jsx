@@ -1,12 +1,14 @@
 import React from 'react'
 import SocialBtn from "../../Buttons/CombinedButtons/SocialBtn";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import config from '../../../config'
 
 const FacebookLoginBtn = ({onResponse}) => {
     return (
+        //,user_birthday,user_gender
         <FacebookLogin
-            appId={"961048337408846"}
-            fields="name,email,picture,user_birthday,user_gender"
+            appId={config.fbAppId}
+            fields="name,email,picture"
             callback={onResponse}
             // autoLoad
             render={renderProps => (

@@ -5,8 +5,8 @@ class LoginRequest extends Request {
 
     constructor() {
         super();
-        this.raw_response = {};
-        this.profile = {};
+        // this.raw_response = {};
+        // this.profile = {};
         this.social = {};
     }
 
@@ -84,6 +84,15 @@ class LoginRequest extends Request {
         //     password
         // }
         return this;
+    }
+
+    setRememberMe(remember_me_checked) {
+        this.remember_me_checked = remember_me_checked
+        return this;
+    }
+
+    isRememberMeChecked() {
+        return this.remember_me_checked;
     }
 
 
