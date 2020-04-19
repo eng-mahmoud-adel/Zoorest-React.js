@@ -35,7 +35,7 @@ class Section extends Model {
         if (null === field || "undefined" === typeof (field)) {
             return "";
         }
-        return field.getLocalizedField("value", locale);
+        return field._getLocalizedField("value", locale);
     }
 }
 

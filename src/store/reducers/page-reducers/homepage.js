@@ -9,9 +9,9 @@ import {
 
 const initialState = {
     heroSection: new Section(),
-    downloadAppSection: {},
-    recentQuestionsSection: {},
-    nearestProviderSection: {}
+    downloadAppSection: new Section(),
+    recentQuestionsSection: new Section(),
+    nearestProviderSection: new Section()
 };
 
 const homePageReducer = (state = initialState, action) => {

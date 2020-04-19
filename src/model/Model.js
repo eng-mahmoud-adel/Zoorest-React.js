@@ -1,5 +1,6 @@
 class Model {
-    constructor() {
+
+    constructor(name) {
         this._fallback_locale = "ar"
     }
 
@@ -27,10 +28,6 @@ class Model {
 
             case "object":
                 //if the field doesnt have the selected locale, return the fallback locale
-                if (null === (this[field_name])) {
-                    return "";
-                }
-
                 if ("undefined" === typeof (this[field_name][locale])) {
                     const first_available_locale = Object.keys(this[field_name])[0];
                     //if the fallback_locale doesnt exist try and find any available local or empty string
