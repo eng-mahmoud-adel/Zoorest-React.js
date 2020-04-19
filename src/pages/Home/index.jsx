@@ -12,7 +12,7 @@ import {getHomeData} from "../../store/actions/home";
 
 const HomeContainer = (
     {
-        currentLocale, heroData, downloadData, recentQuestions, sponsoredProviders,
+        currentLocale, heroData, downloadData, recentQuestions, recentQuestionsData, sponsoredProviders, recentProvidersData,
         recentPosts, recentArticles, testimonials,
         getRecentArticles, getHomeData
     }) => {
@@ -33,7 +33,7 @@ const HomeContainer = (
             </section>
 
             <section id="section-recent-questions">
-                <RecentQuestions currentLocale={currentLocale} questions={recentQuestions}/>
+                <RecentQuestions currentLocale={currentLocale} questions={recentQuestions} questionsData= {recentQuestionsData}/>
 
             </section>
 
@@ -42,7 +42,7 @@ const HomeContainer = (
                 <div id="right-background" className="h-100"/>
 
                 <div className="container pt-4">
-                    <SponsoredProviderSection currentLocale={currentLocale} providers={sponsoredProviders}/>
+                    <SponsoredProviderSection currentLocale={currentLocale} providers={sponsoredProviders} providersData= {recentProvidersData}/>
                 </div>
             </section>
 
@@ -70,6 +70,7 @@ const mapStateToProps = (state) => ({
     heroData: state.homepage.heroSection,
     downloadData: state.homepage.downloadAppSection,
     recentQuestionsData: state.homepage.recentQuestionsSection,
+    recentProvidersData: state.homepage.nearestProviderSection,
 
     recentArticles: state.articles.recent,
     sponsoredProviders: state.providers.sponsored,

@@ -2,10 +2,13 @@ import {dummyProviders} from "../DummyData/providers";
 // import {dummyArticles} from './DummyData/articles'
 import {HOMEPAGE_SPONSORED_PROVIDERS} from '../actions/home';
 import User from "../../model/User";
+import ModelPaginatedResource from '../../model/ModelPaginatedResource';
+
+import {GET_PROVIDERS, GET_MORE_PROVIDERS} from '../actions/providers';
 
 const initialState = {
-    sponsored: dummyProviders.slice(0, 4),
-    all: dummyProviders,
+    sponsored: new ModelPaginatedResource(),
+    all: [],
 };
 
 const providersReducer = (state = initialState, action) => {
@@ -14,7 +17,25 @@ const providersReducer = (state = initialState, action) => {
         case HOMEPAGE_SPONSORED_PROVIDERS:
             return {
                 ...state,
-                sponsored: action.payload.map(item => new User(item))
+                sponsored: action.payload.data.map(item => new User(item))
+            }
+
+        case GET_PROVIDERS:
+            return {
+                ...state,
+                sponsored: new ModelPaginatedResource(action.payload, User),
+                all: state.all.concat(action.payload.data.map(item => new User(item)))
+            }
+
+        case GET_MORE_PROVIDERS:
+            return {
+                ...state,
+                sponsored: new ModelPaginatedResource({
+                    data: state.sponsored.data.concat(action.payload.data.map(item => new User(item))),
+                    links: action.payload.links,
+                    meta: action.payload.meta,
+                }),
+                all: state.all.concat(action.payload.data) 
             }
 
         default:

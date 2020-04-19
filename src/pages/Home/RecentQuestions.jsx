@@ -9,6 +9,9 @@ import LazyLoad from "react-lazyload";
 import { Link } from 'react-router-dom';
 
 const RecentQuestions = (props) => {
+
+    const {questions, questionsData, currentLocale} = props;
+
     const slickSettings = {
         rtl: false,//todo use variable when site localization is added
         dots: true,
@@ -40,7 +43,7 @@ const RecentQuestions = (props) => {
             }
         ]
     };
-    const questions = props.questions;
+
     return (
         <Fragment>
             <div className="row mr-0">
@@ -51,13 +54,10 @@ const RecentQuestions = (props) => {
                     </LazyLoad>
                 </div>
                 <div className="col-xl-7 col-lg-8 col-md-9 text-center wrapper">
-                    <h1 className="title font-weight-bold mt-0">Share Your Questions and let the professional doctors help
-                        pet become better</h1>
-                    <p className="desc mb-0">Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada
-                        enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi. Nullam vehicula
-                        nisi velit.</p>
+                    <h1 className="title font-weight-bold mt-0">{questionsData.getFiledValueByName("title", currentLocale)}</h1>
+                    <p className="desc mb-0">{questionsData.getFiledValueByName("description", currentLocale)}</p>
                     <div className="col-lg-6 col-md-7 col-sm-5 col-11 mx-auto">
-                        <Link to= "/doctor"><Button text="Find the Nearest Doctors Now" color="btn btn-info" size="btn-sm"/></Link>
+                        <Link to= {questionsData.getFiledValueByName("button_actions", currentLocale)}><Button text={questionsData.getFiledValueByName("button_text", currentLocale)} color="btn btn-info" size="btn-sm"/></Link>
                     </div>
                 </div>
             </div>
