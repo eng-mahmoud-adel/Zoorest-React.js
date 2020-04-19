@@ -1,29 +1,27 @@
-import {dummyProviders} from "../DummyData/providers";
 // import {dummyArticles} from './DummyData/articles'
 import {HOMEPAGE_SPONSORED_PROVIDERS} from '../actions/home';
 import User from "../../model/User";
 import ModelPaginatedResource from '../../model/ModelPaginatedResource';
 
-import {GET_PROVIDERS, GET_MORE_PROVIDERS} from '../actions/providers';
+import {GET_MORE_PROVIDERS, GET_PROVIDERS} from '../actions/providers';
 
 const initialState = {
-    sponsored: new ModelPaginatedResource(),
+    sponsored: [],
     all: [],
 };
 
 const providersReducer = (state = initialState, action) => {
     switch (action.type) {
-
         case HOMEPAGE_SPONSORED_PROVIDERS:
             return {
                 ...state,
-                sponsored: action.payload.data.map(item => new User(item))
+                sponsored: action.payload.map(item => new User(item))
             }
 
         case GET_PROVIDERS:
             return {
                 ...state,
-                sponsored: new ModelPaginatedResource(action.payload, User),
+                sponsored: action.payload.map(item => new User(item)),
                 all: state.all.concat(action.payload.data.map(item => new User(item)))
             }
 
@@ -35,7 +33,7 @@ const providersReducer = (state = initialState, action) => {
                     links: action.payload.links,
                     meta: action.payload.meta,
                 }),
-                all: state.all.concat(action.payload.data) 
+                all: state.all.concat(action.payload.data)
             }
 
         default:

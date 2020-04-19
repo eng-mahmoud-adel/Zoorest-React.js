@@ -120,11 +120,15 @@ export const getMoreMostCommonQuestions = (nextPageUrl) => async (dispatch) => {
         );
 };
 
-export const getSingleQuestion = (id) => async (dispatch) => {
+export const getSingleQuestion = (id) => async (dispatch, getState) => {
     dispatch({
         type: GET_QUESTION_LOADING
     });
-    await ApiService.get(`${ENDPOINT}/${id}`)
+    await ApiService.get(`${ENDPOINT}/${id}`, {
+        headers: {
+            Authorization: `Bearer ${getState().authUser.accessToken}`
+        }
+    })
         .then(
             (response) => {
 

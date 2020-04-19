@@ -42,7 +42,8 @@ const HomeContainer = (
                 <div id="right-background" className="h-100"/>
 
                 <div className="container pt-4">
-                    <SponsoredProviderSection currentLocale={currentLocale} providers={sponsoredProviders} providersData= {recentProvidersData}/>
+                    <SponsoredProviderSection currentLocale={currentLocale} providers={sponsoredProviders}
+                                              section={recentProvidersData}/>
                 </div>
             </section>
 
