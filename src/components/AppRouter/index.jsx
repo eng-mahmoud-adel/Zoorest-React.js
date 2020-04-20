@@ -10,7 +10,7 @@ import AdsCard from '../../pages/ShowingCards/AdsCard';
 import Forms from '../../pages/ShowingForms/Forms';
 import QuestionDetails from "../../pages/Questions/details";
 import QuestionsAll from "../../pages/Questions";
-import Doctors from '../../pages/FindDoctors/Doctors';
+import Doctors from '../../pages/FindDoctors';
 import DoctorProfile from '../../pages/FindDoctors/Doctor/index';
 
 const AppRouter = () => (

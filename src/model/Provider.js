@@ -6,38 +6,32 @@ class Provider extends Model {
         super();
 
         this._id = object.id
-        this._user_id = object.user_id
+        // this._user_id = object.user_id
+        this._slug = object.slug
+        this._official_name = object.official_name
         this._address = object.address
-        this._government = object.government
         this._geo_lat = object.geo_lat
         this._geo_lng = object.geo_lng
-        this._rate = object.rate
-        this._views = object.views
-        this._bookings = object.bookings
-        this._favourites = object.favourites
-        this._examination_price = object.examination_price
-        this._active = object.active
-        this._certificate = object.certificate
-        this._deleted_at = object.deleted_at
-        this._created_at = object.created_at
-        this._updated_at = object.updated_at
-        this._payment_plane_id = object.payment_plane_id
-        this._payment_plane_type = object.payment_plane_type
         this._type = object.type
+        this._active = object.active
+        this._examination_price = object.examination_price
         this._sponsored_until = object.sponsored_until
         this._sponsored_color = object.sponsored_color
-        this._official_name = object.official_name
-        this._slug = object.slug
-        this._upcoming_appointments_count = object.upcoming_appointments_count
         this._has_appointments = object.has_appointments
+
+        this._average_rating = object.average_rating || 5
         this._is_on_payed_plane = object.is_on_payed_plane
+        this._subscribable_type = object.subscribable_type
+        this._is_nearby = object.is_nearby
+        this._schedule = object.schedule
+        this._payment_plane_id = object.payment_plane_id
+        this._payment_plane_type = object.payment_plane_type
+
+        this._created_at = object.created_at
+        this._updated_at = object.updated_at
+
         this._image_url = object.image_url
         this._certificate_url = object.certificate_url
-        this._subscribable_type = object.subscribable_type
-        this._schedule = object.schedule
-        this._is_nearby = object.is_nearby
-        this._human_created_at = object.human_created_at
-        this._human_updated_at = object.human_updated_at
     }
 
     get id() {
@@ -64,14 +58,6 @@ class Provider extends Model {
         this._address = value;
     }
 
-    get government() {
-        return this._government;
-    }
-
-    set government(value) {
-        this._government = value;
-    }
-
     get geo_lat() {
         return this._geo_lat;
     }
@@ -88,38 +74,6 @@ class Provider extends Model {
         this._geo_lng = value;
     }
 
-    get rate() {
-        return this._rate;
-    }
-
-    set rate(value) {
-        this._rate = value;
-    }
-
-    get views() {
-        return this._views;
-    }
-
-    set views(value) {
-        this._views = value;
-    }
-
-    get bookings() {
-        return this._bookings;
-    }
-
-    set bookings(value) {
-        this._bookings = value;
-    }
-
-    get favourites() {
-        return this._favourites;
-    }
-
-    set favourites(value) {
-        this._favourites = value;
-    }
-
     get examination_price() {
         return this._examination_price;
     }
@@ -134,22 +88,6 @@ class Provider extends Model {
 
     set active(value) {
         this._active = value;
-    }
-
-    get certificate() {
-        return this._certificate;
-    }
-
-    set certificate(value) {
-        this._certificate = value;
-    }
-
-    get deleted_at() {
-        return this._deleted_at;
-    }
-
-    set deleted_at(value) {
-        this._deleted_at = value;
     }
 
     get created_at() {
@@ -224,14 +162,6 @@ class Provider extends Model {
         this._slug = value;
     }
 
-    get upcoming_appointments_count() {
-        return this._upcoming_appointments_count;
-    }
-
-    set upcoming_appointments_count(value) {
-        this._upcoming_appointments_count = value;
-    }
-
     get has_appointments() {
         return this._has_appointments;
     }
@@ -304,6 +234,17 @@ class Provider extends Model {
         this._human_updated_at = value;
     }
 
+    get average_rating() {
+        return this._average_rating;
+    }
+
+    set average_rating(value) {
+        this._average_rating = value;
+    }
+
+    latitude = () => this.geo_lng;
+
+    longitude = () => this.geo_lng;
 }
 
 export default Provider;

@@ -1,7 +1,6 @@
 import React from 'react';
 import {Card, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import PropTypes from "prop-types";
 import LazyList from "../../DataList";
 import LazyLoad from "react-lazyload";
 import {CommentsIcon, HeartIcon} from "../../Icons";
@@ -50,8 +49,6 @@ const Article = (props) => {
         </Card>
     )
 };
-LazyList.propTypes = {
-    article: PropTypes.object.isRequired,
-};
+LazyList.propTypes = {};
 
 export default Article;

@@ -7,21 +7,21 @@ import Tag from '../../Tags/Tag';
 import {Link} from 'react-router-dom';
 import Booking from '../Booking/Booking';
 import {ViewsIcon} from "../../Icons";
+import PropTypes from 'prop-types';
 
-const Provider = (props) => {
-    const {provider: user, showModal} = props;
+
+const Provider = ({model: user, showModal, className}) => {
 
     const showAppointmentModal = () => {
         showModal(Booking);
     };
 
     return (
-        <Card className={`provider-card ${props.className}`}>
+        <Card className={`provider-card ${className || ""}`}>
             <Card.Body className="text-center">
                 {<div className="row">
-                    {user.provider.sponsored_until !== null ?
-                        <div className="col-8 pro-title">Pro</div>
-                        : ""
+                    {user.provider.sponsored_until !== null &&
+                    <div className="col-8 pro-title">Pro</div>
                     }
 
                     {user.provider.is_nearby === true ?
@@ -37,23 +37,22 @@ const Provider = (props) => {
                         <Avatar className="avatar-three" text="MA"/>
                     }
                 </div>
-                <Card.Title className="font-weight-bold">{user ? user.name : props.cardTitle}</Card.Title>
+                <Card.Title className="font-weight-bold">{user.name}</Card.Title>
                 <div className="row mb-2">
                     <div className="col-md-7">
-                        <RateBar rate={user.provider.rate ? user.provider.rate : 5}/>
+                        <RateBar rate={user.provider.average_rating}/>
                     </div>
                     <div className="col-md-5">
-                        <ViewsIcon value={user ? user.account_views : props.number} text={"Views"}/>
-
+                        <ViewsIcon value={user.views_count} text={"Views"}/>
                     </div>
                 </div>
-                <Card.Text className="align-content-center mb-1">{user ? user.description : props.cardText}</Card.Text>
-                {user.provider.examination_price ?
+                <Card.Text className="align-content-center mb-1">{user.description}</Card.Text>
+                {user.provider.is_on_payed_plane ?
                     <p>Examination Fee: <span className="price">{user.provider.examination_price}</span></p> : ""}
                 {user.provider.has_appointments ?
                     <div className="row">
                         <div className="col-xl-4 pl-xl-2 pr-xl-0 mb-2 mb-xl-0">
-                            <Link to={`/doctor/profile/${user.id}`}>
+                            <Link to={`/doctor/profile/${user.getKey()}`}>
                                 <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
                             </Link>
                         </div>
@@ -62,7 +61,7 @@ const Provider = (props) => {
                                     onClick={showAppointmentModal}/>
                         </div>
                     </div> : <div className="w-75 mx-auto">
-                        <Link to={`/doctor/profile/${user.id}`}>
+                        <Link to={`/doctor/profile/${user.getKey()}`}>
                             <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
                         </Link>
                     </div>}
@@ -71,4 +70,7 @@ const Provider = (props) => {
     )
 };
 
+Provider.propTypes = {
+    model: PropTypes.object.isRequired,
+}
 export default Provider;

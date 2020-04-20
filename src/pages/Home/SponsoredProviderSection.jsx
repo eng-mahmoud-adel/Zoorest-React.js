@@ -26,9 +26,9 @@ const SponsoredProviderSection = ({providers, section, currentLocale}) => {
             <div className="col-lg-7 section-two">
                 <div className="row">
 
-                    {providers && providers.map((provider, index) => (
+                    {(providers && providers.data) && providers.data.map((provider, index) => (
                         <div className="col-md-6 col-sm-12 mt-sm-4" key={index}>
-                            <Provider provider={provider} className="shadow-lg"/>
+                            <Provider model={provider} className="shadow-lg"/>
                         </div>
                     ))}
 

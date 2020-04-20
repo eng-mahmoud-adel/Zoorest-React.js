@@ -1,47 +1,48 @@
 import Model from "./Model";
 import Provider from "./Provider";
+import Image from "./Image";
 
 class User extends Model {
 
     constructor(object = {}) {
         super();
         this._id = object.id
-        this._email = object.email
-        this._email2 = object.email2
         this._name = object.name
+        this._slug = object.slug
+        this._email = object.email
         this._type = object.type
-        this._image = object.image
+
         this._description = object.description
         this._phone = object.phone
-        this._created_at = object.created_at
-        this._updated_at = object.updated_at
-        this._wp_id = object.wp_id
+        this._additional_phone_number = object.additional_phone_number
+
         this._is_blocked = object.is_blocked
-        this._account_views = object.account_views
+        this._is_liked = object.is_liked
+        this._likes_count = object.likes_count
+        this._shares_count = object.shares_count
+        this._views_count = object.views_count
+        this._calls_count = object.calls_count
         this._dob = object.dob
         this._gender = object.gender
-        this._country_id = object.country_id
-        this._city_id = object.city_id
-        this._district_id = object.district_id
-        this._calls_count = object.calls_count
-        this._slug = object.slug
-        this._upcoming_appointments_count = object.upcoming_appointments_count
-        this._has_appointments = object.has_appointments
-        this._is_favorite = object.is_favorite
-        this._image_url = object.image_url
         this._country_name = object.country_name
         this._city_name = object.city_name
         this._district_name = object.district_name
-        this._age = object.age
-        this._text = object.text
-        this._is_liked = object.is_liked
-        this._photo = object.photo
+
+
+        this._image = object.image
+        this._created_at = object.created_at
+        this._updated_at = object.updated_at
+        this._wp_id = object.wp_id
+        this._account_views = object.account_views
+        this._created_at = object.created_at
+        this._updated_at = object.updated_at
+
         if (object.provider) {
             this._provider = new Provider(object.provider)
         }
-        this._human_created_at = object.human_created_at
-        this._human_updated_at = object.human_updated_at
 
+        this._image_url = object.image_url
+        this._photo = object.photo || new Image()
     }
 
     get id() {
@@ -58,14 +59,6 @@ class User extends Model {
 
     set email(value) {
         this._email = value;
-    }
-
-    get email2() {
-        return this._email2;
-    }
-
-    set email2(value) {
-        this._email2 = value;
     }
 
     get name() {
@@ -204,14 +197,6 @@ class User extends Model {
         this._slug = value;
     }
 
-    get upcoming_appointments_count() {
-        return this._upcoming_appointments_count;
-    }
-
-    set upcoming_appointments_count(value) {
-        this._upcoming_appointments_count = value;
-    }
-
     get has_appointments() {
         return this._has_appointments;
     }
@@ -300,20 +285,40 @@ class User extends Model {
         this._provider = value;
     }
 
-    get human_created_at() {
-        return this._human_created_at;
+    get additional_phone_number() {
+        return this._additional_phone_number;
     }
 
-    set human_created_at(value) {
-        this._human_created_at = value;
+    set additional_phone_number(value) {
+        this._additional_phone_number = value;
     }
 
-    get human_updated_at() {
-        return this._human_updated_at;
+    get likes_count() {
+        return this._likes_count;
     }
 
-    set human_updated_at(value) {
-        this._human_updated_at = value;
+    set likes_count(value) {
+        this._likes_count = value;
+    }
+
+    get shares_count() {
+        return this._shares_count;
+    }
+
+    set shares_count(value) {
+        this._shares_count = value;
+    }
+
+    get views_count() {
+        return this._views_count;
+    }
+
+    set views_count(value) {
+        this._views_count = value;
+    }
+
+    getKey() {
+        return super.getKey();
     }
 }
 
