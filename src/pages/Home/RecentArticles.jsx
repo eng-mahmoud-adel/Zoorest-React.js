@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react'
 import Article from "../../components/Cards/Articles/Article";
 import SlickSlider from "../../components/Helpers/SlickSlider";
+import {Link} from "react-router-dom";
 
 const RecentArticles = props => {
     const articles = props.articles;
@@ -37,14 +38,14 @@ const RecentArticles = props => {
             <div className="row">
                 <h2 className="col-md-3 title font-weight-bold mt-0 pt-0">Recent Articles</h2>
                 <div className="col-md-6"/>
-                <a href="/articles" className="col-md-3">See More Articles</a>{/*todo localise*/}
+                <Link to="/article" className="col-md-3">See More Articles</Link>{/*todo localise*/}
             </div>
 
             <div className="row d-none d-lg-flex">
 
                 {articles && articles.map((article, index) => (
                     <div className="col-lg-4" key={index}>
-                        <Article className="shadow-sm" key={index} article={article}/>
+                        <Article className="shadow-sm" key={index} model={article}/>
                     </div>
                 ))}
 
@@ -52,7 +53,7 @@ const RecentArticles = props => {
 
             <SlickSlider settings={slickSettings} className="d-lg-none">
                 {articles && articles.map((article, index) => (
-                    <Article className="shadow-sm" key={index} article={article}/>
+                    <Article className="shadow-sm" key={index} model={article}/>
                 ))}
             </SlickSlider>
         </Fragment>

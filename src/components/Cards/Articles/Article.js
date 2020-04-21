@@ -1,19 +1,19 @@
 import React from 'react';
 import {Card, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import LazyList from "../../DataList";
 import LazyLoad from "react-lazyload";
 import {CommentsIcon, HeartIcon} from "../../Icons";
+import PropTypes from "prop-types";
 
-const Article = (props) => {
-    const model = props.article;
+const Article = ({model}) => {
+
     return (
         <Card className={"article-card m-1"}>
             <Card.Title>{model ? model.getLocalizedTitle() : ""}</Card.Title>
-            <small className="small-text">{model ? model.human_created_at : ""}</small>
+            <small className="small-text">{model.human_created_at}</small>
             <div className="img-container">
                 <LazyLoad unmountIfInvisible={true} once={true}>
-                    <Card.Img variant={null} src={model ? model.photo.path_small : ""} className="img-fluid h-100 w-100"
+                    <Card.Img variant={null} src={model.photo.path_small} className="img-fluid h-100 w-100"
                               alt=""/>
                 </LazyLoad>
             </div>
@@ -23,7 +23,7 @@ const Article = (props) => {
             <Card.Footer>
                 <Row>
                     <Col xs={9} md={7} lg={7} xl={8}>
-                        <Link to={`/article/${model ? model.id:""}`} className="card-link">Read More</Link>
+                        <Link to={`/article/${model.id}`} className="card-link">Read More</Link>
                     </Col>
 
                     <Col xs={3} md={5} lg={5} xl={4} className= "text-right">
@@ -37,7 +37,7 @@ const Article = (props) => {
 
                                 {/*Todo: add hover and favorite action when clicked*/}
                                 <div className="col-4">
-                                    <HeartIcon value={model ? model.favourites : 0}/>
+                                    <HeartIcon value={model ? model.likes_count : 0}/>
                                 </div>
                             </div>
                         </div>
@@ -48,6 +48,8 @@ const Article = (props) => {
         </Card>
     )
 };
-LazyList.propTypes = {};
+Article.propTypes = {
+    model: PropTypes.object.isRequired,
+};
 
 export default Article;

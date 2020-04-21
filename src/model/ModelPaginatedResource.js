@@ -37,6 +37,14 @@ class ModelPaginatedResource {
         this._meta = new Meta(value);
     }
 
+    getTotalItems() {
+        if (!this.meta) {
+            return 0
+        }
+
+        return this.meta.total
+    }
+
     hasMoreData() {
         return this.links.hasMoreData();
     }

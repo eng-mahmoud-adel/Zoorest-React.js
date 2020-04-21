@@ -11,16 +11,26 @@ class Article extends Model {
         this._slug = object.slug
         this._title = object.title
         this._description = object.description
+        this._body = object.body
         this._cleaned_body = object.cleaned_body
         this._comments_count = object.comments_count || 0;
         this._favorites = object.favorites || 0;
         this._author = new User(object.author)
+
         this._photo = new Image(object.photo)
 
         this._is_favorite = object.is_favorite
         this._publish_on = object.publish_on
         this._created_at = object.created_at
         this._updated_at = object.updated_at
+    }
+
+    get body() {
+        return this._body;
+    }
+
+    set body(value) {
+        this._body = value;
     }
 
     get id() {
@@ -136,7 +146,7 @@ class Article extends Model {
     }
 
     getLocalizedCleanedBody(locale = "ar") {
-        return this._getLocalizedField("cleaned-body", locale)
+        return this._getLocalizedField("cleaned_body", locale)
     }
 }
 

@@ -2,10 +2,9 @@ import {GET_ARTICLES, GET_MORE_ARTICLES} from "../actions/articles";
 import {HOMEPAGE_RECENT_ARTICLES} from '../actions/home';
 import Article from "../../model/Article";
 import ModelPaginatedResource from '../../model/ModelPaginatedResource';
-import {dummyArticles} from '../DummyData/articles'
 
 const initialState = {
-    recent: dummyArticles.splice(0,3),
+    recent: [],
     article: new ModelPaginatedResource(),
     all: new ModelPaginatedResource(),
 };
@@ -17,18 +16,26 @@ const articlesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 article: new ModelPaginatedResource(action.payload, Article),
-                all: state.all.concat(action.payload.data.map(item => new Article(item))),
+                all: new ModelPaginatedResource({
+                    data: state.all.data.concat(action.payload.data.map(item => new Article(item))),
+                    links: action.payload.links,
+                    meta: action.payload.meta,
+                }),
             };
 
         case GET_MORE_ARTICLES:
             return {
                 ...state,
                 article: new ModelPaginatedResource({
-                    data: state.recent.data.concat(action.payload.data.map(item => new Article(item))),
+                    data: state.article.data.concat(action.payload.data.map(item => new Article(item))),
                     links: action.payload.links,
                     meta: action.payload.meta,
                 }),
-                all: state.all.concat(action.payload.data.map(item => new Article(item)))
+                all: new ModelPaginatedResource({
+                    data: state.all.data.concat(action.payload.data.map(item => new Article(item))),
+                    links: action.payload.links,
+                    meta: action.payload.meta,
+                }),
             };
 
         case HOMEPAGE_RECENT_ARTICLES:
