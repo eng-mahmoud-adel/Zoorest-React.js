@@ -7,20 +7,18 @@ import SponsoredProviderSection from "./SponsoredProviderSection";
 import RecentQuestions from "./RecentQuestions";
 import RecentPosts from "./RecentPosts";
 import Testimonials from "./Testimonials";
-import {getRecentArticles} from "../../store/actions/articles";
 import {getHomeData} from "../../store/actions/home";
 
 const HomeContainer = (
     {
         currentLocale, heroData, downloadData, recentQuestions, recentQuestionsData, sponsoredProviders, recentProvidersData,
         recentPosts, recentArticles, testimonials,
-        getRecentArticles, getHomeData
+        getHomeData
     }) => {
 
     useEffect(() => {
-        getRecentArticles();
         getHomeData();
-    }, [getRecentArticles, getHomeData]);
+    }, [getHomeData]);
 
     return (
         <Fragment>
@@ -84,9 +82,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getRecentArticles: () => {
-        dispatch(getRecentArticles());
-    },
     getHomeData: () => {
         dispatch(getHomeData());
     }

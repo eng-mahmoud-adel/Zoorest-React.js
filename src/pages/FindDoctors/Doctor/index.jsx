@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import Info from './Info';
-import Questions from './Questions';
-import Articles from './Articles';
 import {Tab, Tabs} from 'react-bootstrap';
 import Avatar from '../../../components/Avatars/Avatar';
 import RateBar from '../../../components';
@@ -62,10 +60,30 @@ const DoctorProfile = (props) => {
                     <Info provider={provider} id={id}/>
                 </Tab>
                 <Tab eventKey="recent-questions" title="Recent Questions">
-                    <Questions id={id}/>
+                    {/* <LazyList
+                        data={provider.all}
+                        itemCols={"col-4"}
+                        loadMoreMessage={"Load More Questions"}
+                        component={Question}
+                        placeholderComponent={Question}
+                        fetchMoreData={getMoreProviders}
+                        refresh={getProviders}
+                        endMessage={
+                            <p style={{textAlign: 'center'}}>
+                                <b>Yay! You have seen it all</b>
+                            </p>
+                        }
+                        pullDownToRefresh
+                        pullDownToRefreshContent={
+                            <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
+                        }
+                        releaseToRefreshContent={
+                            <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
+                        }
+                        /> */}
                 </Tab>
                 <Tab eventKey="doctor-articles" title="Doctor's Articles">
-                    <Articles id={id}/>
+                    {/* <Articles id={id}/> */}
                 </Tab>
             </Tabs>
         </div>

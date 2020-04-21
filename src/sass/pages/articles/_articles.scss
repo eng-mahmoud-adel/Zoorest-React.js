@@ -1,0 +1,16 @@
+/* start all-articles component */
+.all-articles {
+    color: $dark;
+    .title {
+        font-size: $font-size-48;
+    }
+    .wrapper {
+        border-top: 1px solid $secondary;
+        border-bottom: 1px solid $secondary;
+        padding: $padding-12 0;
+        .second-title {
+            color: $info;
+        }
+    }
+}
+/* end all-articles component */
