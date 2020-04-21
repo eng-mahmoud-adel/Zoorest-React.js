@@ -3,7 +3,8 @@ import {Route, Switch} from 'react-router-dom';
 
 import HomeContainer from '../../pages/Home/index';
 import About from '../../pages/About/About';
-import ArticleCards from '../../pages/ShowingCards/ArticleCards';
+import AllArticlesContainer from '../../pages/Articles/index';
+import SingleArticleContainer from '../../pages/Articles/details/index';
 import PostCards from '../../pages/ShowingCards/PostCards';
 import CommentCards from '../../pages/ShowingCards/CommentCards';
 import AdsCard from '../../pages/ShowingCards/AdsCard';
@@ -18,7 +19,10 @@ const AppRouter = () => (
         <Switch>
             <Route exact path="/" component={HomeContainer}/>
             <Route path="/about" component={About}/>
-            <Route path="/article" component={ArticleCards}/>
+
+            <Route exact path="/article" component={AllArticlesContainer}/>
+            <Route path="/article/:slug" component={SingleArticleContainer}/>
+
             <Route path="/post" component={PostCards}/>
             {/*<Route path="/demo-question" component={QuestionCards}/>*/}
 

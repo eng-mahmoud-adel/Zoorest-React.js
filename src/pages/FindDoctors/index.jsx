@@ -67,8 +67,8 @@ const Doctors = (props) => {
                     }
                     releaseToRefreshContent={
                         <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                    }/>
-
+                    }
+                    />
             </section>
         </div>
     )

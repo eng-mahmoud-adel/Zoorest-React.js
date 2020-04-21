@@ -24,7 +24,6 @@ const Article = (props) => {
                 <Row>
                     <Col xs={9} md={7} lg={7} xl={8}>
                         <Link to={`/article/${model ? model.getLocalizedSlug():""}`} className="card-link">Read More</Link>
-
                     </Col>
 
                     <Col xs={3} md={5} lg={5} xl={4} className= "text-right">
