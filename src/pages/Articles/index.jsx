@@ -42,12 +42,12 @@ const AllArticlesContainer = (props) => {
         
             <section>
                 <LazyList
-                    data={articles.article} // should be articles.all
+                    data={articles.all}
                     itemCols={"col-4"}
                     loadMoreMessage={"Load More Articles"}
                     component={Article}
                     placeholderComponent={Article}
-                    fetchMoreData={getMoreArticles} // next link equals null in API
+                    fetchMoreData={getMoreArticles}
                     refresh={getArticles}
                     endMessage={
                         <p style={{textAlign: 'center'}}>

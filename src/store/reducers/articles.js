@@ -7,7 +7,7 @@ import {dummyArticles} from '../DummyData/articles'
 const initialState = {
     recent: dummyArticles.splice(0,3),
     article: new ModelPaginatedResource(),
-    all: [],
+    all: new ModelPaginatedResource(),
 };
 
 const articlesReducer = (state = initialState, action) => {

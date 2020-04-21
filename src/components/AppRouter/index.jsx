@@ -21,7 +21,7 @@ const AppRouter = () => (
             <Route path="/about" component={About}/>
 
             <Route exact path="/article" component={AllArticlesContainer}/>
-            <Route path="/article/:slug" component={SingleArticleContainer}/>
+            <Route path="/article/:id" component={SingleArticleContainer}/>
 
             <Route path="/post" component={PostCards}/>
             {/*<Route path="/demo-question" component={QuestionCards}/>*/}
