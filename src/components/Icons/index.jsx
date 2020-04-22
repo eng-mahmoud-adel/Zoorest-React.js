@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {IoMdHeart, IoMdHeartEmpty} from "react-icons/io";
-import {MdComment, MdPhone, MdRemoveRedEye} from "react-icons/md";
+import {MdComment, MdPhone, MdRemoveRedEye, MdShare} from "react-icons/md";
 import {FaFacebookSquare, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
 
 
@@ -22,7 +22,7 @@ export const HeartIcon = ({onClick, is_active, value}) => {
 };
 
 export const CommentsIcon = (props) => (
-    <span className="icon-group"> <MdComment  {...props} /> {props.value}        </span>
+    <span className="icon-group"> <MdComment  {...props} /> {props.value} {props.text} </span>
 );
 
 export const ViewsIcon = (props) => (
@@ -33,6 +33,9 @@ export const SearchIcon = (props) => (
 );
 export const CallIcon = (props) => (
     <span className="icon-group"> <MdPhone {...props}/> {props.value} {props.text} </span>
+);
+export const ShareIcon = (props) => (
+    <span className="icon-group"> <MdShare {...props}/> {props.value} {props.text} </span>
 );
 
 

@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux'
 
 import authReducer from './auth'
-import articlesReducer from "./articles";
+import articlesReducer from "./articles/articles";
+import singleArticleReducer from "./articles/singleArticlePage";
 import homePageReducer from "./page-reducers/homepage";
 import providersReducer from "./providers";
 import questionsReducer from "./questions/indexPage";
@@ -19,6 +20,8 @@ const reducer = combineReducers({
     modal: modalReducer,
 
     articles: articlesReducer,
+    singleArticlePage: singleArticleReducer,
+
     authUser: authReducer,
     providers: providersReducer,
     questions: questionsReducer,
