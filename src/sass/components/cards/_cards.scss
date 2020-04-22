@@ -397,7 +397,6 @@
       cursor: pointer;
 
       span {
-        margin-left: $margin-8;
         color: $gray-color;
         font-size: $font-size-12;
       }
@@ -444,6 +443,10 @@
 
     .share {
       padding-top: $padding-48;
+      .share-icon {
+        color: $gray-color;
+        font-size: $font-size-14;
+      }
     }
   }
 }
