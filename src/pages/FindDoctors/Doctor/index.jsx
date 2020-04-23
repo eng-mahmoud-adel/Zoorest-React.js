@@ -10,10 +10,11 @@ const DoctorProfile = (props) => {
     const {provider} = props;
     const [key, setKey] = useState('doctor-information');
     const id = props.match.params.id;
+    const singleProvider= provider.filter(provider => provider.id == id);
 
     return (
         <div className="container profile my-5 pt-5">
-            {provider.map(provider => provider.id === id ? <div className= "row" key= {provider.id}>
+            {singleProvider.map(provider => (<div className= "row" key= {provider.id}>
                 <div className= "provider-image col-xl-2 col-md-3 col-sm-3 col-12">
                     <Avatar className="avatar-four" image={provider.image} radius={70}/>
                 </div>
@@ -49,7 +50,7 @@ const DoctorProfile = (props) => {
                     </div>
 
                 </div>
-            </div> : null)}
+            </div>))}
             <Tabs
                 className="my-5"
                 id="doctor-profile"
@@ -57,7 +58,7 @@ const DoctorProfile = (props) => {
                 onSelect={(k) => setKey(k)}
             >
                 <Tab eventKey="doctor-information" title="Doctor Information">
-                    {/* <Info provider={provider} id={id}/> */}
+                    <Info provider={singleProvider} />
                 </Tab>
                 <Tab eventKey="recent-questions" title="Recent Questions">
                     {/* <LazyList
@@ -83,7 +84,27 @@ const DoctorProfile = (props) => {
                         /> */}
                 </Tab>
                 <Tab eventKey="doctor-articles" title="Doctor's Articles">
-                    {/* <Articles id={id}/> */}
+                    {/* <LazyList
+                        data={provider.all}
+                        itemCols={"col-4"}
+                        loadMoreMessage={"Load More Articles"}
+                        component={Article}
+                        placeholderComponent={Article}
+                        fetchMoreData={getMoreArticles}
+                        refresh={getArticles}
+                        endMessage={
+                            <p style={{textAlign: 'center'}}>
+                                <b>Yay! You have seen it all</b>
+                            </p>
+                        }
+                        pullDownToRefresh
+                        pullDownToRefreshContent={
+                            <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
+                        }
+                        releaseToRefreshContent={
+                            <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
+                        }
+                        /> */}
                 </Tab>
             </Tabs>
         </div>

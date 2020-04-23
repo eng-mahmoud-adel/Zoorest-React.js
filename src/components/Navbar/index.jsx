@@ -25,7 +25,7 @@ const Auth = withTranslation()(({authUser, showModal, t}) => {
     return (
         <ul className="nav navbar-nav ml-auto w-100 justify-content-end auth">
 
-            {!authUser.user ?
+            {authUser.user ?
                 <Fragment>
                     {/*Show Sign in and Sign up Button when there is no auth user*/}
                     <Nav.Item as="li" className="mr-3">
