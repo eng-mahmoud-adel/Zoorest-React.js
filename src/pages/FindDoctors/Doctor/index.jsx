@@ -57,7 +57,7 @@ const DoctorProfile = (props) => {
                 onSelect={(k) => setKey(k)}
             >
                 <Tab eventKey="doctor-information" title="Doctor Information">
-                    <Info provider={provider} id={id}/>
+                    {/* <Info provider={provider} id={id}/> */}
                 </Tab>
                 <Tab eventKey="recent-questions" title="Recent Questions">
                     {/* <LazyList
@@ -91,7 +91,7 @@ const DoctorProfile = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    provider: state.providers.all
+    provider: state.providers.all.data
 })
 
 export default connect(mapStateToProps)(DoctorProfile);

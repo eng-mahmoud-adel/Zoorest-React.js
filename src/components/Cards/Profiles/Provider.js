@@ -8,12 +8,17 @@ import {Link} from 'react-router-dom';
 import Booking from '../Booking/Booking';
 import {ViewsIcon} from "../../Icons";
 import PropTypes from 'prop-types';
+import LoginForm from '../../Forms/LoginForm';
 
 
-const Provider = ({model: user, showModal, className}) => {
+const Provider = ({model: user, showModal, className, authUser}) => {
 
     const showAppointmentModal = () => {
-        showModal(Booking);
+        if ("undefined" === typeof authUser.accessToken) {
+            showModal(LoginForm);
+        } else {
+            showModal(Booking);
+        }
     };
 
     return (
