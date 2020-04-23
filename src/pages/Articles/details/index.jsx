@@ -7,7 +7,7 @@ import LazyList from "../../../components/DataList";
 import Comment from "../../../components/Cards/Comments/Comment";
 import {showModal} from "../../../store/actions/modal";
 import LoginForm from "../../../components/Forms/LoginForm";
-import {getSingleArticle, getArticleComments, getMoreArticleComments} from '../../../store/actions/articles';
+import {getArticleComments, getMoreArticleComments, getSingleArticle} from '../../../store/actions/articles';
 import BillBoard from '../../../components/Cards/BillBoard/BillBoard';
 
 
@@ -19,7 +19,7 @@ const SingleArticleContainer = (props) => {
     useEffect(() => {
         getSingleArticle(id);
         getArticleComments(id);
-    }, [getSingleArticle, getArticleComments, getMoreArticleComments]);
+    }, [getSingleArticle, getArticleComments, getMoreArticleComments, id]);
 
     const handleCommentSubmitted = (values, {setSubmitting}) => {
         console.log(authUser);
@@ -39,26 +39,25 @@ const SingleArticleContainer = (props) => {
     };
 
     return (
-        <div className= "row container mx-auto mt-5 py-5">
-            <div className= "col-md-9">
-                {stateData.loading === true && <ArticleTwo model= {stateData.model} currentLocale= {currentLocale} />}
+        <div className="row container mx-auto mt-5 py-5">
+            <div className="col-md-9">
+                {stateData.loading === true && <ArticleTwo model={stateData.model} currentLocale={currentLocale}/>}
 
-                <h5 className= "my-4 font-weight-bold">{stateData.model.comments_count} Comments</h5>
+                <h5 className="my-4 font-weight-bold">{stateData.model.comments_count} Comments</h5>
 
-                {(!stateData.loading) && <div className="">
-                    <LeaveCommentForm onSubmit={handleCommentSubmitted} withImages/>
-                </div>}
+                <LeaveCommentForm onSubmit={handleCommentSubmitted}/>
 
-                    <div className="">
-                        {stateData.loadingComments === true ?
-                            <LazyList
-                                data={stateData.comments}
-                                component={Comment}
-                                placeholderComponent={Comment}
-                                fetchMoreData={getMoreArticleComments}
-                                refresh={getArticleComments}
-                            /> : <h2>No Comments</h2>}
-                    </div>
+
+                <div className="">
+                    {stateData.loadingComments === true ?
+                        <LazyList
+                            data={stateData.comments}
+                            component={Comment}
+                            placeholderComponent={Comment}
+                            fetchMoreData={getMoreArticleComments}
+                            refresh={getArticleComments}
+                        /> : <h2>No Comments</h2>}
+                </div>
 
             </div>
 
