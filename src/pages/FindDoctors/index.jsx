@@ -4,11 +4,12 @@ import LazyList from "../../components/DataList";
 import Provider from '../../components/Cards/Profiles/Provider';
 import CheckBox from '../../components/Buttons/CheckBoxes/CheckBox';
 import BasicInput from '../../components/Inputs/BasicInput';
+import {MultiSelect} from '../../components/Inputs/MultiSelect';
 import {showModal} from "../../store/actions/modal";
 import {getMoreProviders, getProviders} from '../../store/actions/providers';
 
 const Doctors = (props) => {
-    const {providers, getProviders, getMoreProviders} = props;
+    const {providers, getProviders, getMoreProviders, authUser} = props;
 
     useEffect(() => {
         getProviders();
@@ -25,13 +26,13 @@ const Doctors = (props) => {
                 <div className= "mb-3">(213) Doctor</div>
                 <div className="row mb-3">
                     <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                        <span>Country:</span>
+                        <div>Country: <MultiSelect /></div>
                     </div>
                     <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                        <span>Governrate:</span>
+                        <div>Governrate: <MultiSelect /></div>
                     </div>
                     <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                        <span>Rating:</span>
+                        <div>Rating: <MultiSelect /></div>
                     </div>
                     <div className="col-lg-3 col-sm-6 col-8 mb-3 mb-lg-0">
                         <CheckBox text="Show only nearby doctors" id="customCheck1"/>
@@ -75,7 +76,8 @@ const Doctors = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    providers: state.providers
+    providers: state.providers,
+    authUser: state.authUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

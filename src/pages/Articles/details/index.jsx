@@ -13,7 +13,7 @@ import BillBoard from '../../../components/Cards/BillBoard/BillBoard';
 
 const SingleArticleContainer = (props) => {
 
-    const {stateData, getSingleArticle, match, getArticleComments, getMoreArticleComments, authUser, showModal}= props;
+    const {stateData, getSingleArticle, match, getArticleComments, getMoreArticleComments, authUser, showModal, currentLocale}= props;
     const {id} = match.params;
 
     useEffect(() => {
@@ -41,11 +41,11 @@ const SingleArticleContainer = (props) => {
     return (
         <div className= "row container mx-auto mt-5 py-5">
             <div className= "col-md-9">
-                {stateData.loading === true && <ArticleTwo model= {stateData.model} />}
+                {stateData.loading === true && <ArticleTwo model= {stateData.model} currentLocale= {currentLocale} />}
 
                 <h5 className= "my-4 font-weight-bold">{stateData.model.comments_count} Comments</h5>
 
-                {(!stateData.loading && !stateData.model.isClosed()) && <div className="">
+                {(!stateData.loading) && <div className="">
                     <LeaveCommentForm onSubmit={handleCommentSubmitted} withImages/>
                 </div>}
 
@@ -80,6 +80,7 @@ const SingleArticleContainer = (props) => {
 const mapStateToProps = (state) => ({
     stateData: state.singleArticlePage,
     authUser: state.authUser,
+    currentLocale: state.i18n.value,
 })
 
 const mapDispatchToProps = (dispatch) => ({

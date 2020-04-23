@@ -148,6 +148,10 @@ class Article extends Model {
     getLocalizedCleanedBody(locale = "ar") {
         return this._getLocalizedField("cleaned_body", locale)
     }
+
+    getLocalizedBody(locale = "ar") {
+        return this._getLocalizedField("body", locale)
+    }
 }
 
 export default Article;
