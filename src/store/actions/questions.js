@@ -9,6 +9,7 @@ export const GET_MOST_COMMON_QUESTIONS = 'GET_MOST_COMMON_QUESTIONS';
 export const GET_MORE_COMMON_QUESTIONS = 'GET_MORE_COMMON_QUESTIONS';
 
 export const TOP_QUESTIONS = 'TOP_QUESTIONS';
+export const QUESTIONS_ANALYTICS = 'QUESTIONS_ANALYTICS';
 
 export const QUESTION_CREATED = 'QUESTION_CREATED';
 export const GET_QUESTION = 'GET_QUESTION';
@@ -128,6 +129,22 @@ export const getTopQuestions = (limit = 4) => async (dispatch) => {
             (response) => {
                 dispatch({
                     type: TOP_QUESTIONS,
+                    payload: response.data,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+
+};
+
+export const getQuestionsAnalytics = () => async (dispatch) => {
+    await ApiService.get(`${ENDPOINT}/analytics`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: QUESTIONS_ANALYTICS,
                     payload: response.data,
                 })
             },

@@ -5,6 +5,7 @@ import {
     GET_MOST_COMMON_QUESTIONS,
     GET_NOT_ANSWERED_QUESTIONS,
     GET_RECENT_QUESTIONS,
+    QUESTIONS_ANALYTICS,
     TOP_QUESTIONS,
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
@@ -18,6 +19,12 @@ const initialState = {
     most_common: new ModelPaginatedResource(),
     recent_questions: [],
     top: new ModelPaginatedResource(),
+    analytics: {
+        total: 0,
+        open: 0,
+        closed: 0,
+        answers: 0
+    },
     all: [],
 };
 
@@ -87,6 +94,12 @@ const questionsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 top: new ModelPaginatedResource(action.payload, Question),
+            };
+
+        case QUESTIONS_ANALYTICS:
+            return {
+                ...state,
+                analytics: action.payload,
             };
 
         default:

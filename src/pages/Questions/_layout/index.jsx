@@ -30,8 +30,7 @@ const QuestionBasePage = ({page, children, getPage, currentLocale}) => {
                     </div>
                     <div className="col-3 px-5 d-none d-lg-block">
                         <div className="row mb-3">
-                            <AskQuestion cardTextOne="Questions" cardTextTwo="Answers"
-                                         numberOne="33333" numberTwo="33333"/>
+                            <AskQuestion/>
                         </div>
                         <div className="row mb-3 d-none d-lg-block">
                             <TopQuestions/>
