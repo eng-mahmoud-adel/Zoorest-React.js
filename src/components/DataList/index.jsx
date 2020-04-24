@@ -35,6 +35,8 @@ const LazyList = props => {
     return (
         <InfiniteScroll
             {...props}
+            style={{overflow: "none"}}
+
             dataLength={data.length} //This is important field to render the next data
             next={fetchMore}
             hasMore={hasMore}

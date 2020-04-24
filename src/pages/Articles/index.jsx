@@ -1,13 +1,16 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import BasicInput from '../../components/Inputs/BasicInput';
-import LazyList from "../../components/DataList";
-import Article from '../../components/Cards/Articles/Article';
 import {getArticles, getMoreArticles} from '../../store/actions/articles';
+import LazyLoad from "react-lazyload";
+import Tag from "../../components/Tags/Tag";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Article from "../../components/Cards/Articles/Article";
 
 const AllArticlesContainer = (props) => {
 
-    const {articles, getArticles, getMoreArticles}= props;
+    const {articles, getArticles, getMoreArticles} = props;
+    const [hasMore, setHasMore] = useState(true);
 
     useEffect(() => {
         getArticles();
@@ -41,27 +44,37 @@ const AllArticlesContainer = (props) => {
             </div>
 
             <section>
-                <LazyList
-                    data={articles.all}
-                    itemCols={"col-4"}
+                {articles.all && <InfiniteScroll
+                    dataLength={articles.all.data.length} //This is important field to render the next data
+                    style={{overflow: "none"}}
+                    next={() => {
+                        console.log("fetchMore");
+                        //dispatch a load more action that fetches new items and  appends to ro previous state
+                        getMoreArticles(articles.all.links.getNextLink());
+                    }}
+                    hasMore={hasMore}
                     loadMoreMessage={"Load More Articles"}
-                    component={Article}
-                    placeholderComponent={Article}
-                    fetchMoreData={getMoreArticles}
-                    refresh={getArticles}
-                    endMessage={
-                        <p style={{textAlign: 'center'}}>
-                            <b>Yay! You have seen it all</b>
-                        </p>
-                    }
-                    pullDownToRefresh
-                    pullDownToRefreshContent={
-                        <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                    }
-                    releaseToRefreshContent={
-                        <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                    }
-                    />
+
+                    refreshFunction={() => {
+                        console.log("refreshing");
+                        //dispatch a refresh action that clears the items and re-fetches them
+                        getArticles();
+                    }}
+                    loader={<h4>Getting More Loading...</h4>}>
+
+                    <div className="row">
+                        {articles.all.data.map(item => (
+                            <div className={(item.hasVideo() ? "col-8" : "col-4") + ` my-1`}
+                                 key={"articles_" + item.id}>
+                                <LazyLoad unmountIfInvisible={true} once={true}
+                                          placeholder={<h5 className="lazy loading">loading...</h5>}>
+                                    <Article model={item} tag={Tag}/>
+                                </LazyLoad>
+                            </div>
+                        ))}
+                    </div>
+
+                </InfiniteScroll>}
             </section>
         </div>
     )

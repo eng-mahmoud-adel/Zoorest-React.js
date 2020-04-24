@@ -17,6 +17,9 @@ class Article extends Model {
         this._comments_count = object.comments_count || 0;
         this._favorites = object.favorites || 0;
         this._author = new User(object.author)
+        this._likes_count = object.likes_count
+        this._shares_count = object.shares_count
+        this._views_count = object.views_count
 
         if (object.photo) {
             this._photo = new Image(object.photo)
@@ -147,6 +150,34 @@ class Article extends Model {
 
     set video(value) {
         this._video = value;
+    }
+
+    get likes_count() {
+        return this._likes_count;
+    }
+
+    set likes_count(value) {
+        this._likes_count = value;
+    }
+
+    get shares_count() {
+        return this._shares_count;
+    }
+
+    set shares_count(value) {
+        this._shares_count = value;
+    }
+
+    get views_count() {
+        return this._views_count;
+    }
+
+    set views_count(value) {
+        this._views_count = value;
+    }
+
+    hasVideo() {
+        return !!this.video;
     }
 
     getLocalizedSlug(locale = "ar") {
