@@ -23,7 +23,8 @@ const DownloadAppSection = (props) => {
                         <div className="col-xl-5 col-lg-5 col-md-6 col-4 ml-1 ml-sm-0">
 
                             {/* eslint-disable-next-line react/jsx-no-target-blank */}
-                            <a href= {downloadData.getFiledValueByName("android_button_action", currentLocale)}
+                            <a href={downloadData.getFiledValueByName("android_button_action", currentLocale)}
+                               rel="noopener noreferrer"
                                target="_blank">
                                 <LazyLoad unmountIfInvisible={true} once={true}
                                           placeholder={<h5 className="lazy loading">loading...</h5>}>
@@ -32,7 +33,8 @@ const DownloadAppSection = (props) => {
                             </a>
                         </div>
                         <div className="col-xl-5 col-lg-5 col-md-6 col-4">
-                            <a href= {downloadData.getFiledValueByName("ios_button_action", currentLocale)} target="_blank">
+                            <a href={downloadData.getFiledValueByName("ios_button_action", currentLocale)}
+                               rel="noopener noreferrer" target="_blank">
                                 <LazyLoad unmountIfInvisible={true} once={true}
                                           placeholder={<h5 className="lazy loading">loading...</h5>}>
                                     <img src={appStoreImage} alt="" className="img-fluid app-store-image"/>

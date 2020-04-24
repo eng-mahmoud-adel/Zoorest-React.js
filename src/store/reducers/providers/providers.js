@@ -1,16 +1,16 @@
 // import {dummyArticles} from './DummyData/articles'
-import {HOMEPAGE_SPONSORED_PROVIDERS} from '../actions/home';
-import User from "../../model/User";
-import ModelPaginatedResource from '../../model/ModelPaginatedResource';
+import {HOMEPAGE_SPONSORED_PROVIDERS} from '../../actions/home';
+import User from "../../../model/User";
+import ModelPaginatedResource from '../../../model/ModelPaginatedResource';
 
 import {
-    GET_MORE_PROVIDERS, 
-    GET_PROVIDERS, 
-    GET_QUESTION_PROVIDERS, 
-    GET_MORE_QUESTION_PROVIDERS, 
-    GET_ARTICLE_PROVIDERS, 
-    GET_MORE_ARTICLE_PROVIDERS
-} from '../actions/providers';
+    GET_ARTICLE_PROVIDERS,
+    GET_MORE_ARTICLE_PROVIDERS,
+    GET_MORE_PROVIDERS,
+    GET_MORE_QUESTION_PROVIDERS,
+    GET_PROVIDERS,
+    GET_QUESTION_PROVIDERS
+} from '../../actions/providers';
 
 const initialState = {
     sponsored: new ModelPaginatedResource(),
@@ -47,14 +47,14 @@ const providersReducer = (state = initialState, action) => {
         case GET_QUESTION_PROVIDERS:
             return {
                 ...state,
-                
-                }
+
+            }
 
         case GET_MORE_QUESTION_PROVIDERS:
             return {
                 ...state,
-                
-                }
+
+            }
 
         case GET_ARTICLE_PROVIDERS:
             return {
@@ -67,7 +67,7 @@ const providersReducer = (state = initialState, action) => {
             ...state,
 
             }
-            
+
         default:
             break;
     }

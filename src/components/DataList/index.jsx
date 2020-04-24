@@ -45,8 +45,8 @@ const LazyList = props => {
 
             <div className="row">
                 {data.map((item) => (
-                    <div className={`${itemCols} my-1`}>
-                        <LazyLoad key={props.component.name + "_" + item.id} unmountIfInvisible={true} once={true}
+                    <div className={`${itemCols} my-1`} key={props.component.name + "_" + item.id}>
+                        <LazyLoad unmountIfInvisible={true} once={true}
                                   placeholder={<h5 className="lazy loading">loading...</h5>}>
                             <RenderItem model={item} tag={Tag}/>
                         </LazyLoad>

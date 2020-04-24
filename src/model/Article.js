@@ -13,11 +13,14 @@ class Article extends Model {
         this._description = object.description
         this._body = object.body
         this._cleaned_body = object.cleaned_body
+        this._video = object.video
         this._comments_count = object.comments_count || 0;
         this._favorites = object.favorites || 0;
         this._author = new User(object.author)
 
-        this._photo = new Image(object.photo)
+        if (object.photo) {
+            this._photo = new Image(object.photo)
+        }
 
         this._is_favorite = object.is_favorite
         this._publish_on = object.publish_on
@@ -135,6 +138,15 @@ class Article extends Model {
 
     set comments_count(value) {
         this._comments_count = value;
+    }
+
+
+    get video() {
+        return this._video;
+    }
+
+    set video(value) {
+        this._video = value;
     }
 
     getLocalizedSlug(locale = "ar") {

@@ -13,7 +13,7 @@ const Post = (props) => {
             <div className="img-container">
                 {/*todo make this a carousal*/}
                 <Card.Img variant="top"
-                          src={props.data ? props.data.images[0].path_medium : img}/>
+                          src={props.data ? props.data.images[0].path_large : img}/>
 
             </div>
             <Card.Body>

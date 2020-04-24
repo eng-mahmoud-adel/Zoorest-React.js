@@ -32,6 +32,7 @@ class Provider extends Model {
 
         this._image_url = object.image_url
         this._certificate_url = object.certificate_url
+        this._certificates = []//todo object.certificates
     }
 
     get id() {
@@ -242,7 +243,15 @@ class Provider extends Model {
         this._average_rating = value;
     }
 
-    latitude = () => this.geo_lng;
+    get certificates() {
+        return this._certificates;
+    }
+
+    set certificates(value) {
+        this._certificates = value;
+    }
+
+    latitude = () => this.geo_lat;
 
     longitude = () => this.geo_lng;
 }

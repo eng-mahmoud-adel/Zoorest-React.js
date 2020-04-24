@@ -23,7 +23,12 @@ class Question extends Model {
         this._image_url = object.image_url
         this._text = object.text
         this._author = new User(object.author)
-        this._images = new Image(object.photo)
+
+        if (object.photo) {
+            this._images = new Image(object.photo)
+        } else {
+            this._images = new Image()
+        }
     }
 
     get id() {

@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import LazyLoad from "react-lazyload";
 import {CommentsIcon, HeartIcon} from "../../Icons";
 import PropTypes from "prop-types";
+import ReactPlayer from 'react-player'
 
 const Article = ({model}) => {
 
@@ -13,8 +14,24 @@ const Article = ({model}) => {
             <small className="small-text">{model.human_created_at}</small>
             <div className="img-container">
                 <LazyLoad unmountIfInvisible={true} once={true}>
-                    <Card.Img variant={null} src={model.photo.path_small} className="img-fluid h-100 w-100"
-                              alt=""/>
+
+                    {model.video ?
+                        <ReactPlayer
+                            url={model.video}
+                            loop={false}
+                            light={true}
+                            width='100%'
+                            playing
+                            // playIcon={}
+                        />
+
+                        :
+                        <Card.Img variant={null} src={model.photo ? model.photo.path_small : ""}
+                                  className="img-fluid h-100 w-100"
+                                  alt=""/>
+
+                    }
+
                 </LazyLoad>
             </div>
             <Card.Body>

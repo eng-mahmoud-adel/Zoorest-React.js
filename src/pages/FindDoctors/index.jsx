@@ -8,18 +8,20 @@ import {MultiSelect} from '../../components/Inputs/MultiSelect';
 import {showModal} from "../../store/actions/modal";
 import {getMoreProviders, getProviders} from '../../store/actions/providers';
 
-const Doctors = (props) => {
-    const {providers, getProviders, getMoreProviders, authUser} = props;
+const Doctors = ({providers, getProviders, getMoreProviders}) => {
 
     useEffect(() => {
         getProviders();
     }, [getProviders]);
 
     return (
-        <div className= "container mt-5">
-            <section className= "title">
-                <h1 className= "font-weight-bold">Doctors and Clinics</h1>
-                <p>Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal rights are at least unclear for many common Internet activities, such as posting a picture that belongs to someone else to a social media account, covering a popular song on a YouTube video, or writing fanfiction.</p>
+        <div className="container mt-5">
+            <section className="title">
+                <h1 className="font-weight-bold">Doctors and Clinics</h1>
+                <p>Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal
+                    rights are at least unclear for many common Internet activities, such as posting a picture that
+                    belongs to someone else to a social media account, covering a popular song on a YouTube video, or
+                    writing fanfiction.</p>
             </section>
 
             <section className= "pro-doctors">

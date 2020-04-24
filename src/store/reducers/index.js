@@ -4,7 +4,8 @@ import authReducer from './auth'
 import articlesReducer from "./articles/articles";
 import singleArticleReducer from "./articles/singleArticlePage";
 import homePageReducer from "./page-reducers/homepage";
-import providersReducer from "./providers";
+import providersReducer from "./providers/providers";
+import singleProviderPage from "./providers/singleProviderPage";
 import questionsReducer from "./questions/indexPage";
 import testimonialsReducer from "./testimonials";
 import postsReducer from "./posts";
@@ -24,6 +25,7 @@ const reducer = combineReducers({
 
     authUser: authReducer,
     providers: providersReducer,
+    singleProviderPage: singleProviderPage,
     questions: questionsReducer,
     testimonials: testimonialsReducer,
     posts: postsReducer,
