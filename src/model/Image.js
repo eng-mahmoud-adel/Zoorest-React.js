@@ -1,4 +1,4 @@
-import Model from "./Model";
+import Model from "./Base/Model";
 
 class Image extends Model {
     default_image = "";

@@ -1,4 +1,4 @@
-import Model from "./Model";
+import Model from "./Base/Model";
 import Field from "./Field";
 
 class Section extends Model {
@@ -30,7 +30,7 @@ class Section extends Model {
 
     getFiledValueByName(field_name, locale = "ar") {
         //get the field using its label
-        let field = this.fields.filter(field => field.label === field_name)[0];
+        let field = this.fields.find(field => field.label === field_name);
 
         if (null === field || "undefined" === typeof (field)) {
             return "";

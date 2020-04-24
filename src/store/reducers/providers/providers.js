@@ -1,5 +1,5 @@
 // import {dummyArticles} from './DummyData/articles'
-import {HOMEPAGE_SPONSORED_PROVIDERS} from '../../actions/home';
+import {HOMEPAGE_SPONSORED_PROVIDERS} from '../../actions/pages';
 import User from "../../../model/User";
 import ModelPaginatedResource from '../../../model/ModelPaginatedResource';
 

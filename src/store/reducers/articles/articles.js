@@ -1,5 +1,5 @@
 import {GET_ARTICLES, GET_MORE_ARTICLES} from "../../actions/articles";
-import {HOMEPAGE_RECENT_ARTICLES} from '../../actions/home';
+import {HOMEPAGE_RECENT_ARTICLES} from '../../actions/pages';
 import Article from "../../../model/Article";
 import ModelPaginatedResource from '../../../model/ModelPaginatedResource';
 

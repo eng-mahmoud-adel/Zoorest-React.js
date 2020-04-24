@@ -3,20 +3,19 @@ import {combineReducers} from 'redux'
 import authReducer from './auth'
 import articlesReducer from "./articles/articles";
 import singleArticleReducer from "./articles/singleArticlePage";
-import homePageReducer from "./page-reducers/homepage";
 import providersReducer from "./providers/providers";
 import singleProviderPage from "./providers/singleProviderPage";
 import questionsReducer from "./questions/indexPage";
 import testimonialsReducer from "./testimonials";
 import postsReducer from "./posts";
-import questionsPageReducer from "./page-reducers/questions_page";
 import singleQuestionReducer from "./questions/singleQuestionPage";
 import i18nReducer from "./i18n";
 import modalReducer from "./modal";
+import globalReducer from "./globals";
+import pageReducer from "./pages";
 
 const reducer = combineReducers({
-    homepage: homePageReducer,
-    questionsPage: questionsPageReducer,
+    pages: pageReducer,
     singleQuestionPage: singleQuestionReducer,
     modal: modalReducer,
 
@@ -30,6 +29,7 @@ const reducer = combineReducers({
     testimonials: testimonialsReducer,
     posts: postsReducer,
     i18n: i18nReducer,
+    globals: globalReducer,
 });
 
 export default reducer

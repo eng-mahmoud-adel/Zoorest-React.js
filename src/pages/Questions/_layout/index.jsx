@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import BannerImage from '../../../images/assets/images/Bg@3x.png';
 import AskQuestion from "../../../components/Cards/Questions/AskQuestion";
@@ -6,16 +6,20 @@ import TopQuestionsMembers from "../../../components/Cards/Questions/TopQuestion
 import Avatar from "../../../components/Avatars/Avatar";
 
 import {connect} from "react-redux";
+import {getQuestionsPage} from "../../../store/actions/pages";
 
-const QuestionBasePage = ({pageData, children}) => {
+const QuestionBasePage = ({page, children, getPage, currentLocale}) => {
 
+    useEffect(() => {
+        getPage();
+    }, [getPage]);
 
     return (
         <div id="questions-index">
             <div className="jumbotron jumbotron-fluid " style={{backgroundImage: `url(${BannerImage})`}}>
                 <div className="container text-center">
-                    <h3 className="banner-title">{pageData.banner_title}</h3>
-                    <p>{pageData.banner_description}</p>
+                    <h3 className="banner-title">{page.bannerSection.getFiledValueByName("title", currentLocale)}</h3>
+                    <p>{page.bannerSection.getFiledValueByName("description", currentLocale)}</p>
                 </div>
             </div>
             <div className="container mt-5">
@@ -45,9 +49,15 @@ const QuestionBasePage = ({pageData, children}) => {
 };
 
 const mapStateToProps = (state) => ({
-    pageData: state.questionsPage,
+    page: state.pages.questions,
+    currentLocale: state.i18n.value,
+
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+    getPage: () => {
+        dispatch(getQuestionsPage());
+    },
+});
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionBasePage);
 

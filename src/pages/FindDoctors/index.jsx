@@ -7,31 +7,64 @@ import BasicInput from '../../components/Inputs/BasicInput';
 import {MultiSelect} from '../../components/Inputs/MultiSelect';
 import {showModal} from "../../store/actions/modal";
 import {getMoreProviders, getProviders} from '../../store/actions/providers';
+import {getProviderPage} from "../../store/actions/pages";
 
-const Doctors = ({providers, getProviders, getMoreProviders}) => {
+const Doctors = ({
+                     providers, getProviders, getMoreProviders, getPage,
+                     countries, cities, districts, page,
+                     currentLocale
+                 }) => {
 
     useEffect(() => {
+        getPage();
         getProviders();
-    }, [getProviders]);
+    }, [getPage, getProviders]);
+
+    const getCountries = () => {
+        // if(data[0])
+        //     setSelectedCountry(data[0].value)
+        return countries.map(country => ({
+            value: country.id,
+            label: country.getLocalizedName(currentLocale),
+        }));
+    }
+
+    const getCities = () => {
+        // if(data[0])
+        //     setSelectedCountry(data[0].value)
+        return cities.map(city => ({
+            value: city.id,
+            label: city.getLocalizedName(currentLocale),
+        }));
+    }
+
+    // const getDistricts = () => {
+    //     // if(data[0])
+    //     //     setSelectedCountry(data[0].value)
+    //     return districts.map(district => ({
+    //         value: district.id,
+    //         label: district.getLocalizedName(currentLocale),
+    //     }));
+    // }
+
 
     return (
         <div className="container mt-5">
             <section className="title">
-                <h1 className="font-weight-bold">Doctors and Clinics</h1>
-                <p>Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal
-                    rights are at least unclear for many common Internet activities, such as posting a picture that
-                    belongs to someone else to a social media account, covering a popular song on a YouTube video, or
-                    writing fanfiction.</p>
+                <h1 className="font-weight-bold">{page.bannerSection.getFiledValueByName("title", currentLocale)}</h1>
+                <p>{page.bannerSection.getFiledValueByName("description", currentLocale)}</p>
             </section>
 
-            <section className= "pro-doctors">
-                <div className= "mb-3">(213) Doctor</div>
+            <section className="pro-doctors">
+                <div className="mb-3">({providers.all.meta.total}) Doctor</div>
                 <div className="row mb-3">
                     <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                        <div>Country: <MultiSelect /></div>
+                        <div>Country:
+                            <MultiSelect options={getCountries()}/>
+                        </div>
                     </div>
                     <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                        <div>Governrate: <MultiSelect /></div>
+                        <div>Cities: <MultiSelect options={getCities()}/></div>
                     </div>
                     <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
                         <div>Rating: <MultiSelect /></div>
@@ -78,14 +111,24 @@ const Doctors = ({providers, getProviders, getMoreProviders}) => {
 }
 
 const mapStateToProps = (state) => ({
+    page: state.pages.providers,
     providers: state.providers,
-    authUser: state.authUser
+    authUser: state.authUser,
+    // locations: state.globals.locations,
+    countries: state.globals.countries,
+    cities: state.globals.cities,
+    districts: state.globals.districts,
+    currentLocale: state.i18n.value,
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
 
     showModal: (component) => {
         dispatch(showModal(component));
+    },
+    getPage: () => {
+        dispatch(getProviderPage());
     },
 
     getProviders: () => {

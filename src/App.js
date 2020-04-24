@@ -6,12 +6,14 @@ import Footer from "./components/Footer/Footer";
 import Modal from "./components/Modal";
 import {connect} from "react-redux";
 import {getAuthData} from "./store/actions/auth";
+import {getSiteGlobalData} from "./store/actions/globals";
 
-const App = (props) => {
-    const {getUserData} = props
+const App = ({getUserData, getGlobalData}) => {
+
     useEffect(() => {
         getUserData();
-    }, [getUserData])
+        getGlobalData();
+    }, [getUserData, getGlobalData])
     return (
         <Fragment>
             {/*Navbar Should always  show in each and every page*/}
@@ -31,6 +33,9 @@ const App = (props) => {
 const mapDispatchToProps = dispatch => ({
     getUserData: () => {
         dispatch(getAuthData());
+    },
+    getGlobalData: () => {
+        dispatch(getSiteGlobalData());
     }
 });
 

@@ -1,4 +1,4 @@
-import Model from "./Model";
+import Model from "./Base/Model";
 
 class Testimonials extends Model {
 

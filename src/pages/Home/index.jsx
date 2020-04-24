@@ -7,15 +7,16 @@ import SponsoredProviderSection from "./SponsoredProviderSection";
 import RecentQuestions from "./RecentQuestions";
 import RecentPosts from "./RecentPosts";
 import Testimonials from "./Testimonials";
-import {getHomeData} from "../../store/actions/home";
+import {getHomeData} from "../../store/actions/pages";
 
 const HomeContainer = (
     {
-        currentLocale, heroData, downloadData, recentQuestions, recentQuestionsData, sponsoredProviders, recentProvidersData,
+        currentLocale, page, recentQuestions, sponsoredProviders,
         recentPosts, recentArticles, testimonials,
         getHomeData
     }) => {
 
+    const {heroSection, downloadAppSection, recentQuestionsSection, sponsoredProvidersSection} = page
     useEffect(() => {
         getHomeData();
     }, [getHomeData]);
@@ -23,15 +24,16 @@ const HomeContainer = (
     return (
         <Fragment>
             <section id="section-hero" className="container pt-sm-5 pt-0 pb-5">
-                <HeroSection currentLocale={currentLocale} data={heroData}/>
+                <HeroSection currentLocale={currentLocale} data={heroSection}/>
             </section>
 
             <section id="section-download-apps" className="container">
-                <DownloadAppSection currentLocale={currentLocale} downloadData={downloadData}/>
+                <DownloadAppSection currentLocale={currentLocale} downloadData={downloadAppSection}/>
             </section>
 
             <section id="section-recent-questions">
-                <RecentQuestions currentLocale={currentLocale} questions={recentQuestions} questionsData= {recentQuestionsData}/>
+                <RecentQuestions currentLocale={currentLocale} questions={recentQuestions}
+                                 questionsData={recentQuestionsSection}/>
 
             </section>
 
@@ -41,7 +43,7 @@ const HomeContainer = (
 
                 <div className="container pt-4">
                     <SponsoredProviderSection currentLocale={currentLocale} providers={sponsoredProviders}
-                                              section={recentProvidersData}/>
+                                              section={sponsoredProvidersSection}/>
                 </div>
             </section>
 
@@ -66,11 +68,7 @@ const HomeContainer = (
 };
 
 const mapStateToProps = (state) => ({
-    heroData: state.homepage.heroSection,
-    downloadData: state.homepage.downloadAppSection,
-    recentQuestionsData: state.homepage.recentQuestionsSection,
-    recentProvidersData: state.homepage.nearestProviderSection,
-
+    page: state.pages.homepage,
     recentArticles: state.articles.recent,
     sponsoredProviders: state.providers.sponsored,
     recentQuestions: state.questions.recent_questions,

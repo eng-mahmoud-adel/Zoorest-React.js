@@ -1,4 +1,4 @@
-import {HOMEPAGE_TESTIMONIALS} from '../actions/home';
+import {HOMEPAGE_TESTIMONIALS} from '../actions/pages';
 import Testimonials from "../../model/Testimonials";
 
 const initialState = [];

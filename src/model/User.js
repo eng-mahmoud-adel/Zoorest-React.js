@@ -1,4 +1,4 @@
-import Model from "./Model";
+import Model from "./Base/Model";
 import Provider from "./Provider";
 import Image from "./Image";
 

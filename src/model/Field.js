@@ -1,4 +1,4 @@
-import Model from "./Model";
+import Model from "./Base/Model";
 
 class Field extends Model {
 
@@ -25,14 +25,6 @@ class Field extends Model {
     set value(value) {
         this._value = value;
     }
-
-    // get type() {
-    //     return this._type;
-    // }
-    //
-    // set type(value) {
-    //     this._type = value;
-    // }
 
     getLocalizedField(field_name, locale) {
         return super._getLocalizedField(field_name, locale);

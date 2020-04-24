@@ -1,5 +1,5 @@
 import {dummyPosts} from "../DummyData/posts";
-import {HOMEPAGE_RECENT_POSTS} from '../actions/home';
+import {HOMEPAGE_RECENT_POSTS} from '../actions/pages';
 import Post from "../../model/Post";
 
 const initialState = {

@@ -8,7 +8,7 @@ import {
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 
-import {HOMEPAGE_RECENT_QUESTIONS} from "../../actions/home";
+import {HOMEPAGE_RECENT_QUESTIONS} from "../../actions/pages";
 import Question from "../../../model/Question";
 
 const initialState = {

@@ -1,4 +1,4 @@
-import Model from "./Model";
+import Model from "./Base/Model";
 import User from './User';
 import Image from './Image';
 
@@ -237,7 +237,7 @@ class Post extends Model {
     set city_name(value) {
         this._city_name = value;
     }
-    
+
     get district_name() {
         return this._district_name;
     }
