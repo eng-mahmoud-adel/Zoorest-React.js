@@ -198,6 +198,10 @@ class Question extends Model {
     getLocalizedSlug(locale = "ar") {
         return this._getLocalizedField("slug", locale)
     }
+
+    getLocalizedTitle(locale = "ar") {
+        return this._getLocalizedField("title", locale)
+    }
 }
 
 export default Question;

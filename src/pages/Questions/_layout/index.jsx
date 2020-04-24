@@ -7,6 +7,7 @@ import Avatar from "../../../components/Avatars/Avatar";
 
 import {connect} from "react-redux";
 import {getQuestionsPage} from "../../../store/actions/pages";
+import TopQuestions from "../../../components/Cards/Questions/TopQuestions";
 
 const QuestionBasePage = ({page, children, getPage, currentLocale}) => {
 
@@ -33,11 +34,10 @@ const QuestionBasePage = ({page, children, getPage, currentLocale}) => {
                                          numberOne="33333" numberTwo="33333"/>
                         </div>
                         <div className="row mb-3 d-none d-lg-block">
-                            <TopQuestionsMembers className="top-membes-card" cardTitle="Top Questions"
-                                                 cardText="How to approach applying for a job at a company ?"/>
+                            <TopQuestions/>
                         </div>
                         <div className="row mb-3 d-none d-lg-block">
-                            <TopQuestionsMembers className="top-membes-card" cardTitle="Top Members"
+                            <TopQuestionsMembers cardTitle="Top Members"
                                                  avatar={Avatar}/>
                         </div>
                     </div>

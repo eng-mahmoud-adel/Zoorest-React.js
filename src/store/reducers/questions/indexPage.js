@@ -5,6 +5,7 @@ import {
     GET_MOST_COMMON_QUESTIONS,
     GET_NOT_ANSWERED_QUESTIONS,
     GET_RECENT_QUESTIONS,
+    TOP_QUESTIONS,
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 
@@ -16,6 +17,7 @@ const initialState = {
     not_answered: new ModelPaginatedResource(),
     most_common: new ModelPaginatedResource(),
     recent_questions: [],
+    top: new ModelPaginatedResource(),
     all: [],
 };
 
@@ -79,6 +81,12 @@ const questionsReducer = (state = initialState, action) => {
                 ...state,
                 recent_questions: action.payload.map(item => new Question(item)),
                 all: state.all.concat(action.payload.map(item => new Question(item)))
+            };
+
+        case TOP_QUESTIONS:
+            return {
+                ...state,
+                top: new ModelPaginatedResource(action.payload, Question),
             };
 
         default:

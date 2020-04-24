@@ -1,25 +1,21 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import Avatar from '../../Avatars/Avatar';
 
 
-const TopQuestionsMembers = (props) => {
+const TopQuestionsMembers = ({className}) => {
     return (
-        <div className={props.className + " card"}>
-            <h5 className="card-title">{props.cardTitle}</h5>
-            {props.cardText && <div className="card-body">
-                <p className="card-text">{props.cardText}</p>
-                <p className="card-text">{props.cardText}</p>
-                <p className="card-text">{props.cardText}</p>
-                <p className="card-text">{props.cardText}</p>
-            </div>}
-            {props.avatar &&
+        <div className={`top-membes-card card ${className || ""}`}>
+            <h5 className="card-title">Top Members</h5>
             <Fragment>
-                <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
-                <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
-                <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
-                <div className= "pb-4"><Avatar className= "avatar-two" text= "MA" name= "Terry Williams" span= "Manager" /></div>
+                <div className="pb-4"><Avatar className="avatar-two" text="MA" name="Terry Williams" span="Manager"/>
+                </div>
+                <div className="pb-4"><Avatar className="avatar-two" text="MA" name="Terry Williams" span="Manager"/>
+                </div>
+                <div className="pb-4"><Avatar className="avatar-two" text="MA" name="Terry Williams" span="Manager"/>
+                </div>
+                <div className="pb-4"><Avatar className="avatar-two" text="MA" name="Terry Williams" span="Manager"/>
+                </div>
             </Fragment>
-            }
         </div>
     )
 }
