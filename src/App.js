@@ -19,9 +19,11 @@ const App = ({getUserData, getGlobalData}) => {
         <Fragment>
             {/*set Default Meta tags here*/}
             <Helmet>
-                <title>Zoorest</title>
-                <meta charSet="utf-8"/>
-                <meta name="description" content="زورست عالم الحيوانات الأليفة"/>
+                <meta content="Zoorest" property="og:title"/>
+                <meta content="زورست عالم الحيوانات الأليفة" name="description"/>
+                <meta content="زورست عالم الحيوانات الأليفة" name="og:description"/>
+                <meta content="en_GB" property="og:locale"/>
+                <meta content="ar_AR" property="og:locale:alternate"/>
             </Helmet>
 
             {/*Navbar Should always  show in each and every page*/}

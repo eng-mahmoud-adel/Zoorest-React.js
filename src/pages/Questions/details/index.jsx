@@ -17,6 +17,7 @@ import LazyList from "../../../components/DataList";
 import QuestionBasePage from "../_layout";
 import {showModal} from "../../../store/actions/modal";
 import LoginForm from "../../../components/Forms/LoginForm";
+import {Helmet} from "react-helmet";
 
 const SingleQuestionContainer = (
     {
@@ -65,6 +66,20 @@ const SingleQuestionContainer = (
     return (
 
         <QuestionBasePage>
+
+            {
+                stateData.loading === false &&
+                <Helmet>
+                    <meta property="og:title" content={stateData.model.title}/>
+                    <meta name="description" content={stateData.model.description}/>
+                    <meta name="og:description" content={stateData.model.description}/>
+                    <link itemProp="thumbnailUrl" href={stateData.model.image_url || stateData.model.author.image_url}/>
+                    <meta content={stateData.model.image_url || stateData.model.author.image_url} property="og:image"/>
+                    <meta content={stateData.model.image_url || stateData.model.author.image_url}
+                          property="og:image:secure_url"/>
+                    <meta property="og:updated_time" content={stateData.model.updated_at}/>
+                </Helmet>
+            }
 
             {/*breadcrumbs*/}
             <div className="row">
