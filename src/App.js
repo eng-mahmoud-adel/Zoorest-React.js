@@ -7,6 +7,7 @@ import Modal from "./components/Modal";
 import {connect} from "react-redux";
 import {getAuthData} from "./store/actions/auth";
 import {getSiteGlobalData} from "./store/actions/globals";
+import {Helmet} from "react-helmet";
 
 const App = ({getUserData, getGlobalData}) => {
 
@@ -16,6 +17,13 @@ const App = ({getUserData, getGlobalData}) => {
     }, [getUserData, getGlobalData])
     return (
         <Fragment>
+            {/*set Default Meta tags here*/}
+            <Helmet>
+                <title>Zoorest</title>
+                <meta charSet="utf-8"/>
+                <meta name="description" content="زورست عالم الحيوانات الأليفة"/>
+            </Helmet>
+
             {/*Navbar Should always  show in each and every page*/}
             <Navbar/>
 
