@@ -34,6 +34,13 @@ class Post extends Model {
         this._city_name = object.city_name
         this._district_name = object.district_name
         this._text = object.text
+
+        this._likes_count = object.likes_count
+        this._shares_count = object.shares_count
+        this._views_count = object.views_count
+        this._calls_count = object.calls_count
+        this._comments_count = object.comments_count
+
         this._user = new User(object.user)
         this._images = object.images.map(item => new Image(item))
     }
@@ -270,6 +277,46 @@ class Post extends Model {
         this._images = value;
     }
 
+
+    get likes_count() {
+        return this._likes_count;
+    }
+
+    set likes_count(value) {
+        this._likes_count = value;
+    }
+
+    get shares_count() {
+        return this._shares_count;
+    }
+
+    set shares_count(value) {
+        this._shares_count = value;
+    }
+
+    get views_count() {
+        return this._views_count;
+    }
+
+    set views_count(value) {
+        this._views_count = value;
+    }
+
+    get calls_count() {
+        return this._calls_count;
+    }
+
+    set calls_count(value) {
+        this._calls_count = value;
+    }
+
+    get comments_count() {
+        return this._comments_count;
+    }
+
+    set comments_count(value) {
+        this._comments_count = value;
+    }
 }
 
 export default Post;
