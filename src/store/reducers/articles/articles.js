@@ -1,4 +1,4 @@
-import {GET_ARTICLES, GET_MORE_ARTICLES} from "../../actions/articles";
+import {GET_ARTICLES, GET_MORE_ARTICLES, TOP_ARTICLES} from "../../actions/articles";
 import {HOMEPAGE_RECENT_ARTICLES} from '../../actions/pages';
 import Article from "../../../model/Article";
 import ModelPaginatedResource from '../../../model/ModelPaginatedResource';
@@ -7,6 +7,7 @@ const initialState = {
     recent: [],
     article: new ModelPaginatedResource(),
     all: new ModelPaginatedResource(),
+    top: new ModelPaginatedResource(),
 };
 
 const articlesReducer = (state = initialState, action) => {
@@ -43,6 +44,14 @@ const articlesReducer = (state = initialState, action) => {
                 ...state,
                 recent: action.payload.map(item => new Article(item)),
             };
+
+
+        case TOP_ARTICLES:
+            return {
+                ...state,
+                top: new ModelPaginatedResource(action.payload, Article),
+            };
+
 
         default:
             break;

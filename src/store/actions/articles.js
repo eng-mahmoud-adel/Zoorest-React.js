@@ -7,6 +7,7 @@ export const GET_SINGLE_ARTICLE = 'GET_SINGLE_ARTICLE';
 export const GET_ARTICLES_LOADING = 'GET_ARTICLES_LOADING';
 export const GET_ARTICLE_COMMENTS = 'GET_ARTICLE_COMMENTS';
 export const GET_MORE_ARTICLE_COMMENTS = 'GET_MORE_ARTICLE_COMMENTS';
+export const TOP_ARTICLES = 'TOP_ARTICLES';
 
 const ENDPOINT = 'articles';
 
@@ -98,3 +99,20 @@ export const getMoreArticleComments = (nextPageUrl) => async (dispatch) => {
             }
         );
 };
+
+export const getTopArticles = (limit = 4) => async (dispatch) => {
+    await ApiService.get(`${ENDPOINT}/top?perPage=${limit}`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: TOP_ARTICLES,
+                    payload: response.data,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+
+};
+

@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import TopQuestionsMembers from "../../../components/Cards/Questions/TopQuestionsMembers";
 import ArticleTwo from '../../../components/Cards/Articles/ArticleTwo';
 import LeaveCommentForm from "../../../components/Cards/Comments/LeaveComment";
 import LazyList from "../../../components/DataList";
@@ -9,11 +8,13 @@ import {showModal} from "../../../store/actions/modal";
 import LoginForm from "../../../components/Forms/LoginForm";
 import {getArticleComments, getMoreArticleComments, getSingleArticle} from '../../../store/actions/articles';
 import BillBoard from '../../../components/Cards/BillBoard/BillBoard';
+import RelatedArticles from "../../../components/Cards/Articles/RelatedArticles";
+import TopArticles from "../../../components/Cards/Articles/TopArticles";
 
 
 const SingleArticleContainer = (props) => {
 
-    const {stateData, getSingleArticle, match, getArticleComments, getMoreArticleComments, authUser, showModal, currentLocale}= props;
+    const {stateData, getSingleArticle, match, getArticleComments, getMoreArticleComments, authUser, showModal, currentLocale} = props;
     const {id} = match.params;
 
     useEffect(() => {
@@ -63,13 +64,12 @@ const SingleArticleContainer = (props) => {
 
             <div className= "col-md-3">
                 <div className="row mb-3 d-none d-lg-block">
-                    <TopQuestionsMembers className="top-membes-card" cardTitle="Related Aricles"
-                                            cardText="How to approach applying for a job at a company ?"/>
 
-                    <TopQuestionsMembers className="top-membes-card" cardTitle="Related Aricles"
-                                            cardText="How to approach applying for a job at a company ?"/>
+                    <RelatedArticles/>
 
-                    <BillBoard />
+                    <TopArticles/>
+
+                    <BillBoard/>
                 </div>
             </div>
         </div>
