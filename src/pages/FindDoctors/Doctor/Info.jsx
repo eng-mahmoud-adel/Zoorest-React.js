@@ -38,7 +38,7 @@ const Info = ({user}) => {
                 </div>
 
                 <div className="col-md-5 mt-md-0 mt-4">
-                    <Booking user={user}/>
+                    {user.provider.has_appointments && <Booking model={user.provider}/>}
                 </div>
             </div>
         </Fragment>
