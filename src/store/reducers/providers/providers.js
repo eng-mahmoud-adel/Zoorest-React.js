@@ -4,12 +4,8 @@ import User from "../../../model/User";
 import ModelPaginatedResource from '../../../model/ModelPaginatedResource';
 
 import {
-    GET_ARTICLE_PROVIDERS,
-    GET_MORE_ARTICLE_PROVIDERS,
     GET_MORE_PROVIDERS,
-    GET_MORE_QUESTION_PROVIDERS,
     GET_PROVIDERS,
-    GET_QUESTION_PROVIDERS
 } from '../../actions/providers';
 
 const initialState = {
@@ -42,30 +38,6 @@ const providersReducer = (state = initialState, action) => {
                     links: action.payload.links,
                     meta: action.payload.meta,
                 })
-            }
-
-        case GET_QUESTION_PROVIDERS:
-            return {
-                ...state,
-
-            }
-
-        case GET_MORE_QUESTION_PROVIDERS:
-            return {
-                ...state,
-
-            }
-
-        case GET_ARTICLE_PROVIDERS:
-            return {
-            ...state,
-
-            }
-
-        case GET_MORE_ARTICLE_PROVIDERS:
-            return {
-            ...state,
-
             }
 
         default:

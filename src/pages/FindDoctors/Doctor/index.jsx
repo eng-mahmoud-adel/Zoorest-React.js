@@ -6,7 +6,8 @@ import Avatar from '../../../components/Avatars/Avatar';
 import RateBar from '../../../components';
 import {CallIcon, ViewsIcon} from "../../../components/Icons";
 import {showModal} from "../../../store/actions/modal";
-import {callProvider, getSingleProvider, setSingleProvider, viewProvider} from "../../../store/actions/providers";
+import {callProvider, getSingleProvider, setSingleProvider, viewProvider, getProviderArticles, getMoreProviderArticles, 
+    getProviderQuestions, getMoreProviderQuestions} from "../../../store/actions/providers";
 import LazyList from "../../../components/DataList";
 import Article from "../../../components/Cards/Articles/Article";
 import Question from "../../../components/Cards/Questions/Question";
@@ -18,8 +19,8 @@ const DoctorProfile = (
         incrementViews,
         setSingleProvider,
         getSingleProvider,
-        // getProviderArticles, getMoreProviderArticles,
-        // getProviderQuestions, getMoreProviderQuestions,
+        getProviderArticles, getMoreProviderArticles,
+        getProviderQuestions, getMoreProviderQuestions,
 
     }) => {
 
@@ -43,12 +44,12 @@ const DoctorProfile = (
     }, [setSingleProvider, getSingleProvider, incrementViews, id, singleProvider]);
 
     useEffect(() => {
-        // todo load articles
-    }, [id]);
+        getProviderArticles();
+    }, [getProviderArticles, id]);
 
     useEffect(() => {
-        // todo load questions
-    }, [id]);
+        getProviderQuestions();
+    }, [getProviderQuestions, id]);
 
     return (
         <div className="container profile my-5 pt-5">
@@ -113,8 +114,8 @@ const DoctorProfile = (
                         loadMoreMessage={"Load More Questions"}
                         component={Question}
                         placeholderComponent={Question}
-                        //todo fetchMoreData={getMoreProviders}
-                        //todo refresh={getProviders}
+                        fetchMoreData={getMoreProviderQuestions}
+                        refresh={getProviderQuestions}
                     />}
                 </Tab>
                 <Tab eventKey="doctor-articles" title="Doctor's Articles">
@@ -125,8 +126,8 @@ const DoctorProfile = (
                         loadMoreMessage={"Load More Articles"}
                         component={Article}
                         placeholderComponent={Article}
-                        //todo fetchMoreData={getMoreArticles}
-                        //todo refresh={getArticles}
+                        fetchMoreData={getMoreProviderArticles}
+                        refresh={getProviderArticles}
                     />}
                 </Tab>
             </Tabs>
@@ -148,16 +149,16 @@ const mapDispatchToProps = dispatch => ({
         dispatch(setSingleProvider(provider));
     },
     getProviderArticles: (slug) => {
-        //todo dispatch(getQuestionComments(slug));
+        dispatch(getProviderArticles(slug));
     },
     getMoreProviderArticles: (nextPageUrl) => {
-        //todo dispatch(getMoreQuestionComments(nextPageUrl));
+        dispatch(getMoreProviderArticles(nextPageUrl));
     },
     getProviderQuestions: (slug) => {
-        //todo dispatch(getQuestionComments(slug));
+        dispatch(getProviderQuestions(slug));
     },
     getMoreProviderQuestions: (nextPageUrl) => {
-        //todo dispatch(getMoreQuestionComments(nextPageUrl));
+        dispatch(getMoreProviderQuestions(nextPageUrl));
     },
     incrementViews: (provider_id) => {
         dispatch(viewProvider(provider_id))
