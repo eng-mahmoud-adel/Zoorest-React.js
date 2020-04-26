@@ -13,6 +13,9 @@ export const GET_PROVIDER = 'GET_PROVIDER';
 export const SET_PROVIDER_LOADING = 'SET_PROVIDER_LOADING';
 export const SET_PROVIDER_LOADED = 'SET_PROVIDER_LOADED';
 export const UPDATE_PROVIDER = 'UPDATE_PROVIDER';
+export const GET_PROVIDER_APPOINTMENTS = 'GET_PROVIDER_APPOINTMENTS';
+export const GET_PROVIDER_APPOINTMENTS_LOADING = 'GET_PROVIDER_APPOINTMENTS_LOADING';
+export const BOOK_APPOINTMENT = 'BOOK_APPOINTMENT';
 
 
 const ENDPOINT = 'providers'
@@ -230,4 +233,50 @@ export const unlikeProvider = (id) => async (dispatch, getState) => {
     );
 
 
+};
+
+export const getProviderAppointments = (provider_id, datestring) => async (dispatch, getState) => {
+    dispatch({
+        type: GET_PROVIDER_APPOINTMENTS_LOADING,
+    });
+    await ApiService.get(`${ENDPOINT}/${provider_id}/appointmentsByDate?date=${datestring}`, {
+        headers: {
+            Authorization: `Bearer ${getState().authUser.accessToken}`
+        }
+    }).then(
+        (response) => {
+
+            console.log(response);
+
+            dispatch({
+                type: GET_PROVIDER_APPOINTMENTS,
+                payload: response.data.data
+            });
+
+        }
+    );
+
+
+};
+
+export const bookAppointment = (appointment_id) => async (dispatch, getState) => {
+    // dispatch({
+    //     type: GET_PROVIDER_APPOINTMENTS_LOADING,
+    // });
+    await ApiService.get(`appointments/${appointment_id}/book`, {
+        headers: {
+            Authorization: `Bearer ${getState().authUser.accessToken}`
+        }
+    }).then(
+        (response) => {
+
+            console.log(response);
+
+            dispatch({
+                type: BOOK_APPOINTMENT,
+                payload: response.data.data
+            });
+
+        }
+    );
 };

@@ -1,45 +1,74 @@
-import React, {useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import {Card, Col, Row} from "react-bootstrap";
 import Button from '../../Buttons/Button/Button';
 import {SearchIcon} from "../../Icons";
 import moment from "moment";
+import {connect} from 'react-redux';
+import {bookAppointment, getProviderAppointments} from "../../../store/actions/providers";
+import PropTypes from "prop-types";
+import LoginForm from "../../Forms/LoginForm";
+import {showModal} from "../../../store/actions/modal";
 
-const Booking = ({model: provider}) => {
+const Booking = ({model: user, getAppointments, bookAppointment, showModal, authUser, stateData, currentLocale}) => {
 
-    const [disable, setDisable] = useState("disabled");
-    const [selectedDate, setSelectedDate] = useState(moment().format("dd-mm-yyyy"));
-    // const handleDisable = (e) => {
-    //     (e.target.value !== "") ? setDisable("") : setDisable("disabled");
-    // }
+    const dateformat = "D-MM-Y";
+    const {id, provider} = user;
+    const [selectedDate, setSelectedDate] = useState(moment().format(dateformat));
+    const [selectedAppointment, setSelectedAppointment] = useState(null);
+
+
+    const handleDaySelected = (formatted_date) => {
+        setSelectedDate(formatted_date);
+    }
+
+    const handleAppointmentSelected = (appointment_id) => {
+        console.log(appointment_id)
+        setSelectedAppointment(appointment_id);
+    }
+
+    const handleBookButton = () => {
+
+        if ("undefined" === typeof authUser.accessToken) {
+            showModal(LoginForm);
+        } else {
+            bookAppointment(selectedAppointment);
+        }
+    }
 
     const getMonthAndYear = () => {
         return moment().format("MMMM Y");
     }
 
-    const handleDaySelected = (formatted_date) => {
-
-        console.log(formatted_date);
-        setSelectedDate(formatted_date);
-        //todo populate the time section
-    }
-
-    const getWeekDays = () => {
+    const populateWeekDays = () => {
         const weekDays = [];
 
         let day = moment();
         for (let i = 0; i < 7; i++) {
             let dayOfMonth = day.format("D").padStart(2, '0');
             let dayShortName = day.format("ddd");
-            let DD_MMM_YYYY_Date = day.format("D-MM-Y");
+            let DD_MMM_YYYY_Date = day.format(dateformat);
 
-            let is_day_enabled = provider.schedule[`${day.format("dddd").toLowerCase()}_enabled`] === true
-
+            let key = `${day.format("dddd").toLowerCase()}_enabled`;
+            let is_day_enabled = provider.schedule[key] === true;
+            let is_today = moment().isSame(day);
             weekDays.push(
-                <Col xs={3} sm={4} lg={3} xl={2} className="day">
-                    <Button text={`${dayShortName} ${dayOfMonth}`} disabled={!is_day_enabled}
+                <Col key={dayShortName} xs={3} sm={4} lg={3} xl={2} className="day">
+                    <Button disabled={!is_day_enabled}
                             color="btn btn-outline-info" size="btn-sm"
-                            onClick={handleDaySelected.bind(this, DD_MMM_YYYY_Date)}
-                    />
+                            onClick={handleDaySelected.bind(this, DD_MMM_YYYY_Date)}>
+
+                        <b>{dayShortName}</b>
+                        <br/>
+                        {is_day_enabled ? <b>{dayOfMonth}</b> : <span className="text-muted">{dayOfMonth}</span>}
+                        {is_today && (
+                            <Fragment>
+                                <br/>
+                                <small>Today</small>
+                            </Fragment>
+                        )}
+
+
+                    </Button>
                 </Col>
             )
 
@@ -47,6 +76,59 @@ const Booking = ({model: provider}) => {
         }
         return weekDays;
     }
+
+    const populateAppointments = () => {
+        const appointments = [];
+
+        for (let i = 0; i < stateData.appointments.length; i++) {
+            let appointment = stateData.appointments[i];
+
+            let text = appointment.start_time.format("h:mm a");
+            let color = "btn-outline-info text-white";
+            let disabled = true;
+
+            switch (appointment.status) {
+                default:
+                case "free":
+                    disabled = false;
+                    color = "btn-outline-info"
+                    break;
+                case "pending":
+                    color = "btn-warning"
+                    break;
+                case "approved":
+                    color = "btn-success"
+                    break;
+                case "declined":
+                case "closed":
+                    color = "btn-danger text-white"
+                    break;
+            }
+
+
+            //dont add any appointments that has passed in time,
+            //this filters appointments
+            if (moment().isBefore(appointment.start_time)) {
+                appointments.push(
+                    <Col xs={4} className="mb-2 pr-1" key={"appointment_" + appointment.id}>
+                        <Button text={`${text}`}
+                                className={`btn-sm ${color}`}
+                                disabled={disabled}
+                                onClick={handleAppointmentSelected.bind(this, appointment.id)}/>
+                    </Col>
+                )
+            }
+        }
+        return appointments;
+    }
+
+    const canSubmit = () => {
+        return selectedAppointment != null;
+    }
+
+    useEffect(() => {
+        getAppointments(id, selectedDate);
+    }, [getAppointments, id, selectedDate]);
 
     return (
         <Card className={"booking-card m-1"}>
@@ -56,55 +138,57 @@ const Booking = ({model: provider}) => {
                 <span className="date font-weight-bold">{getMonthAndYear()}</span>
                 <div className="week mt-2 mb-4 text-center">
                     <Row>
-                        {getWeekDays()}
+                        {populateWeekDays()}
                     </Row>
                 </div>
                 <h5 className="font-weight-bold">Available Start Time</h5>
                 <Card.Text className="font-weight-bold">
-                    <SearchIcon className={"mr-2"} text={"Examination Fee : 200 EGP"}/>
+                    <SearchIcon className={"mr-2"} text={`Examination Fee : ${provider.examination_price} EGP`}/>
                 </Card.Text>
                 <div className="time mb-3">
                     <Row>
-                        <Col xs={4} className="mb-2 pr-1">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"
-                                    onClick={() => setDisable("")}/>
-                        </Col>
-                        <Col xs={4} className="mb-2 px-2">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 pl-1">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 pr-1">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 px-2">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 pl-1">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 pr-1">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 px-2">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 pl-1">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 pr-1">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
-                        <Col xs={4} className="mb-2 px-2">
-                            <Button text="10-11 AM" color="btn btn-outline-info" size="btn-sm"/>
-                        </Col>
+                        {/*todo add loading animation*/}
+                        {!stateData.loadingAppointments ? populateAppointments() : ""}
                     </Row>
                 </div>
-                <Button text="Confirm your booking" color="btn btn-info" size="btn-lg" disabled= {disable}/>
+                <Button text="Confirm your booking" color="btn btn-info" size="btn-lg"
+                        onClick={handleBookButton}
+                        style={{cursor: canSubmit() ? "pointer" : "not-allowed"}}
+                        disabled={canSubmit() ? "" : "disabled"}
+                />
             </Card.Body>
         </Card>
     )
 }
 
-export default Booking;
+const mapStateToProps = (state) => ({
+    authUser: state.authUser,
+    currentLocale: state.i18n.value,
+    stateData: state.singleProviderPage,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+
+    getAppointments: (provider_id, datestring) => {
+        dispatch(getProviderAppointments(provider_id, datestring));
+    },
+
+    bookAppointment: (appointment_id) => {
+        dispatch(bookAppointment(appointment_id));
+    },
+
+    showModal: (component) => {
+        dispatch(showModal(component));
+    },
+
+});
+
+Booking.propTypes = {
+    model: PropTypes.object.isRequired,
+    getAppointments: PropTypes.func,
+    bookAppointment: PropTypes.func,
+    stateData: PropTypes.object,
+    currentLocale: PropTypes.string.isRequired,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Booking);

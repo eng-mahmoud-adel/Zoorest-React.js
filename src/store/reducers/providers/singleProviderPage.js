@@ -1,18 +1,20 @@
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 import {
-    GET_PROVIDER, 
-    SET_PROVIDER_LOADED, 
-    SET_PROVIDER_LOADING,
+    BOOK_APPOINTMENT,
     GET_ARTICLE_PROVIDERS,
     GET_MORE_ARTICLE_PROVIDERS,
-    GET_QUESTION_PROVIDERS,
     GET_MORE_QUESTION_PROVIDERS,
+    GET_PROVIDER,
+    GET_PROVIDER_APPOINTMENTS,
+    GET_PROVIDER_APPOINTMENTS_LOADING,
+    GET_QUESTION_PROVIDERS,
+    SET_PROVIDER_LOADED,
+    SET_PROVIDER_LOADING,
 } from "../../actions/providers";
 import User from "../../../model/User";
-import {dummyArticles} from "../../DummyData/articles";
-import {dummyQuestions} from "../../DummyData/questions";
 import Question from "../../../model/Question";
 import Article from "../../../model/Article";
+import Appointment from "../../../model/Appointment";
 
 const initialState = {
     model: new User(),
@@ -23,6 +25,9 @@ const initialState = {
 
     questions: new ModelPaginatedResource(),
     loadingQuestions: false,
+
+    appointments: [],
+    loadingAppointments: false,
 };
 
 const singleProviderReducer = (state = initialState, action) => {
@@ -67,14 +72,39 @@ const singleProviderReducer = (state = initialState, action) => {
 
         case GET_MORE_ARTICLE_PROVIDERS:
             return {
-            ...state,
-            articles: new ModelPaginatedResource({
-                data: state.questions.data.concat(action.payload.data.map(item => new Article(item))),
-                links: new ModelPaginatedResource(action.payload.links),
-                meta: new ModelPaginatedResource(action.payload.meta)
-            })
+                ...state,
+                articles: new ModelPaginatedResource({
+                    data: state.questions.data.concat(action.payload.data.map(item => new Article(item))),
+                    links: new ModelPaginatedResource(action.payload.links),
+                    meta: new ModelPaginatedResource(action.payload.meta)
+                })
             }
 
+        case GET_PROVIDER_APPOINTMENTS:
+            return {
+                ...state,
+                appointments: action.payload.map(appointment => new Appointment(appointment)),
+                loadingAppointments: false,
+            }
+        case GET_PROVIDER_APPOINTMENTS_LOADING:
+            return {
+                ...state,
+                loadingAppointments: true,
+            }
+
+        case BOOK_APPOINTMENT:
+            return {
+                ...state,
+                appointments: state.appointments.map((item, index) => {
+
+                    //update only the item where the state id equals the new item id
+                    if (item.id === action.payload.id) {
+                        return new Appointment(action.payload)
+                    }
+
+                    return item;
+                }),
+            }
         // case GET_QUESTION_COMMENTS:
         //     return {
         //         ...state,
