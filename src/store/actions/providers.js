@@ -47,65 +47,65 @@ export const getMoreProviders = (nextPageUrl) => async (dispatch) => {
         );
 };
 
-// export const getQuestionsProviders = (limit= 5) => async (dispatch) => {
-//     await ApiService.get()
-//         .then(
-//             (response) => {
-//                 dispatch({
-//                     type: GET_QUESTION_PROVIDERS,
-//                     payload: response.data,
-//                 })
-//             },
-//             (error) => {
-//                 console.log(error.response);
-//             }
-//         );
-// };
+export const getProviderQuestions = (limit= 5, id) => async (dispatch) => {
+    await ApiService.get(`questions?perPage=${limit}&user_id=${id}`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: GET_QUESTION_PROVIDERS,
+                    payload: response.data,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
 
-// export const getMoreQuestionsProviders = (nextPageUrl) => async (dispatch) => {
-//     await ApiService.get(nextPageUrl)
-//         .then(
-//             (response) => {
-//                 dispatch({
-//                     type: GET_MORE_QUESTION_PROVIDERS,
-//                     payload: response.data,
-//                 })
-//             },
-//             (error) => {
-//                 console.log(error.response);
-//             }
-//         );
-// };
+export const getMoreProviderQuestions = (nextPageUrl) => async (dispatch) => {
+    await ApiService.get(nextPageUrl)
+        .then(
+            (response) => {
+                dispatch({
+                    type: GET_MORE_QUESTION_PROVIDERS,
+                    payload: response.data,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
 
-// export const getArticlesProviders = (limit= 5) => async (dispatch) => {
-//     await ApiService.get()
-//         .then(
-//             (response) => {
-//                 dispatch({
-//                     type: GET_ARTICLE_PROVIDERS,
-//                     payload: response.data,
-//                 })
-//             },
-//             (error) => {
-//                 console.log(error.response);
-//             }
-//         );
-// };
+export const getProviderArticles = (limit= 5, id) => async (dispatch) => {
+    await ApiService.get(`articles?perPage=${limit}&user_id=${id}`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: GET_ARTICLE_PROVIDERS,
+                    payload: response.data,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
 
-// export const getMoreArticlesProviders = (nextPageUrl) => async (dispatch) => {
-//     await ApiService.get(nextPageUrl)
-//         .then(
-//             (response) => {
-//                 dispatch({
-//                     type: GET_MORE_ARTICLE_PROVIDERS,
-//                     payload: response.data,
-//                 })
-//             },
-//             (error) => {
-//                 console.log(error.response);
-//             }
-//         );
-// };
+export const getMoreProviderArticles = (nextPageUrl) => async (dispatch) => {
+    await ApiService.get(nextPageUrl)
+        .then(
+            (response) => {
+                dispatch({
+                    type: GET_MORE_ARTICLE_PROVIDERS,
+                    payload: response.data,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
 
 
 export const getSingleProvider = (id) => async (dispatch, getState) => {
