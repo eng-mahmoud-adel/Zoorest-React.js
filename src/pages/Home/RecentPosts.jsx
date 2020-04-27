@@ -32,7 +32,7 @@ const RecentPosts = (props) => {
                         Object.keys(data).map((key, index1) => {
                             return (
                                 <Tab key={index1} eventKey={key} title={key}>
-                                    {data[key].length > 0 && <Post model={data[key][0]}/>}
+                                    {data[key].data.length > 0 && <Post model={data[key].data[0]}/>}
                                 </Tab>
                             )
                         })

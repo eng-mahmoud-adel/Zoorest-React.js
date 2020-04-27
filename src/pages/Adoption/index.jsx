@@ -1,37 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'formik';
+import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
+import AddPost from '../../components/Cards/Posts/AddPost';
 import {Tab, Tabs} from 'react-bootstrap';
 import Post from '../../components/Cards/Posts/Post';
 import LazyList from "../../components/DataList";
 import BasicInput from '../../components/Inputs/BasicInput';
 import Button from '../../components/Buttons/Button/Button';
-import AddPost from '../../components/Cards/Posts/AddPost';
 import {showModal} from "../../store/actions/modal";
 import {
-    getSellPosts, 
-    getMoreSellPosts,
     getAdoptPosts,
-    getMoreAdoptPosts,
-    getMatePosts,
-    getMoreMatePosts,
     getLostPosts,
+    getMatePosts,
+    getMoreAdoptPosts,
     getMoreLostPosts,
-    getProductPosts,
+    getMoreMatePosts,
     getMoreProductPosts,
+    getMoreSellPosts,
+    getProductPosts,
+    getSellPosts,
 } from '../../store/actions/posts';
+import {getAdoptionPage} from "../../store/actions/pages";
 
-const AllPostsContainer = ({page, currentLocale, posts, getSellPosts, getMoreSellPosts, getAdoptPosts, getMoreAdoptPosts,
-    getMatePosts, getMoreMatePosts, getLostPosts, getMoreLostPosts, getProductPosts, getMoreProductPosts}) => {
+const AllPostsContainer = ({
+                               page, currentLocale, posts, getSellPosts, getMoreSellPosts, getAdoptPosts, getMoreAdoptPosts,
+                               getMatePosts, getMoreMatePosts, getLostPosts, getMoreLostPosts, getProductPosts, getMoreProductPosts, getPage
+                           }) => {
 
     const [key, setKey] = useState('sell');
 
     useEffect(() => {
+        getPage();
         getSellPosts();
         getAdoptPosts();
         getMatePosts();
         getLostPosts();
         getProductPosts();
-    }, [getSellPosts, getAdoptPosts, getMatePosts, getLostPosts, getProductPosts]);
+    }, [getPage, getSellPosts, getAdoptPosts, getMatePosts, getLostPosts, getProductPosts]);
 
     const addPostForm = () => {
         showModal(AddPost)
@@ -40,10 +44,10 @@ const AllPostsContainer = ({page, currentLocale, posts, getSellPosts, getMoreSel
     return (
         <div>
 
-            <div>
+            <header>
                 <h1>{page.bannerSection.getFiledValueByName("title", currentLocale)}</h1>
                 <p>{page.bannerSection.getFiledValueByName("description", currentLocale)}</p>
-            </div>
+            </header>
 
 
             <section className= "col-md-9">
@@ -51,19 +55,18 @@ const AllPostsContainer = ({page, currentLocale, posts, getSellPosts, getMoreSel
                     className="my-5"
                     id="posts"
                     activeKey={key}
-                    onSelect={(k) => setKey(k)}
-                >
+                    onSelect={(k) => setKey(k)}>
 
                     <p>Price: </p>
-                    <Button text={page.getFiledValueByName("button_text", currentLocale)}
-                                        color="btn btn-danger"
-                                        size="btn-sm"
-                                        onclick= {addPostForm}/>
+                    <Button text={page.bannerSection.getFiledValueByName("button_text", currentLocale)}
+                            color="btn btn-danger"
+                            size="btn-sm"
+                            onclick={addPostForm}/>
 
                     <Tab eventKey="sell" title="sell">
                         {<LazyList
                             data={posts.sell}
-                            itemCols={"col-4"}
+                            itemCols={"col-12"}
                             loadMoreMessage={"Load More Posts"}
                             component={Post}
                             placeholderComponent={Post}
@@ -87,7 +90,7 @@ const AllPostsContainer = ({page, currentLocale, posts, getSellPosts, getMoreSel
                     <Tab eventKey="adopt" title="adopt">
                         {<LazyList
                             data={posts.adopt}
-                            itemCols={"col-4"}
+                            itemCols={"col-12"}
                             loadMoreMessage={"Load More Posts"}
                             component={Post}
                             placeholderComponent={Post}
@@ -111,7 +114,7 @@ const AllPostsContainer = ({page, currentLocale, posts, getSellPosts, getMoreSel
                     <Tab eventKey="mate" title="mate">
                         {<LazyList
                             data={posts.mate}
-                            itemCols={"col-4"}
+                            itemCols={"col-12"}
                             loadMoreMessage={"Load More Posts"}
                             component={Post}
                             placeholderComponent={Post}
@@ -135,7 +138,7 @@ const AllPostsContainer = ({page, currentLocale, posts, getSellPosts, getMoreSel
                     <Tab eventKey="lost" title="lost">
                         {<LazyList
                             data={posts.lost}
-                            itemCols={"col-4"}
+                            itemCols={"col-12"}
                             loadMoreMessage={"Load More Posts"}
                             component={Post}
                             placeholderComponent={Post}
@@ -159,7 +162,7 @@ const AllPostsContainer = ({page, currentLocale, posts, getSellPosts, getMoreSel
                     <Tab eventKey="product" title="product">
                         {<LazyList
                             data={posts.product}
-                            itemCols={"col-4"}
+                            itemCols={"col-12"}
                             loadMoreMessage={"Load More Posts"}
                             component={Post}
                             placeholderComponent={Post}
@@ -201,6 +204,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    getPage: (component) => {
+        dispatch(getAdoptionPage(component));
+    },
+
     showModal: (component) => {
         dispatch(showModal(component));
     },
