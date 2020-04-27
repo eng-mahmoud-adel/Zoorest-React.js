@@ -18,7 +18,6 @@ const Post = ({className, model: post}) => {
         slidesToShow: 1,
     };
 
-
     return (
         <Card className={`${className || ""} post-card`}>
             <div className="img-container">

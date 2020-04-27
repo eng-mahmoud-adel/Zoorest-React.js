@@ -5,7 +5,8 @@ import {
     HOMEPAGE_RECENT_QUESTIONS_SECTION,
     HOMEPAGE_SPONSORED_PROVIDER_SECTION,
     PROVIDERS_PAGE,
-    QUESTIONS_PAGE
+    QUESTIONS_PAGE,
+    ADOPTION_PAGE
 } from "../actions/pages";
 
 const initialState = {
@@ -19,6 +20,9 @@ const initialState = {
         bannerSection: new Section()
     },
     questions: {
+        bannerSection: new Section()
+    },
+    adoption: {
         bannerSection: new Section()
     },
 };
@@ -79,6 +83,15 @@ const pageReducer = (state = initialState, action) => {
                     bannerSection: new Section(action.payload)
                 },
             }
+
+        case ADOPTION_PAGE:
+        return {
+            ...state,
+            adoption: {
+                ...state.adoption,
+                bannerSection: new Section(action.payload)
+            },
+        }
 
         default:
             break;

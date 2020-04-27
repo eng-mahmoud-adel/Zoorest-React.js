@@ -13,6 +13,7 @@ export const HOMEPAGE_TESTIMONIALS = "HOMEPAGE_TESTIMONIALS";
 
 export const PROVIDERS_PAGE = "PROVIDERS_PAGE";
 export const QUESTIONS_PAGE = "QUESTIONS_PAGE";
+export const ADOPTION_PAGE = "ADOPTION_PAGE";
 
 export const getHomeData = () => async (dispatch) => {
     await ApiService.get(`page/home`)
@@ -96,6 +97,23 @@ export const getQuestionsPage = () => async (dispatch) => {
 
                 dispatch({
                     type: QUESTIONS_PAGE,
+                    payload: response.data.data.sections.find(section => section.name === "Banner")
+                });
+
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
+
+export const getAdoptionPage = () => async (dispatch) => {
+    await ApiService.get(`page/posts`)
+        .then(
+            (response) => {
+
+                dispatch({
+                    type: ADOPTION_PAGE,
                     payload: response.data.data.sections.find(section => section.name === "Banner")
                 });
 
