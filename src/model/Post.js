@@ -42,7 +42,7 @@ class Post extends Model {
         this._comments_count = object.comments_count
 
         this._user = new User(object.user)
-        this._images = object.images.map(item => new Image(item))
+        this._images = object.images? object.images.map(item => new Image(item)) : ""
     }
 
     get id() {

@@ -5,7 +5,6 @@ import HomeContainer from '../../pages/Home/index';
 import About from '../../pages/About/About';
 import AllArticlesContainer from '../../pages/Articles/index';
 import SingleArticleContainer from '../../pages/Articles/details/index';
-import PostCards from '../../pages/ShowingCards/PostCards';
 import CommentCards from '../../pages/ShowingCards/CommentCards';
 import AdsCard from '../../pages/ShowingCards/AdsCard';
 import Forms from '../../pages/ShowingForms/Forms';
@@ -13,6 +12,8 @@ import QuestionDetails from "../../pages/Questions/details";
 import QuestionsAll from "../../pages/Questions";
 import Doctors from '../../pages/FindDoctors';
 import DoctorProfile from '../../pages/FindDoctors/Doctor/index';
+import AllPostsContainer from '../../pages/Adoption/index';
+import SinglePostContainer from '../../pages/Adoption/index';
 
 const AppRouter = () => (
     <Fragment>
@@ -23,7 +24,8 @@ const AppRouter = () => (
             <Route exact path="/article" component={AllArticlesContainer}/>
             <Route path="/article/:id" component={SingleArticleContainer}/>
 
-            <Route path="/post" component={PostCards}/>
+            <Route path="/post" component={AllPostsContainer}/>
+            <Route path="/post/:id" component={SinglePostContainer}/>
             {/*<Route path="/demo-question" component={QuestionCards}/>*/}
 
             <Route path="/question/:id" component={QuestionDetails}/>
