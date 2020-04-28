@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import AddPost from '../../components/Cards/Posts/AddPost';
 import {Tab, Tabs} from 'react-bootstrap';
 import Post from '../../components/Cards/Posts/Post';
+import AddPost from '../../components/Cards/Posts/AddPost';
 import LazyList from "../../components/DataList";
 import BasicInput from '../../components/Inputs/BasicInput';
 import Button from '../../components/Buttons/Button/Button';
@@ -42,156 +42,165 @@ const AllPostsContainer = ({
     }
 
     return (
-        <div>
+        <div className= "adoption container">
 
             <header>
-                <h1>{page.bannerSection.getFiledValueByName("title", currentLocale)}</h1>
-                <p>{page.bannerSection.getFiledValueByName("description", currentLocale)}</p>
+                <h1 className= "title font-weight-bold">{page.bannerSection.getFiledValueByName("title", currentLocale)}</h1>
+                <p className= "desc">{page.bannerSection.getFiledValueByName("description", currentLocale)}</p>
             </header>
 
+            <div className= "row">
 
-            <section className= "col-md-9">
-                <Tabs
-                    className="my-5"
-                    id="posts"
-                    activeKey={key}
-                    onSelect={(k) => setKey(k)}>
+                <section className= "col-md-9">
+                    <Tabs
+                        className="my-5"
+                        id="posts"
+                        activeKey={key}
+                        onSelect={(k) => setKey(k)}>
 
-                    <p>Price: </p>
-                    <Button text={page.bannerSection.getFiledValueByName("button_text", currentLocale)}
-                            color="btn btn-danger"
-                            size="btn-sm"
-                            onclick={addPostForm}/>
+                        <Tab eventKey="sell" title="Sell">
+                            <div>
+                                <p className= "mt-3">Price: </p>
+                                <Button text={page.bannerSection.getFiledValueByName("button_text", currentLocale)}
+                                        color="btn btn-danger"
+                                        size="btn-sm"
+                                        onclick={addPostForm}
+                                        className= "mb-3"/>
+                            </div>
+                            {<LazyList
+                                data={posts.sell}
+                                itemCols={"col-12"}
+                                loadMoreMessage={"Load More Posts"}
+                                component={Post}
+                                placeholderComponent={Post}
+                                fetchMoreData={getMoreSellPosts}
+                                refresh={getSellPosts}
+                                endMessage={
+                                    <p style={{textAlign: 'center'}}>
+                                        <b>Yay! You have seen it all</b>
+                                    </p>
+                                }
+                                pullDownToRefresh
+                                pullDownToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
+                                }
+                                releaseToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
+                                }
+                            />}
+                        </Tab>
 
-                    <Tab eventKey="sell" title="sell">
-                        {<LazyList
-                            data={posts.sell}
-                            itemCols={"col-12"}
-                            loadMoreMessage={"Load More Posts"}
-                            component={Post}
-                            placeholderComponent={Post}
-                            fetchMoreData={getMoreSellPosts}
-                            refresh={getSellPosts}
-                            endMessage={
-                                <p style={{textAlign: 'center'}}>
-                                    <b>Yay! You have seen it all</b>
-                                </p>
-                            }
-                            pullDownToRefresh
-                            pullDownToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                            }
-                            releaseToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                            }
-                        />}
-                    </Tab>
+                        <Tab eventKey="adopt" title="Adopt">
+                            {<LazyList
+                                data={posts.adopt}
+                                itemCols={"col-12"}
+                                loadMoreMessage={"Load More Posts"}
+                                component={Post}
+                                placeholderComponent={Post}
+                                fetchMoreData={getMoreAdoptPosts}
+                                refresh={getAdoptPosts}
+                                endMessage={
+                                    <p style={{textAlign: 'center'}}>
+                                        <b>Yay! You have seen it all</b>
+                                    </p>
+                                }
+                                pullDownToRefresh
+                                pullDownToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
+                                }
+                                releaseToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
+                                }
+                            />}
+                        </Tab>
 
-                    <Tab eventKey="adopt" title="adopt">
-                        {<LazyList
-                            data={posts.adopt}
-                            itemCols={"col-12"}
-                            loadMoreMessage={"Load More Posts"}
-                            component={Post}
-                            placeholderComponent={Post}
-                            fetchMoreData={getMoreAdoptPosts}
-                            refresh={getAdoptPosts}
-                            endMessage={
-                                <p style={{textAlign: 'center'}}>
-                                    <b>Yay! You have seen it all</b>
-                                </p>
-                            }
-                            pullDownToRefresh
-                            pullDownToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                            }
-                            releaseToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                            }
-                        />}
-                    </Tab>
+                        <Tab eventKey="mate" title="Mate">
+                            {<LazyList
+                                data={posts.mate}
+                                itemCols={"col-12"}
+                                loadMoreMessage={"Load More Posts"}
+                                component={Post}
+                                placeholderComponent={Post}
+                                fetchMoreData={getMoreMatePosts}
+                                refresh={getMatePosts}
+                                endMessage={
+                                    <p style={{textAlign: 'center'}}>
+                                        <b>Yay! You have seen it all</b>
+                                    </p>
+                                }
+                                pullDownToRefresh
+                                pullDownToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
+                                }
+                                releaseToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
+                                }
+                            />}
+                        </Tab>
 
-                    <Tab eventKey="mate" title="mate">
-                        {<LazyList
-                            data={posts.mate}
-                            itemCols={"col-12"}
-                            loadMoreMessage={"Load More Posts"}
-                            component={Post}
-                            placeholderComponent={Post}
-                            fetchMoreData={getMoreMatePosts}
-                            refresh={getMatePosts}
-                            endMessage={
-                                <p style={{textAlign: 'center'}}>
-                                    <b>Yay! You have seen it all</b>
-                                </p>
-                            }
-                            pullDownToRefresh
-                            pullDownToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                            }
-                            releaseToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                            }
-                        />}
-                    </Tab>
+                        <Tab eventKey="lost" title="Lost">
+                            {<LazyList
+                                data={posts.lost}
+                                itemCols={"col-12"}
+                                loadMoreMessage={"Load More Posts"}
+                                component={Post}
+                                placeholderComponent={Post}
+                                fetchMoreData={getMoreLostPosts}
+                                refresh={getLostPosts}
+                                endMessage={
+                                    <p style={{textAlign: 'center'}}>
+                                        <b>Yay! You have seen it all</b>
+                                    </p>
+                                }
+                                pullDownToRefresh
+                                pullDownToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
+                                }
+                                releaseToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
+                                }
+                            />}
+                        </Tab>
 
-                    <Tab eventKey="lost" title="lost">
-                        {<LazyList
-                            data={posts.lost}
-                            itemCols={"col-12"}
-                            loadMoreMessage={"Load More Posts"}
-                            component={Post}
-                            placeholderComponent={Post}
-                            fetchMoreData={getMoreLostPosts}
-                            refresh={getLostPosts}
-                            endMessage={
-                                <p style={{textAlign: 'center'}}>
-                                    <b>Yay! You have seen it all</b>
-                                </p>
-                            }
-                            pullDownToRefresh
-                            pullDownToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                            }
-                            releaseToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                            }
-                        />}
-                    </Tab>
+                        <Tab eventKey="product" title="Product">
+                            {<LazyList
+                                data={posts.product}
+                                itemCols={"col-12"}
+                                loadMoreMessage={"Load More Posts"}
+                                component={Post}
+                                placeholderComponent={Post}
+                                fetchMoreData={getMoreProductPosts}
+                                refresh={getProductPosts}
+                                endMessage={
+                                    <p style={{textAlign: 'center'}}>
+                                        <b>Yay! You have seen it all</b>
+                                    </p>
+                                }
+                                pullDownToRefresh
+                                pullDownToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
+                                }
+                                releaseToRefreshContent={
+                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
+                                }
+                            />}
+                        </Tab>
+                    </Tabs>
+                    
+                </section>
 
-                    <Tab eventKey="product" title="product">
-                        {<LazyList
-                            data={posts.product}
-                            itemCols={"col-12"}
-                            loadMoreMessage={"Load More Posts"}
-                            component={Post}
-                            placeholderComponent={Post}
-                            fetchMoreData={getMoreProductPosts}
-                            refresh={getProductPosts}
-                            endMessage={
-                                <p style={{textAlign: 'center'}}>
-                                    <b>Yay! You have seen it all</b>
-                                </p>
-                            }
-                            pullDownToRefresh
-                            pullDownToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                            }
-                            releaseToRefreshContent={
-                                <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                            }
-                        />}
-                    </Tab>
-                </Tabs>
-            </section>
+                <section className= "col-md-3">
+                    <div>
+                        <BasicInput className="basic-input" type="text" right_icon="fa fa-search fa-lg"
+                                    placeholder="Start searching for anything"/>
+                    </div>
 
-            <section className= "col-md-3">
-                <div className="col-lg-3 col-sm-6 col-8">
-                    <BasicInput className="basic-input" type="text" right_icon="fa fa-search fa-lg"
-                                placeholder="Start searching for anything"/>
+                    <div>
+                        <AddPost />
+                    </div>
+                </section>
 
-                </div>
-            </section>
+            </div>
 
         </div>
     )
