@@ -2,9 +2,10 @@ import React from 'react';
 import img from '../../../images/article-cover.png';
 
 import {CommentsIcon, FacebookIcon, ShareIcon, TwitterIcon, ViewsIcon} from '../../Icons/index';
+import ReactPlayer from "react-player";
 
-const ArticleTwo = (props) => {
-    const {model, currentLocale}= props;
+const ArticleDetails = (props) => {
+    const {model, currentLocale} = props;
 
     const pageURL = () => {
         return window.location.href;
@@ -19,7 +20,22 @@ const ArticleTwo = (props) => {
                 <span className="icon-one"><ViewsIcon value={model.views_count} text="views"/></span>
             </div>
             <div className="img-container-one">
-                <img src={model.photo ? model.photo.path_large : img} className="img-fluid h-100 w-100" alt=""/>
+
+                {model.video ?
+                    <ReactPlayer
+                        url={model.video}
+                        loop={false}
+                        light={true}
+                        // width='100%'
+                        playing
+                        // playIcon={}
+                    />
+
+                    :
+                    <img src={model.photo ? model.photo.path_large : img} className="img-fluid h-100 w-100" alt=""/>
+                }
+
+
             </div>
             <div className="card-body">
                 <p className="card-text" dangerouslySetInnerHTML={{
@@ -55,4 +71,4 @@ const ArticleTwo = (props) => {
     )
 }
 
-export default ArticleTwo;
+export default ArticleDetails;

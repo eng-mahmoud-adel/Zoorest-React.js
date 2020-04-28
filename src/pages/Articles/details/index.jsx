@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import ArticleTwo from '../../../components/Cards/Articles/ArticleTwo';
+import ArticleDetails from '../../../components/Cards/Articles/ArticleDetails';
 import LeaveCommentForm from "../../../components/Cards/Comments/LeaveComment";
 import LazyList from "../../../components/DataList";
 import Comment from "../../../components/Cards/Comments/Comment";
@@ -42,7 +42,7 @@ const SingleArticleContainer = (props) => {
     return (
         <div className="row container mx-auto mt-5 py-5">
             <div className="col-md-9">
-                {stateData.loading === true && <ArticleTwo model={stateData.model} currentLocale={currentLocale}/>}
+                {stateData.loading === true && <ArticleDetails model={stateData.model} currentLocale={currentLocale}/>}
 
                 <h5 className="my-4 font-weight-bold">{stateData.model.comments_count} Comments</h5>
 
