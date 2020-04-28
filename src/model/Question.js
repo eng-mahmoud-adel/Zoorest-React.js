@@ -192,7 +192,7 @@ class Question extends Model {
     }
 
     isClosed() {
-        return this.closed === 0;
+        return !this.closed === 0;
     }
 
     getLocalizedSlug(locale = "ar") {

@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 import Booking from '../Booking/Booking';
 import {ViewsIcon} from "../../Icons";
 import PropTypes from 'prop-types';
-import LoginForm from '../../Forms/LoginForm';
+import LoginForm from '../../Forms/Auth/LoginForm';
 
 
 const Provider = ({model: user, showModal, className, authUser}) => {

@@ -5,7 +5,7 @@ import LeaveCommentForm from "../../../components/Cards/Comments/LeaveComment";
 import LazyList from "../../../components/DataList";
 import Comment from "../../../components/Cards/Comments/Comment";
 import {showModal} from "../../../store/actions/modal";
-import LoginForm from "../../../components/Forms/LoginForm";
+import LoginForm from "../../../components/Forms/Auth/LoginForm";
 import {getArticleComments, getMoreArticleComments, getSingleArticle} from '../../../store/actions/articles';
 import BillBoard from '../../../components/Cards/BillBoard/BillBoard';
 import RelatedArticles from "../../../components/Cards/Articles/RelatedArticles";

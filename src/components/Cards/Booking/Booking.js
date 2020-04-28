@@ -6,7 +6,7 @@ import moment from "moment";
 import {connect} from 'react-redux';
 import {bookAppointment, getProviderAppointments} from "../../../store/actions/providers";
 import PropTypes from "prop-types";
-import LoginForm from "../../Forms/LoginForm";
+import LoginForm from "../../Forms/Auth/LoginForm";
 import {showModal} from "../../../store/actions/modal";
 
 const Booking = ({model: user, getAppointments, bookAppointment, showModal, authUser, stateData, currentLocale}) => {

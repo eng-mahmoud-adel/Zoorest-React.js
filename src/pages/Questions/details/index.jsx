@@ -16,7 +16,7 @@ import Comment from "../../../components/Cards/Comments/Comment";
 import LazyList from "../../../components/DataList";
 import QuestionBasePage from "../_layout";
 import {showModal} from "../../../store/actions/modal";
-import LoginForm from "../../../components/Forms/LoginForm";
+import LoginForm from "../../../components/Forms/Auth/LoginForm";
 import {Helmet} from "react-helmet";
 
 const SingleQuestionContainer = (

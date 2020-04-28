@@ -9,13 +9,13 @@ import './jquery';
 import {Nav} from "react-bootstrap";
 import BaseNavbar from "react-bootstrap/Navbar";
 import {showModal} from "../../store/actions/modal";
-import LoginForm from "../Forms/LoginForm";
-import SignUpForm from "../Forms/SignUpForm";
+import LoginForm from "../Forms/Auth/LoginForm";
+import SignUpFormContainer from "../Forms/Auth/Signup/SignUpFormContainer";
 import {withTranslation} from 'react-i18next';
 
 const Auth = withTranslation()(({authUser, showModal, t}) => {
     const showSignUpModal = () => {
-        showModal(SignUpForm);
+        showModal(SignUpFormContainer);
     };
 
     const showSignInModal = () => {

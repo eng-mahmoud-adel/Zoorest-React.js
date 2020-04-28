@@ -13,6 +13,8 @@ import Doctors from '../../pages/FindDoctors';
 import DoctorProfile from '../../pages/FindDoctors/Doctor/index';
 import AllPostsContainer from '../../pages/Adoption/index';
 import SinglePostContainer from '../../pages/Adoption/SinglePost/index';
+import LoginPage from "../../pages/Auth/Login";
+import SignUpPage from "../../pages/Auth/Signup";
 
 const AppRouter = () => (
     <Fragment>
@@ -34,6 +36,11 @@ const AppRouter = () => (
 
             <Route exact path="/doctor" component={Doctors}/>
             <Route path="/doctor/profile/:id" component={DoctorProfile}/>
+
+            <Route path="/login" component={LoginPage}/>
+            <Route path="/signup" component={SignUpPage}/>
+
+
             {/*todo <AuthRoute
             path="/doctor/profile/:id/edit"
             component={}

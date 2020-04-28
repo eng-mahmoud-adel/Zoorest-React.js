@@ -1,11 +1,11 @@
 import React from 'react';
-import BasicInput from '../Inputs/BasicInput';
-import CheckBox from '../Buttons/CheckBoxes/CheckBox';
-import Button from '../Buttons/Button/Button';
-import FacebookLoginBtn from "./SocialButtons/FacebookLoginBtn";
-import GoogleLoginBtn from "./SocialButtons/GoogleLoginBtn";
-import LoginRequest from "../../model/Request/LoginRequest";
-import {login} from "../../store/actions/auth";
+import BasicInput from '../../Inputs/BasicInput';
+import CheckBox from '../../Buttons/CheckBoxes/CheckBox';
+import Button from '../../Buttons/Button/Button';
+import FacebookLoginBtn from "../SocialButtons/FacebookLoginBtn";
+import GoogleLoginBtn from "../SocialButtons/GoogleLoginBtn";
+import LoginRequest from "../../../model/Request/LoginRequest";
+import {login} from "../../../store/actions/auth";
 import {connect} from "react-redux";
 
 const LoginForm = ({login, onSignupClicked}) => {

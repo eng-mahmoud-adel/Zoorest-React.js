@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginForm from '../../components/Forms/LoginForm';
-import SignUpForm from '../../components/Forms/SignUpForm';
+import LoginForm from '../../components/Forms/Auth/LoginForm';
+import SignUpFormContainer from '../../components/Forms/Auth/Signup/SignUpFormContainer';
 import AddQuestion from '../../components/Forms/AddQuestion';
 import AddPost from '../../components/Forms/AddPost';
 import Reminder from '../../components/Forms/Reminder';
@@ -22,10 +22,10 @@ const Forms = () => {
 
             <hr />
             <h1>Sign up</h1>
-            <hr />
-            <div className= "container col-md-12 mx-auto">
-                <SignUpForm user= "row justify-content-center w-100" />
-                <SignUpForm doctor= "row justify-content-center w-100" />
+            <hr/>
+            <div className="container col-md-12 mx-auto">
+                <SignUpFormContainer user="row justify-content-center w-100"/>
+                <SignUpFormContainer doctor="row justify-content-center w-100"/>
             </div>
 
             <hr />
