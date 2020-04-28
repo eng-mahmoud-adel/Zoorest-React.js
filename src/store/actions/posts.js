@@ -15,6 +15,12 @@ export const GET_MORE_LOST_POSTS = "GET_MORE_LOST_POSTS";
 export const GET_PRODUCT_POSTS = "GET_PRODUCT_POSTS";
 export const GET_MORE_PRODUCT_POSTS = "GET_MORE_PRODUCT_POSTS";
 
+export const GET_SINGLE_POST = "GET_SINGLE_POST";
+export const GET_POSTS_LOADING = "GET_POSTS_LOADING";
+
+export const GET_POST_COMMENTS = "GET_POST_COMMENTS";
+export const GET_MORE_POST_COMMENTS = "GET_MORE_POST_COMMENTS";
+
 const ENDPOINT = 'posts';
 
 export const getSellPosts = () => async (dispatch) => {
@@ -161,6 +167,61 @@ export const getMoreProductPosts = (nextPageUrl) => async (dispatch) => {
                     payload: response.data,
                 })
             },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
+
+export const getSinglePost = (id) => async (dispatch) => {
+    await ApiService
+        .get(`${ENDPOINT}/${id}`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: GET_SINGLE_POST,
+                    payload: response.data.data
+                });
+
+                dispatch({
+                    type: GET_POSTS_LOADING
+                });
+            },
+
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
+
+export const getPostComments = (id, limit = 5) => async (dispatch) => {
+    await ApiService
+        .get(`${ENDPOINT}/${id}/comments?perPage=${limit}`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: GET_POST_COMMENTS,
+                    payload: response.data
+                });
+            },
+
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
+
+export const getMorePostComments = (nextPageUrl) => async (dispatch) => {
+    await ApiService
+        .get(`${nextPageUrl}`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: GET_MORE_POST_COMMENTS,
+                    payload: response.data
+                })
+            },
+
             (error) => {
                 console.log(error.response);
             }

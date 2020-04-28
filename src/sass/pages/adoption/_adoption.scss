@@ -1,0 +1,33 @@
+/*start all posts container */
+.adoption {
+    color: $dark;
+    .title {
+        font-size: $font-size-48;
+    }
+    .desc {
+        font-size: $font-size-18;
+    }
+    .nav-tabs {
+        border: 1px solid $secondary;
+        border-top-left-radius: $border-radius-8;
+        border-top-right-radius: $border-radius-8;
+        justify-content: space-between;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        .nav-item {
+            border: none;
+            color: $gray-color;
+            &:first-of-type {
+                border-bottom: 1px solid $secondary;
+                border-top-left-radius: $border-radius-8;
+            }
+            &:focus {
+                color: $dark;
+                font-weight: bold;
+                border-bottom: 2px solid $info;
+                outline: none;
+            }
+        }
+    }
+}
+/*end all posts container */

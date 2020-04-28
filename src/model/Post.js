@@ -317,6 +317,10 @@ class Post extends Model {
     set comments_count(value) {
         this._comments_count = value;
     }
+
+    getLocalizedDescription(locale = "ar") {
+        return this._getLocalizedField("description", locale)
+    }
 }
 
 export default Post;

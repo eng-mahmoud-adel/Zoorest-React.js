@@ -5,9 +5,10 @@ import {Card, Col, Row} from "react-bootstrap";
 import {CommentsIcon, HeartIcon} from "../../Icons";
 import SlickSlider from "../../Helpers/SlickSlider";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 
-const Post = ({className, model: post}) => {
+const Post = ({id, className, model: post}) => {
     const slickSettings = {
         rtl: false,//todo use variable when site localization is added
         dots: true,
@@ -53,7 +54,9 @@ const Post = ({className, model: post}) => {
                         </Row>
                     </div>
                     <Col xs={6} sm={5} lg={5} xl={4}>
-                        <Button text="Contact owner" color="btn btn-info" size="btn-sm"/>
+                        <Link to= {`post/${post.id}`}>
+                            <Button text="Contact owner" color="btn btn-info" size="btn-sm"/>
+                        </Link>
                     </Col>
                 </Row>
             </Card.Footer>

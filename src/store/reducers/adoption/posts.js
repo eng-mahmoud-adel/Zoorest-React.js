@@ -1,4 +1,4 @@
-import {HOMEPAGE_RECENT_POSTS} from '../actions/pages';
+import {HOMEPAGE_RECENT_POSTS} from '../../actions/pages';
 import {
     GET_ADOPT_POSTS,
     GET_LOST_POSTS,
@@ -10,9 +10,9 @@ import {
     GET_MORE_SELL_POSTS,
     GET_PRODUCT_POSTS,
     GET_SELL_POSTS
-} from '../actions/posts';
-import Post from "../../model/Post";
-import ModelPaginatedResource from "../../model/ModelPaginatedResource";
+} from '../../actions/posts';
+import Post from "../../../model/Post";
+import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 
 const initialState = {
     sell: new ModelPaginatedResource(),

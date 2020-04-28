@@ -7,7 +7,8 @@ import providersReducer from "./providers/providers";
 import singleProviderPage from "./providers/singleProviderPage";
 import questionsReducer from "./questions/indexPage";
 import testimonialsReducer from "./testimonials";
-import postsReducer from "./posts";
+import postsReducer from "./adoption/posts";
+import singlePostReducer from "./adoption/singlePostPage";
 import singleQuestionReducer from "./questions/singleQuestionPage";
 import i18nReducer from "./i18n";
 import modalReducer from "./modal";
@@ -27,7 +28,10 @@ const reducer = combineReducers({
     singleProviderPage: singleProviderPage,
     questions: questionsReducer,
     testimonials: testimonialsReducer,
+
     posts: postsReducer,
+    singlePostReducer: singlePostReducer,
+
     i18n: i18nReducer,
     globals: globalReducer,
 });
