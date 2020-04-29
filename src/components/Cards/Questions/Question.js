@@ -1,14 +1,13 @@
 import React from 'react';
 import Tag from '../../Tags/Tag';
 import Button from '../../Buttons/Button/Button';
-import Avatar from '../../Avatars/Avatar';
-import image from "../../../images/placeholders/100X100.png";
 import Card from "react-bootstrap/Card";
 import {Link} from "react-router-dom";
 import {CommentsIcon, HeartIcon, ViewsIcon} from "../../Icons";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {likeQuestion, unlikeQuestion} from "../../../store/actions/questions";
+import ProfileAvatar from "../../Avatars/ProfileAvatar";
 
 const Question = ({model, className, hide_add_answer, currentLocale = "ar", like, unlike}) => {
 
@@ -42,14 +41,8 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
             <Card.Footer className="pb-0">
                 <div className="row">
                     <div className="col-xl-4 col-md-6 mb-3 mb-xl-0">
-                        {model ?
-                            <Avatar className="avatar-four"
-                                    name={model.author.name}
-                                    radius={70}
-                                    span={`Joined Since ${model.author.created_at}`}
-                                    image={model.author.image_url}/>
-                            :
-                            <Avatar className="avatar-four" name="Terry Williams" span="Manager" image={image}/>
+                        {model &&
+                        <ProfileAvatar model={model.author}/>
                         }
                     </div>
                     <div className="icons col-xl-4 col-md-6 mb-3 mb-xl-0">

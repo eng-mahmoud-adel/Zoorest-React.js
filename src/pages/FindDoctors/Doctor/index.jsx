@@ -2,15 +2,23 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import Info from './Info';
 import {Tab, Tabs} from 'react-bootstrap';
-import Avatar from '../../../components/Avatars/Avatar';
 import RateBar from '../../../components';
 import {CallIcon, ViewsIcon} from "../../../components/Icons";
 import {showModal} from "../../../store/actions/modal";
-import {callProvider, getSingleProvider, setSingleProvider, viewProvider, getProviderArticles, getMoreProviderArticles, 
-    getProviderQuestions, getMoreProviderQuestions} from "../../../store/actions/providers";
+import {
+    callProvider,
+    getMoreProviderArticles,
+    getMoreProviderQuestions,
+    getProviderArticles,
+    getProviderQuestions,
+    getSingleProvider,
+    setSingleProvider,
+    viewProvider
+} from "../../../store/actions/providers";
 import LazyList from "../../../components/DataList";
 import Article from "../../../components/Cards/Articles/Article";
 import Question from "../../../components/Cards/Questions/Question";
+import ProfileAvatar from "../../../components/Avatars/ProfileAvatar";
 
 const DoctorProfile = (
     {
@@ -58,7 +66,7 @@ const DoctorProfile = (
                 stateData.loading === false &&
                 <div className="row" key={stateData.model.id}>
                     <div className="provider-image col-xl-2 col-md-3 col-sm-3 col-12">
-                        <Avatar className="avatar-four" image={stateData.model.image} radius={70}/>
+                        <ProfileAvatar model={stateData.model}/>
                     </div>
 
                     <div className="col-xl-10 col-md-9 col-sm-9 col-12">

@@ -26,7 +26,7 @@ const LoginForm = ({login, onSignupClicked}) => {
     const handleFacebookLogin = (data) => {
         console.log(data)
 
-        if (!data.error) {
+        if (data && !data.error && data !== "unknown") {
             handleLogin(
                 new LoginRequest()
                     .setProviderKey(data.id)
@@ -43,7 +43,7 @@ const LoginForm = ({login, onSignupClicked}) => {
 
     const handleGoogleLogin = (data) => {
         console.log(data)
-        if (!data.error) {
+        if (data && !data.error) {
 
             handleLogin(
                 new LoginRequest()

@@ -76,11 +76,7 @@ const AllPostsContainer = ({
                                 placeholderComponent={Post}
                                 fetchMoreData={getMoreSellPosts}
                                 refresh={getSellPosts}
-                                endMessage={
-                                    <p style={{textAlign: 'center'}}>
-                                        <b>Yay! You have seen it all</b>
-                                    </p>
-                                }
+
                             />}
                         </Tab>
 
@@ -93,11 +89,7 @@ const AllPostsContainer = ({
                                 placeholderComponent={Post}
                                 fetchMoreData={getMoreAdoptPosts}
                                 refresh={getAdoptPosts}
-                                endMessage={
-                                    <p style={{textAlign: 'center'}}>
-                                        <b>Yay! You have seen it all</b>
-                                    </p>
-                                }
+
                             />}
                         </Tab>
 
@@ -110,11 +102,7 @@ const AllPostsContainer = ({
                                 placeholderComponent={Post}
                                 fetchMoreData={getMoreMatePosts}
                                 refresh={getMatePosts}
-                                endMessage={
-                                    <p style={{textAlign: 'center'}}>
-                                        <b>Yay! You have seen it all</b>
-                                    </p>
-                                }
+
 
                             />}
                         </Tab>
@@ -128,11 +116,7 @@ const AllPostsContainer = ({
                                 placeholderComponent={Post}
                                 fetchMoreData={getMoreLostPosts}
                                 refresh={getLostPosts}
-                                endMessage={
-                                    <p style={{textAlign: 'center'}}>
-                                        <b>Yay! You have seen it all</b>
-                                    </p>
-                                }
+
 
                             />}
                         </Tab>
@@ -146,11 +130,7 @@ const AllPostsContainer = ({
                                 placeholderComponent={Post}
                                 fetchMoreData={getMoreProductPosts}
                                 refresh={getProductPosts}
-                                endMessage={
-                                    <p style={{textAlign: 'center'}}>
-                                        <b>Yay! You have seen it all</b>
-                                    </p>
-                                }
+
 
                             />}
                         </Tab>

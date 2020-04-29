@@ -16,7 +16,14 @@ const Modal = props => {
                    aria-labelledby="contained-modal-title-vcenter"
                    centered>
             <BaseModal.Body>
-                {RenderComponent && <RenderComponent/>}
+
+                {
+                    RenderComponent &&
+
+                    ("function" === typeof RenderComponent) ?
+                        <RenderComponent/> :
+                        RenderComponent
+                }
             </BaseModal.Body>
         </BaseModal>
     );

@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import LoginForm from "../../Forms/Auth/LoginForm";
 import {showModal} from "../../../store/actions/modal";
 
-const Booking = ({model: user, getAppointments, bookAppointment, showModal, authUser, stateData, currentLocale}) => {
+const Booking = ({model: user, getAppointments, bookAppointment, showModal, authUser, stateData, currentLocale, withTitle}) => {
 
     const dateformat = "D-MM-Y";
     const {id, provider} = user;
@@ -28,7 +28,7 @@ const Booking = ({model: user, getAppointments, bookAppointment, showModal, auth
 
     const handleBookButton = () => {
 
-        if ("undefined" === typeof authUser.accessToken) {
+        if ("undefined" === typeof authUser.accessToken || null === authUser.accessToken) {
             showModal(LoginForm);
         } else {
             bookAppointment(selectedAppointment);
@@ -132,7 +132,7 @@ const Booking = ({model: user, getAppointments, bookAppointment, showModal, auth
 
     return (
         <Card className={"booking-card m-1"}>
-            <Card.Title className="py-3"/>
+            {withTitle && <Card.Title className="py-3"/>}
             <Card.Body>
                 <h5>Do you need to pay a visit to this doctor ?</h5>
                 <span className="date font-weight-bold">{getMonthAndYear()}</span>

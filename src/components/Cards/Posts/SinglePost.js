@@ -1,9 +1,6 @@
 import React from 'react';
-import img from '../../../images/article-cover.png';
-import Avatar from '../../Avatars/Avatar';
-import image from "../../../images/placeholders/100X100.png";
 import {Card} from "react-bootstrap";
-import {CommentsIcon, HeartIcon} from "../../Icons";
+import ProfileAvatar from "../../Avatars/ProfileAvatar";
 
 const SinglePost = ({model, currentLocale}) => {
     return (
@@ -48,7 +45,7 @@ const SinglePost = ({model, currentLocale}) => {
                 </div>
                 <div className="row">
                     <div className="col-8">
-                        <Avatar className="avatar-four" name="Terry Williams" span="Manager" image={image}/>
+                        <ProfileAvatar model={model.user}/>
                     </div>
                     <div className="icons col-4">
                         <div className="row">

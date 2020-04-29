@@ -1,11 +1,11 @@
 import React from 'react';
-import Avatar from '../../Avatars/Avatar';
 import Button from '../../Buttons/Button/Button';
 import {Card, Col, Row} from "react-bootstrap";
 import {CommentsIcon, HeartIcon} from "../../Icons";
 import SlickSlider from "../../Helpers/SlickSlider";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import ProfileAvatar from "../../Avatars/ProfileAvatar";
 
 
 const Post = ({id, className, model: post}) => {
@@ -38,10 +38,7 @@ const Post = ({id, className, model: post}) => {
             <Card.Footer className="mt-5">
                 <Row className="justify-content-between">
                     <div className="col-xl-4 col-lg-5 col-sm-5 col-7 mb-2 mb-xl-0">
-                        <Avatar className="avatar-four"
-                                user={post.user}
-                                name={post.user.name}
-                                image={post.user.image_url}/>
+                        <ProfileAvatar model={post.user}/>
                     </div>
                     <div className="icons col-xl-3 col-lg-4 col-sm-3 col-5">
                         <Row>

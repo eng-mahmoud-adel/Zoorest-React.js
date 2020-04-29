@@ -51,7 +51,7 @@ const singleProviderReducer = (state = initialState, action) => {
         case GET_QUESTION_PROVIDERS:
             return {
                 ...state,
-                questions: new ModelPaginatedResource(action.payload)
+                questions: new ModelPaginatedResource(action.payload, Question)
             }
 
         case GET_MORE_QUESTION_PROVIDERS:
@@ -74,7 +74,7 @@ const singleProviderReducer = (state = initialState, action) => {
             return {
                 ...state,
                 articles: new ModelPaginatedResource({
-                    data: state.questions.data.concat(action.payload.data.map(item => new Article(item))),
+                    data: state.articles.data.concat(action.payload.data.map(item => new Article(item))),
                     links: new ModelPaginatedResource(action.payload.links),
                     meta: new ModelPaginatedResource(action.payload.meta)
                 })

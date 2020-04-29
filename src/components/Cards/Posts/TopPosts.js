@@ -2,7 +2,7 @@ import React, {Fragment, useEffect} from 'react';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {getTopPosts} from "../../../store/actions/posts";
-import Avatar from '../../Avatars/Avatar';
+import ProfileAvatar from "../../Avatars/ProfileAvatar";
 
 const TopPosts = ({className, getTopPosts, top_posts}) => {
 
@@ -16,9 +16,10 @@ const TopPosts = ({className, getTopPosts, top_posts}) => {
                 <h5 className="card-title">More By</h5>
                 <div className="card-body">
                     {
-                        top_posts.data.map(post => <div key={"top_question" + post.getKey()}className="card-text">
+                        top_posts.data.map(post => <div key={"top_question" + post.getKey()} className="card-text">
                             <Link to={`/post/${post.getKey()}`}>{post.getLocalizedTitle()}</Link>
-                            <Avatar className="avatar-four" name="sell"/>
+                            <ProfileAvatar model={post.user}/>
+
                         </div>)
                     }
                 </div>

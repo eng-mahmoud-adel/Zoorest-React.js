@@ -1,5 +1,4 @@
 import React from 'react';
-import Avatar from '../../Avatars/Avatar';
 import Button from '../../Buttons/Button/Button';
 import RateBar from '../..';
 import Card from "react-bootstrap/Card";
@@ -9,7 +8,10 @@ import Booking from '../Booking/Booking';
 import {ViewsIcon} from "../../Icons";
 import PropTypes from 'prop-types';
 import LoginForm from '../../Forms/Auth/LoginForm';
-
+import {connect} from "react-redux";
+import {bookAppointment, getProviderAppointments} from "../../../store/actions/providers";
+import {showModal} from "../../../store/actions/modal";
+import ProfileAvatar from "../../Avatars/ProfileAvatar";
 
 const Provider = ({model: user, showModal, className, authUser}) => {
 
@@ -17,7 +19,7 @@ const Provider = ({model: user, showModal, className, authUser}) => {
         if ("undefined" === typeof authUser.accessToken) {
             showModal(LoginForm);
         } else {
-            showModal(Booking);
+            showModal(<Booking model={user}/>);
         }
     };
 
@@ -36,11 +38,8 @@ const Provider = ({model: user, showModal, className, authUser}) => {
                     }
                 </div>}
                 <div className="d-flex justify-content-center my-3">
-                    {user ?
-                        <Avatar className="avatar-three" image={user.image_url}
-                                radius={70}/> :
-                        <Avatar className="avatar-three" text="MA"/>
-                    }
+                    <ProfileAvatar model={user}/>
+
                 </div>
                 <Card.Title className="font-weight-bold">{user.name}</Card.Title>
                 <div className="row mb-2">
@@ -78,4 +77,26 @@ const Provider = ({model: user, showModal, className, authUser}) => {
 Provider.propTypes = {
     model: PropTypes.object.isRequired,
 }
-export default Provider;
+
+const mapStateToProps = (state) => ({
+    authUser: state.authUser,
+    currentLocale: state.i18n.value,
+    stateData: state.singleProviderPage,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+
+    getAppointments: (provider_id, datestring) => {
+        dispatch(getProviderAppointments(provider_id, datestring));
+    },
+
+    bookAppointment: (appointment_id) => {
+        dispatch(bookAppointment(appointment_id));
+    },
+
+    showModal: (component) => {
+        dispatch(showModal(component));
+    },
+
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Provider);

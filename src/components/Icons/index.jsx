@@ -1,8 +1,27 @@
 import React, {useState} from 'react'
-import {IoMdHeart, IoMdHeartEmpty} from "react-icons/io";
+import {IoMdHeart, IoMdHeartEmpty, IoMdStar} from "react-icons/io";
 import {MdComment, MdPhone, MdRemoveRedEye, MdShare} from "react-icons/md";
 import {FaFacebookSquare, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
 
+
+export const StarIcon = ({onClick, is_active, value}) => {
+    const [selected, setSelected] = useState(is_active || false);
+
+    const handleClick = () => {
+        setSelected(true);
+        if (onClick) {
+            onClick(selected, setSelected);
+        }
+    }
+
+    return (
+        <span className="icon-group">
+            <IoMdStar onClick={handleClick}
+                      color={selected ? "#12B0C6" : "#778699"}
+                      size={"1.5em"}
+            /> {value}  </span>
+    );
+};
 
 export const HeartIcon = ({onClick, is_active, value}) => {
     const [selected, setSelected] = useState(is_active || false);

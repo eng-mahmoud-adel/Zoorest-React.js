@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import logo from '../../images/logo.png';
 import {connect} from "react-redux";
 import Index from "../Buttons/Button/Button";
-import Avatar from '../Avatars/Avatar';
 import './jquery';
 import {Nav} from "react-bootstrap";
 import BaseNavbar from "react-bootstrap/Navbar";
@@ -12,6 +11,7 @@ import {showModal} from "../../store/actions/modal";
 import LoginForm from "../Forms/Auth/LoginForm";
 import SignUpFormContainer from "../Forms/Auth/Signup/SignUpFormContainer";
 import {withTranslation} from 'react-i18next';
+import ProfileAvatar from "../Avatars/ProfileAvatar";
 
 const Auth = withTranslation()(({authUser, showModal, t}) => {
     const showSignUpModal = () => {
@@ -44,7 +44,8 @@ const Auth = withTranslation()(({authUser, showModal, t}) => {
                     {/*There is authenticated User */}
 
                     {/*TODO: Add Avatar Image, name */}
-                    <Avatar className="avatar-two" text="MA"/>
+                    <ProfileAvatar model={authUser.user}/>
+
                 </Fragment>
             }
 

@@ -92,12 +92,8 @@ const Doctors = ({
                     placeholderComponent={Provider}
                     fetchMoreData={getMoreProviders}
                     refresh={getProviders}
-                    endMessage={
-                        <p style={{textAlign: 'center'}}>
-                            <b>Yay! You have seen it all</b>
-                        </p>
-                    }
-                    />
+
+                />
             </section>
         </div>
     )

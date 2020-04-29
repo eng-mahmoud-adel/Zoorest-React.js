@@ -49,11 +49,7 @@ const AllQuestionsContainer = props => {
                         placeholderComponent={Question}
                         fetchMoreData={getMoreRecentQuestions}
                         refresh={getRecentQuestions}
-                        endMessage={
-                            <p style={{textAlign: 'center'}}>
-                                <b>Yay! You have seen it all</b>
-                            </p>
-                        }
+
                     />
                 </Tab>
 

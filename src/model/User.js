@@ -1,6 +1,7 @@
 import Model from "./Base/Model";
 import Provider from "./Provider";
 import Image from "./Image";
+import moment from "moment";
 
 class User extends Model {
 
@@ -34,15 +35,19 @@ class User extends Model {
         this._updated_at = object.updated_at
         this._wp_id = object.wp_id
         this._account_views = object.account_views
-        this._created_at = object.created_at
-        this._updated_at = object.updated_at
+        this._created_at = moment(object.created_at)
+        this._updated_at = moment(object.updated_at)
 
         if (object.provider) {
             this._provider = new Provider(object.provider)
         }
 
         this._image_url = object.image_url
-        this._photo = object.photo || new Image()
+
+        this._photo = new Image();
+        if (object.photo) {
+            this._photo = new Image(object.photo)
+        }
     }
 
     get id() {
@@ -317,8 +322,12 @@ class User extends Model {
         this._views_count = value;
     }
 
-    getKey() {
-        return super.getKey();
+    getNameInitials = () => {
+        return this.name[0]
+    }
+
+    getJoiningDateString = () => {
+        return this.created_at.format("MMMM D Y")
     }
 }
 
