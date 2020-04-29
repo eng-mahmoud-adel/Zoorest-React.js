@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {IoMdHeart, IoMdHeartEmpty, IoMdStar} from "react-icons/io";
 import {MdComment, MdPhone, MdRemoveRedEye, MdShare} from "react-icons/md";
 import {FaFacebookSquare, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
+import {Text12} from "../UI/Typography";
 
 
 export const StarIcon = ({onClick, is_active, value}) => {
@@ -19,7 +20,7 @@ export const StarIcon = ({onClick, is_active, value}) => {
             <IoMdStar onClick={handleClick}
                       color={selected ? "#12B0C6" : "#778699"}
                       size={"1.5em"}
-            /> {value}  </span>
+            /> <Text12> {value} </Text12>  </span>
     );
 };
 
@@ -36,25 +37,25 @@ export const HeartIcon = ({onClick, is_active, value}) => {
 
     return (
         <span className="icon-group">
-            <Component onClick={handleClick} color={selected ? "red" : ""}/> {value}  </span>
+            <Component onClick={handleClick} color={selected ? "red" : ""}/><Text12> {value} </Text12> </span>
     );
 };
 
 export const CommentsIcon = (props) => (
-    <span className="icon-group"> <MdComment  {...props} /> {props.value} {props.text} </span>
+    <span className="icon-group"> <MdComment  {...props} /> <Text12>{props.value} {props.text}</Text12> </span>
 );
 
 export const ViewsIcon = (props) => (
-    <span className="icon-group"> <MdRemoveRedEye {...props}/> {props.value} {props.text} </span>
+    <span className="icon-group"> <MdRemoveRedEye {...props}/> <Text12>{props.value} {props.text}</Text12> </span>
 );
 export const SearchIcon = (props) => (
-    <span className="icon-group"> <FaSearch {...props}/> {props.value} {props.text} </span>
+    <span className="icon-group"> <FaSearch {...props}/> <Text12>{props.value} {props.text}</Text12> </span>
 );
 export const CallIcon = (props) => (
-    <span className="icon-group"> <MdPhone {...props}/> {props.value} {props.text} </span>
+    <span className="icon-group"> <MdPhone {...props}/> <Text12>{props.value} {props.text}</Text12> </span>
 );
 export const ShareIcon = (props) => (
-    <span className="icon-group"> <MdShare {...props}/> {props.value} {props.text} </span>
+    <span className="icon-group"> <MdShare {...props}/> <Text12>{props.value} {props.text}</Text12> </span>
 );
 
 

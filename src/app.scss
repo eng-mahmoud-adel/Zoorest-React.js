@@ -9,11 +9,11 @@
 // Bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap';
 
-
+//typography
+@import './sass/helpers/typography';
 
 // header
 @import './sass/layout/header';
-
 
 // Big & Small buttons
 @import './sass/components/buttons/big&smallButtons';

@@ -29,8 +29,10 @@ const App = ({getUserData, getGlobalData}) => {
             {/*Navbar Should always  show in each and every page*/}
             <Navbar/>
 
-            {/*Any Non*/}
-            <AppRouter/>
+            <div style={{marginTop: "100px"}}>
+                {/*Any Non*/}
+                <AppRouter/>
+            </div>
 
             {/*general popups,alerts..(login,registration) that will overlay a screen should be placed here*/}
             <Modal/>

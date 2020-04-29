@@ -1,4 +1,5 @@
 import Model from "./Base/Model";
+import moment from "moment";
 
 class Testimonials extends Model {
 
@@ -8,7 +9,7 @@ class Testimonials extends Model {
         this._id = object.id
         this._text = object.text
         this._client_name = object.client_name
-        this._date = object.date
+        this._date = moment(object.date)
         this._created_at = object.created_at
         this._updated_at = object.updated_at
     }
@@ -38,7 +39,7 @@ class Testimonials extends Model {
     }
 
     get date() {
-        return this._date;
+        return this._date.format("MMM D,Y");
     }
 
     set date(value) {

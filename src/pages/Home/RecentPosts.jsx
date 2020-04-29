@@ -4,6 +4,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Post from '../../components/Cards/Posts/Post';
 import Tab from "react-bootstrap/Tab";
 import LazyLoad from "react-lazyload";
+import {Text32} from "../../components/UI/Typography";
 
 const RecentPosts = (props) => {
     const data = props.data;
@@ -11,7 +12,13 @@ const RecentPosts = (props) => {
 
     return (
         <div className="row">
-            <h1 className="title font-weight-bold d-lg-none">Join the Largest Community for adoption and lost Pets</h1>
+            <div className="title d-lg-none">
+
+                <Text32>
+                    Join the Largest Community for adoption and lost Pets
+                </Text32>
+
+            </div>
 
             <div className="col-lg-6 mt-5">
                 <LazyLoad unmountIfInvisible={true} once={true}
@@ -20,13 +27,16 @@ const RecentPosts = (props) => {
                 </LazyLoad>
             </div>
             <div className="col-lg-6">
-                <h1 className="title font-weight-bold d-none d-lg-block">Join the Largest Community for adoption and
-                    lost Pets</h1>
+                <div className="title d-none d-lg-block">
+                    <Text32>
+                        Join the Largest Community for adoption and lost Pets
+                    </Text32>
+                </div>
 
                 <Tabs id="controlled-tab-example"
                       activeKey={key}
                       onSelect={(k) => setKey(k)}
-                      className= "mb-4">
+                      className="mb-4">
 
                     {
                         Object.keys(data).map((key, index1) => {

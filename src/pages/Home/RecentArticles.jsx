@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import Article from "../../components/Cards/Articles/Article";
 import SlickSlider from "../../components/Helpers/SlickSlider";
 import {Link} from "react-router-dom";
+import {Text32} from "../../components/UI/Typography";
 
 const RecentArticles = props => {
     const articles = props.articles;
@@ -36,7 +37,12 @@ const RecentArticles = props => {
     return (
         <Fragment>
             <div className="row">
-                <h2 className="col-md-3 title font-weight-bold mt-0 pt-0">Recent Articles</h2>
+                <div className="col-md-3 title mt-0 pt-0">
+
+                    <Text32>
+                        Recent Articles
+                    </Text32>
+                </div>
                 <div className="col-md-6"/>
                 <Link to="/article" className="col-md-3">See More Articles</Link>{/*todo localise*/}
             </div>

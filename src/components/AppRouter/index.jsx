@@ -15,6 +15,7 @@ import AllPostsContainer from '../../pages/Adoption/index';
 import SinglePostContainer from '../../pages/Adoption/SinglePost/index';
 import LoginPage from "../../pages/Auth/Login";
 import SignUpPage from "../../pages/Auth/Signup";
+import TypographyPage from "../../pages/Demo/Typography";
 
 const AppRouter = () => (
     <Fragment>
@@ -40,6 +41,7 @@ const AppRouter = () => (
             <Route path="/login" component={LoginPage}/>
             <Route path="/signup" component={SignUpPage}/>
 
+            <Route path="/demo/typography" component={TypographyPage}/>
 
             {/*todo <AuthRoute
             path="/doctor/profile/:id/edit"
@@ -48,7 +50,7 @@ const AppRouter = () => (
             isAuthenticated={check if auth user exists}
             />*/}
 
-            <Route path="/forms" component={Forms}/>
+            <Route exact path="/forms" component={Forms}/>
         </Switch>
     </Fragment>
 );

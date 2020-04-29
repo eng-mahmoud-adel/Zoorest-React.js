@@ -5,13 +5,21 @@ import LazyLoad from "react-lazyload";
 import {CommentsIcon, HeartIcon} from "../../Icons";
 import PropTypes from "prop-types";
 import ReactPlayer from 'react-player'
+import {Text12, Text14, Text24} from "../../UI/Typography";
 
 const Article = ({model}) => {
 
     return (
         <Card className={"article-card m-1"}>
-            <Card.Title>{model ? model.getLocalizedTitle() : ""}</Card.Title>
-            <small className="small-text">{model.human_created_at}</small>
+            <Card.Title>
+
+                <Text24>
+                    {model.getLocalizedTitle()}
+                </Text24>
+            </Card.Title>
+            <small className="small-text">
+                <Text12 className="created-at">{model.created_at}</Text12>
+            </small>
             <div className="img-container">
                 <LazyLoad unmountIfInvisible={true} once={true}>
 
@@ -35,12 +43,21 @@ const Article = ({model}) => {
                 </LazyLoad>
             </div>
             <Card.Body>
-                <Card.Text>{model ? model.getLocalizedCleanedBody():""}</Card.Text>
+                <Card.Text>
+
+                    <Text14 className="short-description">
+                        {model.getLocalizedCleanedBody()}
+                    </Text14>
+                </Card.Text>
             </Card.Body>
             <Card.Footer>
                 <Row>
                     <Col xs={9} md={7} lg={7} xl={8}>
-                        <Link to={`/article/${model.id}`} className="card-link">Read More</Link>
+                        <Link to={`/article/${model.id}`} className="card-link">
+                            <Text14 className="read-more">
+                                Read More
+                            </Text14>
+                        </Link>
                     </Col>
 
                     <Col xs={3} md={5} lg={5} xl={4} className= "text-right">

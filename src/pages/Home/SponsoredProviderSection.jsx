@@ -2,20 +2,33 @@ import React from 'react'
 import Button from '../../components/Buttons/Button/Button';
 import Provider from '../../components/Cards/Profiles/Provider';
 import {Link} from 'react-router-dom';
+import {Text16Black, Text18Regular, Text32} from "../../components/UI/Typography";
 
 const SponsoredProviderSection = ({providers, section, currentLocale}) => {
 
     return (
         <div className="row p-3">
             <div className="col-lg-5 mb-4 mb-md-4">
-                <h1 className="title mb-5 mt-0 font-weight-bold">{section.getFiledValueByName("header", currentLocale)}</h1>
-                <div className="wrapper mb-4">
-                    <h3 className="font-weight-bold">{section.getFiledValueByName("title", currentLocale)}</h3>
-                    <p>{section.getFiledValueByName("description", currentLocale)}</p>
+                <div className="title mb-5 mt-0">
+                    <Text32>
+                        {section.getFiledValueByName("header", currentLocale)}
+                    </Text32>
                 </div>
                 <div className="wrapper mb-4">
-                    <h3 className="font-weight-bold">{section.getFiledValueByName("title", currentLocale)}</h3>
-                    <p>{section.getFiledValueByName("description", currentLocale)}</p>
+                    <Text16Black>
+                        {section.getFiledValueByName("title", currentLocale)}
+                    </Text16Black>
+                    <Text18Regular className=""
+                                   style={{text: "#778699"}}>{section.getFiledValueByName("description", currentLocale)}</Text18Regular>
+                </div>
+                <div className="wrapper mb-4">
+                    <h3>
+                        <Text16Black>
+                            {section.getFiledValueByName("title", currentLocale)}
+                        </Text16Black>
+                    </h3>
+                    <Text18Regular className=""
+                                   style={{text: "#778699"}}>{section.getFiledValueByName("description", currentLocale)}</Text18Regular>
                 </div>
                 <div className="col-xl-7 col-lg-8 col-md-5 col-sm-6 pl-0">
                     <Link to={section.getFiledValueByName("button_actions", currentLocale)}><Button
