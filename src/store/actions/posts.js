@@ -21,6 +21,8 @@ export const GET_POSTS_LOADING = "GET_POSTS_LOADING";
 export const GET_POST_COMMENTS = "GET_POST_COMMENTS";
 export const GET_MORE_POST_COMMENTS = "GET_MORE_POST_COMMENTS";
 
+export const TOP_POSTS = 'TOP_POSTS';
+
 const ENDPOINT = 'posts';
 
 export const getSellPosts = () => async (dispatch) => {
@@ -226,4 +228,20 @@ export const getMorePostComments = (nextPageUrl) => async (dispatch) => {
                 console.log(error.response);
             }
         );
+};
+
+export const getTopPosts = (limit = 4) => async (dispatch) => {
+    await ApiService.get(`${ENDPOINT}/top?perPage=${limit}`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: TOP_POSTS,
+                    payload: response.data,
+                })
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+
 };
