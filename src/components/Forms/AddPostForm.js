@@ -5,7 +5,7 @@ import {MultiSelect} from '../Inputs/MultiSelect';
 import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 
-const AddPost = (props) => {
+const AddPostForm = (props) => {
     return (
         <form>
             <div className="form-group post-form col-8">
@@ -68,4 +68,4 @@ const AddPost = (props) => {
     )
 }
 
-export default AddPost;
+export default AddPostForm;

@@ -3,6 +3,7 @@ import {
     GET_POSTS_LOADING,
     GET_POST_COMMENTS,
     GET_MORE_POST_COMMENTS,
+    TOP_POSTS
 } from "../../actions/posts";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 import Post from "../../../model/Post";
@@ -12,6 +13,7 @@ const initialState = {
     loading: true,
     comments: new ModelPaginatedResource(),
     loadingComments: true,
+    top: new ModelPaginatedResource()
 };
 
 const singlePostReducer = (state = initialState, action) => {
@@ -39,6 +41,12 @@ const singlePostReducer = (state = initialState, action) => {
             return {
                 ...state,
                 comments: state.comments.concat(new ModelPaginatedResource(action.payload))
+            };
+
+        case TOP_POSTS:
+            return {
+                ...state,
+                top: new ModelPaginatedResource(action.payload, Post)
             };
         
 

@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from '../../components/Forms/Auth/LoginForm';
 import SignUpFormContainer from '../../components/Forms/Auth/Signup/SignUpFormContainer';
 import AddQuestion from '../../components/Forms/AddQuestion';
-import AddPost from '../../components/Forms/AddPost';
+import AddPostForm from '../../components/Forms/AddPostForm';
 import Reminder from '../../components/Forms/Reminder';
 import UploadAlbum from '../../components/Forms/UploadAlbum';
 import Location from '../../components/Forms/Location';
@@ -36,7 +36,7 @@ const Forms = () => {
             <hr />
             <h1>Add Post</h1>
             <hr />
-            <AddPost title= "Add new Post" />
+            <AddPostForm title= "Add new Post" />
 
             <hr />
             <h1>Reminder</h1>
