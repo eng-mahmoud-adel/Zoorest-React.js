@@ -80,13 +80,6 @@ const AllPostsContainer = ({
                                         <b>Yay! You have seen it all</b>
                                     </p>
                                 }
-                                pullDownToRefresh
-                                pullDownToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                                }
-                                releaseToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                                }
                             />}
                         </Tab>
 
@@ -103,13 +96,6 @@ const AllPostsContainer = ({
                                     <p style={{textAlign: 'center'}}>
                                         <b>Yay! You have seen it all</b>
                                     </p>
-                                }
-                                pullDownToRefresh
-                                pullDownToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                                }
-                                releaseToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
                                 }
                             />}
                         </Tab>
@@ -128,13 +114,7 @@ const AllPostsContainer = ({
                                         <b>Yay! You have seen it all</b>
                                     </p>
                                 }
-                                pullDownToRefresh
-                                pullDownToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                                }
-                                releaseToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                                }
+
                             />}
                         </Tab>
 
@@ -152,13 +132,7 @@ const AllPostsContainer = ({
                                         <b>Yay! You have seen it all</b>
                                     </p>
                                 }
-                                pullDownToRefresh
-                                pullDownToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                                }
-                                releaseToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                                }
+
                             />}
                         </Tab>
 
@@ -176,17 +150,11 @@ const AllPostsContainer = ({
                                         <b>Yay! You have seen it all</b>
                                     </p>
                                 }
-                                pullDownToRefresh
-                                pullDownToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                                }
-                                releaseToRefreshContent={
-                                    <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                                }
+
                             />}
                         </Tab>
                     </Tabs>
-                    
+
                 </section>
 
                 <section className= "col-md-3">

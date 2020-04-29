@@ -97,13 +97,6 @@ const Doctors = ({
                             <b>Yay! You have seen it all</b>
                         </p>
                     }
-                    pullDownToRefresh
-                    pullDownToRefreshContent={
-                        <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-                    }
-                    releaseToRefreshContent={
-                        <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-                    }
                     />
             </section>
         </div>
