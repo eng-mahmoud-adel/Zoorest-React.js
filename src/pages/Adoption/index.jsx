@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {Tab, Tabs} from 'react-bootstrap';
 import Post from '../../components/Cards/Posts/Post';
-import AddPost from '../../components/Cards/Posts/AddPost';
 import LazyList from "../../components/DataList";
 import BasicInput from '../../components/Inputs/BasicInput';
 import Button from '../../components/Buttons/Button/Button';
 import {showModal} from "../../store/actions/modal";
+import AddPost from '../../components/Cards/Posts/AddPost';
+import AddPostForm from '../../components/Forms/AddPostForm';
 import {
     getAdoptPosts,
     getLostPosts,
@@ -23,7 +24,7 @@ import {getAdoptionPage} from "../../store/actions/pages";
 
 const AllPostsContainer = ({
                                page, currentLocale, posts, getSellPosts, getMoreSellPosts, getAdoptPosts, getMoreAdoptPosts,
-                               getMatePosts, getMoreMatePosts, getLostPosts, getMoreLostPosts, getProductPosts, getMoreProductPosts, getPage
+                               getMatePosts, getMoreMatePosts, getLostPosts, getMoreLostPosts, getProductPosts, getMoreProductPosts, getPage, showModal
                            }) => {
 
     const [key, setKey] = useState('sell');
@@ -38,7 +39,7 @@ const AllPostsContainer = ({
     }, [getPage, getSellPosts, getAdoptPosts, getMatePosts, getLostPosts, getProductPosts]);
 
     const addPostForm = () => {
-        showModal(AddPost)
+        showModal(AddPostForm)
     }
 
     return (

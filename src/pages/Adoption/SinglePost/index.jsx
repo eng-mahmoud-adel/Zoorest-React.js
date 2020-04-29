@@ -7,7 +7,8 @@ import LoginForm from "../../../components/Forms/Auth/LoginForm";
 import {getMorePostComments, getPostComments, getSinglePost} from '../../../store/actions/posts';
 import SinglePost from '../../../components/Cards/Posts/SinglePost';
 import {showModal} from "../../../store/actions/modal";
-import RelatedPosts from '../../../components/Cards/Posts/RelatedPosts';
+import TopPosts from '../../../components/Cards/Posts/TopPosts';
+import AddPost from '../../../components/Cards/Posts/AddPost';
 
 const SinglePostContainer = ({stateData, getSinglePost, match, getPostComments, getMorePostComments, authUser, showModal, currentLocale}) => {
 
@@ -60,9 +61,8 @@ const SinglePostContainer = ({stateData, getSinglePost, match, getPostComments, 
 
             <div className= "col-md-3">
                 <div className="row mb-3 d-none d-lg-block">
-
-                    <RelatedPosts/>
-
+                    <TopPosts/>
+                    <AddPost />
                 </div>
             </div>
         </div>
