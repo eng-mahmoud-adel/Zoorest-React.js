@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const SlickSlider = ({children, className, settings}) => {
     return (
-        <div className={`${className} my-3`}>
+        <div className={`${className || ""} my-3`}>
             <Slider {...settings}>
                 {children}
             </Slider>

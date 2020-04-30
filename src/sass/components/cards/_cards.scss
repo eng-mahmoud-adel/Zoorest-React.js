@@ -74,8 +74,8 @@
     background-color: rgba(0, 0, 0, 0.6);
 
     .card-img-top {
-      height: 14rem !important;
-      object-fit: scale-down;
+      //height: 14rem !important;
+      object-fit: cover;
 
       border-top-right-radius: $border-radius-8;
       border-top-left-radius: $border-radius-8;
