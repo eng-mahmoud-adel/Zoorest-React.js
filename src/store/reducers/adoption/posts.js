@@ -38,7 +38,7 @@ const postsReducer = (state = initialState, action) => {
         case GET_SELL_POSTS:
             return {
                 ...state,
-                sell: new ModelPaginatedResource(action.payload)
+                sell: new ModelPaginatedResource(action.payload, Post)
             };
 
         case GET_MORE_SELL_POSTS:
@@ -54,7 +54,7 @@ const postsReducer = (state = initialState, action) => {
         case GET_ADOPT_POSTS:
             return {
                 ...state,
-                adopt: new ModelPaginatedResource(action.payload)
+                adopt: new ModelPaginatedResource(action.payload, Post)
             };
 
         case GET_MORE_ADOPT_POSTS:
@@ -70,7 +70,7 @@ const postsReducer = (state = initialState, action) => {
         case GET_MATE_POSTS:
             return {
                 ...state,
-                mate: new ModelPaginatedResource(action.payload)
+                mate: new ModelPaginatedResource(action.payload, Post)
             };
 
         case GET_MORE_MATE_POSTS:
@@ -86,7 +86,7 @@ const postsReducer = (state = initialState, action) => {
         case GET_LOST_POSTS:
             return {
                 ...state,
-                lost: new ModelPaginatedResource(action.payload)
+                lost: new ModelPaginatedResource(action.payload, Post)
             };
 
         case GET_MORE_LOST_POSTS:
@@ -102,7 +102,7 @@ const postsReducer = (state = initialState, action) => {
         case GET_PRODUCT_POSTS:
             return {
                 ...state,
-                product: new ModelPaginatedResource(action.payload)
+                product: new ModelPaginatedResource(action.payload, Post)
             };
 
         case GET_MORE_PRODUCT_POSTS:

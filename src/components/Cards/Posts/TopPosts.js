@@ -12,7 +12,7 @@ const TopPosts = ({className, getTopPosts, top_posts}) => {
 
     return (
         <Fragment>
-            {top_posts.data.length > 0 && <div className={`top-membes-card card ${className || ""}`}>
+            {top_posts && top_posts.data.length > 0 && <div className={`top-membes-card card ${className || ""}`}>
                 <h5 className="card-title">More By</h5>
                 <div className="card-body">
                     {

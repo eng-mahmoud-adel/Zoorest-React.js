@@ -61,12 +61,12 @@ const AllPostsContainer = ({
 
                         <Tab eventKey="sell" title="Sell">
                             <div>
-                                <p className= "mt-3">Price: </p>
-                                <Button text={page.bannerSection.getFiledValueByName("button_text", currentLocale)}
+                                <p className="mt-3">Price: </p>
+                                <Button text=" + Add New Post"
                                         color="btn btn-danger"
                                         size="btn-sm"
                                         onclick={addPostForm}
-                                        className= "mb-3"/>
+                                        className="mb-3"/>
                             </div>
                             {<LazyList
                                 data={posts.sell}
