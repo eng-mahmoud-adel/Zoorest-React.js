@@ -3,6 +3,7 @@ import img from '../../../images/article-cover.png';
 
 import {CommentsIcon, FacebookIcon, ShareIcon, TwitterIcon, ViewsIcon} from '../../Icons/index';
 import ReactPlayer from "react-player";
+import {Text18Regular, Text48} from "../../UI/Typography";
 
 const ArticleDetails = (props) => {
     const {model, currentLocale} = props;
@@ -13,8 +14,16 @@ const ArticleDetails = (props) => {
 
     return (
         <div className={"article-details-card card"}>
-            <h5 className="card-title mb-0 font-weight-bold">{model.getLocalizedTitle(currentLocale)}</h5>
-            <small className="small-text">{model.author.name}</small>
+            <h5 className="card-title mb-0">
+                <Text48>
+                    {model.getLocalizedTitle(currentLocale)}
+                </Text48>
+            </h5>
+            <small className="small-text">
+                <Text18Regular className="text-muted">
+                    By {model.author.name}
+                </Text18Regular>
+            </small>
             <div className="icons">
                 <span className="icon-one"><CommentsIcon value={model.likes_count} text="comments"/></span>
                 <span className="icon-one"><ViewsIcon value={model.views_count} text="views"/></span>

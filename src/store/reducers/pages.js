@@ -1,12 +1,12 @@
 import Section from "../../model/Section";
 import {
+    ADOPTION_PAGE,
     HOMEPAGE_DOWNLOAD_APP_SECTION,
     HOMEPAGE_HERO_SECTION,
     HOMEPAGE_RECENT_QUESTIONS_SECTION,
     HOMEPAGE_SPONSORED_PROVIDER_SECTION,
     PROVIDERS_PAGE,
-    QUESTIONS_PAGE,
-    ADOPTION_PAGE
+    QUESTIONS_PAGE
 } from "../actions/pages";
 
 const initialState = {
@@ -24,6 +24,9 @@ const initialState = {
     },
     adoption: {
         bannerSection: new Section()
+    },
+    articles: {
+        trending_topics: []
     },
 };
 

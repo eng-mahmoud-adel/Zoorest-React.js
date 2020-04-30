@@ -3,6 +3,7 @@ import {
     GET_ARTICLES_LOADING,
     GET_MORE_ARTICLE_COMMENTS,
     GET_SINGLE_ARTICLE,
+    RELATED_ARTICLES,
 } from "../../actions/articles";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 import Article from "../../../model/Article";
@@ -13,6 +14,9 @@ const initialState = {
     loading: true,
     comments: new ModelPaginatedResource(),
     loadingComments: true,
+
+    related: new ModelPaginatedResource(),
+    loadingRelated: true,
 };
 
 const singleArticleReducer = (state = initialState, action) => {
@@ -44,6 +48,12 @@ const singleArticleReducer = (state = initialState, action) => {
                     links: action.payload.links,
                     meta: action.payload.meta,
                 }),
+            };
+
+        case RELATED_ARTICLES:
+            return {
+                ...state,
+                related: new ModelPaginatedResource(action.payload, Article)
             };
 
 

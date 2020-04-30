@@ -1,6 +1,7 @@
 import Model from "./Base/Model";
 import Image from "./Image";
 import User from "./User";
+import moment from "moment";
 
 class Article extends Model {
 
@@ -26,9 +27,9 @@ class Article extends Model {
         }
 
         this._is_favorite = object.is_favorite
-        this._publish_on = object.publish_on
-        this._created_at = object.created_at
-        this._updated_at = object.updated_at
+        this._publish_on = moment(object.publish_on)
+        this._created_at = moment(object.created_at)
+        this._updated_at = moment(object.updated_at)
     }
 
     get body() {
@@ -180,6 +181,22 @@ class Article extends Model {
         return !!this.video;
     }
 
+    getImageForSeo() {
+        if (this.hasVideo()) {
+            if (this.author) {
+                return this.author.image_url
+            } else {
+                return this.image_url
+            }
+        } else {
+            if (this.photo) {
+                return this.photo.path_small
+            } else {
+                return this.image_url
+            }
+        }
+    }
+
     getLocalizedSlug(locale = "ar") {
         return this._getLocalizedField("slug", locale)
     }
@@ -194,6 +211,14 @@ class Article extends Model {
 
     getLocalizedBody(locale = "ar") {
         return this._getLocalizedField("body", locale)
+    }
+
+    humanizedCreatedAt() {
+        return this.created_at.fromNow();
+    }
+
+    getKey(locale = "ar"): * {
+        return this._getLocalizedField("id", locale)
     }
 }
 

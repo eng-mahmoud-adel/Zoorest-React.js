@@ -8,6 +8,7 @@ export const GET_ARTICLES_LOADING = 'GET_ARTICLES_LOADING';
 export const GET_ARTICLE_COMMENTS = 'GET_ARTICLE_COMMENTS';
 export const GET_MORE_ARTICLE_COMMENTS = 'GET_MORE_ARTICLE_COMMENTS';
 export const TOP_ARTICLES = 'TOP_ARTICLES';
+export const RELATED_ARTICLES = 'RELATED_ARTICLES';
 
 const ENDPOINT = 'articles';
 
@@ -116,3 +117,19 @@ export const getTopArticles = (limit = 4) => async (dispatch) => {
 
 };
 
+export const getRelatedArticles = (id, limit = 5) => async (dispatch) => {
+    await ApiService
+        .get(`${ENDPOINT}/${id}/related?perPage=${limit}`)
+        .then(
+            (response) => {
+                dispatch({
+                    type: RELATED_ARTICLES,
+                    payload: response.data
+                });
+            },
+
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};

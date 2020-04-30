@@ -5,27 +5,29 @@ import LazyLoad from "react-lazyload";
 import {CommentsIcon, HeartIcon} from "../../Icons";
 import PropTypes from "prop-types";
 import ReactPlayer from 'react-player'
-import {Text12, Text14, Text24} from "../../UI/Typography";
+import {Text12, Text14Regular, Text24} from "../../UI/Typography";
+import {showModal} from "../../../store/actions/modal";
+import {connect} from "react-redux";
 
-const Article = ({model}) => {
+const Article = ({model: article, currentLocale}) => {
 
     return (
         <Card className={"article-card m-1"}>
             <Card.Title>
 
                 <Text24>
-                    {model.getLocalizedTitle()}
+                    {article.getLocalizedTitle(currentLocale)}
                 </Text24>
             </Card.Title>
             <small className="small-text">
-                <Text12 className="created-at">{model.created_at}</Text12>
+                <Text12 className="created-at">{article.humanizedCreatedAt()}</Text12>
             </small>
             <div className="img-container">
                 <LazyLoad unmountIfInvisible={true} once={true}>
 
-                    {model.video ?
+                    {article.hasVideo() ?
                         <ReactPlayer
-                            url={model.video}
+                            url={article.video}
                             loop={false}
                             light={true}
                             width='100%'
@@ -34,7 +36,7 @@ const Article = ({model}) => {
                         />
 
                         :
-                        <Card.Img variant={null} src={model.photo ? model.photo.path_small : ""}
+                        <Card.Img variant={null} src={article.photo ? article.photo.path_small : ""}
                                   className="img-fluid h-100 w-100"
                                   alt=""/>
 
@@ -45,18 +47,18 @@ const Article = ({model}) => {
             <Card.Body>
                 <Card.Text>
 
-                    <Text14 className="short-description">
-                        {model.getLocalizedCleanedBody()}
-                    </Text14>
+                    <Text14Regular className="short-description">
+                        {article.getLocalizedCleanedBody(currentLocale)}
+                    </Text14Regular>
                 </Card.Text>
             </Card.Body>
             <Card.Footer>
                 <Row>
                     <Col xs={9} md={7} lg={7} xl={8}>
-                        <Link to={`/article/${model.id}`} className="card-link">
-                            <Text14 className="read-more">
+                        <Link to={`/article/${article.getKey(currentLocale)}`} className="card-link">
+                            <Text14Regular className="read-more">
                                 Read More
-                            </Text14>
+                            </Text14Regular>
                         </Link>
                     </Col>
 
@@ -65,13 +67,12 @@ const Article = ({model}) => {
                             <div className="row">
 
                                 <div className="col-4">
-                                    <CommentsIcon value={model ? model.comments_count : 0}/>
+                                    <CommentsIcon value={article.comments_count}/>
 
                                 </div>
 
-                                {/*Todo: add hover and favorite action when clicked*/}
                                 <div className="col-4">
-                                    <HeartIcon value={model ? model.likes_count : 0}/>
+                                    <HeartIcon value={article.likes_count}/>
                                 </div>
                             </div>
                         </div>
@@ -86,4 +87,15 @@ Article.propTypes = {
     model: PropTypes.object.isRequired,
 };
 
-export default Article;
+const mapStateToProps = (state) => ({
+    authUser: state.authUser,
+    currentLocale: state.i18n.value,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    showModal: (component) => {
+        dispatch(showModal(component));
+    },
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Article);

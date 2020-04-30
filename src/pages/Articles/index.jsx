@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import BasicInput from '../../components/Inputs/BasicInput';
 import {getArticles, getMoreArticles} from '../../store/actions/articles';
 import LazyLoad from "react-lazyload";
 import Tag from "../../components/Tags/Tag";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Article from "../../components/Cards/Articles/Article";
+import {SearchIcon} from "../../components/Icons";
+import {Text14Medium, Text18Bold, Text48} from "../../components/UI/Typography";
 
-const AllArticlesContainer = (props) => {
+const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles}) => {
 
-    const {articles, getArticles, getMoreArticles} = props;
-    const [hasMore, setHasMore] = useState(true);
+    const hasMore = true;
 
     useEffect(() => {
         getArticles();
@@ -18,32 +18,45 @@ const AllArticlesContainer = (props) => {
     }, [getArticles, getMoreArticles]);
 
     return (
-        <div className="all-articles container mt-5 py-5">
-            <h1 className="title mt-0 pt-0 font-weight-bold">Articles</h1>
+        <div className="all-articles container mt-5 pb-5">
+            <h1 className="title mt-0 pt-0 font-weight-bold">
+
+                <Text48>Articles</Text48>
+            </h1>
             <div className="wrapper d-flex mt-5 mb-3">
-                <h5 className="second-title font-weight-bold col-md-2 pl-1 mb-0">Trending Topics:</h5>
+                <h5 className="second-title font-weight-bold col-md-2 pl-1 mb-0">
+                    <Text18Bold className="text-info">Trending Topics:</Text18Bold>
+                </h5>
                 <ul className="list-unstyled d-flex col-10 justify-content-between mb-0">
-                    <li>#photooftheday</li>
-                    <li>#photooftheday</li>
-                    <li>#photooftheday</li>
-                    <li>#photooftheday</li>
-                    <li>#photooftheday</li>
-                    <li>#photooftheday</li>
-                    <li>#photooftheday</li>
+
+                    {/*todo make topics clickable*/}
+                    {page.trending_topics.map(topic => (<li>#{topic}</li>))}
                 </ul>
             </div>
 
             <div className="row">
                 <div className="col-md-8">
-                    {articles.all.getTotalItems()} articles sorted by
+                    <Text14Medium>
+                        {articles.all.getTotalItems()} articles sorted by
+                    </Text14Medium>
                 </div>
                 <div className="col-md-4">
-                    <BasicInput className="basic-input" type="text" right_icon="fa fa-search fa-lg"
-                                placeholder="Start searching for anything"/>
+                    {/*<BasicInput className="basic-input" type="text" right_icon="fa fa-search fa-lg"*/}
+                    {/*            placeholder="Start searching for anything"/>*/}
+
+                    <div className="input-group w-100">
+                        <input type="text" name="search" className="basic-input"
+                               placeholder="Start searching for anything"/>
+                        <div className="input-group-append">
+                            <span className="input-group-text icon">
+                                <SearchIcon/>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <section>
+            <section className="mt-2">
                 {articles.all && <InfiniteScroll
                     dataLength={articles.all.data.length} //This is important field to render the next data
                     style={{overflow: "none"}}
@@ -64,7 +77,7 @@ const AllArticlesContainer = (props) => {
 
                     <div className="row">
                         {articles.all.data.map(item => (
-                            <div className={(item.hasVideo() ? "col-8" : "col-4") + ` my-1`}
+                            <div className={`col-12 my-1 ${item.hasVideo() ? "col-lg-8" : "col-md-6 col-lg-4"}`}
                                  key={"articles_" + item.id}>
                                 <LazyLoad unmountIfInvisible={true} once={true}
                                           placeholder={<h5 className="lazy loading">loading...</h5>}>
@@ -81,12 +94,13 @@ const AllArticlesContainer = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    articles: state.articles
+    page: state.pages.articles,
+    articles: state.articles,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     getArticles: () => {
-        dispatch(getArticles())
+        dispatch(getArticles(6))
     },
 
     getMoreArticles: (url) => {
