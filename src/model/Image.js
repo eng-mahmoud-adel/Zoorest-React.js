@@ -30,7 +30,7 @@ class Image extends Model {
     }
 
     get path_medium() {
-        return this._path_medium.replace('}', '');
+        return this._path_medium;
     }
 
     set path_medium(value) {

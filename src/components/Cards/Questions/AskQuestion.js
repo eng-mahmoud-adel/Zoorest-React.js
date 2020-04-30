@@ -3,6 +3,7 @@ import Button from '../../Buttons/Button/Button';
 import {Card} from "react-bootstrap";
 import {getQuestionsAnalytics} from "../../../store/actions/questions";
 import {connect} from "react-redux";
+import {Text14Regular, Text24Bold} from "../../UI/Typography";
 
 const AskQuestion = ({className, getQuestionsAnalytics, analytics}) => {
 
@@ -19,12 +20,22 @@ const AskQuestion = ({className, getQuestionsAnalytics, analytics}) => {
             </div>
             <div className="row text-center justify-content-center pb-4">
                 <div className="col-5 wrapper-one pb-2">
-                    <p className="small-text">Questions</p>
-                    <Card.Text>{analytics.total}</Card.Text>
+                    <p className="small-text">
+                        <Text14Regular className="text-muted">Questions</Text14Regular>
+                    </p>
+                    <Card.Text>
+                        <Text24Bold>{analytics.total}</Text24Bold>
+                    </Card.Text>
                 </div>
                 <div className="col-5 wrapper-two pb-2">
-                    <p className="small-text">Answers</p>
-                    <Card.Text>{analytics.answers}</Card.Text>
+                    <p className="small-text">
+                        <Text14Regular className="text-muted">Answers</Text14Regular>
+                    </p>
+                    <Card.Text>
+                        <Text24Bold>
+                            {analytics.answers}
+                        </Text24Bold>
+                    </Card.Text>
                 </div>
             </div>
         </Card>

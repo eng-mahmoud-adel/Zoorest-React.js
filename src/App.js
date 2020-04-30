@@ -9,8 +9,9 @@ import {getAuthData} from "./store/actions/auth";
 import {getSiteGlobalData} from "./store/actions/globals";
 import {Helmet} from "react-helmet";
 
-const App = ({getUserData, getGlobalData}) => {
+const App = ({getUserData, getGlobalData, location}) => {
 
+    console.log(location.pathname);
     useEffect(() => {
         getUserData();
         getGlobalData();
@@ -29,7 +30,7 @@ const App = ({getUserData, getGlobalData}) => {
             {/*Navbar Should always  show in each and every page*/}
             <Navbar/>
 
-            <div style={{marginTop: "100px"}}>
+            <div style={{marginTop: location.pathname !== "/question" ? "100px" : ""}}>
                 {/*Any Non*/}
                 <AppRouter/>
             </div>

@@ -24,7 +24,7 @@ export const StarIcon = ({onClick, is_active, value}) => {
     );
 };
 
-export const HeartIcon = ({onClick, is_active, value}) => {
+export const HeartIcon = ({onClick, is_active, value, text}) => {
     const [selected, setSelected] = useState(is_active || false);
     const Component = selected ? IoMdHeart : IoMdHeartEmpty;
 
@@ -37,7 +37,8 @@ export const HeartIcon = ({onClick, is_active, value}) => {
 
     return (
         <span className="icon-group">
-            <Component onClick={handleClick} color={selected ? "red" : ""}/><Text12> {value} </Text12> </span>
+            <Component onClick={handleClick} color={selected ? "red" : ""}/><Text12> {value} {text}</Text12>
+        </span>
     );
 };
 

@@ -10,6 +10,7 @@ import {
 } from "../../actions/questions";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 import Question from "../../../model/Question";
+import Comment from "../../../model/Comment";
 
 const initialState = {
     model: {},
@@ -45,12 +46,12 @@ const singleQuestionReducer = (state = initialState, action) => {
         case GET_QUESTION_COMMENTS:
             return {
                 ...state,
-                comments: new ModelPaginatedResource(action.payload)
+                comments: new ModelPaginatedResource(action.payload, Comment)
             };
         case GET_MORE_QUESTION_COMMENTS:
             return {
                 ...state,
-                comments: new ModelPaginatedResource(action.payload)
+                comments: new ModelPaginatedResource(action.payload, Comment)
             };
         case GET_QUESTION_COMMENTS_LOADED:
             return {

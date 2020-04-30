@@ -8,7 +8,7 @@ class Comment extends Model {
         super();
         this._id = object.id;
         this._user_id = object.user_id;
-        this._text = object.text;
+        this._text = object.text || object.body;
         this._likes_count = object.likes_count || 0;
         this._created_at = moment(object.created_at);
         this._updated_at = moment(object.updated_at);

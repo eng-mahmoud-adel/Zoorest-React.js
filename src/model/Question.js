@@ -1,6 +1,7 @@
 import Model from "./Base/Model";
 import User from './User';
 import Image from './Image';
+import moment from "moment";
 
 class Question extends Model {
 
@@ -15,13 +16,14 @@ class Question extends Model {
         this._views_count = object.views_count
         this._likes_count = object.likes_count
         this._closed = object.closed
-        this._created_at = object.created_at
-        this._updated_at = object.updated_at
+        this._created_at = moment(object.created_at)
+        this._updated_at = moment(object.updated_at)
         this._slug = object.slug
         this._replies_count = object.replies_count
         this._is_favorite = object.is_favorite
         this._image_url = object.image_url
         this._text = object.text
+        this._tags = []
         this._author = new User(object.author)
 
         if (object.photo) {
@@ -191,8 +193,21 @@ class Question extends Model {
         this._images = value;
     }
 
+
+    get tags() {
+        return this._tags;
+    }
+
+    set tags(value) {
+        this._tags = value;
+    }
+
     isClosed() {
         return !this.closed === 0;
+    }
+
+    humanizedCreatedAt() {
+        return this.created_at.fromNow();
     }
 
     getLocalizedSlug(locale = "ar") {

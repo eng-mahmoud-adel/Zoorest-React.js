@@ -8,6 +8,7 @@ import Avatar from "../../../components/Avatars/Avatar";
 import {connect} from "react-redux";
 import {getQuestionsPage} from "../../../store/actions/pages";
 import TopQuestions from "../../../components/Cards/Questions/TopQuestions";
+import {Text18Regular, Text48} from "../../../components/UI/Typography";
 
 const QuestionBasePage = ({page, children, getPage, currentLocale}) => {
 
@@ -19,8 +20,13 @@ const QuestionBasePage = ({page, children, getPage, currentLocale}) => {
         <div id="questions-index">
             <div className="jumbotron jumbotron-fluid " style={{backgroundImage: `url(${BannerImage})`}}>
                 <div className="container text-center">
-                    <h3 className="banner-title">{page.bannerSection.getFiledValueByName("title", currentLocale)}</h3>
-                    <p>{page.bannerSection.getFiledValueByName("description", currentLocale)}</p>
+                    <h3 className="banner-title">
+                        <Text48
+                            className="text-white">{page.bannerSection.getFiledValueByName("title", currentLocale)}</Text48>
+                    </h3>
+                    <br/>
+                    <Text18Regular
+                        className="text-white">{page.bannerSection.getFiledValueByName("description", currentLocale)}</Text18Regular>
                 </div>
             </div>
             <div className="container mt-5">
