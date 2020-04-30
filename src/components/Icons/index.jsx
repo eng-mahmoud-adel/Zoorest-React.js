@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {IoMdHeart, IoMdHeartEmpty, IoMdStar} from "react-icons/io";
 import {MdComment, MdPhone, MdRemoveRedEye, MdShare} from "react-icons/md";
 import {FaFacebookSquare, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
-import {Text12} from "../UI/Typography";
+import {Text12, Text18Bold} from "../UI/Typography";
 
 
 export const StarIcon = ({onClick, is_active, value}) => {
@@ -52,7 +52,7 @@ export const SearchIcon = (props) => (
     <span className="icon-group"> <FaSearch {...props}/> <Text12>{props.value} {props.text}</Text12> </span>
 );
 export const CallIcon = (props) => (
-    <span className="icon-group"> <MdPhone {...props}/> <Text12>{props.value} {props.text}</Text12> </span>
+    <span className="icon-group"> <MdPhone {...props}/> <Text18Bold>{props.value} {props.text}</Text18Bold> </span>
 );
 export const ShareIcon = (props) => (
     <span className="icon-group"> <MdShare {...props}/> <Text12>{props.value} {props.text}</Text12> </span>

@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import LazyLoad from "react-lazyload";
 import PropTypes from "prop-types";
 
-const ProfileAvatar = ({model: user, className, radius}) => {
+const ProfileAvatar = ({model: user, className, radius, withName, withJoiningDate}) => {
 
 
     let imageUrl = user.image_url || user.image;
@@ -22,7 +22,7 @@ const ProfileAvatar = ({model: user, className, radius}) => {
     if (user.photo && user.photo.path_icon) {
         ImageOrInitialsComponent = <div className="img-container">
             <LazyLoad unmountIfInvisible={true} once={true}>
-                <img src={user.photo.path_icon} width={radius} alt="avatar"/>
+                <img src={user.photo.path_medium} width={radius} alt="avatar"/>
             </LazyLoad>
         </div>;
     }
@@ -30,11 +30,11 @@ const ProfileAvatar = ({model: user, className, radius}) => {
     return (
         <Fragment>
             <Fragment>
-                <div className={"avatar-four"}>
+                <div className="avatar-four">
                     {ImageOrInitialsComponent}
 
-                    <h6>{user.name}</h6>
-                    <span>{`Joined Since ${user.getJoiningDateString()}`}</span>
+                    {withName && <h6>{user.name}</h6>}
+                    {withJoiningDate && <span>{`Joined Since ${user.getJoiningDateString()}`}</span>}
                 </div>
             </Fragment>
         </Fragment>
@@ -46,7 +46,9 @@ ProfileAvatar.propType = {
 };
 
 ProfileAvatar.defaultProps = {
-    radius: 70
+    radius: 70,
+    withName: true,
+    withJoiningDate: true,
 };
 
 export default ProfileAvatar;

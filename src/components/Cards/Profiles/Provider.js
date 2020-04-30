@@ -11,7 +11,7 @@ import LoginForm from '../../Forms/Auth/LoginForm';
 import {connect} from "react-redux";
 import {bookAppointment, getProviderAppointments} from "../../../store/actions/providers";
 import {showModal} from "../../../store/actions/modal";
-import ProfileAvatar from "../../Avatars/ProfileAvatar";
+import Avatar from "../../Avatars/Avatar";
 
 const Provider = ({model: user, showModal, className, authUser}) => {
 
@@ -38,8 +38,8 @@ const Provider = ({model: user, showModal, className, authUser}) => {
                     }
                 </div>}
                 <div className="d-flex justify-content-center my-3">
-                    <ProfileAvatar model={user}/>
-
+                    <Avatar className="avatar-three" image={user.image_url}
+                            radius={70}/>
                 </div>
                 <Card.Title className="font-weight-bold">{user.name}</Card.Title>
                 <div className="row mb-2">

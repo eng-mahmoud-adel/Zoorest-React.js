@@ -19,6 +19,7 @@ import LazyList from "../../../components/DataList";
 import Article from "../../../components/Cards/Articles/Article";
 import Question from "../../../components/Cards/Questions/Question";
 import ProfileAvatar from "../../../components/Avatars/ProfileAvatar";
+import {Text18Bold, Text48} from "../../../components/UI/Typography";
 
 const DoctorProfile = (
     {
@@ -42,12 +43,8 @@ const DoctorProfile = (
             setSingleProvider(singleProvider)
         } else {
             getSingleProvider(id);
+            incrementViews(id);
         }
-
-        //todo move this method inside the if block.
-        //the provider will be marked as viewed in the backend if getSingleProvider was called,
-        //if setSingleProvider then the provider was retrieved from store, so increment the views
-        incrementViews(id);
 
     }, [setSingleProvider, getSingleProvider, incrementViews, id, singleProvider]);
 
@@ -66,11 +63,13 @@ const DoctorProfile = (
                 stateData.loading === false &&
                 <div className="row" key={stateData.model.id}>
                     <div className="provider-image col-xl-2 col-md-3 col-sm-3 col-12">
-                        <ProfileAvatar model={stateData.model}/>
+                        <ProfileAvatar model={stateData.model} withName={false} withJoiningDate={false}/>
                     </div>
 
                     <div className="col-xl-10 col-md-9 col-sm-9 col-12">
-                        <h2 className="mt-xl-0 mt-lg-2">{stateData.model.official_name || stateData.model.name}</h2>
+                        <h2 className="mt-xl-0 mt-lg-2">
+                            <Text48>{stateData.model.official_name || stateData.model.name}</Text48>
+                        </h2>
 
                         <div className="d-flex">
                             <div>
@@ -86,19 +85,22 @@ const DoctorProfile = (
 
                         <div className="d-flex">
                             <div className="contact">
-                                <CallIcon className={"mr-2"} value={stateData.model.phone}/>
+                                <CallIcon className="mr-2 text-info" value={stateData.model.phone}/>
                             </div>
                             {
                                 stateData.model.additional_phone_number &&
                                 <div className="contact ml-5">
-                                    <CallIcon className={"mr-2"} value={stateData.model.additional_phone_number}/>
+                                    <CallIcon className="mr-2 text-info"
+                                              value={stateData.model.additional_phone_number}/>
                                 </div>}
                         </div>
 
                         <div className="address mt-2">
-                            {<span>{stateData.model.provider.address}</span>} | <a
+                            <Text18Bold>{stateData.model.provider.address}</Text18Bold> | <a
                             href={`https://www.google.com/maps/@${stateData.model.provider.latitude()},${stateData.model.provider.longitude()},15z`}
-                            className="font-weight-bold" target="_blank" rel="noopener noreferrer">Show on Maps</a>
+                            className="font-weight-bold" target="_blank" rel="noopener noreferrer">
+                            <Text18Bold className="text-info">Show on Maps</Text18Bold>
+                        </a>
                         </div>
 
                     </div>
