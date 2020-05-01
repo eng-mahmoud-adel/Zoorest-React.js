@@ -8,15 +8,24 @@ import ReactPlayer from 'react-player'
 import {Text12, Text14Regular, Text24} from "../../UI/Typography";
 import {showModal} from "../../../store/actions/modal";
 import {connect} from "react-redux";
+import ClampLines from 'react-clamp-lines';
 
 const Article = ({model: article, currentLocale}) => {
 
     return (
-        <Card className={"article-card m-1"}>
+        <Card className="article-card m-1">
             <Card.Title>
 
                 <Text24>
-                    {article.getLocalizedTitle(currentLocale)}
+                    <ClampLines
+                        text={article.getLocalizedTitle(currentLocale)}
+                        id={`recent-article-title-${article.getKey()}`}
+                        lines={2}
+                        ellipsis="..."
+                        buttons={false}
+                        className="m-0"
+                        innerElement="div"
+                    />
                 </Text24>
             </Card.Title>
             <small className="small-text">
@@ -31,6 +40,7 @@ const Article = ({model: article, currentLocale}) => {
                             loop={false}
                             light={true}
                             width='100%'
+                            height="100%"
                             playing
                             // playIcon={}
                         />
@@ -46,9 +56,15 @@ const Article = ({model: article, currentLocale}) => {
             </div>
             <Card.Body>
                 <Card.Text>
-
                     <Text14Regular className="short-description">
-                        {article.getLocalizedCleanedBody(currentLocale)}
+                        <ClampLines
+                            text={article.getLocalizedCleanedBody(currentLocale)}
+                            id={`recent-article-short-description-${article.getKey()}`}
+                            lines={3}
+                            ellipsis="..."
+                            buttons={false}
+                            className="m-0"
+                        />
                     </Text14Regular>
                 </Card.Text>
             </Card.Body>

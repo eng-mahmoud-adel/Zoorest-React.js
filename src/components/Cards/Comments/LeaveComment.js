@@ -1,19 +1,20 @@
 import React from 'react';
 import Button from '../../Buttons/Button/Button';
 import {Card, Col, Row} from "react-bootstrap";
-import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import DropZone from "../../Forms/DropFiles/DropFile";
 import PropTypes from "prop-types";
+import {Text24Bold} from "../../UI/Typography";
 
 const LeaveCommentForm = ({onSubmit, withImages}) => {
     return (
-        <Card className={"leave-comment-card w-100"}>
+        <Card className="leave-comment-card w-100">
             <Formik
                 initialValues={{body: '', images: []}}
                 onSubmit={onSubmit}
                 validationSchema={Yup.object().shape({
-                    body: Yup.string().required('This field is required.'),
+                    body: Yup.string().nullable().required('This field is required.'),
                     images: Yup.array(),
                 })}
             >
@@ -21,7 +22,9 @@ const LeaveCommentForm = ({onSubmit, withImages}) => {
                     <Form>
                         <Row>
                             <Col xs="9">
-                                <Card.Title className="card-title">Leave a comment</Card.Title>
+                                <Card.Title className="card-title">
+                                    <Text24Bold>Leave a comment</Text24Bold>
+                                </Card.Title>
                             </Col>
                             <Col xs="3">
                                 <Button type="submit" text="Comment" variant="info" size="btn-sm"
@@ -33,12 +36,12 @@ const LeaveCommentForm = ({onSubmit, withImages}) => {
 
                             <div className="form-group ">
                                 <Field
-                                    as={"textarea"}
+                                    as="textarea"
                                     rows={3}
-                                    placeholder={"comment..."}
+                                    placeholder={"Leave a comment..."}
                                     type="textarea"
                                     name="body"
-                                    className={"form-control"}
+                                    className="form-control"
                                 />
                                 <ErrorMessage  name="body" component="div"/>
                             </div>

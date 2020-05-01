@@ -8,7 +8,7 @@
     margin-bottom: 0;
     color: $dark;
     font-size: $font-size-24;
-    @include ellipsis(2)
+
   }
 
   .small-text {
@@ -18,8 +18,9 @@
   }
 
   .img-container {
+    height: 14rem !important;
+
     .card-img {
-      height: 14rem !important;
       object-fit: cover;
     }
   }
@@ -28,11 +29,9 @@
     padding: 0;
 
     .card-text {
-      padding: $padding-8 $padding-24 $padding-12;
-      font-size: $font-size-14;
+      padding: $padding-8 $padding-24;
       color: $gray-color;
-      @include ellipsis(3)
-
+      height: 100px;
     }
   }
 
@@ -148,8 +147,7 @@
       padding: $padding-8 0;
       font-size: $font-size-14;
       color: $gray-color;
-      @include ellipsis(3)
-
+      height: 80px;
     }
   }
 
@@ -252,6 +250,10 @@
     color: $dark;
     font-size: $font-size-24;
     font-weight: bold;
+  }
+
+  textarea {
+    border: none;
   }
 
   .card-body {
@@ -376,22 +378,22 @@
 /* for article two component */
 .article-details-card {
   // height: 2207px;
-  border-radius: 0;
+  border-radius: $border-radius-8;
 
   .card-title {
-    padding: $padding-64 $padding-24 0;
+    //padding: $padding-64 $padding-24 0;
     color: $dark;
     font-size: $font-size-48;
   }
 
   .small-text {
-    padding: $padding-8 $padding-24 $padding-8;
+    //padding: $padding-8 $padding-24 $padding-8;
     font-size: $font-size-12;
     color: $gray-color;
   }
 
   .icons {
-    padding-left: $padding-24;
+    //padding-left: $padding-24;
 
     .icon-one, .icon-two {
       cursor: pointer;
@@ -409,14 +411,13 @@
 
   .img-container-one {
     height: 408px;
-    margin: $margin-32 auto;
+    //margin: $margin-32 auto;
   }
 
   .card-body {
     padding: 0;
 
     .card-text {
-      padding: 0 $padding-24 0;
       font-size: $font-size-14;
       color: $dark;
     }
@@ -436,7 +437,7 @@
     }
 
     .share {
-      padding-top: $padding-48;
+      //padding-top: $padding-48;
       .share-icon {
         color: $gray-color;
         font-size: $font-size-14;

@@ -218,7 +218,7 @@ class Article extends Model {
     }
 
     getKey(locale = "ar"): * {
-        return this._getLocalizedField("id", locale)
+        return this._getLocalizedField("slug", locale)
     }
 }
 

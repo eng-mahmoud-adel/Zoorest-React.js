@@ -12,6 +12,7 @@ import LoginForm from "../Forms/Auth/LoginForm";
 import SignUpFormContainer from "../Forms/Auth/Signup/SignUpFormContainer";
 import {withTranslation} from 'react-i18next';
 import ProfileAvatar from "../Avatars/ProfileAvatar";
+import {Text14Medium} from "../UI/Typography";
 
 const Auth = withTranslation()(({authUser, showModal, t}) => {
     const showSignUpModal = () => {
@@ -42,9 +43,8 @@ const Auth = withTranslation()(({authUser, showModal, t}) => {
 
                 <Fragment>
                     {/*There is authenticated User */}
-
-                    {/*TODO: Add Avatar Image, name */}
-                    <ProfileAvatar model={authUser.user}/>
+                    <Text14Medium>{authUser.user.name}</Text14Medium>
+                    <ProfileAvatar model={authUser.user} withLeftName={true} withName={false} withJoiningDate={false}/>
 
                 </Fragment>
             }

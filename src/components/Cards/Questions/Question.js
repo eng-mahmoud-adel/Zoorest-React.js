@@ -9,6 +9,7 @@ import {connect} from "react-redux";
 import {likeQuestion, unlikeQuestion} from "../../../store/actions/questions";
 import ProfileAvatar from "../../Avatars/ProfileAvatar";
 import {Text12, Text14Regular, Text16Medium, Text18Black} from "../../UI/Typography";
+import ClampLines from "react-clamp-lines";
 
 const Question = ({model, className, hide_add_answer, currentLocale = "ar", like, unlike}) => {
 
@@ -29,12 +30,28 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
                     </Text12>
                 </Card.Subtitle>
                 <Card.Title>
-                    <Text18Black>{model.title}
+                    <Text18Black>
+                        <ClampLines
+                            text={model.title}
+                            id={`recent-question-title-${model.getKey()}`}
+                            lines={1}
+                            ellipsis="..."
+                            buttons={false}
+                            className="m-0"
+                        />
                     </Text18Black>
                 </Card.Title>
-                <Card.Text>
-                    <Text14Regular
-                        className="text-muted">{model.description.substring(0, 150)}
+                <Card.Text className="m-0">
+                    <Text14Regular className="text-muted">
+                        <ClampLines
+                            text={model.description}
+                            id={`recent-question--short-description-${model.getKey()}`}
+                            lines={3}
+                            ellipsis="..."
+                            buttons={false}
+                            className="m-0"
+                        />
+
                     </Text14Regular>
                 </Card.Text>
                 <div className="row mb-3">

@@ -62,7 +62,7 @@ const LazyList = props => {
 
 LazyList.propTypes = {
     data: PropTypes.object.isRequired,
-    itemCols: PropTypes.object.isRequired,
+    itemCols: PropTypes.string.isRequired,
     emptyMessage: PropTypes.string,
     // component: PropTypes.node.isRequired,
 };

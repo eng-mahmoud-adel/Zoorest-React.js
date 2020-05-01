@@ -53,6 +53,14 @@ class Model {
                 return ""
         }
     }
+
+    humanizedCreatedAt() {
+        return this.humanizedDate("created_at");
+    }
+
+    humanizedDate(date) {
+        return this[date].fromNow();
+    }
 }
 
 export default Model;

@@ -21,7 +21,7 @@ const SinglePostContainer = ({stateData, getSinglePost, match, getPostComments, 
 
     const handleCommentSubmitted = (values, {setSubmitting}) => {
         console.log(authUser);
-        if ("undefined" === typeof authUser.accessToken) {
+        if ("undefined" === typeof authUser.accessToken || null === authUser.accessToken) {
 
             setSubmitting(false)
             showModal(LoginForm);

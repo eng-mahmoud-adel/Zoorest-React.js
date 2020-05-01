@@ -18,14 +18,15 @@ $primary: #03C3EC;
 $success: #A7E521;
 $warning: #FFD422;
 $light: #FFFFFF;
-$gray-color: #778699;           // for texts in secondary-color
-$dark: #2C3F58;           // for texts in ligh-color
-$ligh-dark-color: #DCE1E7;       // for background in counter component
-$light-white-color: #FAFBFD;      // for date picker component
-$blue-color: #2EBCCF;             // for text in card links
+$gray-color: #778699; // for texts in secondary-color
+$dark: #2C3F58; // for texts in ligh-color
+$ligh-dark-color: #DCE1E7; // for background in counter component
+$light-white-color: #FAFBFD; // for date picker component
+$blue-color: #2EBCCF; // for text in card links
 $black-color: #000;
+$background-color: #F6F8F9;
 
-$card-border-color:                 rgba($black-color, .05) !default;
+$card-border-color: rgba($black-color, .05) !default;
 
 // font-sizes
 $font-size-64: 64px;
