@@ -1,13 +1,16 @@
 import {
+    CREATE_ARTICLE_COMMENT,
     GET_ARTICLE_COMMENTS,
     GET_ARTICLES_LOADING,
     GET_MORE_ARTICLE_COMMENTS,
     GET_SINGLE_ARTICLE,
     RELATED_ARTICLES,
+    UPDATE_ARTICLE,
 } from "../../actions/articles";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 import Article from "../../../model/Article";
 import Comment from "../../../model/Comment";
+import Question from "../../../model/Question";
 
 const initialState = {
     model: new Article(),
@@ -56,6 +59,21 @@ const singleArticleReducer = (state = initialState, action) => {
                 related: new ModelPaginatedResource(action.payload, Article)
             };
 
+        case UPDATE_ARTICLE:
+            return {
+                ...state,
+                model: new Article(action.payload)
+            };
+
+
+        case CREATE_ARTICLE_COMMENT:
+            return {
+                ...state,
+                comments: new ModelPaginatedResource({
+                    ...state.comments,
+                    data: state.comments.data.concat(new Question(action.payload)),
+                }),
+            };
 
         default:
             break;

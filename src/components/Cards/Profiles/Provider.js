@@ -16,7 +16,7 @@ import Avatar from "../../Avatars/Avatar";
 const Provider = ({model: user, showModal, className, authUser}) => {
 
     const showAppointmentModal = () => {
-        if ("undefined" === typeof authUser.accessToken) {
+        if ("undefined" === typeof authUser.accessToken || null === authUser.accessToken) {
             showModal(LoginForm);
         } else {
             showModal(<Booking model={user}/>);

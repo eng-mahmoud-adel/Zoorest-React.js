@@ -9,10 +9,12 @@ export const GET_ARTICLE_COMMENTS = 'GET_ARTICLE_COMMENTS';
 export const GET_MORE_ARTICLE_COMMENTS = 'GET_MORE_ARTICLE_COMMENTS';
 export const TOP_ARTICLES = 'TOP_ARTICLES';
 export const RELATED_ARTICLES = 'RELATED_ARTICLES';
+export const UPDATE_ARTICLE = 'UPDATE_ARTICLE';
+export const CREATE_ARTICLE_COMMENT = 'CREATE_ARTICLE_COMMENT';
 
 const ENDPOINT = 'articles';
 
-export const getArticles = (limit= 3) => async (dispatch) => {
+export const getArticles = (limit = 3) => async (dispatch) => {
     await ApiService
         .get(`${ENDPOINT}?perPage=${limit}`)
         .then(
@@ -130,6 +132,118 @@ export const getRelatedArticles = (id, limit = 5) => async (dispatch) => {
 
             (error) => {
                 console.log(error.response);
+            }
+        );
+};
+
+
+export const viewArticle = (id) => async (dispatch, getState) => {
+    await ApiService.get(`${ENDPOINT}/${id}/view`, {
+        headers: {
+            Authorization: `Bearer ${getState().authUser.accessToken}`
+        }
+    }).then(
+        (response) => {
+
+            console.log(response);
+
+            dispatch({
+                type: UPDATE_ARTICLE,
+                payload: response.data.data
+            });
+        }
+    );
+
+
+};
+export const shareArticle = (id) => async (dispatch, getState) => {
+    await ApiService.get(`${ENDPOINT}/${id}/share`, {
+        headers: {
+            Authorization: `Bearer ${getState().authUser.accessToken}`
+        }
+    }).then(
+        (response) => {
+
+            console.log(response);
+
+            dispatch({
+                type: UPDATE_ARTICLE,
+                payload: response.data.data
+            });
+
+        }
+    );
+
+
+};
+
+export const likeArticle = (id) => async (dispatch, getState) => {
+    await ApiService.get(`${ENDPOINT}/${id}/like`, {
+        headers: {
+            Authorization: `Bearer ${getState().authUser.accessToken}`
+        }
+    }).then(
+        (response) => {
+
+            console.log(response);
+
+            dispatch({
+                type: UPDATE_ARTICLE,
+                payload: response.data.data
+            });
+
+        }
+    );
+
+
+};
+
+export const unlikeArticle = (id) => async (dispatch, getState) => {
+    await ApiService.get(`${ENDPOINT}/${id}/unlike`, {
+        headers: {
+            Authorization: `Bearer ${getState().authUser.accessToken}`
+        }
+    }).then(
+        (response) => {
+
+            console.log(response);
+
+            dispatch({
+                type: UPDATE_ARTICLE,
+                payload: response.data.data
+            });
+
+        }
+    );
+};
+
+export const addComment = (article_id, data, callback) => async (dispatch, getState) => {
+
+    await ApiService
+        .post(`${ENDPOINT}/${article_id}/comment`,
+            data,
+            {
+                headers: {
+                    Authorization: `Bearer ${getState().authUser.accessToken}`
+                }
+            })
+        .then(
+            (response) => {
+                dispatch({
+                    type: CREATE_ARTICLE_COMMENT,
+                    payload: response.data.data,
+                });
+
+                if (callback) {
+                    callback();
+                }
+            },
+            (error) => {
+                console.log(error.response);
+
+                if (callback) {
+                    callback();
+                }
             }
         );
 };

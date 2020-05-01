@@ -6,38 +6,68 @@ import LazyList from "../../../components/DataList";
 import Comment from "../../../components/Cards/Comments/Comment";
 import {showModal} from "../../../store/actions/modal";
 import LoginForm from "../../../components/Forms/Auth/LoginForm";
-import {getArticleComments, getMoreArticleComments, getSingleArticle} from '../../../store/actions/articles';
-import BillBoard from '../../../components/Cards/BillBoard/BillBoard';
+import {
+    addComment,
+    getArticleComments,
+    getMoreArticleComments,
+    getSingleArticle,
+    likeArticle,
+    shareArticle,
+    unlikeArticle,
+    viewArticle
+} from '../../../store/actions/articles';
 import RelatedArticles from "../../../components/Cards/Articles/RelatedArticles";
 import TopArticles from "../../../components/Cards/Articles/TopArticles";
 import {Helmet} from "react-helmet";
 
 
-const SingleArticleContainer = ({stateData, getSingleArticle, match, getArticleComments, getMoreArticleComments, authUser, showModal, currentLocale}) => {
+const SingleArticleContainer = ({
+                                    stateData, getSingleArticle, match,
+                                    getArticleComments, getMoreArticleComments, authUser,
+                                    showModal, currentLocale = "ar", like, unlike, share, view,
+                                    leaveComment
+                                }) => {
 
     const {id} = match.params;
 
     useEffect(() => {
         getSingleArticle(id);
+
+        //prevent submitting view if id is null
+        if (null !== id) {
+            view(id);
+        }
         getArticleComments(id);
-    }, [getSingleArticle, getArticleComments, getMoreArticleComments, id]);
+    }, [view, getSingleArticle, getArticleComments, getMoreArticleComments, id]);
 
     const handleCommentSubmitted = (values, {setSubmitting}) => {
         console.log(authUser);
-        if ("undefined" === typeof authUser.accessToken) {
+        if ("undefined" === typeof authUser.accessToken || null === authUser.accessToken) {
 
             setSubmitting(false)
             showModal(LoginForm);
 
         } else {
 
-            LeaveCommentForm(id, values, () => {
+            leaveComment(id, values, () => {
                 setSubmitting(false)
             });
 
         }
 
     };
+
+    const handleShare = () => {
+        console.log("sharing")
+        share(id)
+    }
+    const handleLike = (is_liked, setIsLiked) => {
+        if (is_liked) {
+            unlike(id);
+        } else {
+            like(id);
+        }
+    }
 
     return (
         <div className="row container mx-auto mt-5 pb-5">
@@ -63,29 +93,35 @@ const SingleArticleContainer = ({stateData, getSingleArticle, match, getArticleC
                 <meta property="og:updated_time" content={stateData.model.updated_at}/>
             </Helmet>
 
-            <div className="col-md-9">
-                {stateData.loading === true && <ArticleDetails model={stateData.model} currentLocale={currentLocale}/>}
+            <div className="col-md-9 px-4">
+                {
+                    stateData.loading === true &&
+                    <ArticleDetails model={stateData.model}
+                                    currentLocale={currentLocale}
+                                    handleShare={handleShare}
+                    />
+                }
 
                 <h5 className="my-4 font-weight-bold">{stateData.model.comments_count} Comments</h5>
 
                 <LeaveCommentForm onSubmit={handleCommentSubmitted}/>
 
 
-                <div className="">
-                    {stateData.loadingComments === true ?
-                        <LazyList
-                            data={stateData.comments}
-                            itemCols="col-12"
-                            component={Comment}
-                            placeholderComponent={Comment}
-                            fetchMoreData={getMoreArticleComments}
-                            refresh={getArticleComments}
-                        /> : <h2>No Comments</h2>}
+                <div className="mt-4">
+                    {stateData.loadingComments === true &&
+                    <LazyList
+                        data={stateData.comments}
+                        itemCols="col-12"
+                        component={Comment}
+                        placeholderComponent={Comment}
+                        fetchMoreData={getMoreArticleComments}
+                        refresh={getArticleComments}
+                    />}
                 </div>
 
             </div>
 
-            <div className= "col-md-3">
+            <div className="col-md-3 px-3">
                 <div className="row mb-3 d-none d-lg-block">
 
                     <div className="row px-2">
@@ -95,10 +131,11 @@ const SingleArticleContainer = ({stateData, getSingleArticle, match, getArticleC
                         <TopArticles/>
                     </div>
 
-                    <div className="row py-1 px-2">
-                        <BillBoard/>
+                    {/*todo add ads here*/}
+                    {/*<div className="row py-1 px-2">*/}
+                    {/*    <BillBoard/>*/}
 
-                    </div>
+                    {/*</div>*/}
                 </div>
             </div>
         </div>
@@ -126,6 +163,25 @@ const mapDispatchToProps = (dispatch) => ({
 
     showModal: (component) => {
         dispatch(showModal(component));
+    },
+
+    view: (id) => {
+        dispatch(viewArticle(id));
+    },
+
+    share: (id) => {
+        dispatch(shareArticle(id));
+    },
+
+    like: (id) => {
+        dispatch(likeArticle(id));
+    },
+    unlike: (id) => {
+        dispatch(unlikeArticle(id));
+    },
+
+    leaveComment: (article_id, data, callback) => {
+        dispatch(addComment(article_id, data, callback));
     },
 })
 

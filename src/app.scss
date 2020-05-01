@@ -75,3 +75,13 @@
 @import './sass/layout/footer';
 
 
+.card {
+  .card-header {
+    background-color: unset;
+    border-bottom: unset;
+  }
+
+  .card-footer {
+    background-color: unset;
+  }
+}

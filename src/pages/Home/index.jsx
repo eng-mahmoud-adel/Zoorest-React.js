@@ -53,9 +53,10 @@ const HomeContainer = (
                 </div>
             </section>
 
-            <section id="section-recent-articles" className="container">
-
-                <RecentArticles currentLocale={currentLocale} articles={recentArticles}/>
+            <section id="section-recent-articles">
+                <div className="container pt-4">
+                    <RecentArticles currentLocale={currentLocale} articles={recentArticles}/>
+                </div>
             </section>
 
             <section id="section-testimonials" className="">
