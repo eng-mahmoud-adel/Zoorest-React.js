@@ -33,7 +33,7 @@ const Provider = ({model: user, showModal, className, authUser}) => {
 
                     {user.provider.is_nearby === true ?
                         <div className="col-4">
-                            <Tag className="tag-one" text="Nearby"/>
+                            <Tag className="tag-one text-white" text="Nearby"/>
                         </div> : ""
                     }
                 </div>}

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import logo from '../../images/logo.png';
 import {connect} from "react-redux";
-import Index from "../Buttons/Button/Button";
+import Button from "../Buttons/Button/Button";
 import './jquery';
 import {Nav} from "react-bootstrap";
 import BaseNavbar from "react-bootstrap/Navbar";
@@ -12,7 +12,7 @@ import LoginForm from "../Forms/Auth/LoginForm";
 import SignUpFormContainer from "../Forms/Auth/Signup/SignUpFormContainer";
 import {withTranslation} from 'react-i18next';
 import ProfileAvatar from "../Avatars/ProfileAvatar";
-import {Text14Medium} from "../UI/Typography";
+import {Text14Medium, Text14Regular} from "../UI/Typography";
 
 const Auth = withTranslation()(({authUser, showModal, t}) => {
     const showSignUpModal = () => {
@@ -31,13 +31,19 @@ const Auth = withTranslation()(({authUser, showModal, t}) => {
                     {/*Show Sign in and Sign up Button when there is no auth user*/}
                     <Nav.Item as="li" className="mr-3">
                         <Link className="nav-link" to="#" onClick={showSignInModal}>
-                            {t('login')}
+                            <Text14Regular>
+                                {t('login')}
+                            </Text14Regular>
                         </Link>
                     </Nav.Item>
 
                     <Nav.Item as="li">
-                        <Index color="btn-info" text="Signup For Free"
-                               onClick={showSignUpModal}/>
+                        <Button color="btn-info"
+                                onClick={showSignUpModal}>
+                            <Text14Regular className="text-white">
+                                Signup For Free
+                            </Text14Regular>
+                        </Button>
                     </Nav.Item>
                 </Fragment> :
 
@@ -75,19 +81,40 @@ const Navbar = (props) => {
 
                     <Nav as="ul" className="navbar-nav w-100 justify-content-between">
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/">{t('home')}</Link>
+
+                            <Link className="nav-link" to="/">
+                                <Text14Regular>
+                                    {t('home')}
+                                </Text14Regular>
+                            </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/question">{t('questions')}</Link>
+                            <Link className="nav-link" to="/question">
+                                <Text14Regular>
+                                    {t('questions')}
+                                </Text14Regular>
+                            </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/article">{t('articles')}</Link>
+                            <Link className="nav-link" to="/article">
+                                <Text14Regular>
+                                    {t('articles')}
+                                </Text14Regular>
+                            </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link find-doctor" to="/doctor">{t('find_doc')}</Link>
+                            <Link className="nav-link find-doctor" to="/doctor">
+                                <Text14Regular>
+                                    {t('find_doc')}
+                                </Text14Regular>
+                            </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/post">{t('posts')}</Link>
+                            <Link className="nav-link" to="/post">
+                                <Text14Regular>
+                                    {t('posts')}
+                                </Text14Regular>
+                            </Link>
                         </Nav.Item>
                     </Nav>
 

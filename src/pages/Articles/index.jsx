@@ -76,9 +76,9 @@ const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles}) =>
                     loader={<h4>Getting More Loading...</h4>}>
 
                     <div className="row">
-                        {articles.all.data.map(item => (
+                        {articles.all.data.map((item, index) => (
                             <div className={`col-12 my-1 ${item.hasVideo() ? "col-lg-8" : "col-md-6 col-lg-4"}`}
-                                 key={"articles_" + item.id}>
+                                 key={"articles_item_" + index}>
                                 <LazyLoad unmountIfInvisible={true} once={true}
                                           placeholder={<h5 className="lazy loading">loading...</h5>}>
                                     <Article model={item} tag={Tag}/>
