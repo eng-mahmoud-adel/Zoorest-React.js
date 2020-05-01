@@ -16,6 +16,9 @@ import SinglePostContainer from '../../pages/Adoption/SinglePost/index';
 import LoginPage from "../../pages/Auth/Login";
 import SignUpPage from "../../pages/Auth/Signup";
 import TypographyPage from "../../pages/Demo/Typography";
+import PrivacyPage from "../../pages/Privacy";
+import TermsPage from "../../pages/Terms";
+
 
 const AppRouter = () => (
     <Fragment>
@@ -40,6 +43,9 @@ const AppRouter = () => (
 
             <Route path="/login" component={LoginPage}/>
             <Route path="/signup" component={SignUpPage}/>
+
+            <Route path="/privacy-policy" component={PrivacyPage}/>
+            <Route path="/terms-and-conditions" component={TermsPage}/>
 
             <Route path="/demo/typography" component={TypographyPage}/>
 

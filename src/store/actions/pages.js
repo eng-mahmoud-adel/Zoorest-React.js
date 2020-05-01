@@ -15,6 +15,9 @@ export const PROVIDERS_PAGE = "PROVIDERS_PAGE";
 export const QUESTIONS_PAGE = "QUESTIONS_PAGE";
 export const ADOPTION_PAGE = "ADOPTION_PAGE";
 
+export const TERMS_PAGE = "TERMS_PAGE";
+export const PRIVACY_PAGE = "PRIVACY_PAGE";
+
 export const getHomeData = () => async (dispatch) => {
     await ApiService.get(`page/home`)
         .then(
@@ -115,6 +118,40 @@ export const getAdoptionPage = () => async (dispatch) => {
                 dispatch({
                     type: ADOPTION_PAGE,
                     payload: response.data.data.sections.find(section => section.name === "Banner")
+                });
+
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
+
+export const getTermsPage = () => async (dispatch) => {
+    await ApiService.get(`page/terms-and-conditions`)
+        .then(
+            (response) => {
+
+                dispatch({
+                    type: TERMS_PAGE,
+                    payload: response.data.data.sections.find(section => section.name === "Content")
+                });
+
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
+
+export const getPrivacyPage = () => async (dispatch) => {
+    await ApiService.get(`page/privacy-policy`)
+        .then(
+            (response) => {
+
+                dispatch({
+                    type: PRIVACY_PAGE,
+                    payload: response.data.data.sections.find(section => section.name === "Content")
                 });
 
             },

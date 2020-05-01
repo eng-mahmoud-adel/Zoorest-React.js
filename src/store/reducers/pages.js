@@ -5,8 +5,10 @@ import {
     HOMEPAGE_HERO_SECTION,
     HOMEPAGE_RECENT_QUESTIONS_SECTION,
     HOMEPAGE_SPONSORED_PROVIDER_SECTION,
+    PRIVACY_PAGE,
     PROVIDERS_PAGE,
-    QUESTIONS_PAGE
+    QUESTIONS_PAGE,
+    TERMS_PAGE
 } from "../actions/pages";
 
 const initialState = {
@@ -27,6 +29,12 @@ const initialState = {
     },
     articles: {
         trending_topics: []
+    },
+    privacy: {
+        content: new Section()
+    },
+    terms: {
+        content: new Section()
     },
 };
 
@@ -88,13 +96,29 @@ const pageReducer = (state = initialState, action) => {
             }
 
         case ADOPTION_PAGE:
-        return {
-            ...state,
-            adoption: {
-                ...state.adoption,
-                bannerSection: new Section(action.payload)
-            },
-        }
+            return {
+                ...state,
+                adoption: {
+                    ...state.adoption,
+                    bannerSection: new Section(action.payload)
+                },
+            }
+        case TERMS_PAGE:
+            return {
+                ...state,
+                terms: {
+                    ...state.terms,
+                    content: new Section(action.payload)
+                },
+            }
+        case PRIVACY_PAGE:
+            return {
+                ...state,
+                privacy: {
+                    ...state.privacy,
+                    content: new Section(action.payload)
+                },
+            }
 
         default:
             break;

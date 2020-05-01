@@ -32,10 +32,11 @@ const Footer = (props) => {
                             <Link className="nav-link find-doctor" to="/doctor">Find a doctor</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link conditions" to="#">Terms &amp; Conditions</Link>
+                            <Link className="nav-link conditions"
+                                  to="/terms-and-conditions">Terms &amp; Conditions</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link policy" to="#">Privacy Policy</Link>
+                            <Link className="nav-link policy" to="/privacy-policy">Privacy Policy</Link>
                         </Nav.Item>
                     </Nav>
                     <ul className="navbar-nav w-25 justify-content-md-end justify-content-between flex-row text-center social-links">
