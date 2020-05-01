@@ -220,7 +220,7 @@ export const unlikeArticle = (id) => async (dispatch, getState) => {
 export const addComment = (article_id, data, callback) => async (dispatch, getState) => {
 
     await ApiService
-        .post(`${ENDPOINT}/${article_id}/comment`,
+        .post(`${ENDPOINT}/${article_id}/comments`,
             data,
             {
                 headers: {

@@ -10,7 +10,6 @@ import {
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 import Article from "../../../model/Article";
 import Comment from "../../../model/Comment";
-import Question from "../../../model/Question";
 
 const initialState = {
     model: new Article(),
@@ -71,7 +70,7 @@ const singleArticleReducer = (state = initialState, action) => {
                 ...state,
                 comments: new ModelPaginatedResource({
                     ...state.comments,
-                    data: state.comments.data.concat(new Question(action.payload)),
+                    data: state.comments.data.concat(new Comment(action.payload)),
                 }),
             };
 
