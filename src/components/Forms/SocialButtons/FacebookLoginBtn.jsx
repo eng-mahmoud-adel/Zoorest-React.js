@@ -17,7 +17,7 @@ const FacebookLoginBtn = ({onResponse}) => {
                 // <SocialBtn onClick={renderProps.onClick} size="btn-sm" color="btn btn-light" text="Login with Facebook"
                 //            social_icon="fa fa-facebook-official fa-lg"/>
 
-                <Button onClick={renderProps.onClick} type="button" size={"sm"} color={"light"}
+                <Button onClick={renderProps.onClick} variant={"light"} type="button" size={"sm"} color={"light"}
                         className={"btn-social w-100"}>
                     <FacebookIcon/>
                     <span>Login with Facebook</span>

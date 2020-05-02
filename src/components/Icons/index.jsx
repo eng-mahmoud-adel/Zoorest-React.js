@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import {IoMdHeart, IoMdHeartEmpty, IoMdStar} from "react-icons/io";
 import {MdComment, MdPhone, MdRemoveRedEye, MdShare} from "react-icons/md";
-import {FaFacebookSquare, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
+import {FaFacebookSquare, FaGoogle, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
+// import {FcGoogle} from "react-icons/fc";
 import {Text12, Text18Bold} from "../UI/Typography";
 
 
@@ -60,7 +61,8 @@ export const ShareIcon = (props) => (
 );
 
 
-export const FacebookIcon = (props) => (<FaFacebookSquare {...props}/>);
+export const FacebookIcon = (props) => (<FaFacebookSquare color={"blue"} {...props}/>);
+export const GoogleIcon = (props) => (<FaGoogle {...props}/>);
 export const InstagramIcon = (props) => (<FaInstagram {...props}/>);
 export const TwitterIcon = (props) => (<FaTwitter {...props}/>);
 
