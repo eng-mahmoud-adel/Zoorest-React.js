@@ -1,7 +1,9 @@
 import React from 'react'
-import SocialBtn from "../../Buttons/CombinedButtons/SocialBtn";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import config from '../../../config'
+
+import {FacebookIcon} from "../../Icons";
+import Button from "../../Buttons/Button/Button";
 
 const FacebookLoginBtn = ({onResponse}) => {
     return (
@@ -12,8 +14,14 @@ const FacebookLoginBtn = ({onResponse}) => {
             callback={onResponse}
             // autoLoad
             render={renderProps => (
-                <SocialBtn onClick={renderProps.onClick} size="btn-sm" color="btn btn-light" text="Login with Facebook"
-                           social_icon="fa fa-facebook-official fa-lg"/>
+                // <SocialBtn onClick={renderProps.onClick} size="btn-sm" color="btn btn-light" text="Login with Facebook"
+                //            social_icon="fa fa-facebook-official fa-lg"/>
+
+                <Button onClick={renderProps.onClick} type="button" size={"sm"} color={"light"}
+                        className={"btn-social w-100"}>
+                    <FacebookIcon/>
+                    <span>Login with Facebook</span>
+                </Button>
             )}
         />
     );

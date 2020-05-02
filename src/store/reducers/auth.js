@@ -1,4 +1,4 @@
-import {GET_USER_DATA, LOGIN, LOGOUT} from '../actions/auth'
+import {GET_USER_DATA, LOGIN, LOGOUT, SIGNUP} from '../actions/auth'
 import User from "../../model/User";
 
 const initialState = {
@@ -8,6 +8,7 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SIGNUP:
         case LOGIN:
             return {
                 ...state,

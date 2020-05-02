@@ -20,6 +20,10 @@ class ProviderSignUpRequest extends Request {
         return this;
     }
 
+    setProviderType(type) {
+        return this._setProviderType(type);
+    }
+
     setProviderTypeClinic() {
         return this._setProviderType("clinic");
     }

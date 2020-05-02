@@ -3,10 +3,7 @@ import {HOMEPAGE_SPONSORED_PROVIDERS} from '../../actions/pages';
 import User from "../../../model/User";
 import ModelPaginatedResource from '../../../model/ModelPaginatedResource';
 
-import {
-    GET_MORE_PROVIDERS,
-    GET_PROVIDERS,
-} from '../../actions/providers';
+import {GET_MORE_PROVIDERS, GET_PROVIDERS,} from '../../actions/providers';
 
 const initialState = {
     sponsored: new ModelPaginatedResource(),
@@ -19,7 +16,7 @@ const providersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 sponsored: new ModelPaginatedResource({
-                    data: state.all.data.concat(action.payload.map(item => new User(item))),
+                    data: action.payload.map(item => new User(item)),
                 })
             }
 

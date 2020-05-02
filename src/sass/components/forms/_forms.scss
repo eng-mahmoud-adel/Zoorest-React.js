@@ -33,17 +33,40 @@
 
 // for signup component
 .signup-form {
-    background-color: $light;
-    border-radius: $border-radius-8;
+    //background-color: $light;
+    //border-radius: $border-radius-8;
     padding: $padding-24;
-    color: $dark;
+    //color: $dark;
     .title {
         color: $dark;
         font-size: $font-size-24;
     }
+
     .line {
         display: inline-block;
         border-top: 1px solid $secondary;
+    }
+
+    .nav-pills {
+        .nav-item {
+            border: $secondary 1px solid;
+            border-radius: 0;
+        }
+
+        .nav-item:first-child {
+            border-top-left-radius: $border-radius;
+            border-bottom-left-radius: $border-radius;
+        }
+
+        .nav-item:last-child {
+            border-top-right-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+            border-left: unset;
+        }
+
+        .nav-item:not(:first-child):not(:last-child) {
+            border-left: unset;
+        }
     }
 }
 /* ************************************************ */

@@ -7,7 +7,29 @@ import PropTypes from "prop-types";
 const animatedComponents = makeAnimated();
 
 // https://react-select.com/home
-export const MultiSelect = ({options,name,className,classNamePrefix}) => {
+export const SingleSelect = ({options, name, className, classNamePrefix, placeholder}) => {
+    const [selectedOption, setSelectedOption] = useState(null);
+    // const handleChange = selectedOption => {
+    //     setSelectedOption(selectedOption);
+    // };
+    return (
+        <Select
+            isMulti={false}
+            isRtl={false}
+            components={animatedComponents}
+            value={selectedOption}
+            placeholder={placeholder}
+            onChange={setSelectedOption}
+            options={options}
+            name={name}
+            className={className}
+            classNamePrefix={classNamePrefix}
+        />
+    );
+
+}
+
+export const MultiSelect = ({options, name, className, classNamePrefix}) => {
     const [selectedOption, setSelectedOption] = useState(null);
     // const handleChange = selectedOption => {
     //     setSelectedOption(selectedOption);
