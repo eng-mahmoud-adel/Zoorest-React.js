@@ -3,10 +3,10 @@ import Article from "../../components/Cards/Articles/Article";
 import SlickSlider from "../../components/Helpers/SlickSlider";
 import {Link} from "react-router-dom";
 import {Text32} from "../../components/UI/Typography";
-import ArticleLoadingAnimation from "../../components/Cards/Articles/LoadingAnimations/Article";
+import {ArticleLoadingAnimationBar} from "../../components/Cards/Articles/LoadingAnimations/Article";
 
-const RecentArticles = props => {
-    const articles = props.articles;
+const RecentArticles = ({articles}) => {
+
     const slickSettings = {
         rtl: false,//todo use variable when site localization is added
         infinite: true,
@@ -45,7 +45,7 @@ const RecentArticles = props => {
                     </Text32>
                 </div>
                 <div className="col-md-6"/>
-                <Link to="/article" className="col-md-3">See More Articles</Link>{/*todo localise*/}
+                <Link to="/article" className="col-md-3">See More Articles</Link>
             </div>
 
             <div className="row d-none d-lg-flex">
@@ -56,15 +56,7 @@ const RecentArticles = props => {
 
                     </div>
                 )) : <Fragment>
-                    <div className="col-lg-4">
-                        <ArticleLoadingAnimation/>
-                    </div>
-                    <div className="col-lg-4">
-                        <ArticleLoadingAnimation/>
-                    </div>
-                    <div className="col-lg-4">
-                        <ArticleLoadingAnimation/>
-                    </div>
+                    <ArticleLoadingAnimationBar count={3}/>
                 </Fragment>}
 
             </div>
@@ -74,11 +66,7 @@ const RecentArticles = props => {
                         <Article className="shadow-sm" key={index} model={article}/>
                     )) :
                     <div className="row">
-                        {[...Array(3)].map((n, index) => (
-                            <div className="col-lg-4">
-                                <ArticleLoadingAnimation/>
-                            </div>
-                        ))}
+                        <ArticleLoadingAnimationBar count={3}/>
                     </div>
                 }
             </SlickSlider>

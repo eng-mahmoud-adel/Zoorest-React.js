@@ -619,21 +619,23 @@
 
   .image {
     background: #e9ebee;
-    height: 175px;
+    height: 90%;
   }
 
   .bars {
-    height: 85px;
+    //height: 85px;
 
     .bar {
       background: #e9ebee;
       margin: 0 13px 13px;
-      height: 19px;
+      height: 14px;
+      border-radius: $border-radius-8;
+
     }
 
     .bar1 {
       width: 80%;
-      margin-top: 17px;
+      //margin-top: 17px;
     }
 
     .bar2 {
@@ -656,15 +658,22 @@
     width: 100%;
     height: 100%;
     transform: translateX(0);
-    animation: 1.5s loading-placeholder ease-in-out infinite;
+    animation: 1.5s loading-placeholder infinite;
+    //        animation: fading 1.5s infinite;
   }
 }
 
 @keyframes loading-placeholder {
   0% {
     transform: translateX(-100%);
+    opacity: .2;
   }
+  50% {
+    opacity: .6;
+  }
+
   100% {
     transform: translateX(100%);
+    opacity: .2;
   }
 }

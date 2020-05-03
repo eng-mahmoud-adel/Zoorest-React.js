@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {Card, Col, Row} from "react-bootstrap";
 
 const ArticleLoadingAnimation = props => {
@@ -19,6 +19,7 @@ const ArticleLoadingAnimation = props => {
                 <Card.Text>
                     <div className="bars">
                         <div className="bar bar1 loading"/>
+                        <div className="bar bar1 loading"/>
                         <div className="bar bar2 loading"/>
                     </div>
                 </Card.Text>
@@ -26,12 +27,12 @@ const ArticleLoadingAnimation = props => {
             <Card.Footer>
                 <Row>
                     <Col xs={9} md={7} lg={7} xl={8}>
-                        {/*todo use profile loading animation*/}
-                        <div className="bar bar2 loading"/>
+                        <div className="bars">
+                            <div className="bar bar2 loading"/>
+                        </div>
                     </Col>
 
                     <Col xs={3} md={5} lg={5} xl={4} className="text-right">
-                        <div className="bar bar2 loading"/>
                     </Col>
                 </Row>
             </Card.Footer>
@@ -39,4 +40,21 @@ const ArticleLoadingAnimation = props => {
     );
 };
 
+export const ArticleLoadingAnimationBar = ({size, count}) => {
+
+    return (
+        <Fragment>
+            {[...Array(count)].map((n, index) => (
+                <div key={`article-animation-${index}`} className={` ${size}`}>
+                    <ArticleLoadingAnimation/>
+                </div>
+            ))}
+        </Fragment>
+    )
+}
+
+ArticleLoadingAnimationBar.defaultProps = {
+    size: "col-lg-4",
+    count: 3,
+}
 export default ArticleLoadingAnimation;
