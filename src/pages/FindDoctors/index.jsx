@@ -89,7 +89,7 @@ const Doctors = ({
                     itemCols={"col-4"}
                     loadMoreMessage={"Load More Questions"}
                     component={Provider}
-                    placeholderComponent={Provider}
+                    //todo placeholderComponent={Provider}
                     fetchMoreData={getMoreProviders}
                     refresh={getProviders}
 

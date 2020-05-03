@@ -20,6 +20,8 @@ import Article from "../../../components/Cards/Articles/Article";
 import Question from "../../../components/Cards/Questions/Question";
 import ProfileAvatar from "../../../components/Avatars/ProfileAvatar";
 import {Text18Bold, Text48} from "../../../components/UI/Typography";
+import QuestionLoadingAnimation from "../../../components/Cards/Questions/LoadingAnimations/Question";
+import ArticleLoadingAnimation, {ArticleLoadingAnimationBar} from "../../../components/Cards/Articles/LoadingAnimations/Article";
 
 const DoctorProfile = (
     {
@@ -118,27 +120,27 @@ const DoctorProfile = (
                 </Tab>
                 <Tab eventKey="recent-questions" title="Recent Questions">
 
-                    {stateData.loadingQuestions === false && <LazyList
+                    {stateData.loadingQuestions === false ? <LazyList
                         data={stateData.questions}
                         itemCols={"col-8"}
                         loadMoreMessage={"Load More Questions"}
                         component={Question}
-                        placeholderComponent={Question}
+                        placeholderComponent={QuestionLoadingAnimation}
                         fetchMoreData={getMoreProviderQuestions}
                         refresh={getProviderQuestions}
-                    />}
+                    /> : <QuestionLoadingAnimation/>}
                 </Tab>
                 <Tab eventKey="doctor-articles" title="Doctor's Articles">
-                    {!stateData.loadingArticles === false &&
-                    <LazyList
-                        data={stateData.articles}
-                        itemCols={"col-4"}
-                        loadMoreMessage={"Load More Articles"}
-                        component={Article}
-                        placeholderComponent={Article}
-                        fetchMoreData={getMoreProviderArticles}
-                        refresh={getProviderArticles}
-                    />}
+                    {!stateData.loadingArticles === false ?
+                        <LazyList
+                            data={stateData.articles}
+                            itemCols={"col-4"}
+                            loadMoreMessage={"Load More Articles"}
+                            component={Article}
+                            placeholderComponent={ArticleLoadingAnimation}
+                            fetchMoreData={getMoreProviderArticles}
+                            refresh={getProviderArticles}
+                        /> : <ArticleLoadingAnimationBar/>}
                 </Tab>
             </Tabs>
         </div>

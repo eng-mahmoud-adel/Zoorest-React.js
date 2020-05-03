@@ -73,7 +73,7 @@ const AllPostsContainer = ({
                                 itemCols={"col-12"}
                                 loadMoreMessage={"Load More Posts"}
                                 component={Post}
-                                placeholderComponent={Post}
+                                //todo placeholderComponent={Post}
                                 fetchMoreData={getMoreSellPosts}
                                 refresh={getSellPosts}
 
@@ -86,7 +86,7 @@ const AllPostsContainer = ({
                                 itemCols={"col-12"}
                                 loadMoreMessage={"Load More Posts"}
                                 component={Post}
-                                placeholderComponent={Post}
+                                //todo placeholderComponent={Post}
                                 fetchMoreData={getMoreAdoptPosts}
                                 refresh={getAdoptPosts}
 
@@ -99,7 +99,7 @@ const AllPostsContainer = ({
                                 itemCols={"col-12"}
                                 loadMoreMessage={"Load More Posts"}
                                 component={Post}
-                                placeholderComponent={Post}
+                                //todo placeholderComponent={Post}
                                 fetchMoreData={getMoreMatePosts}
                                 refresh={getMatePosts}
 
@@ -113,7 +113,7 @@ const AllPostsContainer = ({
                                 itemCols={"col-12"}
                                 loadMoreMessage={"Load More Posts"}
                                 component={Post}
-                                placeholderComponent={Post}
+                                //todo placeholderComponent={Post}
                                 fetchMoreData={getMoreLostPosts}
                                 refresh={getLostPosts}
 
@@ -127,7 +127,7 @@ const AllPostsContainer = ({
                                 itemCols={"col-12"}
                                 loadMoreMessage={"Load More Posts"}
                                 component={Post}
-                                placeholderComponent={Post}
+                                //todo placeholderComponent={Post}
                                 fetchMoreData={getMoreProductPosts}
                                 refresh={getProductPosts}
 

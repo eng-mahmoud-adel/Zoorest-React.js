@@ -14,7 +14,7 @@ import Tabs from "react-bootstrap/Tabs";
 import {connect} from "react-redux";
 import {FormControl, Row} from "react-bootstrap";
 import QuestionBasePage from "./_layout";
-import QuestionLoadingAnimation from "../../components/Cards/Questions/LoadingAnimations/Question";
+import QuestionLoadingAnimation, {QuestionLoadingAnimationBar} from "../../components/Cards/Questions/LoadingAnimations/Question";
 
 const AllQuestionsContainer = props => {
 
@@ -43,15 +43,19 @@ const AllQuestionsContainer = props => {
                   onSelect={(k) => setKey(k)}>
 
                 <Tab eventKey="recent_questions" title="Recent Questions">
-                    <LazyList
-                        data={props.recent_questions_data}
-                        loadMoreMessage={"Load More Questions"}
-                        component={Question}
-                        placeholderComponent={QuestionLoadingAnimation}
-                        fetchMoreData={getMoreRecentQuestions}
-                        refresh={getRecentQuestions}
+                    {props.recent_questions_data.data.length !== 0 ? <LazyList
+                            data={props.recent_questions_data}
+                            loadMoreMessage={"Load More Questions"}
+                            component={Question}
+                            placeholderComponent={QuestionLoadingAnimation}
+                            fetchMoreData={getMoreRecentQuestions}
+                            refresh={getRecentQuestions}
 
-                    />
+                        /> :
+                        <div className="row">
+                            <QuestionLoadingAnimationBar count={3} size="col-12"/>
+                        </div>
+                    }
                 </Tab>
 
                 <Tab eventKey="not_answered" title="Not Answered">

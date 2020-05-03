@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Card from "react-bootstrap/Card";
 import {ProfileAvatarLoadingAnimation} from "../../../Avatars/ProfileAvatar";
 
@@ -49,4 +49,21 @@ const QuestionLoadingAnimation = ({className}) => {
     )
 };
 
+export const QuestionLoadingAnimationBar = ({size, count}) => {
+
+    return (
+        <Fragment>
+            {[...Array(count)].map((n, index) => (
+                <div key={`question-animation-${index}`} className={` ${size}`}>
+                    <QuestionLoadingAnimation/>
+                </div>
+            ))}
+        </Fragment>
+    )
+}
+
+QuestionLoadingAnimationBar.defaultProps = {
+    size: "col-lg-4",
+    count: 3,
+}
 export default QuestionLoadingAnimation;

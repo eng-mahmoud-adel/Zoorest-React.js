@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import LeaveCommentForm from "../../../components/Cards/Comments/LeaveComment";
 import LazyList from "../../../components/DataList";
-import Comment from "../../../components/Cards/Comments/Comment";
+import Comment, {CommentLoadingAnimation} from "../../../components/Cards/Comments/Comment";
 import LoginForm from "../../../components/Forms/Auth/LoginForm";
 import {getMorePostComments, getPostComments, getSinglePost} from '../../../store/actions/posts';
 import SinglePost from '../../../components/Cards/Posts/SinglePost';
@@ -51,10 +51,10 @@ const SinglePostContainer = ({stateData, getSinglePost, match, getPostComments, 
                         <LazyList
                             data={stateData.comments}
                             component={Comment}
-                            placeholderComponent={Comment}
+                            placeholderComponent={CommentLoadingAnimation}
                             fetchMoreData={getMorePostComments}
                             refresh={getPostComments}
-                        /> : <h2>No Comments</h2>}
+                        /> : <CommentLoadingAnimation/>}
                 </div>
 
             </div>

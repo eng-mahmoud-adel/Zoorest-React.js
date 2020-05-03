@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import ArticleDetails from '../../../components/Cards/Articles/ArticleDetails';
+import ArticleDetails, {ArticleDetailsLoadingAnimation} from '../../../components/Cards/Articles/ArticleDetails';
 import LeaveCommentForm from "../../../components/Cards/Comments/LeaveComment";
 import LazyList from "../../../components/DataList";
-import Comment from "../../../components/Cards/Comments/Comment";
+import Comment, {CommentLoadingAnimation} from "../../../components/Cards/Comments/Comment";
 import {showModal} from "../../../store/actions/modal";
 import LoginForm from "../../../components/Forms/Auth/LoginForm";
 import {
@@ -95,11 +95,12 @@ const SingleArticleContainer = ({
 
             <div className="col-md-9 px-4">
                 {
-                    stateData.loading === true &&
-                    <ArticleDetails model={stateData.model}
-                                    currentLocale={currentLocale}
-                                    handleShare={handleShare}
-                    />
+                    stateData.loading === true ?
+                        <ArticleDetails model={stateData.model}
+                                        currentLocale={currentLocale}
+                                        handleShare={handleShare}
+                        /> :
+                        <ArticleDetailsLoadingAnimation/>
                 }
 
                 <h5 className="my-4 font-weight-bold">{stateData.model.comments_count} Comments</h5>
@@ -108,15 +109,15 @@ const SingleArticleContainer = ({
 
 
                 <div className="mt-4">
-                    {stateData.loadingComments === true &&
-                    <LazyList
-                        data={stateData.comments}
-                        itemCols="col-12"
-                        component={Comment}
-                        placeholderComponent={Comment}
-                        fetchMoreData={getMoreArticleComments}
-                        refresh={getArticleComments}
-                    />}
+                    {stateData.loadingComments === true ?
+                        <LazyList
+                            data={stateData.comments}
+                            itemCols="col-12"
+                            component={Comment}
+                            placeholderComponent={CommentLoadingAnimation}
+                            fetchMoreData={getMoreArticleComments}
+                            refresh={getArticleComments}
+                        /> : <CommentLoadingAnimation/>}
                 </div>
 
             </div>

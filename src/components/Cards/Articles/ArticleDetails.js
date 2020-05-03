@@ -4,6 +4,7 @@ import img from '../../../images/article-cover.png';
 import {CommentsIcon, FacebookIcon, ShareIcon, TwitterIcon, ViewsIcon} from '../../Icons/index';
 import ReactPlayer from "react-player";
 import {Text18Regular, Text48} from "../../UI/Typography";
+import {Card, Col, Row} from "react-bootstrap";
 
 const ArticleDetails = ({model, currentLocale, handleShare}) => {
 
@@ -90,4 +91,49 @@ const ArticleDetails = ({model, currentLocale, handleShare}) => {
     )
 }
 
+export const ArticleDetailsLoadingAnimation = props => {
+
+    return (
+        <Card className="article-details-card loading-card p-3">
+            <Card.Title>
+                <div className="bars">
+                    <div className="bar bar1 loading"/>
+                    <div className="bar bar2 loading"/>
+                </div>
+            </Card.Title>
+
+            <div className="img-container-one">
+                <div className="image loading"/>
+            </div>
+
+            <Card.Body>
+                <Card.Text>
+                    <div className="bars">
+                        <div className="bar bar1 loading"/>
+                        <div className="bar bar1 loading"/>
+                        <div className="bar bar1 loading"/>
+                        <div className="bar bar2 loading"/>
+                    </div>
+                </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+                <Row>
+                    <Col xs={9} md={7} lg={7} xl={8}>
+                        <div className="bars">
+                            <div className="bar bar2 loading"/>
+                        </div>
+                    </Col>
+
+                    <Col xs={3} md={5} lg={5} xl={4} className="text-right">
+                    </Col>
+                </Row>
+            </Card.Footer>
+        </Card>
+    );
+};
+
+ArticleDetailsLoadingAnimation.defaultProps = {
+    size: "col-lg-4",
+    count: 3,
+}
 export default ArticleDetails;
