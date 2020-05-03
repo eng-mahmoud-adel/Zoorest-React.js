@@ -3,6 +3,7 @@ import Article from "../../components/Cards/Articles/Article";
 import SlickSlider from "../../components/Helpers/SlickSlider";
 import {Link} from "react-router-dom";
 import {Text32} from "../../components/UI/Typography";
+import ArticleLoadingAnimation from "../../components/Cards/Articles/LoadingAnimations/Article";
 
 const RecentArticles = props => {
     const articles = props.articles;
@@ -49,18 +50,37 @@ const RecentArticles = props => {
 
             <div className="row d-none d-lg-flex">
 
-                {articles && articles.map((article, index) => (
+                {articles ? articles.map((article, index) => (
                     <div className="col-lg-4" key={index}>
                         <Article className="shadow-sm" key={index} model={article}/>
+
                     </div>
-                ))}
+                )) : <Fragment>
+                    <div className="col-lg-4">
+                        <ArticleLoadingAnimation/>
+                    </div>
+                    <div className="col-lg-4">
+                        <ArticleLoadingAnimation/>
+                    </div>
+                    <div className="col-lg-4">
+                        <ArticleLoadingAnimation/>
+                    </div>
+                </Fragment>}
 
             </div>
 
             <SlickSlider settings={slickSettings} className="d-lg-none">
-                {articles && articles.map((article, index) => (
-                    <Article className="shadow-sm" key={index} model={article}/>
-                ))}
+                {articles ? articles.map((article, index) => (
+                        <Article className="shadow-sm" key={index} model={article}/>
+                    )) :
+                    <div className="row">
+                        {[...Array(3)].map((n, index) => (
+                            <div className="col-lg-4">
+                                <ArticleLoadingAnimation/>
+                            </div>
+                        ))}
+                    </div>
+                }
             </SlickSlider>
         </Fragment>
     );

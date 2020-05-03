@@ -16,7 +16,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
     const [userGeoLocation, setUserGeoLocation] = useState(null);
 
     const handleFormSubmit = (values) => {
-
+        console.log(values)
         signup(new ProviderSignUpRequest()
             .setProviderType(provider_type)
             .setUserName(values.name)

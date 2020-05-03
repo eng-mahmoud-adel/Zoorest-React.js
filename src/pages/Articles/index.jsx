@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {connect} from "react-redux";
 import {getArticles, getMoreArticles} from '../../store/actions/articles';
 import LazyLoad from "react-lazyload";
@@ -7,6 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Article from "../../components/Cards/Articles/Article";
 import {SearchIcon} from "../../components/Icons";
 import {Text14Medium, Text18Bold, Text48} from "../../components/UI/Typography";
+import ArticleLoadingAnimation from "../../components/Cards/Articles/LoadingAnimations/Article";
 
 const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles}) => {
 
@@ -73,7 +74,15 @@ const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles}) =>
                         //dispatch a refresh action that clears the items and re-fetches them
                         getArticles();
                     }}
-                    loader={<h4>Getting More Loading...</h4>}>
+                    loader={(<Fragment>
+                        <div className="row">
+                            {[...Array(3)].map((n, index) => (
+                                <div className="col-lg-4">
+                                    <ArticleLoadingAnimation/>
+                                </div>
+                            ))}
+                        </div>
+                    </Fragment>)}>
 
                     <div className="row">
                         {articles.all.data.map((item, index) => (
