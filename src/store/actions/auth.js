@@ -8,10 +8,9 @@ export const LOGOUT = 'LOGOUT';
 export const GET_USER_DATA = 'GET_USER_DATA';
 export const SIGNUP = 'SIGNUP';
 
-export const login = (request: LoginRequest) => async (dispatch) => {
-
+export const login = (request) => async (dispatch) => {
     await ApiService
-        .post(`auth/login`, request.toJSON())
+        .post(`auth/login`, request)
         .then(
             (response) => {
                 console.log(response);
@@ -23,7 +22,7 @@ export const login = (request: LoginRequest) => async (dispatch) => {
 
                 } else {
                     localStorage.removeItem('access_token');
-                    sessionStorage.setItem('access_token', response.headers.authorization);
+                    sessionStorage.removeItem('access_token');
                 }
 
                 dispatch({

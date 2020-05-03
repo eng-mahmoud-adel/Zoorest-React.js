@@ -96,25 +96,25 @@ class LoginRequest extends Request {
     }
 
 
-    toJSON() {
+    // toJSON() {
 
-        let json = {
-            // "raw_response": JSON.stringify(this.raw_response),
-            // "social": this.social,
-            "name": this.name,
-            "image": this.image,
-            "email": this.email,
-            "password": this.password,
-        };
+    //     let json = {
+    //         // "raw_response": JSON.stringify(this.raw_response),
+    //         // "social": this.social,
+    //         "name": this.name,
+    //         "image": this.image,
+    //         "email": this.email,
+    //         "password": this.password,
+    //     };
 
 
-        //only add social object if both objects exists
-        if (this.provider_type && this.provider_key) {
-            json["social"] = this.social
-        }
+    //     //only add social object if both objects exists
+    //     if (this.provider_type && this.provider_key) {
+    //         json["social"] = this.social
+    //     }
 
-        return json;
-    }
+    //     return json;
+    // }
 
     isValidate() {
         //todo validate objects
