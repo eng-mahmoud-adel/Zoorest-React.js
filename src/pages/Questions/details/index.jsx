@@ -12,12 +12,13 @@ import {
 import Question from "../../../components/Cards/Questions/Question";
 import {Breadcrumb} from "react-bootstrap";
 import LeaveCommentForm from "../../../components/Cards/Comments/LeaveComment";
-import Comment from "../../../components/Cards/Comments/Comment";
+import Comment, {CommentLoadingAnimation} from "../../../components/Cards/Comments/Comment";
 import LazyList from "../../../components/DataList";
 import QuestionBasePage from "../_layout";
 import {showModal} from "../../../store/actions/modal";
 import LoginForm from "../../../components/Forms/Auth/LoginForm";
 import {Helmet} from "react-helmet";
+import QuestionLoadingAnimation from "../../../components/Cards/Questions/LoadingAnimations/Question";
 
 const SingleQuestionContainer = (
     {
@@ -96,8 +97,10 @@ const SingleQuestionContainer = (
             {/*post Item*/}
 
             <div className="row">
-                {stateData.loading === false &&
-                <Question model={stateData.model} hide_add_answer={true}/>}
+                {stateData.loading === false ?
+                    <Question model={stateData.model} hide_add_answer={true}/> :
+                    <QuestionLoadingAnimation/>
+                }
             </div>
             {/*comments*/}
 
@@ -115,10 +118,10 @@ const SingleQuestionContainer = (
                         <LazyList
                             data={stateData.comments}
                             component={Comment}
-                            placeholderComponent={Comment}
+                            placeholderComponent={CommentLoadingAnimation}
                             fetchMoreData={getMoreComments}
                             refresh={getComments}
-                        /> : <h2>No Comments</h2>}
+                        /> : <CommentLoadingAnimation/>}
                 </div>
             </div>
         </QuestionBasePage>

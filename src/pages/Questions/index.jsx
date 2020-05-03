@@ -14,6 +14,7 @@ import Tabs from "react-bootstrap/Tabs";
 import {connect} from "react-redux";
 import {FormControl, Row} from "react-bootstrap";
 import QuestionBasePage from "./_layout";
+import QuestionLoadingAnimation from "../../components/Cards/Questions/LoadingAnimations/Question";
 
 const AllQuestionsContainer = props => {
 
@@ -46,7 +47,7 @@ const AllQuestionsContainer = props => {
                         data={props.recent_questions_data}
                         loadMoreMessage={"Load More Questions"}
                         component={Question}
-                        placeholderComponent={Question}
+                        placeholderComponent={QuestionLoadingAnimation}
                         fetchMoreData={getMoreRecentQuestions}
                         refresh={getRecentQuestions}
 
@@ -59,15 +60,9 @@ const AllQuestionsContainer = props => {
                         data={props.not_answered_data}
                         loadMoreMessage={"Load More Questions"}
                         component={Question}
-                        placeholderComponent={Question}
+                        placeholderComponent={QuestionLoadingAnimation}
                         fetchMoreData={getMoreNotAnsweredQuestions}
                         refresh={getNotAnsweredQuestions}
-                        endMessage={
-                            <p style={{textAlign: 'center'}}>
-                                {/*todo update or remove*/}
-                                <b>Yay! You have seen it all</b>
-                            </p>
-                        }
                     />
                 </Tab>
 
@@ -76,15 +71,9 @@ const AllQuestionsContainer = props => {
                         data={props.most_common_data}
                         loadMoreMessage={"Load More Questions"}
                         component={Question}
-                        placeholderComponent={Question}
+                        placeholderComponent={QuestionLoadingAnimation}
                         fetchMoreData={getMoreMostCommonQuestions}
                         refresh={getMostCommonQuestions}
-                        endMessage={
-                            <p style={{textAlign: 'center'}}>
-                                {/*todo update or remove*/}
-                                <b>Yay! You have seen it all</b>
-                            </p>
-                        }
                     />
                 </Tab>
 

@@ -9,11 +9,11 @@ const LazyList = props => {
 
     const RenderItem = props.component;
     const itemCols = props.itemCols;
-    // const RenderItemPlaceholder = props.placeholderComponent;
+    const RenderItemPlaceholder = props.placeholderComponent;
     const {data, links} = props.data;
     const [hasMore, setHasMore] = useState(true);
     useEffect(() => {
-        if(links){
+        if (links) {
             setHasMore(links.hasMoreData());
         }
     }, [links]);
@@ -42,14 +42,23 @@ const LazyList = props => {
             hasMore={hasMore}
 
             refreshFunction={refresh}
-            loader={<h4>Getting More Loading...</h4>}
+            loader={RenderItemPlaceholder ?
+                ("function" === typeof RenderItemPlaceholder) ?
+                    <RenderItemPlaceholder/> :
+                    RenderItemPlaceholder
+                : <h4>Getting More Loading...</h4>}
             pullDownToRefreshThreshold={100}>
 
             <div className="row">
                 {data.map((item) => (
                     <div className={`${itemCols} my-1`} key={props.component.name + "_" + item.id}>
                         <LazyLoad unmountIfInvisible={true} once={true}
-                                  placeholder={<h5 className="lazy loading">loading...</h5>}>
+                                  placeholder={
+                                      RenderItemPlaceholder ?
+                                          ("function" === typeof RenderItemPlaceholder) ?
+                                              <RenderItemPlaceholder/> :
+                                              RenderItemPlaceholder
+                                          : <h5 className="lazy loading">loading...</h5>}>
                             <RenderItem model={item} tag={Tag}/>
                         </LazyLoad>
                     </div>

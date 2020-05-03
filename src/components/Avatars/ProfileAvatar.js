@@ -43,6 +43,21 @@ const ProfileAvatar = ({model: user, className, radius, withName, withJoiningDat
     )
 };
 
+export const ProfileAvatarLoadingAnimation = () => {
+
+    return (
+        <div className="avatar-four loading-avatar">
+            <div className="img-container">
+                <div className="image loading"/>
+            </div>
+            <div className="bars">
+                <div className="bar bar1 loading"/>
+                <div className="bar bar2 loading"/>
+            </div>
+        </div>
+    )
+};
+
 ProfileAvatar.propType = {
     user: PropTypes.object.isRequired,
 };
