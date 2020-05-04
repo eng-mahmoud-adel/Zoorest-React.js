@@ -12,7 +12,7 @@ import * as Yup from "yup";
 
 const LoginForm = ({login, onSignupClicked}) => {
 
-    const handleLogin = (loginRequest: LoginRequest) => {
+    const handleLogin = (loginRequest) => {
         login(loginRequest)
     }
 
@@ -71,7 +71,7 @@ const LoginForm = ({login, onSignupClicked}) => {
                 email: Yup.string().email('Invalid email').required('This field is required.'),
                 password: Yup.string().required('This field is required.'),
             })}
-            render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid}) =>
+            render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid, handleReset}) =>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group login-form">
                         <div className="text-right">
@@ -108,8 +108,10 @@ const LoginForm = ({login, onSignupClicked}) => {
                                     handleNormalLogin({
                                         email: values.email,
                                         password: values.password
-                                    })
-                                }} text="Login" color="btn btn-info" size="btn-sm" disabled={!isValid || isSubmitting}/>
+                                    });
+                                    handleReset();
+                                }} text="Login" color="btn btn-info" size="btn-sm"
+                                        disabled={!isValid || (values.email === "" && values.password === "" ? isSubmitting = true : isSubmitting = false)}/>
                             </div>
                             <div className="mb-2 col-11 mx-auto">
                                 <a href="#">Forgot password?</a>

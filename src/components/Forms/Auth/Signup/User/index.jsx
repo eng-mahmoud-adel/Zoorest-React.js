@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import {Formik} from "formik";
 import * as Yup from "yup";
 import BasicInput from "../../../../Inputs/BasicInput";
@@ -8,6 +8,17 @@ import Button from "../../../../Buttons/Button/Button";
 const UserForm = ({currentLocale, countries, cities, districts}) => {
     const handleFormSubmit = (values) => {
         console.log(values);
+        return {
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
+            additional_phone_number: values.additional_phone_number,
+            password: values.password,
+            password_confirmation: values.password_confirmation,
+            country_id: values.country_id,
+            city_id: values.city_id,
+            district_id: values.district_id,
+        }
     }
 
     return (
@@ -17,13 +28,11 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                 email: "",
                 phone: "",
                 additional_phone_number: "",
-
                 password: "",
                 password_confirmation: "",
                 country_id: "",
                 city_id: null,
                 district_id: null,
-
             }}
             onSubmit={handleFormSubmit}
             validationSchema={Yup.object().shape({
@@ -33,16 +42,22 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                 additional_phone_number: Yup.string().nullable(),
 
                 password: Yup.string().required('This field is required.'),
-                password_confirmation: Yup.string().required('This field is required.'),
+                password_confirmation: Yup.string().required('This field is required.').when("password", {
+                    is: val => (val && val.length > 0 ? true : false),
+                    then: Yup.string().oneOf(
+                        [Yup.ref("password")],
+                        "Both password need to be the same"
+                    )
+                }),
 
                 country_id: Yup.number().required(),
                 city_id: Yup.number().nullable(),
                 district_id: Yup.number().nullable(),
             })}
-            render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid}) =>
-                <Fragment>
+            render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid, handleReset}) =>
+                <form onSubmit={handleSubmit}>
 
-                    <div className="my-3 col-md-10">
+                    <div className="my-3">
                         <label className="font-weight-bold">Full Name</label>
                         <BasicInput
                             className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
@@ -50,7 +65,7 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                             handleChange={handleChange} handleBlur={handleBlur}/>
                         {errors.name && touched.name && <div style={{color: "red"}}>{errors.name}</div>}
                     </div>
-                    <div className="mb-3 col-md-10">
+                    <div className="mb-3">
                         <label className="font-weight-bold">Email Address</label>
                         <BasicInput
                             className={`basic-input ${values.email === "" ? "" : (!errors.email ? "is-valid" : "is-invalid")}`}
@@ -58,7 +73,7 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                             handleChange={handleChange} handleBlur={handleBlur}/>
                         {errors.email && touched.email && <div style={{color: "red"}}>{errors.email}</div>}
                     </div>
-                    <div className="mb-3 col-md-10">
+                    <div className="mb-3">
                         <label className="font-weight-bold">Phone Number</label>
                         <BasicInput
                             className={`basic-input ${values.phone === "" ? "" : (!errors.phone ? "is-valid" : "is-invalid")}`}
@@ -67,7 +82,7 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                         {errors.phone && touched.phone &&
                         <div style={{color: "red"}}>{errors.phone}</div>}
                     </div>
-                    <div className="mb-3 col-md-10">
+                    <div className="mb-3">
                         <label className="font-weight-bold">Additional Phone Number</label>
                         <BasicInput
                             className={`basic-input ${values.additional_phone_number === "" ? "" : (!errors.additional_phone_number ? "is-valid" : "is-invalid")}`}
@@ -76,43 +91,50 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                         {errors.additional_phone_number && touched.additional_phone_number &&
                         <div style={{color: "red"}}>{errors.additional_phone_number}</div>}
                     </div>
-                    <div className="mb-3 col-md-5">
-                        <label className="font-weight-bold">Password</label>
-                        <BasicInput
-                            className={`basic-input ${values.password === "" ? "" : (!errors.password ? "is-valid" : "is-invalid")}`}
-                            name="password" type="password" value={values.password} placeholder="password"
-                            handleChange={handleChange} handleBlur={handleBlur}/>
-                        {errors.password && touched.password &&
-                        <div style={{color: "red"}}>{errors.password}</div>}
-                    </div>
-                    <div className="mb-3 col-md-5">
-                        <label className="font-weight-bold">Confirm Password</label>
-                        <BasicInput
-                            className={`basic-input ${values.password_confirmation === "" ? "" : (!errors.password_confirmation ? "is-valid" : "is-invalid")}`}
-                            name="password" type="password" value={values.password_confirmation}
-                            placeholder="password" handleChange={handleChange} handleBlur={handleBlur}/>
-                        {errors.password_confirmation && touched.password_confirmation &&
-                        <div style={{color: "red"}}>{errors.password_confirmation}</div>}
+
+                    <div className="row">
+                        <div className="mb-3 col-md-6">
+                            <label className="font-weight-bold">Password</label>
+                            <BasicInput
+                                className={`basic-input ${values.password === "" ? "" : (!errors.password ? "is-valid" : "is-invalid")}`}
+                                name="password" type="password" value={values.password} placeholder="password"
+                                handleChange={handleChange} handleBlur={handleBlur}/>
+                            {errors.password && touched.password &&
+                            <div style={{color: "red"}}>{errors.password}</div>}
+                        </div>
+                        <div className="mb-3 col-md-6">
+                            <label className="font-weight-bold">Confirm Password</label>
+                            <BasicInput
+                                className={`basic-input ${values.password_confirmation === "" ? "" : (!errors.password_confirmation ? "is-valid" : "is-invalid")}`}
+                                name="password_confirmation" type="password" value={values.password_confirmation}
+                                placeholder="password" handleChange={handleChange} handleBlur={handleBlur}/>
+                            {errors.password_confirmation && touched.password_confirmation &&
+                            <div style={{color: "red"}}>{errors.password_confirmation}</div>}
+                        </div>
                     </div>
 
-                    <div className="row justify-content-center w-100">
-                        <div className="mb-3 col-md-5">
+                    <div className="row">
+                        <div className="mb-3 col-md-6">
                             <MultiSelect options={countries}/>
                         </div>
-                        <div className="mb-3 col-md-5">
+                        <div className="mb-3 col-md-6">
                             <MultiSelect options={cities}/>
                         </div>
-                        <div className="mb-3 col-md-10">
-                            <MultiSelect options={districts}/>
-                        </div>
                     </div>
 
-                    <div className="mb-4 col-md-9">
-                        <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick={handleSubmit}
-                                disabled={!isValid || isSubmitting}/>
+                    <div className="mb-3">
+                        <MultiSelect options={districts}/>
                     </div>
 
-                </Fragment>
+                    <div className="mb-4 col-md-11 mx-auto">
+                        <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick={() => {
+                            handleFormSubmit(values);
+                            handleReset();
+                        }}
+                                disabled={isSubmitting}/>
+                    </div>
+
+                </form>
             }
         >
         </Formik>

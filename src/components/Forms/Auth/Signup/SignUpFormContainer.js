@@ -125,10 +125,10 @@ const SignUpFormContainer = ({onLoginClicked, currentLocale, countries, cities, 
                 <span className="line col-md-3 offset-1 mb-3"/>
             </div>
             <div className="row justify-content-center">
-                <div className="col-md-4 text-right pr-2">
+                <div className="col-md-5 text-right pr-2">
                     <FacebookLoginBtn onResponse={handleFacebookSignUp}/>
                 </div>
-                <div className="col-md-4 pl-2">
+                <div className="col-md-5 pl-2">
                     <GoogleLoginBtn onResponse={handleGoogleSignUp}/>
 
                 </div>
@@ -144,4 +144,5 @@ const mapStateToProps = (state) => ({
     districts: state.globals.districts,
     currentLocale: state.i18n.value,
 });
+
 export default connect(mapStateToProps)(SignUpFormContainer);

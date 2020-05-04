@@ -1,14 +1,12 @@
 import ApiService from "../../services/ApiService";
-import LoginRequest from "../../model/Request/LoginRequest";
 import {HIDE_MODAL} from "./modal";
-import ProviderSignUpRequest from "../../model/Request/ProviderSignUpRequest";
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const GET_USER_DATA = 'GET_USER_DATA';
 export const SIGNUP = 'SIGNUP';
 
-export const login = (request: LoginRequest) => async (dispatch) => {
+export const login = (request) => async (dispatch) => {
 
     await ApiService
         .post(`auth/login`, request.toJSON())
@@ -67,7 +65,7 @@ export const getAuthData = () => async (dispatch, getState) => {
         );
 };
 
-export const registerProvider = (request: ProviderSignUpRequest) => async (dispatch) => {
+export const registerProvider = (request) => async (dispatch) => {
     await ApiService
         .post(`auth/provider-signup`, request.toJSON())
         .then(
