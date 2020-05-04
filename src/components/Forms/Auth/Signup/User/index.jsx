@@ -2,23 +2,27 @@ import React from 'react'
 import {Formik} from "formik";
 import * as Yup from "yup";
 import BasicInput from "../../../../Inputs/BasicInput";
-import {MultiSelect} from "../../../../Inputs/MultiSelect";
+import {SingleSelect} from "../../../../Inputs/MultiSelect";
 import Button from "../../../../Buttons/Button/Button";
+import {registerUser} from "../../../../../store/actions/auth";
+import {connect} from "react-redux";
 
-const UserForm = ({currentLocale, countries, cities, districts}) => {
+const UserForm = ({currentLocale, countries, cities, districts, register}) => {
+
     const handleFormSubmit = (values) => {
         console.log(values);
-        return {
+        register({
             name: values.name,
             email: values.email,
             phone: values.phone,
+            type: "دكتور",
             additional_phone_number: values.additional_phone_number,
             password: values.password,
             password_confirmation: values.password_confirmation,
             country_id: values.country_id,
             city_id: values.city_id,
             district_id: values.district_id,
-        }
+        });
     }
 
     return (
@@ -115,15 +119,15 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
 
                     <div className="row">
                         <div className="mb-3 col-md-6">
-                            <MultiSelect options={countries}/>
+                            <SingleSelect options={countries}/>
                         </div>
                         <div className="mb-3 col-md-6">
-                            <MultiSelect options={cities}/>
+                            <SingleSelect options={cities}/>
                         </div>
                     </div>
 
                     <div className="mb-3">
-                        <MultiSelect options={districts}/>
+                        <SingleSelect options={districts}/>
                     </div>
 
                     <div className="mb-4 col-md-11 mx-auto">
@@ -140,6 +144,10 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
         </Formik>
     );
 }
+const mapDispatchToProps = (dispatch) => ({
+    register: (request) => {
+        dispatch(registerUser(request))
+    },
+});
 
-
-export default UserForm;
+export default connect(null, mapDispatchToProps)(UserForm);

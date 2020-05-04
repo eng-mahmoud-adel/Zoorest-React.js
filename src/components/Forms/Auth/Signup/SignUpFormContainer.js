@@ -9,7 +9,7 @@ import {Tab, Tabs} from 'react-bootstrap';
 
 const SignUpFormContainer = ({onLoginClicked, currentLocale, countries, cities, districts}) => {
 
-    const [selectedTab, setSelectedTab] = useState("doctor");
+    const [selectedTab, setSelectedTab] = useState("user");
 
     const handleFacebookSignUp = (data) => {
         console.log(data)

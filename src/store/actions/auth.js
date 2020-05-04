@@ -91,6 +91,32 @@ export const registerProvider = (request) => async (dispatch) => {
         );
 };
 
+export const registerUser = (request) => async (dispatch) => {
+    await ApiService
+        .post(`auth/user-signup`, request)
+        .then(
+            (response) => {
+                console.log(response);
+
+                localStorage.setItem('access_token', response.headers.authorization);
+                sessionStorage.setItem('access_token', response.headers.authorization);
+
+
+                dispatch({
+                    type: SIGNUP,
+                    payload: response.data,
+                    accessToken: response.headers.authorization,
+                });
+
+                //Close Modal After A successful signup
+                dispatch({type: HIDE_MODAL, payload: null})
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
+};
+
 export const logoutUser = () => (dispatch) => {
     localStorage.removeItem('authUser');
     dispatch({
