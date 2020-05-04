@@ -8,6 +8,9 @@ class ProviderSignUpRequest extends Request {
         // this.raw_response = {};
         // this.profile = {};
         this.provider = {};
+        this.user= {
+            name: ""
+        }
     }
 
     static createInstance() {
@@ -34,7 +37,6 @@ class ProviderSignUpRequest extends Request {
 
     setUserName(name) {
         this.user.name = name
-
         return this;
     }
 

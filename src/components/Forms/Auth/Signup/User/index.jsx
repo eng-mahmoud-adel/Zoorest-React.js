@@ -8,6 +8,17 @@ import Button from "../../../../Buttons/Button/Button";
 const UserForm = ({currentLocale, countries, cities, districts}) => {
     const handleFormSubmit = (values) => {
         console.log(values);
+        return {
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
+            additional_phone_number: values.additional_phone_number,
+            password: values.password,
+            password_confirmation: values.password_confirmation,
+            country_id: values.country_id,
+            city_id: values.city_id,
+            district_id: values.district_id,
+        }
     }
 
     return (
@@ -17,13 +28,11 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                 email: "",
                 phone: "",
                 additional_phone_number: "",
-
                 password: "",
                 password_confirmation: "",
                 country_id: "",
                 city_id: null,
                 district_id: null,
-
             }}
             onSubmit={handleFormSubmit}
             validationSchema={Yup.object().shape({
@@ -33,14 +42,20 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                 additional_phone_number: Yup.string().nullable(),
 
                 password: Yup.string().required('This field is required.'),
-                password_confirmation: Yup.string().required('This field is required.'),
+                password_confirmation: Yup.string().required('This field is required.').when("password", {
+                    is: val => (val && val.length > 0 ? true : false),
+                    then: Yup.string().oneOf(
+                      [Yup.ref("password")],
+                      "Both password need to be the same"
+                    )
+                  }),
 
                 country_id: Yup.number().required(),
                 city_id: Yup.number().nullable(),
                 district_id: Yup.number().nullable(),
             })}
-            render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid}) =>
-                <Fragment>
+            render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid, handleReset}) =>
+                <form onSubmit= {handleSubmit}>
 
                     <div className="my-3">
                         <label className="font-weight-bold">Full Name</label>
@@ -91,7 +106,7 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                             <label className="font-weight-bold">Confirm Password</label>
                             <BasicInput
                                 className={`basic-input ${values.password_confirmation === "" ? "" : (!errors.password_confirmation ? "is-valid" : "is-invalid")}`}
-                                name="password" type="password" value={values.password_confirmation}
+                                name="password_confirmation" type="password" value={values.password_confirmation}
                                 placeholder="password" handleChange={handleChange} handleBlur={handleBlur}/>
                             {errors.password_confirmation && touched.password_confirmation &&
                             <div style={{color: "red"}}>{errors.password_confirmation}</div>}
@@ -112,11 +127,14 @@ const UserForm = ({currentLocale, countries, cities, districts}) => {
                     </div>
 
                     <div className="mb-4 col-md-11 mx-auto">
-                        <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick={handleSubmit}
-                                disabled={!isValid || isSubmitting}/>
+                        <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick={() => {
+                            handleFormSubmit(values);
+                            handleReset();
+                        }}
+                            disabled={isSubmitting}/>
                     </div>
 
-                </Fragment>
+                </form>
             }
         >
         </Formik>

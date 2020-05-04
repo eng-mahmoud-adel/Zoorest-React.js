@@ -10,14 +10,20 @@ import {getGeoLocation} from "../../../../../services/GeoLocationService";
 import Modal from "react-bootstrap/Modal";
 import BaseModal from "react-bootstrap/Modal";
 import Location from "../../../Location";
+import {connect} from 'react-redux';
+import {registerProvider} from '../../../../../store/actions/auth';
 
 const ProviderForm = ({currentLocale, countries, cities, districts, signup, provider_type}) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [userGeoLocation, setUserGeoLocation] = useState(null);
 
+    const handleSignUp = (signUpRequest) => {
+        registerProvider(signUpRequest)
+    }
+
     const handleFormSubmit = (values) => {
         console.log(values)
-        signup(new ProviderSignUpRequest()
+        handleSignUp(new ProviderSignUpRequest()
             .setProviderType(provider_type)
             .setUserName(values.name)
             .setUserEmail(values.email)
@@ -75,7 +81,8 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
             geo_lng: "",
 
             password: "",
-            // password_confirmation: "",
+            password_confirmation: "",
+            
             country_id: "",
             city_id: null,
             district_id: null,
@@ -96,14 +103,20 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
             geo_lng: Yup.number().required(),
 
             password: Yup.string().required('This field is required.'),
-            password_confirmation: Yup.string().nullable(),
+            password_confirmation: Yup.string().required('This field is required.').when("password", {
+                is: val => (val && val.length > 0 ? true : false),
+                then: Yup.string().oneOf(
+                  [Yup.ref("password")],
+                  "Both password need to be the same"
+                )
+              }),
 
             country_id: Yup.number().required().nullable(),
             city_id: Yup.number().nullable().nullable(),
             // district_id: Yup.number().nullable(),
         })}
-        render={({values, errors, touched, handleChange, handleBlur, setFieldValue, handleSubmit, isSubmitting, isValid}) =>
-            <Fragment>
+        render={({values, errors, touched, handleChange, handleBlur, setFieldValue, handleSubmit, isSubmitting, isValid, handleReset}) =>
+            <form onSubmit= {handleSubmit}>
 
                 {/*Map modal*/}
                 <Modal show={isModalVisible} onHide={handleMapModalHide}
@@ -217,14 +230,35 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                     <DropFileWithButton/>
                 </div>
 
-                <div className="mb-4 col-md-9">
-                    <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick={handleSubmit}
-                            disabled={/*!isValid || */isSubmitting}/>
+                <div className="mb-4 col-md-11 mx-auto">
+                    <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick={() => {
+                        handleFormSubmit({
+                            name: values.name,
+                            email: values.email,
+                            phone: values.phone,
+                            additional_phone_number: values.additional_phone_number,
+                            official_name: values.official_name,
+                            address: values.address,
+                            geo_lat: values.geo_lat,
+                            geo_lng: values.geo_lng,
+                            password: values.password,
+                            password_confirmation: values.password_confirmation,
+                            country_id: values.country_id,
+                        });
+                        handleReset();
+                    }}
+                        disabled={isSubmitting}/>
                 </div>
-            </Fragment>
+            </form>
         }>
 
     </Formik>);
 }
 
-export default ProviderForm;
+const mapDispatchToProps = (dispatch) => ({
+    registerProvider: (request) => {
+        dispatch(registerProvider(request))
+    },
+});
+
+export default connect(null, mapDispatchToProps)(ProviderForm);

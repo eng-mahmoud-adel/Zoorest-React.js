@@ -144,4 +144,5 @@ const mapStateToProps = (state) => ({
     districts: state.globals.districts,
     currentLocale: state.i18n.value,
 });
+
 export default connect(mapStateToProps)(SignUpFormContainer);
