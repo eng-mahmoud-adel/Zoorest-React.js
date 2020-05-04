@@ -107,13 +107,13 @@ class ProviderSignUpRequest extends Request {
         return this;
     }
 
-    toJSON() {
+    // toJSON() {
 
-        return {
-            ...this.user,
-            provider: this.provider
-        };
-    }
+    //     return {
+    //         ...this.user,
+    //         provider: this.provider
+    //     };
+    // }
 
     isValidate() {
         //todo validate objects
