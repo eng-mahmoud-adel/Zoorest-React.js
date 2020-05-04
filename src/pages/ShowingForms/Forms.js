@@ -6,7 +6,7 @@ import AddPostForm from '../../components/Forms/AddPostForm';
 import Reminder from '../../components/Forms/Reminder';
 import UploadAlbum from '../../components/Forms/UploadAlbum';
 import Location from '../../components/Forms/Location';
-import Profile from '../../components/Forms/Profile';
+import ProfileForm from '../../components/Forms/ProfileForm';
 import Appointment from '../../components/Forms/Appointment';
 import AddAnimal from '../../components/Forms/AddAnimal';
 
@@ -56,7 +56,7 @@ const Forms = () => {
             <hr />
             <h1>Profile</h1>
             <hr />
-            <Profile title= "Account Information" text= "At least 800x800px PNG or JPG file." />
+            <ProfileForm title= "Account Information" text= "At least 800x800px PNG or JPG file." />
 
             <hr />
             <h1>Add animal</h1>
