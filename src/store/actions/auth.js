@@ -1,5 +1,6 @@
 import ApiService from "../../services/ApiService";
 import {HIDE_MODAL} from "./modal";
+import {ERROR_422, ERROR_500, ERROR_503} from "./response_errors";
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
@@ -7,7 +8,7 @@ export const GET_USER_DATA = 'GET_USER_DATA';
 export const SIGNUP = 'SIGNUP';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 
-export const login = (request) => async (dispatch) => {
+export const login = (request) => async (dispatch, getState) => {
 
     await ApiService
         .post(`auth/login`, request.toJSON())
@@ -36,6 +37,23 @@ export const login = (request) => async (dispatch) => {
             },
             (error) => {
                 console.log(error.response);
+                switch (error.response.status) {
+                    case 422:
+                        //show validation error
+                        dispatch({type: ERROR_422, payload: error.response.data.message})
+                        break;
+                    case 500:
+                        //show something went wrong
+                        dispatch({type: ERROR_500})
+
+                        break;
+                    case 503:
+                        //show server maintenance alert
+                        dispatch({type: ERROR_503})
+
+                        break;
+                }
+
             }
         );
 };
@@ -66,7 +84,7 @@ export const getAuthData = () => async (dispatch, getState) => {
         );
 };
 
-export const registerProvider = (request) => async (dispatch) => {
+export const registerProvider = (request) => async (dispatch, getState) => {
     await ApiService
         .post(`auth/provider-signup`, request.toJSON())
         .then(
@@ -87,12 +105,28 @@ export const registerProvider = (request) => async (dispatch) => {
                 dispatch({type: HIDE_MODAL, payload: null})
             },
             (error) => {
-                console.log(error.response);
+                switch (error.response.status) {
+                    case 422:
+                        //show validation error
+                        dispatch({type: ERROR_422, payload: error.response.data.message})
+                        break;
+                    case 500:
+                        //show something went wrong
+                        dispatch({type: ERROR_500})
+
+                        break;
+                    case 503:
+                        //show server maintenance alert
+                        dispatch({type: ERROR_503})
+
+                        break;
+                }
+
             }
         );
 };
 
-export const registerUser = (request) => async (dispatch) => {
+export const registerUser = (request) => async (dispatch, getState) => {
     await ApiService
         .post(`auth/user-signup`, request)
         .then(
@@ -125,7 +159,7 @@ export const logoutUser = () => (dispatch) => {
     })
 };
 
-export const updateProfile = (request) => async (dispatch) => {
+export const updateProfile = (request) => async (dispatch, getState) => {
     await ApiService
         .put(`auth/profile`, request)
         .then(

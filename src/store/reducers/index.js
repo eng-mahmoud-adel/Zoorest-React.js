@@ -14,6 +14,7 @@ import i18nReducer from "./i18n";
 import modalReducer from "./modal";
 import globalReducer from "./globals";
 import pageReducer from "./pages";
+import notyReducer from "./noty";
 
 const reducer = combineReducers({
     pages: pageReducer,
@@ -32,6 +33,7 @@ const reducer = combineReducers({
     posts: postsReducer,
     singlePostReducer: singlePostReducer,
 
+    noty: notyReducer,
     i18n: i18nReducer,
     globals: globalReducer,
 });

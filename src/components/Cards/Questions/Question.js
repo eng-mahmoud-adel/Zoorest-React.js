@@ -10,7 +10,7 @@ import {likeQuestion, unlikeQuestion} from "../../../store/actions/questions";
 import ProfileAvatar from "../../Avatars/ProfileAvatar";
 import {Text12, Text14Regular, Text16Medium, Text18Black} from "../../UI/Typography";
 import ClampLines from "react-clamp-lines";
-import { EllipsisIcon } from '../../Icons/index';
+import {EllipsisIcon} from '../../Icons/index';
 
 
 const Question = ({model, className, hide_add_answer, currentLocale = "ar", like, unlike}) => {
@@ -24,14 +24,14 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
     }
 
     const showDropdown = () => {
-        document.getElementById("myDropdown").classList.toggle("show");
+        document.getElementById(`question_${model.id}`).classList.toggle("show");
 
         // Close the dropdown if the user clicks outside of it
         window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {
-                if (document.getElementById("myDropdown").classList.contains('show')) {
-                    document.getElementById("myDropdown").classList.remove('show');
-                } 
+                if (document.getElementById(`question_${model.id}`).classList.contains('show')) {
+                    document.getElementById(`question_${model.id}`).classList.remove('show');
+                }
             }
         }
     }
@@ -45,12 +45,12 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
                             {model.humanizedCreatedAt()}
                         </Text12>
                     </Card.Subtitle>
-                    <EllipsisIcon className="ml-auto dropbtn" style={{cursor:"pointer"}} onClick={showDropdown} />
-                            <div id="myDropdown" className="dropdown-content">
-                                <a href="#edit">Edit</a>
-                                <a href="#remove">Remove</a>
-                                <a href="#report">Report</a>
-                            </div>
+                    <EllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}} onClick={showDropdown}/>
+                    <div id={`question_${model.id}`} className="dropdown-content">
+                        <a href="#edit">Edit</a>
+                        <a href="#remove">Remove</a>
+                        <a href="#report">Report</a>
+                    </div>
                 </div>
                 <Card.Title>
                     <Text18Black>

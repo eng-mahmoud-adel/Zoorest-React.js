@@ -94,16 +94,47 @@ const instance = axios.create({
 
 
 instance.interceptors.request.use(function (config) {
+    // Do something before request is sent
 
+    //todo try and get the token from state
+    const token = sessionStorage.getItem('access_token') || localStorage.getItem('access_token');
 
-    const token = "";//store.getState().authUser.accessToken;
-
-    if(token){
+    if (token) {
+        //if access token is present, append it to any request
         config.headers.Authorization = token ? `Bearer ${token}` : '';
-
     }
 
     return config;
 });
 
+// Add a response interceptor
+instance.interceptors.response.use(function (response) {
+    // Do something with response data
+    return response;
+}, function (error) {
+    // eslint-disable-next-line default-case
+    switch (error.response.status) {
+        case 401:
+            //show validation error
+            break;
+        case 403:
+            //show validation error
+            break;
+        case 404:
+            //show not found component
+
+            break;
+        case 422:
+            //show validation error
+            //showValidationNoty(error.response.data,message)
+            break;
+        case 500:
+            //show something went wrong
+            break;
+        case 503:
+            //show server maintenance alert
+            break;
+    }
+    return Promise.reject(error);
+});
 export default instance;

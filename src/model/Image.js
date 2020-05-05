@@ -30,6 +30,9 @@ class Image extends Model {
     }
 
     get path_medium() {
+        if (!this._path_medium) {
+            return "";
+        }
         return this._path_medium.replace('}', '');
     }
 

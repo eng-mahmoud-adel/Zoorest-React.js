@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 import {getAuthData} from "./store/actions/auth";
 import {getSiteGlobalData} from "./store/actions/globals";
 import {Helmet} from "react-helmet";
+import NotyToaster from "./components/Noty";
 
 const App = ({getUserData, getGlobalData, location}) => {
 
@@ -27,8 +28,10 @@ const App = ({getUserData, getGlobalData, location}) => {
                 <meta content="ar_AR" property="og:locale:alternate"/>
             </Helmet>
 
+
             {/*Navbar Should always  show in each and every page*/}
             <Navbar/>
+            <NotyToaster/>
 
             <div style={{marginTop: location.pathname !== "/question" ? "100px" : ""}}>
                 {/*Any Non*/}
