@@ -1,4 +1,4 @@
-import {GET_USER_DATA, LOGIN, LOGOUT, SIGNUP} from '../actions/auth'
+import {GET_USER_DATA, LOGIN, LOGOUT, SIGNUP, UPDATE_PROFILE} from '../actions/auth'
 import User from "../../model/User";
 
 const initialState = {
@@ -26,6 +26,13 @@ const authReducer = (state = initialState, action) => {
                 user: null,
                 accessToken: null,
             };
+
+        case UPDATE_PROFILE:
+            return {
+                ...state,
+                user: new User(action.payload),
+            };
+
         default:
             return state;
     }

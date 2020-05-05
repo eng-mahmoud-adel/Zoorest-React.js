@@ -10,6 +10,8 @@ import {likeQuestion, unlikeQuestion} from "../../../store/actions/questions";
 import ProfileAvatar from "../../Avatars/ProfileAvatar";
 import {Text12, Text14Regular, Text16Medium, Text18Black} from "../../UI/Typography";
 import ClampLines from "react-clamp-lines";
+import { EllipsisIcon } from '../../Icons/index';
+
 
 const Question = ({model, className, hide_add_answer, currentLocale = "ar", like, unlike}) => {
 
@@ -21,14 +23,35 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
         }
     }
 
+    const showDropdown = () => {
+        document.getElementById("myDropdown").classList.toggle("show");
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                if (document.getElementById("myDropdown").classList.contains('show')) {
+                    document.getElementById("myDropdown").classList.remove('show');
+                } 
+            }
+        }
+    }
+
     return (
         <Card className={`question-card my-2 w-100 ${className || ""}`}>
             <Card.Body>
-                <Card.Subtitle className="small-text">
-                    <Text12 className="text-muted">
-                        {model.humanizedCreatedAt()}
-                    </Text12>
-                </Card.Subtitle>
+                <div className="d-flex">
+                    <Card.Subtitle className="small-text">
+                        <Text12 className="text-muted">
+                            {model.humanizedCreatedAt()}
+                        </Text12>
+                    </Card.Subtitle>
+                    <EllipsisIcon className="ml-auto dropbtn" style={{cursor:"pointer"}} onClick={showDropdown} />
+                            <div id="myDropdown" className="dropdown-content">
+                                <a href="#edit">Edit</a>
+                                <a href="#remove">Remove</a>
+                                <a href="#report">Report</a>
+                            </div>
+                </div>
                 <Card.Title>
                     <Text18Black>
                         <ClampLines

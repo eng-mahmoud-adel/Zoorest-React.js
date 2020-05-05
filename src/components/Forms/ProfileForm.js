@@ -6,11 +6,26 @@ import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 import {Formik} from "formik";
 import * as Yup from "yup";
+import { connect } from 'react-redux';
+import {updateProfile} from '../../store/actions/auth';
+import User from '../../model/User';
 
 const ProfileForm = (props) => {
 
     const handleFormSubmit = (values) => {
         console.log(values);
+        updateProfile(new User({
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
+            additional_phone_number: values.additional_phone_number,
+            official_name: values.official_name,
+
+            oldPassword: values.oldPassword,
+            newPassword: values.newPassword,
+            password_confirmation: values.password_confirmation,
+        })
+        )
     }
 
     return (
@@ -164,4 +179,10 @@ const ProfileForm = (props) => {
     )
 }
 
-export default ProfileForm;
+const mapDispatchToProps = (dispatch) => ({
+    updateProfile: (request) => {
+        dispatch(updateProfile(request));
+    }
+});
+
+export default connect(null, mapDispatchToProps)(ProfileForm);
