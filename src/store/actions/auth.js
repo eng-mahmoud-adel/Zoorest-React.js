@@ -5,6 +5,7 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const GET_USER_DATA = 'GET_USER_DATA';
 export const SIGNUP = 'SIGNUP';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 
 export const login = (request) => async (dispatch) => {
 
@@ -96,4 +97,21 @@ export const logoutUser = () => (dispatch) => {
     dispatch({
         type: LOGOUT
     })
+};
+
+export const updateProfile = (request) => async (dispatch) => {
+    await ApiService
+        .put(`auth/profile`, request)
+        .then(
+            (response) => {
+                console.log(response);
+                dispatch({
+                    type: UPDATE_PROFILE,
+                    payload: response.data,
+                });
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
 };
