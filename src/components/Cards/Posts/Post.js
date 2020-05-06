@@ -7,7 +7,7 @@ import ProfileAvatar from "../../Avatars/ProfileAvatar";
 import {Text16Regular, Text18Bold} from "../../UI/Typography";
 import Button from "../../Buttons/Button/Button";
 import {CommentsIcon, HeartIcon} from "../../Icons";
-
+import {EllipsisIcon} from '../../Icons/index';
 
 const Post = ({id, className, model: post}) => {
     const slickSettings = {
@@ -19,6 +19,24 @@ const Post = ({id, className, model: post}) => {
         initialSlide: 0,
         slidesToShow: 1,
     };
+
+const showDropdown = () => {
+    document.getElementById(`post_${post.id}`).classList.toggle("show");
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            let dropdowns = document.getElementsByClassName("dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                let openDropdown = dropdowns[i];
+                console.log(openDropdown)
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+        }
 
     return (
         <div className="card post-card">
@@ -37,9 +55,18 @@ const Post = ({id, className, model: post}) => {
                     </Link>
                 </div>
                 <div className="col-md-8">
-                    <Card.Title>
-                        <Text18Bold>{post.name}</Text18Bold>
-                    </Card.Title>
+                    <div className="d-flex">
+                        <Card.Title>
+                            <Text18Bold>{post.name}</Text18Bold>
+                        </Card.Title>
+
+                            <EllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}} onClick={showDropdown}/>
+                        <div id={`post_${post.id}`} className="dropdown-content">
+                            <a href="#edit">Edit</a>
+                            <a href="#remove">Remove</a>
+                            <a href="#report">Report</a>
+                        </div>
+                    </div>
 
                     <h4 className="card-text">
                         <Text16Regular className="text-muted">{post.description}</Text16Regular>

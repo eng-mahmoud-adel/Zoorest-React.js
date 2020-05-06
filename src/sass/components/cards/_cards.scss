@@ -39,6 +39,10 @@
 
   }
 
+  .dropdown-content {
+    @extend %dropdown-content;
+  }
+
   .small-text {
     padding: $padding-8 $padding-24 $padding-16;
     font-size: $font-size-12;
@@ -114,6 +118,10 @@
     margin-bottom: 0;
     color: $dark;
     font-size: $font-size-24;
+  }
+
+  .dropdown-content {
+    @extend %dropdown-content;
   }
 
   .card-body {
@@ -244,6 +252,10 @@
     .small-text {
       font-size: $font-size-12;
       color: $gray-color;
+    }
+
+    .dropdown-content {
+      @extend %dropdown-content;
     }
 
     .card-text {

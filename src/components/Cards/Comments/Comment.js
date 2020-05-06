@@ -2,16 +2,47 @@ import React from 'react';
 import {Card, Row} from "react-bootstrap";
 import {HeartIcon} from "../../Icons";
 import ProfileAvatar, {ProfileAvatarLoadingAnimation} from "../../Avatars/ProfileAvatar";
+import {EllipsisIcon} from '../../Icons/index';
 
 const Comment = (props) => {
     const {model} = props;
+
+    const showDropdown = () => {
+        document.getElementById(`comment_${model.id}`).classList.toggle("show");
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                let dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    let openDropdown = dropdowns[i];
+                    console.log(openDropdown)
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        }
+
     return (
         <Card className={`comment-card ${props.className || ""}`}>
             <Card.Body>
-                <small className="small-text">{model.humanizedCreatedAt()}</small>
-                <Card.Text>
-                    {model && (model.body || model.text)}
-                </Card.Text>
+                <div className="d-flex">
+
+                    <small className="small-text">{model.humanizedCreatedAt()}</small>
+
+                    <EllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}} onClick={showDropdown}/>
+                    <div id={`comment_${model.id}`} className="dropdown-content">
+                        <a href="#edit">Edit</a>
+                        <a href="#remove">Remove</a>
+                        <a href="#report">Report</a>
+                    </div>
+                </div>
+
+                    <Card.Text>
+                        {model && (model.body || model.text)}
+                    </Card.Text>
             </Card.Body>
             <Card.Footer>
                 <Row>
