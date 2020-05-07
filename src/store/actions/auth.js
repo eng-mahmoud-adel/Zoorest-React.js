@@ -1,6 +1,6 @@
 import ApiService from "../../services/ApiService";
 import {HIDE_MODAL} from "./modal";
-import {ERROR_422, ERROR_500, ERROR_503} from "./response_errors";
+import {ERROR_401, ERROR_403, ERROR_422, ERROR_500, ERROR_503} from "./response_errors";
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
@@ -161,7 +161,11 @@ export const logoutUser = () => (dispatch) => {
 
 export const updateProfile = (request) => async (dispatch, getState) => {
     await ApiService
-        .put(`auth/profile`, request)
+        .put(`auth/profile`, request, {
+            headers: {
+                Authorization: `Bearer ${getState().authUser.accessToken}`
+            }
+        })
         .then(
             (response) => {
                 console.log(response);
@@ -171,7 +175,27 @@ export const updateProfile = (request) => async (dispatch, getState) => {
                 });
             },
             (error) => {
-                console.log(error.response);
+                switch (error.response.status) {
+                    case 401:
+                        //show validation error
+                        dispatch({type: ERROR_401, payload: error.response.data.message})
+                        break;
+
+                    case 403:
+                        //show validation error
+                        dispatch({type: ERROR_403, payload: error.response.data.message})
+                        break;
+
+                    case 500:
+                        //show something went wrong
+                        dispatch({type: ERROR_500})
+                        break;
+
+                    case 503:
+                        //show server maintenance alert
+                        dispatch({type: ERROR_503})
+                        break;
+                }
             }
         );
 };

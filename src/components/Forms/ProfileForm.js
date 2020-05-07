@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import TextArea from '../Inputs/TextArea';
 import {MultiSelect} from '../Inputs/MultiSelect';
@@ -6,41 +6,57 @@ import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 import {Formik} from "formik";
 import * as Yup from "yup";
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {updateProfile} from '../../store/actions/auth';
 import User from '../../model/User';
 import TimeInputOne from '../../components/Inputs/TimeInputOne';
 import CounterOne from '../../components/Inputs/CounterOne';
 
-const ProfileForm = (props) => {
+const ProfileForm = ({countries, cities, currentLocale}) => {
 
     const handleFormSubmit = (values) => {
         console.log(values);
         updateProfile(new User({
-            name: values.name,
-            email: values.email,
-            phone: values.phone,
-            additional_phone_number: values.additional_phone_number,
-            official_name: values.official_name,
+                name: values.name,
+                email: values.email,
+                phone: values.phone,
+                additional_phone_number: values.additional_phone_number,
+                official_name: values.official_name,
 
-            oldPassword: values.oldPassword,
-            newPassword: values.newPassword,
-            password_confirmation: values.password_confirmation,
-        })
+                oldPassword: values.oldPassword,
+                newPassword: values.newPassword,
+                password_confirmation: values.password_confirmation,
+            })
         )
+    }
+
+    const getCountries = () => {
+        return countries.map(country => ({
+            value: country.id,
+            label: country.getLocalizedName(currentLocale),
+        }));
+    }
+
+    const getCities = () => {
+        return cities.map(city => ({
+            value: city.id,
+            label: city.getLocalizedName(currentLocale),
+        }));
     }
 
     return (
         <Fragment>
 
-            <section>
-                <h1>Edit your Profile</h1>
-                <div className= "row">
-                    <p className= "col-md-8">Audit Bureau of Circulations integrated the definition of this medium in its latest report. Legal rights are at least unclear for many common Internet activities, such as posting a picture that belongs</p>
-                    <div className= "col-md-4">
-                        <Button text= "Save all changes" color= "btn btn-info" size= "btn-sm" onClick= {handleFormSubmit} />
+            <section className="wrapper-one">
+                <h1 className="font-weight-bold">Edit your Profile</h1>
+                <div className="row">
+                    <p className="col-md-9">Audit Bureau of Circulations integrated the definition of this medium in its
+                        latest report. Legal rights are at least unclear for many common Internet activities, such as
+                        posting a picture that belongs</p>
+                    <div className="col-md-3">
+                        <Button text="Save all changes" color="btn btn-info" size="btn-sm" onClick={handleFormSubmit}/>
                     </div>
-                    </div>
+                </div>
             </section>
 
             <Formik
@@ -77,14 +93,14 @@ const ProfileForm = (props) => {
 
                     <form onSubmit={handleSubmit}>
                         <div className="form-group profile-form col-12">
-                            <h3 className="title">{props.title}</h3>
+                            <h3 className="title font-weight-bold mt-0 pt-0">Account information</h3>
                             <div className="row my-5">
                                 <div className="col-2">
                                     <DropFile/>
                                 </div>
                                 <div className="col-3 mt-3">
                                     <Button text="Upload your profile picture" color="btn btn-info" size="btn-sm"/>
-                                    <p className="text mt-2">{props.text}</p>
+                                    <p className="text mt-2">At least 800x800 PNG</p>
                                 </div>
                             </div>
                             <div className="row">
@@ -173,21 +189,21 @@ const ProfileForm = (props) => {
                                 </div>
                                 <div className="col-6">
                                     <div className="mb-3">
+                                        <label className="font-weight-bold">Select your location</label>
                                         <BasicInput className="input-icon-left" type="text"
-                                                    right_icon="fa fa-commenting-o fa-lg" placeholder="maadi street"
-                                                    label="Select your location"/>
+                                                    right_icon="fa fa-commenting-o fa-lg" placeholder="maadi street"/>
                                     </div>
                                     <div className="mb-3">
-                                        <label>Country</label>
-                                        <MultiSelect/>
+                                        <label className="font-weight-bold">Country</label>
+                                        <MultiSelect options={getCountries()}/>
                                     </div>
                                     <div className="mb-3">
-                                        <label>Region</label>
-                                        <MultiSelect/>
+                                        <label className="font-weight-bold">Region</label>
+                                        <MultiSelect options={getCities()}/>
                                     </div>
                                     <div className="mb-3">
-                                        <label>About doctor</label>
-                                        <TextArea rows="6"/>
+                                        <label className="font-weight-bold">About doctor</label>
+                                        <TextArea rows="15"/>
                                     </div>
                                 </div>
                             </div>
@@ -197,32 +213,39 @@ const ProfileForm = (props) => {
             >
             </Formik>
 
-            <section>
-                <h1>Appointment management</h1>
+            <section className="wrapper-two my-5">
+                <h3 className="font-weight-bold mb-5">Appointment management</h3>
                 <div className="row">
-                    <div className="col-md-4">
-                        <label>Availability</label>
-                        <TimeInputOne type= "text" className= "input-time-one" icon= "fa fa-clock-o clock-icon fa-lg" />
+                    <div className="col-md-6">
+                        <label className="font-weight-bold">Availability</label>
+                        <TimeInputOne type="text" className="input-time-one" icon="fa fa-clock-o clock-icon fa-lg"/>
                     </div>
 
-                    <div className="col-md-4">
-                        <label>Examination Duration</label>
-                        <CounterOne />
+                    <div className="col-md-6">
+                        <label className="font-weight-bold">Examination Duration</label>
+                        <CounterOne/>
                     </div>
                 </div>
             </section>
 
-            <section>
-                <h1>Certificates</h1>
+            <section className="wrapper-three my-5">
+                <h3 className="font-weight-bold">Certificates</h3>
+                <img src=""/>
             </section>
 
-            <section>
-                <h1>Articles status</h1>
+            <section className="wrapper-four my-5">
+                <h3 className="font-weight-bold">Articles status</h3>
             </section>
 
         </Fragment>
     )
 }
+
+const mapStateToProps = (state) => ({
+    countries: state.globals.countries,
+    cities: state.globals.cities,
+    currentLocale: state.i18n.value,
+});
 
 const mapDispatchToProps = (dispatch) => ({
     updateProfile: (request) => {
@@ -230,4 +253,4 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-export default connect(null, mapDispatchToProps)(ProfileForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileForm);
