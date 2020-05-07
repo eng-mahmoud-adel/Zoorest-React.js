@@ -1,17 +1,58 @@
 import React from 'react'
-import {Formik} from "formik";
+import {Formik, getIn} from "formik";
 import * as Yup from "yup";
 import BasicInput from "../../../../Inputs/BasicInput";
 import {SingleSelect} from "../../../../Inputs/MultiSelect";
 import Button from "../../../../Buttons/Button/Button";
 import {registerUser} from "../../../../../store/actions/auth";
 import {connect} from "react-redux";
+import {HIDE_MODAL} from "../../../../../store/actions/modal";
 
-const UserForm = ({currentLocale, countries, cities, districts, register}) => {
+const getError = (name, {touched, errors, status}) => {
+    const fieldTouched = getIn(touched, name);
+    const backendError = getIn(status, ["apiErrors", name]);
+    const clientError = getIn(errors, name);
 
-    const handleFormSubmit = (values) => {
+    if (clientError && fieldTouched) {
+        return clientError;
+    }
+    if (backendError && !fieldTouched) {
+        return backendError;
+    }
+    return undefined;
+};
+const UserForm = ({currentLocale, countries, cities, districts, register, hideModal}) => {
+
+    const handleSubmissionSuccess = (handleReset) => {
+        //Close Modal After A successful signup
+        handleReset();
+        hideModal();
+    }
+
+    const handleSubmissionFailure = (resetForm, values, error) => {
+        // eslint-disable-next-line default-case
+        switch (error.response.status) {
+            case 422:
+                let apiErrors = {};
+                let errors = error.response.data.errors;
+                let errorFields = Object.keys(errors);
+                for (let i = 0; i < errorFields.length; i++) {
+                    let key = errorFields[i];
+                    apiErrors[key] = errors[key][0];
+                }
+                debugger
+
+                resetForm({values, status: {apiErrors}});
+
+
+                break;
+        }
+    }
+
+    const handleFormSubmit = (values, resetForm) => {
         console.log(values);
         register({
+            apiErrors: {},
             name: values.name,
             email: values.email,
             phone: values.phone,
@@ -22,6 +63,10 @@ const UserForm = ({currentLocale, countries, cities, districts, register}) => {
             country_id: values.country_id,
             city_id: values.city_id,
             district_id: values.district_id,
+        }, handleSubmissionSuccess.bind(this, resetForm), handleSubmissionFailure.bind(this, resetForm, values), () => {
+            // debugger
+            // actions.setSubmitting(false);
+
         });
     }
 
@@ -38,27 +83,63 @@ const UserForm = ({currentLocale, countries, cities, districts, register}) => {
                 city_id: null,
                 district_id: null,
             }}
-            onSubmit={handleFormSubmit}
+            onSubmit={async (values, {setStatus, resetForm}) => {
+                handleFormSubmit(values, resetForm)
+            }
+            }
             validationSchema={Yup.object().shape({
-                name: Yup.string().required('This field is required.'),
-                email: Yup.string().email('Invalid email').required('This field is required.'),
-                phone: Yup.string().required('This field is required.'),
-                additional_phone_number: Yup.string().nullable(),
+                name: Yup
+                    .string()
+                    .required('This field is required.'),
+                email: Yup
+                    .string()
+                    .email('Invalid email')
+                    .required('This field is required.'),
+                phone: Yup
+                    .string()
+                    .required('This field is required.'),
+                additional_phone_number: Yup
+                    .string()
+                    .nullable(),
+                password: Yup
+                    .string()
+                    .required('This field is required.'),
+                password_confirmation: Yup
+                    .string()
+                    .required('This field is required.')
+                    .when("password", {
+                        is: val => (val && val.length > 0),
+                        then: Yup.string().oneOf(
+                            [Yup.ref("password")],
+                            "Both password need to be the same"
+                        )
+                    }),
 
-                password: Yup.string().required('This field is required.'),
-                password_confirmation: Yup.string().required('This field is required.').when("password", {
-                    is: val => (val && val.length > 0 ? true : false),
-                    then: Yup.string().oneOf(
-                        [Yup.ref("password")],
-                        "Both password need to be the same"
-                    )
-                }),
 
-                country_id: Yup.number().required(),
-                city_id: Yup.number().nullable(),
-                district_id: Yup.number().nullable(),
+                country_id: Yup
+                    .number()
+                    .required(),
+                city_id: Yup
+                    .number()
+                    .nullable(),
+                district_id: Yup
+                    .number()
+                    .nullable(),
             })}
-            render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid, handleReset}) =>
+            render={({
+                         values,
+                         dirty,
+                         touched,
+                         errors,
+                         handleChange,
+                         handleBlur,
+                         handleSubmit, isSubmitting,
+                         isValid,
+                         handleReset,
+                         setErrors,
+                         status,
+
+                     }) =>
                 <form onSubmit={handleSubmit}>
 
                     <div className="my-3">
@@ -131,9 +212,8 @@ const UserForm = ({currentLocale, countries, cities, districts, register}) => {
                     </div>
 
                     <div className="mb-4 col-md-11 mx-auto">
-                        <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick={() => {
-                            handleFormSubmit(values);
-                            handleReset();
+                        <Button type="submit" text="Sign Up" color="btn btn-info" size="btn-sm" onClick={() => {
+                            handleFormSubmit(values, setErrors, handleReset);
                         }}
                                 disabled={isSubmitting}/>
                     </div>
@@ -145,8 +225,11 @@ const UserForm = ({currentLocale, countries, cities, districts, register}) => {
     );
 }
 const mapDispatchToProps = (dispatch) => ({
-    register: (request) => {
-        dispatch(registerUser(request))
+    register: (request, onSuccess, onFail, onFinally) => {
+        dispatch(registerUser(request, onSuccess, onFail, onFinally))
+    },
+    hideModal: (request) => {
+        dispatch({type: HIDE_MODAL, payload: null})
     },
 });
 

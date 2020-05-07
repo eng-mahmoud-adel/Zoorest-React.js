@@ -126,7 +126,7 @@ export const registerProvider = (request) => async (dispatch, getState) => {
         );
 };
 
-export const registerUser = (request) => async (dispatch, getState) => {
+export const registerUser = (request, onSuccess, onFail, onFinally) => async (dispatch, getState) => {
     await ApiService
         .post(`auth/user-signup`, request)
         .then(
@@ -136,20 +136,23 @@ export const registerUser = (request) => async (dispatch, getState) => {
                 localStorage.setItem('access_token', response.headers.authorization);
                 sessionStorage.setItem('access_token', response.headers.authorization);
 
-
                 dispatch({
                     type: SIGNUP,
                     payload: response.data,
                     accessToken: response.headers.authorization,
                 });
+                onSuccess()
 
-                //Close Modal After A successful signup
-                dispatch({type: HIDE_MODAL, payload: null})
             },
             (error) => {
-                console.log(error.response);
+                onFail(error)
             }
-        );
+        ).finally(() => {
+            if (onFinally) {
+                onFinally()
+
+            }
+        });
 };
 
 export const logoutUser = () => (dispatch) => {
