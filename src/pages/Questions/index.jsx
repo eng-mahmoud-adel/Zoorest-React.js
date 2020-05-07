@@ -12,15 +12,21 @@ import {
 } from "../../store/actions/questions";
 import Tabs from "react-bootstrap/Tabs";
 import {connect} from "react-redux";
-import {FormControl, Row} from "react-bootstrap";
+import {Row} from "react-bootstrap";
 import QuestionBasePage from "./_layout";
 import QuestionLoadingAnimation, {QuestionLoadingAnimationBar} from "../../components/Cards/Questions/LoadingAnimations/Question";
+import SearchBar from "../../components/SearchBar";
 
-const AllQuestionsContainer = props => {
+const AllQuestionsContainer = (
+    {
+        getRecentQuestions, getNotAnsweredQuestions, getMostCommonQuestions,
+        getMoreRecentQuestions, recent_questions_data, not_answered_data,
+        most_common_data
+    }
+) => {
 
     const [key, setKey] = useState("recent_questions");
 
-    const {getRecentQuestions, getNotAnsweredQuestions, getMostCommonQuestions, getMoreRecentQuestions} = props;
     useEffect(() => {
         getRecentQuestions();
         getNotAnsweredQuestions();
@@ -30,12 +36,12 @@ const AllQuestionsContainer = props => {
     return (
         <QuestionBasePage>
             <Row className="mb-3" size="xl">
-                <FormControl
-                    required
-                    type="text"
+                <SearchBar
                     placeholder="Type Something"
-                    size="lg"
-                />
+                    size="xl"
+                    onInputChange={(query) => {
+                        console.log(query);
+                    }}/>
             </Row>
 
             <Tabs id="recent_question"
@@ -43,8 +49,8 @@ const AllQuestionsContainer = props => {
                   onSelect={(k) => setKey(k)}>
 
                 <Tab eventKey="recent_questions" title="Recent Questions">
-                    {props.recent_questions_data.data.length !== 0 ? <LazyList
-                            data={props.recent_questions_data}
+                    {recent_questions_data.data.length !== 0 ? <LazyList
+                            data={recent_questions_data}
                             loadMoreMessage={"Load More Questions"}
                             component={Question}
                             placeholderComponent={QuestionLoadingAnimation}
@@ -61,7 +67,7 @@ const AllQuestionsContainer = props => {
                 <Tab eventKey="not_answered" title="Not Answered">
 
                     <LazyList
-                        data={props.not_answered_data}
+                        data={not_answered_data}
                         loadMoreMessage={"Load More Questions"}
                         component={Question}
                         placeholderComponent={QuestionLoadingAnimation}
@@ -72,7 +78,7 @@ const AllQuestionsContainer = props => {
 
                 <Tab eventKey="most_common" title="Most Common">
                     <LazyList
-                        data={props.most_common_data}
+                        data={most_common_data}
                         loadMoreMessage={"Load More Questions"}
                         component={Question}
                         placeholderComponent={QuestionLoadingAnimation}
