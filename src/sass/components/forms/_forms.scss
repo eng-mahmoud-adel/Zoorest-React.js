@@ -127,14 +127,61 @@
 /* ************************************************ */
 
 // for profile component
+.wrapper-one {
+    h1 {
+        color: $dark;
+        font-size: $font-size-48;
+    }
+    p {
+        font-size: $font-size-18;
+    }
+}
+
 .profile-form {
     background-color: $light;
     height: 1020px;
     border-radius: $border-radius-8;
     padding: $padding-48;
+    border: 1px solid $secondary;
+    .title {
+        font-size: $font-size-24 !important;
+    }
     .text {
         font-size: $font-size-14;
         color: $gray-color;
+    }
+}
+
+.wrapper-two {
+    border: 1px solid $secondary;
+    padding: $padding-48;
+    border-radius: $border-radius-8;
+    h3 {
+        color: $dark;
+        font-size: $font-size-24;
+    }
+    p {
+        font-size: $font-size-18;
+    }
+}
+
+.wrapper-three {
+    border: 1px solid $secondary;
+    padding: $padding-48;
+    border-radius: $border-radius-8;
+    h3 {
+        color: $dark;
+        font-size: $font-size-24;
+    }
+}
+
+.wrapper-four {
+    border: 1px solid $secondary;
+    padding: $padding-48;
+    border-radius: $border-radius-8;
+    h3 {
+        color: $dark;
+        font-size: $font-size-24;
     }
 }
 /* ************************************************ */
