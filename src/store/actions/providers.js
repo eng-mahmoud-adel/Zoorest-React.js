@@ -50,7 +50,7 @@ export const getMoreProviders = (nextPageUrl) => async (dispatch) => {
         );
 };
 
-export const getProviderQuestions = (limit= 5, id) => async (dispatch) => {
+export const getProviderQuestions = (id, limit = 5) => async (dispatch) => {
     await ApiService.get(`questions?perPage=${limit}&user_id=${id}`)
         .then(
             (response) => {
@@ -80,7 +80,7 @@ export const getMoreProviderQuestions = (nextPageUrl) => async (dispatch) => {
         );
 };
 
-export const getProviderArticles = (limit= 5, id) => async (dispatch) => {
+export const getProviderArticles = (id, limit = 5) => async (dispatch) => {
     await ApiService.get(`articles?perPage=${limit}&user_id=${id}`)
         .then(
             (response) => {

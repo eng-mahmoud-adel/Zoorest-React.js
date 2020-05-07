@@ -66,8 +66,9 @@ const singleProviderReducer = (state = initialState, action) => {
 
         case GET_ARTICLE_PROVIDERS:
             return {
-            ...state,
-            articles: new ModelPaginatedResource(action.payload)
+                ...state,
+                articles: new ModelPaginatedResource(action.payload, Article),
+                loadingArticles: false
             }
 
         case GET_MORE_ARTICLE_PROVIDERS:
@@ -77,7 +78,9 @@ const singleProviderReducer = (state = initialState, action) => {
                     data: state.articles.data.concat(action.payload.data.map(item => new Article(item))),
                     links: new ModelPaginatedResource(action.payload.links),
                     meta: new ModelPaginatedResource(action.payload.meta)
-                })
+                }),
+                loadingArticles: false
+
             }
 
         case GET_PROVIDER_APPOINTMENTS:

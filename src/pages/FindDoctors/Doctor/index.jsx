@@ -51,11 +51,13 @@ const DoctorProfile = (
     }, [setSingleProvider, getSingleProvider, incrementViews, id, singleProvider]);
 
     useEffect(() => {
-        getProviderArticles();
+        if (id)
+            getProviderArticles(id);
     }, [getProviderArticles, id]);
 
     useEffect(() => {
-        getProviderQuestions();
+        if (id)
+            getProviderQuestions(id);
     }, [getProviderQuestions, id]);
 
     return (
@@ -140,7 +142,9 @@ const DoctorProfile = (
                             placeholderComponent={ArticleLoadingAnimation}
                             fetchMoreData={getMoreProviderArticles}
                             refresh={getProviderArticles}
-                        /> : <ArticleLoadingAnimationBar/>}
+                        /> : <div className="row">
+                            <ArticleLoadingAnimationBar/>
+                        </div>}
                 </Tab>
             </Tabs>
         </div>
