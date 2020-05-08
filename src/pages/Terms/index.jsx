@@ -3,7 +3,6 @@ import {Helmet} from "react-helmet";
 import {connect} from "react-redux";
 import {getTermsPage} from "../../store/actions/pages";
 import BannerImage from "../../images/assets/images/Bg@3x.png";
-import {Text48} from "../../components/UI/Typography";
 
 const TermsPage = ({page, getPage, currentLocale}) => {
     useEffect(() => {
@@ -21,8 +20,8 @@ const TermsPage = ({page, getPage, currentLocale}) => {
             <div className="jumbotron jumbotron-fluid " style={{backgroundImage: `url(${BannerImage})`}}>
                 <div className="container text-center">
                     <h3 className="banner-title">
-                        <Text48
-                            className="text-white">Terms And Conditions</Text48>
+                        <h2
+                            className="text-white">Terms And Conditions</h2>
                     </h3>
                 </div>
             </div>

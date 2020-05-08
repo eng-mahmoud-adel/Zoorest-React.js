@@ -2,7 +2,6 @@ import React, {Fragment} from 'react'
 import Article from "../../components/Cards/Articles/Article";
 import SlickSlider from "../../components/Helpers/SlickSlider";
 import {Link} from "react-router-dom";
-import {Text32} from "../../components/UI/Typography";
 import {ArticleLoadingAnimationBar} from "../../components/Cards/Articles/LoadingAnimations/Article";
 
 const RecentArticles = ({articles}) => {
@@ -39,10 +38,9 @@ const RecentArticles = ({articles}) => {
         <Fragment>
             <div className="row">
                 <div className="col-md-3 title mt-0 pt-0">
-
-                    <Text32>
+                    <h3>
                         Recent Articles
-                    </Text32>
+                    </h3>
                 </div>
                 <div className="col-md-6"/>
                 <Link to="/article" className="col-md-3">See More Articles</Link>

@@ -1,109 +1,121 @@
 import React from 'react'
-import "../../../components/UI/Typography"
-import *  as Typography from "../../../components/UI/Typography";
 
 const TypographyPage = props => {
     return (
         <div className="container">
 
             <div style={{height: 150}} className="row">
-                <Typography.Text64>Typography.</Typography.Text64>
+                <h1>Typography.</h1>
             </div>
 
-            <div style={{height: 200}} className="row">
+            <div style={{height: 400}} className="row">
                 <div className="col-2 align-items-center">
-                    <Typography.Text14Regular>Size: 64px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 80px</Typography.Text14Regular>
+                    <p className="label">Size: 64px</p>
+                    <p className="label">Line: 80px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text64>Welcome to ZooRest the best online platform for your pets.</Typography.Text64>
+                    <h1>Welcome to ZooRest the best online platform for your pets.</h1>
+                    <p className="header-1">Welcome to ZooRest the best online platform for your pets.</p>
                 </div>
             </div>
-            <div style={{height: 200}} className="row">
+            <div style={{height: 400}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 48px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 64px</Typography.Text14Regular>
+                    <p className="label">Size: 48px</p>
+                    <p className="label">Line: 64px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text48>Welcome to ZooRest the best online platform for your pets.</Typography.Text48>
+                    <h2>Welcome to ZooRest the best online platform for your pets.</h2>
+                    <p className="header-2">Welcome to ZooRest the best online platform for your pets.</p>
+
                 </div>
             </div>
 
             <div style={{height: 170}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 32px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 48px</Typography.Text14Regular>
+                    <p className="label">Size: 32px</p>
+                    <p className="label">Line: 48px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text32>Welcome to ZooRest the best online platform for your pets.</Typography.Text32>
+                    <h3>Welcome to ZooRest the best online platform for your pets.</h3>
+                    <p className="header-3">Welcome to ZooRest the best online platform for your pets.</p>
+
                 </div>
             </div>
 
             <div style={{height: 160}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 24px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 36px</Typography.Text14Regular>
+                    <p className="label">Size: 24px</p>
+                    <p className="label">Line: 36px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text24>Welcome to ZooRest the best online platform for your pets.</Typography.Text24>
+                    <h4>Welcome to ZooRest the best online platform for your pets.</h4>
+                    <p className="header-4">Welcome to ZooRest the best online platform for your pets.</p>
+
                 </div>
             </div>
 
             <div style={{height: 150}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 18px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 28px</Typography.Text14Regular>
+                    <p className="label">Size: 18px</p>
+                    <p className="label">Line: 28px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text18Medium>Welcome to ZooRest the best online platform for your
-                        pets.</Typography.Text18Medium>
+                    <h5>Welcome to ZooRest the best online platform for your
+                        pets.</h5>
+                    <p className="header-5">Welcome to ZooRest the best online platform for your pets.</p>
+
                 </div>
             </div>
             <div style={{height: 140}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 16px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 24px</Typography.Text14Regular>
+                    <p className="label">Size: 16px</p>
+                    <p className="label">Line: 24px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text16Regular>Welcome to ZooRest the best online platform for your
-                        pets.</Typography.Text16Regular>
+                    <h6>Welcome to ZooRest the best online platform for your pets.</h6>
+                    <p className="header-6">Welcome to ZooRest the best online platform for your pets.</p>
+
                 </div>
             </div>
             <div style={{height: 130}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 14px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 22px</Typography.Text14Regular>
+                    <p className="label">Size: 14px</p>
+                    <p className="label">Line: 22px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text14Regular>Welcome to ZooRest the best online platform for your
-                        pets.</Typography.Text14Regular>
+                    <p className="label">Welcome to ZooRest the best online platform for your
+                        pets.</p>
+                    <p className="label">Welcome to ZooRest the best online platform for your pets.</p>
+
                 </div>
             </div>
             <div style={{height: 120}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 12px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 18px</Typography.Text14Regular>
+                    <p className="label">Size: 12px</p>
+                    <p className="label">Line: 18px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text12>Welcome to ZooRest the best online platform for your pets.</Typography.Text12>
+                    <small>Welcome to ZooRest the best online platform for your pets.</small>
+                    <p className="small">Welcome to ZooRest the best online platform for your pets.</p>
                 </div>
             </div>
             <div style={{height: 110}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 10px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 14px</Typography.Text14Regular>
+                    <p className="label">Size: 10px</p>
+                    <p className="label">Line: 14px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text10>Welcome to ZooRest the best online platform for your pets.</Typography.Text10>
+                    <p className="micro">Welcome to ZooRest the best online platform for your pets.</p>
                 </div>
             </div>
             <div style={{height: 100}} className="row">
                 <div className="col-2">
-                    <Typography.Text14Regular>Size: 8px</Typography.Text14Regular>
-                    <Typography.Text14Regular>Line: 12px</Typography.Text14Regular>
+                    <p className="label">Size: 8px</p>
+                    <p className="label">Line: 12px</p>
                 </div>
                 <div className="col-10">
-                    <Typography.Text08>Welcome to ZooRest the best online platform for your pets.</Typography.Text08>
+                    <p className="nano">Welcome to ZooRest the best online platform for your pets.</p>
+
                 </div>
             </div>
 

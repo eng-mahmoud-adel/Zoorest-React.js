@@ -6,7 +6,6 @@ import Tag from "../../components/Tags/Tag";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Article from "../../components/Cards/Articles/Article";
 import {SearchIcon} from "../../components/Icons";
-import {Text14Medium, Text18Bold, Text48} from "../../components/UI/Typography";
 import ArticleLoadingAnimation from "../../components/Cards/Articles/LoadingAnimations/Article";
 
 const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles}) => {
@@ -15,18 +14,15 @@ const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles}) =>
 
     useEffect(() => {
         getArticles();
-        getMoreArticles();
-    }, [getArticles, getMoreArticles]);
+    }, [getArticles]);
 
     return (
         <div className="all-articles container mt-5 pb-5">
-            <h1 className="title mt-0 pt-0 font-weight-bold">
+            <h2>Articles</h2>
 
-                <Text48>Articles</Text48>
-            </h1>
             <div className="wrapper d-flex mt-5 mb-3">
-                <h5 className="second-title font-weight-bold col-md-2 pl-1 mb-0">
-                    <Text18Bold className="text-info">Trending Topics:</Text18Bold>
+                <h5 className="second-title col-md-2 pl-1 mb-0 font-bold text-info">
+                    Trending Topics:
                 </h5>
                 <ul className="list-unstyled d-flex col-10 justify-content-between mb-0">
 
@@ -37,9 +33,9 @@ const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles}) =>
 
             <div className="row">
                 <div className="col-md-8">
-                    <Text14Medium>
+                    <label className="font-medium">
                         {articles.all.getTotalItems()} articles sorted by
-                    </Text14Medium>
+                    </label>
                 </div>
                 <div className="col-md-4">
                     {/*<BasicInput className="basic-input" type="text" right_icon="fa fa-search fa-lg"*/}
@@ -77,7 +73,7 @@ const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles}) =>
                     loader={(<Fragment>
                         <div className="row">
                             {[...Array(3)].map((n, index) => (
-                                <div className="col-lg-4">
+                                <div key={`loader_${index}`} className="col-lg-4">
                                     <ArticleLoadingAnimation/>
                                 </div>
                             ))}

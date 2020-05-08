@@ -3,7 +3,6 @@ import DownloadImage from '../../images/assets/images/Group 18@3x.png';
 import googlePlayImage from '../../images/assets/images/Google Play Badge US@3x.png';
 import appStoreImage from '../../images/assets/images/Group 27@3x.png';
 import LazyLoad from "react-lazyload";
-import {Text18Regular, Text32} from "../../components/UI/Typography";
 
 const DownloadAppSection = (props) => {
     const {downloadData, currentLocale} = props;
@@ -18,13 +17,13 @@ const DownloadAppSection = (props) => {
             <div className="col-md-6 wrap-section order-md-2 order-1 text-center text-md-left mb-5">
 
                 <div className="title mt-0 mt-md-5 pt-0 pt-md-5">
-                    <Text32>
+                    <h3>
                         {downloadData.getFiledValueByName("title", currentLocale)}
-                    </Text32>
+                    </h3>
                 </div>
 
                 <div className="wrapper">
-                    <Text18Regular>{downloadData.getFiledValueByName("description", currentLocale)}</Text18Regular>
+                    <h5 className="font-regular">{downloadData.getFiledValueByName("description", currentLocale)}</h5>
 
                     <div className="row">
                         <div className="col-xl-5 col-lg-5 col-md-6 col-4 ml-1 ml-sm-0">

@@ -12,7 +12,6 @@ import LoginForm from "../Forms/Auth/LoginForm";
 import SignUpFormContainer from "../Forms/Auth/Signup/SignUpFormContainer";
 import {withTranslation} from 'react-i18next';
 import ProfileAvatar from "../Avatars/ProfileAvatar";
-import {Text14Medium, Text14Regular} from "../UI/Typography";
 
 const Auth = withTranslation()(({authUser, showModal, t}) => {
     const showSignUpModal = () => {
@@ -31,25 +30,25 @@ const Auth = withTranslation()(({authUser, showModal, t}) => {
                     {/*Show Sign in and Sign up Button when there is no auth user*/}
                     <Nav.Item as="li" className="mr-3">
                         <Link className="nav-link" to="#" onClick={showSignInModal}>
-                            <Text14Regular>
+                            <label className="font-medium">
                                 {t('login')}
-                            </Text14Regular>
+                            </label>
                         </Link>
                     </Nav.Item>
 
                     <Nav.Item as="li">
                         <Button color="btn-info"
                                 onClick={showSignUpModal}>
-                            <Text14Regular className="text-white">
+                            <label className="font-medium text-white">
                                 Signup For Free
-                            </Text14Regular>
+                            </label>
                         </Button>
                     </Nav.Item>
                 </Fragment> :
 
                 <Fragment>
                     {/*There is authenticated User */}
-                    <Text14Medium>{authUser.user.name}</Text14Medium>
+                    <label className="font-medium">{authUser.user.name}</label>
                     <ProfileAvatar model={authUser.user} withLeftName={true} withName={false} withJoiningDate={false}/>
 
                 </Fragment>
@@ -83,37 +82,37 @@ const Navbar = (props) => {
                         <Nav.Item as="li">
 
                             <Link className="nav-link" to="/">
-                                <Text14Regular>
+                                <label className="font-regular">
                                     {t('home')}
-                                </Text14Regular>
+                                </label>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link" to="/question">
-                                <Text14Regular>
+                                <label className="font-regular">
                                     {t('questions')}
-                                </Text14Regular>
+                                </label>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link" to="/article">
-                                <Text14Regular>
+                                <label className="font-regular">
                                     {t('articles')}
-                                </Text14Regular>
+                                </label>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link find-doctor" to="/doctor">
-                                <Text14Regular>
+                                <label className="font-regular">
                                     {t('find_doc')}
-                                </Text14Regular>
+                                </label>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link" to="/post">
-                                <Text14Regular>
+                                <label className="font-regular">
                                     {t('posts')}
-                                </Text14Regular>
+                                </label>
                             </Link>
                         </Nav.Item>
                     </Nav>

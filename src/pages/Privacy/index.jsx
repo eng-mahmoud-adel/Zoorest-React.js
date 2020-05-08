@@ -3,7 +3,6 @@ import {Helmet} from "react-helmet";
 import {connect} from "react-redux";
 import {getPrivacyPage} from "../../store/actions/pages";
 import BannerImage from "../../images/assets/images/Bg@3x.png";
-import {Text48} from "../../components/UI/Typography";
 
 const PrivacyPage = ({page, getPage, currentLocale}) => {
     useEffect(() => {
@@ -21,8 +20,8 @@ const PrivacyPage = ({page, getPage, currentLocale}) => {
             <div className="jumbotron jumbotron-fluid " style={{backgroundImage: `url(${BannerImage})`}}>
                 <div className="container text-center">
                     <h3 className="banner-title">
-                        <Text48
-                            className="text-white">Privacy Policy</Text48>
+                        <h2
+                            className="text-white">Privacy Policy</h2>
                     </h3>
                 </div>
             </div>

@@ -16,13 +16,11 @@ const ArticleLoadingAnimation = props => {
                 <div className="image loading"/>
             </div>
             <Card.Body>
-                <Card.Text>
-                    <div className="bars">
-                        <div className="bar bar1 loading"/>
-                        <div className="bar bar1 loading"/>
-                        <div className="bar bar2 loading"/>
-                    </div>
-                </Card.Text>
+                <div className="bars card-text">
+                    <div className="bar bar1 loading"/>
+                    <div className="bar bar1 loading"/>
+                    <div className="bar bar2 loading"/>
+                </div>
             </Card.Body>
             <Card.Footer>
                 <Row>
@@ -40,18 +38,19 @@ const ArticleLoadingAnimation = props => {
     );
 };
 
-export const ArticleLoadingAnimationBar = ({size, count}) => {
+export const
+    ArticleLoadingAnimationBar = ({size, count}) => {
 
-    return (
-        <Fragment>
-            {[...Array(count)].map((n, index) => (
-                <div key={`article-animation-${index}`} className={` ${size}`}>
-                    <ArticleLoadingAnimation/>
-                </div>
-            ))}
-        </Fragment>
-    )
-}
+        return (
+            <Fragment>
+                {[...Array(count)].map((n, index) => (
+                    <div key={`article-animation-${index}`} className={` ${size}`}>
+                        <ArticleLoadingAnimation/>
+                    </div>
+                ))}
+            </Fragment>
+        )
+    }
 
 ArticleLoadingAnimationBar.defaultProps = {
     size: "col-lg-4",

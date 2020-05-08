@@ -286,6 +286,10 @@
       &:nth-of-type(even) .card-footer {
         background-color: $info;
         color: $light;
+
+        .card-text, .client_name, .date {
+          color: $light !important;
+        }
       }
     }
     .slick-dots {

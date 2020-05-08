@@ -7,7 +7,6 @@ import Question from "../../components/Cards/Questions/Question";
 import Tag from "../../components/Tags/Tag";
 import LazyLoad from "react-lazyload";
 import {Link} from 'react-router-dom';
-import {Text18Regular, Text32} from "../../components/UI/Typography";
 
 const RecentQuestions = (props) => {
 
@@ -56,12 +55,12 @@ const RecentQuestions = (props) => {
                 </div>
                 <div className="col-xl-7 col-lg-8 col-md-9 text-center wrapper">
                     <div className="title mt-0">
-                        <Text32>
+                        <h3>
                             {questionsData.getFiledValueByName("title", currentLocale)}
-                        </Text32>
+                        </h3>
 
                     </div>
-                    <Text18Regular>{questionsData.getFiledValueByName("description", currentLocale)}</Text18Regular>
+                    <h5 className="font-regular">{questionsData.getFiledValueByName("description", currentLocale)}</h5>
 
                     <div className="col-lg-6 col-md-7 col-sm-5 col-11 mx-auto">
                         <Link to={questionsData.getFiledValueByName("button_actions", currentLocale)}><Button

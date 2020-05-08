@@ -2,33 +2,28 @@ import React from 'react'
 import Button from '../../components/Buttons/Button/Button';
 import Provider from '../../components/Cards/Profiles/Provider';
 import {Link} from 'react-router-dom';
-import {Text16Black, Text18Regular, Text32} from "../../components/UI/Typography";
 
 const SponsoredProviderSection = ({providers, section, currentLocale}) => {
 
     return (
         <div className="row p-3">
             <div className="col-lg-5 mb-4 mb-md-4">
-                <div className="title mb-5 mt-0">
-                    <Text32>
-                        {section.getFiledValueByName("header", currentLocale)}
-                    </Text32>
-                </div>
+                <h3 className="title mb-5 mt-0">
+                    {section.getFiledValueByName("header", currentLocale)}
+                </h3>
                 <div className="wrapper mb-4">
-                    <Text16Black>
+                    <h6 className="font-black">
                         {section.getFiledValueByName("title", currentLocale)}
-                    </Text16Black>
-                    <Text18Regular className=""
-                                   style={{text: "#778699"}}>{section.getFiledValueByName("description", currentLocale)}</Text18Regular>
+                    </h6>
+                    <h5 className="font-regular"
+                        style={{text: "#778699"}}>{section.getFiledValueByName("description", currentLocale)}</h5>
                 </div>
                 <div className="wrapper mb-4">
-                    <h3>
-                        <Text16Black>
-                            {section.getFiledValueByName("title", currentLocale)}
-                        </Text16Black>
-                    </h3>
-                    <Text18Regular className=""
-                                   style={{text: "#778699"}}>{section.getFiledValueByName("description", currentLocale)}</Text18Regular>
+                    <h6 className="font-black">
+                        {section.getFiledValueByName("title", currentLocale)}
+                    </h6>
+                    <h5 className="font-regular"
+                        style={{text: "#778699"}}>{section.getFiledValueByName("description", currentLocale)}</h5>
                 </div>
                 <div className="col-xl-7 col-lg-8 col-md-5 col-sm-6 pl-0">
                     <Link to={section.getFiledValueByName("button_actions", currentLocale)}><Button

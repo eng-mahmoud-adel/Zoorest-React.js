@@ -4,7 +4,6 @@ import Tabs from 'react-bootstrap/Tabs';
 import Post from '../../components/Cards/Posts/Post';
 import Tab from "react-bootstrap/Tab";
 import LazyLoad from "react-lazyload";
-import {Text32} from "../../components/UI/Typography";
 
 const RecentPosts = (props) => {
     const data = props.data;
@@ -14,9 +13,9 @@ const RecentPosts = (props) => {
         <div className="row">
             <div className="title d-lg-none">
 
-                <Text32>
+                <h3>
                     Join the Largest Community for adoption and lost Pets
-                </Text32>
+                </h3>
 
             </div>
 
@@ -28,9 +27,9 @@ const RecentPosts = (props) => {
             </div>
             <div className="col-lg-6">
                 <div className="title d-none d-lg-block">
-                    <Text32>
+                    <h3>
                         Join the Largest Community for adoption and lost Pets
-                    </Text32>
+                    </h3>
                 </div>
 
                 <Tabs id="controlled-tab-example"

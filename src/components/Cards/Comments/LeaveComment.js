@@ -5,7 +5,6 @@ import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import DropZone from "../../Forms/DropFiles/DropFile";
 import PropTypes from "prop-types";
-import {Text24Bold} from "../../UI/Typography";
 
 const LeaveCommentForm = ({onSubmit, withImages}) => {
     return (
@@ -23,7 +22,7 @@ const LeaveCommentForm = ({onSubmit, withImages}) => {
                         <Row>
                             <Col xs="9">
                                 <Card.Title className="card-title">
-                                    <Text24Bold>Leave a comment</Text24Bold>
+                                    <p className="header-4">Leave a comment</p>
                                 </Card.Title>
                             </Col>
                             <Col xs="3">

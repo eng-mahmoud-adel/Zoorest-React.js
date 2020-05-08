@@ -15,13 +15,11 @@ const QuestionLoadingAnimation = ({className}) => {
                 <div className="bars">
                     <div className="bar bar2 loading"/>
                 </div>
-                <Card.Text className="m-0">
-                    <div className="bars">
-                        <div className="bar bar1 loading"/>
-                        <div className="bar bar1 loading"/>
-                        <div className="bar bar2 loading"/>
-                    </div>
-                </Card.Text>
+                <div className="bars m-0 card-text">
+                    <div className="bar bar1 loading"/>
+                    <div className="bar bar1 loading"/>
+                    <div className="bar bar2 loading"/>
+                </div>
             </Card.Body>
             <Card.Footer className="pb-0">
                 <div className="row">

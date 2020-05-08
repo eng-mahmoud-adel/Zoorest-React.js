@@ -3,20 +3,17 @@ import HeroImage from '../../images/assets/images/Group 12@3x.png';
 import Button from '../../components/Buttons/Button/Button';
 import LazyLoad from "react-lazyload";
 import {Link} from 'react-router-dom';
-import {Text64} from "../../components/UI/Typography";
 
 const HeroSection = ({data: section, currentLocale}) => {
 
     return (
         <div className="row">
             <div className="col-lg-6 text-center text-md-left">
-                <h1 className="title mt-0">
-                    <Text64 className="text-dark">
-                        {section.getFiledValueByName("title", currentLocale)}
-                    </Text64>
+                <h1 className="title mt-0 text-dark">
+                    {section.getFiledValueByName("title", currentLocale)}
                 </h1>
                 <div className="wrapper">
-                    <p className="desc">{section.getFiledValueByName("description", currentLocale)}</p>
+                    <p className="header-5 font-regular">{section.getFiledValueByName("description", currentLocale)}</p>
                     <img src={section.image} alt=""/>
                 </div>
                 {

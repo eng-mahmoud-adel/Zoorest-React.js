@@ -78,7 +78,7 @@ const SignUpFormContainer = ({onLoginClicked, currentLocale, countries, cities, 
             <a href="#" onClick={onLoginClicked}>Login</a>
         </div>
         <h3 className="title text-center mt-3 mb-5 pt-0 font-weight-bold">Sign Up with Us</h3>
-        <form autoComplete="off" className="px-5  pt-1">
+        <div className="px-5  pt-1">
             <Tabs id="controlled-tab-example"
                   variant="pills"
                   className="nav-fill"
@@ -133,7 +133,7 @@ const SignUpFormContainer = ({onLoginClicked, currentLocale, countries, cities, 
 
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
 };

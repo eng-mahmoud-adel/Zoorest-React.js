@@ -116,7 +116,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
             // district_id: Yup.number().nullable(),
         })}
         render={({values, errors, touched, handleChange, handleBlur, setFieldValue, handleSubmit, isSubmitting, isValid, handleReset}) =>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} autoComplete="off">
 
                 {/*Map modal*/}
                 <Modal show={isModalVisible} onHide={handleMapModalHide}
@@ -132,7 +132,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
 
 
                 <div className="my-3">
-                    <label className="font-weight-bold">Full Name</label>
+                    <label className="font-medium">Full Name</label>
                     <BasicInput
                         className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
                         name="name" type="text" value={values.name} placeholder="name"
@@ -140,7 +140,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                     {errors.name && touched.name && <div style={{color: "red"}}>{errors.name}</div>}
                 </div>
                 <div className="mb-3">
-                    <label className="font-weight-bold">Email Address</label>
+                    <label className="font-medium">Email Address</label>
                     <BasicInput
                         className={`basic-input ${values.email === "" ? "" : (!errors.email ? "is-valid" : "is-invalid")}`}
                         name="email" type="email" value={values.email} placeholder="email"
@@ -148,7 +148,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                     {errors.email && touched.email && <div style={{color: "red"}}>{errors.email}</div>}
                 </div>
                 <div className="mb-3">
-                    <label className="font-weight-bold">Phone Number</label>
+                    <label className="font-medium">Phone Number</label>
                     <BasicInput
                         className={`basic-input ${values.phone === "" ? "" : (!errors.phone ? "is-valid" : "is-invalid")}`}
                         name="phone" type="text" value={values.phone}
@@ -157,7 +157,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                     <div style={{color: "red"}}>{errors.phone}</div>}
                 </div>
                 <div className="mb-3">
-                    <label className="font-weight-bold">Additional Phone Number</label>
+                    <label className="font-medium">Additional Phone Number</label>
                     <BasicInput
                         className={`basic-input ${values.additional_phone_number === "" ? "" : (!errors.additional_phone_number ? "is-valid" : "is-invalid")}`}
                         name="additional_phone_number" type="text" value={values.additional_phone_number}
@@ -167,7 +167,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                 </div>
                 <div className="row mb-3 ">
                     <div className="col-md-6">
-                        <label className="font-weight-bold">Password</label>
+                        <label className="font-medium">Password</label>
                         <BasicInput
                             className={`basic-input ${values.password === "" ? "" : (!errors.password ? "is-valid" : "is-invalid")}`}
                             name="password" type="password" value={values.password} placeholder="password"
@@ -176,7 +176,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                         <div style={{color: "red"}}>{errors.password}</div>}
                     </div>
                     <div className="col-md-6">
-                        <label className="font-weight-bold">Confirm Password</label>
+                        <label className="font-medium">Confirm Password</label>
                         <BasicInput
                             className={`basic-input ${values.password_confirmation === "" ? "" : (!errors.password_confirmation ? "is-valid" : "is-invalid")}`}
                             name="password_confirmation" type="password"
@@ -189,7 +189,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                 </div>
                 <div className="row mb-3 ">
                     <div className="col-md-6">
-                        <label className="font-weight-bold">Official doctor name</label>
+                        <label className="font-medium">Official doctor name</label>
                         <BasicInput
                             className={`basic-input ${values.official_name === "" ? "" : (!errors.official_name ? "is-valid" : "is-invalid")}`}
                             name="official_name" type="text" value={values.official_name} placeholder="name"
@@ -198,7 +198,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                         <div style={{color: "red"}}>{errors.official_name}</div>}
                     </div>
                     <div className="col-md-6">
-                        <label className="font-weight-bold">Select your location</label>
+                        <label className="font-medium">Select your location</label>
 
                         <input readOnly={true}
                                type="text"

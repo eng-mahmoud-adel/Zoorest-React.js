@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Button from '../Buttons/Button/Button';
-import {Text14Regular, Text18Medium} from "../UI/Typography";
 import LocationPicker from 'react-location-picker';
 
 const Location = ({onLocationSelected, center}) => {
@@ -28,9 +27,9 @@ const Location = ({onLocationSelected, center}) => {
 
     return (
         <form>
-            <Text18Medium>Select Location</Text18Medium>
+            <h5 className="font-medium">Select Location</h5>
             <hr/>
-            <Text14Regular>Drag the marker to your location</Text14Regular>
+            <p className="label font-regular">Drag the marker to your location</p>
             <div className="mb-5">
                 <LocationPicker
                     containerElement={<div style={{height: '100%'}}/>}

@@ -3,7 +3,6 @@ import img from '../../../images/article-cover.png';
 
 import {CommentsIcon, FacebookIcon, ShareIcon, TwitterIcon, ViewsIcon} from '../../Icons/index';
 import ReactPlayer from "react-player";
-import {Text18Regular, Text48} from "../../UI/Typography";
 import {Card, Col, Row} from "react-bootstrap";
 
 const ArticleDetails = ({model, currentLocale, handleShare}) => {
@@ -16,14 +15,14 @@ const ArticleDetails = ({model, currentLocale, handleShare}) => {
         <div className="article-details-card card ">
             <div className="card-header p-3">
                 <h5 className="card-title mb-0">
-                    <Text48>
+                    <h2>
                         {model.getLocalizedTitle(currentLocale)}
-                    </Text48>
+                    </h2>
                 </h5>
                 <small className="small-text">
-                    <Text18Regular className="text-muted">
+                    <h5 className="font-regular text-muted">
                         By {model.author.name}
-                    </Text18Regular>
+                    </h5>
                 </small>
 
                 <div className="icons">

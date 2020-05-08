@@ -1,0 +1,107 @@
+h1 {
+  @include apply-typography(64, 80, $dark, "Roboto Bold")
+}
+
+h2 {
+  @include apply-typography(48, 64, $dark, "Roboto Bold")
+}
+
+h3 {
+  @include apply-typography(32, 48, $dark, "Roboto Medium")
+}
+
+h4 {
+  @include apply-typography(24, 36, $dark, "Roboto Medium")
+}
+
+h5 {
+  @include apply-typography(18, 28, $dark, "Roboto Medium")
+}
+
+h6 {
+  @include apply-typography(16, 24, $dark, "Roboto Medium")
+}
+
+p {
+  @include apply-typography(16, 24, $dark, "Roboto Regular")
+}
+
+label {
+  @include apply-typography(14, 22, $dark, "Roboto Regular")
+}
+
+
+small {
+  @include apply-typography(12, 18, $dark, "Roboto Regular")
+}
+
+
+html {
+  @extend p
+}
+
+
+.header-1 {
+  @extend h1
+}
+
+.header-2 {
+  @extend h2
+}
+
+.header-3 {
+  @extend h3
+}
+
+.header-4 {
+  @extend h4
+}
+
+.header-5 {
+  @extend h5
+}
+
+.header-6 {
+  @extend h6
+}
+
+.paragraph {
+  @extend p
+}
+
+.label {
+  @extend label;
+  display: block;
+}
+
+.small {
+  @extend small;
+  display: block;
+}
+
+.micro {
+  @extend p;
+  @include apply-typography(10, 14, $dark, "Roboto Regular")
+}
+
+.nano {
+  @extend p;
+  @include apply-typography(8, 12, $dark, "Roboto Regular")
+}
+
+
+.font-medium {
+  font-family: "Roboto Medium", serif;
+}
+
+.font-regular {
+  font-family: "Roboto Regular", serif;
+}
+
+.font-bold {
+  font-family: "Roboto Bold", serif;
+}
+
+.font-black {
+  font-family: "Roboto Black", serif;
+}

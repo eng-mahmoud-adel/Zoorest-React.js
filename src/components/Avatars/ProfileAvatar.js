@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import LazyLoad from "react-lazyload";
 import PropTypes from "prop-types";
-import {Text12, Text14Medium} from "../UI/Typography";
 
 const ProfileAvatar = ({model: user, className, radius, withName, withJoiningDate}) => {
 
@@ -34,9 +33,9 @@ const ProfileAvatar = ({model: user, className, radius, withName, withJoiningDat
                 <div className="avatar-four">
                     {ImageOrInitialsComponent}
 
-                    {withName && <h6><Text14Medium>{user.name}</Text14Medium></h6>}
+                    {withName && <p className="font-medium label mb-0">{user.name}</p>}
                     {withJoiningDate &&
-                    <Text12 className="text-muted">{`Joined Since ${user.getJoiningDateString()}`}</Text12>}
+                    <p className="small text-muted">{`Joined Since ${user.getJoiningDateString()}`}</p>}
                 </div>
             </Fragment>
         </Fragment>

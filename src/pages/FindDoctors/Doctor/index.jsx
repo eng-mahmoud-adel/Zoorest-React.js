@@ -19,7 +19,6 @@ import LazyList from "../../../components/DataList";
 import Article from "../../../components/Cards/Articles/Article";
 import Question from "../../../components/Cards/Questions/Question";
 import ProfileAvatar from "../../../components/Avatars/ProfileAvatar";
-import {Text18Bold, Text48} from "../../../components/UI/Typography";
 import QuestionLoadingAnimation from "../../../components/Cards/Questions/LoadingAnimations/Question";
 import ArticleLoadingAnimation, {ArticleLoadingAnimationBar} from "../../../components/Cards/Articles/LoadingAnimations/Article";
 
@@ -72,7 +71,7 @@ const DoctorProfile = (
 
                     <div className="col-xl-10 col-md-9 col-sm-9 col-12">
                         <h2 className="mt-xl-0 mt-lg-2">
-                            <Text48>{stateData.model.official_name || stateData.model.name}</Text48>
+                            <h2>{stateData.model.official_name || stateData.model.name}</h2>
                         </h2>
 
                         <div className="d-flex">
@@ -100,10 +99,10 @@ const DoctorProfile = (
                         </div>
 
                         <div className="address mt-2">
-                            <Text18Bold>{stateData.model.provider.address}</Text18Bold> | <a
+                            <p className="header-5 font-bold">{stateData.model.provider.address}</p> | <a
                             href={`https://www.google.com/maps/@${stateData.model.provider.latitude()},${stateData.model.provider.longitude()},15z`}
                             className="font-weight-bold" target="_blank" rel="noopener noreferrer">
-                            <Text18Bold className="text-info">Show on Maps</Text18Bold>
+                            <p className="header-5 font-bold text-info">Show on Maps</p>
                         </a>
                         </div>
 

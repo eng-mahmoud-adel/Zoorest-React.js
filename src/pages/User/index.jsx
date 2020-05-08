@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import ProfileAvatar from "../../components/Avatars/ProfileAvatar";
-import {Text18Regular, Text48} from "../../components/UI/Typography";
+
 import {Tab, Tabs} from 'react-bootstrap';
 
 const User = ({stateData}) => {
@@ -17,13 +17,13 @@ const User = ({stateData}) => {
 
                 <div>
                     <h2 className="mt-xl-0 mt-lg-2">
-                        <Text48>{stateData.model.name}</Text48>
+                        <h2>{stateData.model.name}</h2>
                     </h2>
                     <h2 className="mt-xl-0 mt-lg-2">
-                        <Text18Regular>{stateData.model.created_at}</Text18Regular>
+                        <h5 className="font-regular">{stateData.model.created_at}</h5>
                     </h2>
                     <h2 className="mt-xl-0 mt-lg-2">
-                        <Text18Regular>{stateData.model.description}</Text18Regular>
+                        <h5 className="font-regular">{stateData.model.description}</h5>
                     </h2>
                 </div>
 

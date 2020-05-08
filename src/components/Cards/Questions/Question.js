@@ -8,7 +8,6 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {likeQuestion, unlikeQuestion} from "../../../store/actions/questions";
 import ProfileAvatar from "../../Avatars/ProfileAvatar";
-import {Text12, Text14Regular, Text16Medium, Text18Black} from "../../UI/Typography";
 import ClampLines from "react-clamp-lines";
 import {EllipsisIcon} from '../../Icons/index';
 
@@ -46,9 +45,9 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
             <Card.Body>
                 <div className="d-flex">
                     <Card.Subtitle className="small-text">
-                        <Text12 className="text-muted">
+                        <small className="text-muted">
                             {model.humanizedCreatedAt()}
-                        </Text12>
+                        </small>
                     </Card.Subtitle>
                     <EllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}} onClick={showDropdown}/>
                     <div id={`question_${model.id}`} className="dropdown-content">
@@ -58,30 +57,28 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
                     </div>
                 </div>
                 <Card.Title>
-                    <Text18Black>
-                        <ClampLines
-                            text={model.title}
-                            id={`recent-question-title-${model.getKey()}`}
-                            lines={1}
-                            ellipsis="..."
-                            buttons={false}
-                            className="m-0"
-                        />
-                    </Text18Black>
-                </Card.Title>
-                <Card.Text className="m-0">
-                    <Text14Regular className="text-muted">
-                        <ClampLines
-                            text={model.description}
-                            id={`recent-question--short-description-${model.getKey()}`}
-                            lines={3}
-                            ellipsis="..."
-                            buttons={false}
-                            className="m-0"
-                        />
+                    <ClampLines
+                        text={model.title}
+                        id={`recent-question-title-${model.getKey()}`}
+                        lines={1}
+                        ellipsis="..."
+                        buttons={false}
+                        className="font-black"
+                        innerElement="h5"
 
-                    </Text14Regular>
-                </Card.Text>
+                    />
+                </Card.Title>
+
+                <ClampLines
+                    text={model.description}
+                    id={`recent-question--short-description-${model.getKey()}`}
+                    lines={3}
+                    ellipsis="..."
+                    buttons={false}
+                    className="label text-muted card-text m-0"
+                    // innerElement="p"
+                />
+
                 <div className="row mb-3">
                     {
                         model.tags.map((tag, index) => (
@@ -118,7 +115,7 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
                         {(!hide_add_answer || !model.isClosed()) &&
                         <Link to={`/question/${model.id/*getLocalizedSlug(currentLocale)*/}`}>
                             <Button className="px-3 py-1" variant="info" size="sm">
-                                <Text16Medium className="text-white">Add Answer</Text16Medium>
+                                Add Answer
                             </Button>
                         </Link>}
                     </div>

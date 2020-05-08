@@ -4,7 +4,6 @@ import SlickSlider from "../../Helpers/SlickSlider";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import ProfileAvatar from "../../Avatars/ProfileAvatar";
-import {Text16Regular, Text18Bold} from "../../UI/Typography";
 import Button from "../../Buttons/Button/Button";
 import {CommentsIcon, HeartIcon} from "../../Icons";
 import {EllipsisIcon} from '../../Icons/index';
@@ -57,7 +56,7 @@ const showDropdown = () => {
                 <div className="col-md-8">
                     <div className="d-flex">
                         <Card.Title>
-                            <Text18Bold>{post.name}</Text18Bold>
+                            <h5 className="font-bold">{post.name}</h5>
                         </Card.Title>
 
                             <EllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}} onClick={showDropdown}/>
@@ -68,9 +67,7 @@ const showDropdown = () => {
                         </div>
                     </div>
 
-                    <h4 className="card-text">
-                        <Text16Regular className="text-muted">{post.description}</Text16Regular>
-                    </h4>
+                    <h6 className="font-regular card-text text-muted">{post.description}</h6>
 
                     <Card.Footer className="mt-5 mx-2    px-0">
                         <div className="row justify-content-between">

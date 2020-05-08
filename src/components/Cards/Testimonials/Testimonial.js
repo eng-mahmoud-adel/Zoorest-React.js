@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from "react-bootstrap/Card";
 import QuoteImage from '../../../images/assets/images/quotation-mark@3x.png'
-import {Text12, Text16Regular, Text18Medium} from "../../UI/Typography";
 
 const Testimonial = ({className, testimonial}) => {
 
@@ -11,17 +10,15 @@ const Testimonial = ({className, testimonial}) => {
                 <img src={QuoteImage} className="img-fluid" alt="quote"/>
             </Card.Title>
             <Card.Body className="py-0">
-                <Card.Text>
+                <Card.Text className="header-6 font-regular text ">
+                    {testimonial.getLocalizedText()}
 
-                    <Text16Regular className="text">
-                        {testimonial.getLocalizedText()}
-                    </Text16Regular>
                 </Card.Text>
             </Card.Body>
             <Card.Footer>
-                <Text18Medium className="client_name">{testimonial.getLocalizedClientName()}</Text18Medium>
-                <br/>
-                <Text12 className="date">{testimonial.date}</Text12>
+                <h5 className="client_name">{testimonial.getLocalizedClientName()}</h5>
+
+                <small className="date">{testimonial.date}</small>
 
             </Card.Footer>
         </Card>

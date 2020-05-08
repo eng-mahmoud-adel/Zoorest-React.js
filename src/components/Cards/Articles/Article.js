@@ -5,7 +5,6 @@ import LazyLoad from "react-lazyload";
 import {CommentsIcon, HeartIcon} from "../../Icons";
 import PropTypes from "prop-types";
 import ReactPlayer from 'react-player'
-import {Text12, Text14Regular, Text24} from "../../UI/Typography";
 import {showModal} from "../../../store/actions/modal";
 import {connect} from "react-redux";
 import ClampLines from 'react-clamp-lines';
@@ -35,17 +34,15 @@ const Article = ({model: article, currentLocale}) => {
         <Card className="article-card m-1">
             <div className="d-flex">
                 <Card.Title>
-                    <Text24>
-                        <ClampLines
-                            text={article.getLocalizedTitle(currentLocale)}
-                            id={`recent-article-title-${article.getKey()}`}
-                            lines={2}
-                            ellipsis="..."
-                            buttons={false}
-                            className="m-0"
-                            innerElement="div"
-                        />
-                    </Text24>
+                    <ClampLines
+                        text={article.getLocalizedTitle(currentLocale)}
+                        id={`recent-article-title-${article.getKey()}`}
+                        lines={2}
+                        ellipsis="..."
+                        buttons={false}
+                        className="m-0"
+                        innerElement="h4"
+                    />
                 </Card.Title>
 
                 <EllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}} onClick={showDropdown}/>
@@ -57,7 +54,7 @@ const Article = ({model: article, currentLocale}) => {
 
             </div>
             <small className="small-text">
-                <Text12 className="created-at">{article.humanizedCreatedAt()}</Text12>
+                <p className="small created-at">{article.humanizedCreatedAt()}</p>
             </small>
             <div className="img-container">
                 <LazyLoad unmountIfInvisible={true} once={true}>
@@ -83,30 +80,24 @@ const Article = ({model: article, currentLocale}) => {
                 </LazyLoad>
             </div>
             <Card.Body>
-                <Card.Text>
-                    <Text14Regular className="short-description">
-                        <ClampLines
-                            text={article.getLocalizedCleanedBody(currentLocale)}
-                            id={`recent-article-short-description-${article.getKey()}`}
-                            lines={3}
-                            ellipsis="..."
-                            buttons={false}
-                            className="m-0"
-                        />
-                    </Text14Regular>
-                </Card.Text>
+                <ClampLines
+                    text={article.getLocalizedCleanedBody(currentLocale)}
+                    id={`recent-article-short-description-${article.getKey()}`}
+                    lines={3}
+                    ellipsis="..."
+                    buttons={false}
+                    className="label font-regular card-text"
+                />
             </Card.Body>
             <Card.Footer>
                 <Row>
                     <Col xs={9} md={7} lg={7} xl={8}>
                         <Link to={`/article/${article.getKey(currentLocale)}`} className="card-link">
-                            <Text14Regular className="read-more">
-                                Read More
-                            </Text14Regular>
+                            <p className="label font-regular read-more"> Read More </p>
                         </Link>
                     </Col>
 
-                    <Col xs={3} md={5} lg={5} xl={4} className= "text-right">
+                    <Col xs={3} md={5} lg={5} xl={4} className="text-right">
                         <div className="icons">
                             <div className="row">
 
