@@ -1,7 +1,11 @@
 import axios from "axios";
 import config from '../config'
-
-// import store from '../store';
+import {
+    showNetworkErrorNoty,
+    showUnAuthenticatedNoty,
+    showUnAuthorizedNoty,
+    showValidationNoty
+} from "../store/actions/response_errors";
 
 function getOS() {
     var userAgent = window.navigator.userAgent,
@@ -24,6 +28,72 @@ function getOS() {
     }
 
     return os;
+}
+
+function onRequestInterceptors(config) {
+    // Do something before request is sent
+
+    let token = null;
+    if (instance.getState && instance.getState().authUser) {
+        token = instance.getState().authUser.accessToken;
+    }
+
+    if (token) {
+        //if access token is present, append it to any request
+        config.headers.Authorization = token ? `Bearer ${token}` : '';
+    }
+
+    return config;
+}
+
+function onResponseRejectedInterceptors(error) {
+    console.log(error.response);
+    if (!error.response) {
+        instance.dispatch(showNetworkErrorNoty());
+    }
+
+    // eslint-disable-next-line default-case
+    switch (error.response.status) {
+        case 401:
+            //show validation error
+            instance.dispatch(showUnAuthenticatedNoty());
+
+            break;
+        case 403:
+            //show validation error
+            instance.dispatch(showUnAuthorizedNoty());
+
+            break;
+        case 404:
+            //show not found component
+
+            break;
+        case 422:
+            //show validation error
+            //showValidationNoty(error.response.data,message)
+            let errors = error.response.data.errors;
+            if (errors) {
+
+
+                let errorFields = Object.keys(errors);
+                for (let i = 0; i < errorFields.length; i++) {
+                    let key = errorFields[i];
+                    // apiErrors[key] = errors[key][0];
+                    instance.dispatch(showValidationNoty(errors[key][0]))
+                }
+            } else {
+                instance.dispatch(showValidationNoty(error.response.data.message))
+
+            }
+            break;
+        case 500:
+            //show something went wrong
+            break;
+        case 503:
+            //show server maintenance alert
+            break;
+    }
+    return Promise.reject(error);
 }
 
 const instance = axios.create({
@@ -93,48 +163,11 @@ const instance = axios.create({
 });
 
 
-instance.interceptors.request.use(function (config) {
-    // Do something before request is sent
-
-    //todo try and get the token from state
-    const token = sessionStorage.getItem('access_token') || localStorage.getItem('access_token');
-
-    if (token) {
-        //if access token is present, append it to any request
-        config.headers.Authorization = token ? `Bearer ${token}` : '';
-    }
-
-    return config;
-});
+instance.interceptors.request.use(onRequestInterceptors);
 
 // Add a response interceptor
 instance.interceptors.response.use(function (response) {
     // Do something with response data
     return response;
-}, function (error) {
-    // eslint-disable-next-line default-case
-    switch (error.response.status) {
-        case 401:
-            //show validation error
-            break;
-        case 403:
-            //show validation error
-            break;
-        case 404:
-            //show not found component
-
-            break;
-        case 422:
-            //show validation error
-            //showValidationNoty(error.response.data,message)
-            break;
-        case 500:
-            //show something went wrong
-            break;
-        case 503:
-            //show server maintenance alert
-            break;
-    }
-    return Promise.reject(error);
-});
+}, onResponseRejectedInterceptors);
 export default instance;

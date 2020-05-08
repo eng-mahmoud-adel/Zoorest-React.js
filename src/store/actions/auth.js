@@ -1,6 +1,5 @@
 import ApiService from "../../services/ApiService";
 import {HIDE_MODAL} from "./modal";
-import {ERROR_401, ERROR_403, ERROR_422, ERROR_500, ERROR_503} from "./response_errors";
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
@@ -8,7 +7,7 @@ export const GET_USER_DATA = 'GET_USER_DATA';
 export const SIGNUP = 'SIGNUP';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 
-export const login = (request) => async (dispatch, getState) => {
+export const login = (request) => async (dispatch) => {
 
     await ApiService
         .post(`auth/login`, request.toJSON())
@@ -34,26 +33,6 @@ export const login = (request) => async (dispatch, getState) => {
 
                 //Close Modal After A successful login
                 dispatch({type: HIDE_MODAL, payload: null})
-            },
-            (error) => {
-                console.log(error.response);
-                switch (error.response.status) {
-                    case 422:
-                        //show validation error
-                        dispatch({type: ERROR_422, payload: error.response.data.message})
-                        break;
-                    case 500:
-                        //show something went wrong
-                        dispatch({type: ERROR_500})
-
-                        break;
-                    case 503:
-                        //show server maintenance alert
-                        dispatch({type: ERROR_503})
-
-                        break;
-                }
-
             }
         );
 };
@@ -77,14 +56,11 @@ export const getAuthData = () => async (dispatch, getState) => {
                     type: GET_USER_DATA,
                     payload: response.data,
                 })
-            },
-            (error) => {
-                console.log(error.response);
             }
         );
 };
 
-export const registerProvider = (request) => async (dispatch, getState) => {
+export const registerProvider = (request) => async (dispatch) => {
     await ApiService
         .post(`auth/provider-signup`, request.toJSON())
         .then(
@@ -103,30 +79,11 @@ export const registerProvider = (request) => async (dispatch, getState) => {
 
                 //Close Modal After A successful signup
                 dispatch({type: HIDE_MODAL, payload: null})
-            },
-            (error) => {
-                switch (error.response.status) {
-                    case 422:
-                        //show validation error
-                        dispatch({type: ERROR_422, payload: error.response.data.message})
-                        break;
-                    case 500:
-                        //show something went wrong
-                        dispatch({type: ERROR_500})
-
-                        break;
-                    case 503:
-                        //show server maintenance alert
-                        dispatch({type: ERROR_503})
-
-                        break;
-                }
-
             }
         );
 };
 
-export const registerUser = (request, onSuccess, onFail, onFinally) => async (dispatch, getState) => {
+export const registerUser = (request, onSuccess, onFail, onFinally) => async (dispatch) => {
     await ApiService
         .post(`auth/user-signup`, request)
         .then(
@@ -143,14 +100,10 @@ export const registerUser = (request, onSuccess, onFail, onFinally) => async (di
                 });
                 onSuccess()
 
-            },
-            (error) => {
-                onFail(error)
             }
         ).finally(() => {
             if (onFinally) {
                 onFinally()
-
             }
         });
 };
@@ -176,29 +129,6 @@ export const updateProfile = (request) => async (dispatch, getState) => {
                     type: UPDATE_PROFILE,
                     payload: response.data,
                 });
-            },
-            (error) => {
-                switch (error.response.status) {
-                    case 401:
-                        //show validation error
-                        dispatch({type: ERROR_401, payload: error.response.data.message})
-                        break;
-
-                    case 403:
-                        //show validation error
-                        dispatch({type: ERROR_403, payload: error.response.data.message})
-                        break;
-
-                    case 500:
-                        //show something went wrong
-                        dispatch({type: ERROR_500})
-                        break;
-
-                    case 503:
-                        //show server maintenance alert
-                        dispatch({type: ERROR_503})
-                        break;
-                }
             }
         );
 };

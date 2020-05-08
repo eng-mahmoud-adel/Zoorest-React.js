@@ -5,32 +5,33 @@ export const ERROR_404 = 'ERROR_404';
 export const ERROR_422 = 'ERROR_422';
 export const ERROR_500 = 'ERROR_500';
 export const ERROR_503 = 'ERROR_503';
+export const ERROR_NETWORK = 'ERROR_NETWORK';
 
 export const showUnAuthenticatedNoty = (message) => (dispatch) => {
     dispatch({
         type: ERROR_401,
-        message: message
+        payload: message
     });
 };
 
 export const showUnAuthorizedNoty = (message) => (dispatch) => {
     dispatch({
         type: ERROR_403,
-        message: message
+        payload: message
     });
 };
 
 export const showNotFoundNoty = (message) => (dispatch) => {
     dispatch({
         type: ERROR_404,
-        message: message
+        payload: message
     });
 };
 
 export const showValidationNoty = (message) => (dispatch) => {
     dispatch({
         type: ERROR_422,
-        message: message
+        payload: message
     });
 };
 
@@ -43,5 +44,11 @@ export const showServerErrorNoty = () => (dispatch) => {
 export const showMaintenanceModeNoty = () => (dispatch) => {
     dispatch({
         type: ERROR_503
+    })
+};
+
+export const showNetworkErrorNoty = () => (dispatch) => {
+    dispatch({
+        type: ERROR_NETWORK
     })
 };

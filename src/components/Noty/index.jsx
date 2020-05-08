@@ -4,11 +4,9 @@ import {connect} from 'react-redux'
 
 function NotyToaster({noty}) {
 
-  if (noty.type && noty.message) {
+  if (noty.type && noty.text) {
     (new Noty({
-      text: noty.message,
-      type: noty.type,
-      timeout: 1000
+      ...noty,
     })).show()
   }
 

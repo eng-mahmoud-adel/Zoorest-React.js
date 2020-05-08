@@ -1,5 +1,5 @@
 import React from 'react'
-import {Formik, getIn} from "formik";
+import {Formik} from "formik";
 import * as Yup from "yup";
 import BasicInput from "../../../../Inputs/BasicInput";
 import {SingleSelect} from "../../../../Inputs/MultiSelect";
@@ -8,45 +8,14 @@ import {registerUser} from "../../../../../store/actions/auth";
 import {connect} from "react-redux";
 import {HIDE_MODAL} from "../../../../../store/actions/modal";
 
-const getError = (name, {touched, errors, status}) => {
-    const fieldTouched = getIn(touched, name);
-    const backendError = getIn(status, ["apiErrors", name]);
-    const clientError = getIn(errors, name);
-
-    if (clientError && fieldTouched) {
-        return clientError;
-    }
-    if (backendError && !fieldTouched) {
-        return backendError;
-    }
-    return undefined;
-};
-const UserForm = ({currentLocale, countries, cities, districts, register, hideModal}) => {
+const UserForm = ({
+                      currentLocale, countries, cities, districts, register, hideModal,
+                  }) => {
 
     const handleSubmissionSuccess = (handleReset) => {
         //Close Modal After A successful signup
         handleReset();
         hideModal();
-    }
-
-    const handleSubmissionFailure = (resetForm, values, error) => {
-        // eslint-disable-next-line default-case
-        switch (error.response.status) {
-            case 422:
-                let apiErrors = {};
-                let errors = error.response.data.errors;
-                let errorFields = Object.keys(errors);
-                for (let i = 0; i < errorFields.length; i++) {
-                    let key = errorFields[i];
-                    apiErrors[key] = errors[key][0];
-                }
-                debugger
-
-                resetForm({values, status: {apiErrors}});
-
-
-                break;
-        }
     }
 
     const handleFormSubmit = (values, resetForm) => {
@@ -63,7 +32,8 @@ const UserForm = ({currentLocale, countries, cities, districts, register, hideMo
             country_id: values.country_id,
             city_id: values.city_id,
             district_id: values.district_id,
-        }, handleSubmissionSuccess.bind(this, resetForm), handleSubmissionFailure.bind(this, resetForm, values), () => {
+        }, handleSubmissionSuccess.bind(this, resetForm), () => {
+        }, () => {
             // debugger
             // actions.setSubmitting(false);
 
@@ -230,7 +200,7 @@ const mapDispatchToProps = (dispatch) => ({
     },
     hideModal: (request) => {
         dispatch({type: HIDE_MODAL, payload: null})
-    },
+    }
 });
 
 export default connect(null, mapDispatchToProps)(UserForm);

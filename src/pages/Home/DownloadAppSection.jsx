@@ -17,11 +17,11 @@ const DownloadAppSection = (props) => {
             </div>
             <div className="col-md-6 wrap-section order-md-2 order-1 text-center text-md-left mb-5">
 
-                <dev className="title mt-0 mt-md-5 pt-0 pt-md-5">
+                <div className="title mt-0 mt-md-5 pt-0 pt-md-5">
                     <Text32>
                         {downloadData.getFiledValueByName("title", currentLocale)}
                     </Text32>
-                </dev>
+                </div>
 
                 <div className="wrapper">
                     <Text18Regular>{downloadData.getFiledValueByName("description", currentLocale)}</Text18Regular>
