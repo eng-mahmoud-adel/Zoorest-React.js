@@ -37,7 +37,7 @@ export const showValidationNoty = (message) => (dispatch) => {
 
 export const showServerErrorNoty = () => (dispatch) => {
     dispatch({
-        type: ERROR_503
+        type: ERROR_500
     })
 };
 

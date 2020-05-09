@@ -2,6 +2,7 @@ import axios from "axios";
 import config from '../config'
 import {
     showNetworkErrorNoty,
+    showServerErrorNoty,
     showUnAuthenticatedNoty,
     showUnAuthorizedNoty,
     showValidationNoty
@@ -40,7 +41,7 @@ function onRequestInterceptors(config) {
 
     if (token) {
         //if access token is present, append it to any request
-        config.headers.Authorization = token ? `Bearer ${token}` : '';
+        config.headers.Authorization = token;
     }
 
     return config;
@@ -88,6 +89,8 @@ function onResponseRejectedInterceptors(error) {
             break;
         case 500:
             //show something went wrong
+            instance.dispatch(showServerErrorNoty())
+
             break;
         case 503:
             //show server maintenance alert

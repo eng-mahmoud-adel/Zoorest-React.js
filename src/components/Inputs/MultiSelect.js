@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {Fragment, useState} from 'react';
 import Select from "react-select";
 import Creatable from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
 import PropTypes from "prop-types";
+import {useField} from "formik";
 
 const animatedComponents = makeAnimated();
 
@@ -27,6 +28,28 @@ export const SingleSelect = ({options, name, className, classNamePrefix, placeho
         />
     );
 
+}
+
+export const SelectField = ({label, ...props}) => {
+    const {options} = props
+    const [field, meta, helpers] = useField(props);
+    const {setValue} = helpers;
+
+    return (
+        <Fragment>
+            <label htmlFor={field.name}>{props.label}</label>
+            <Select
+                {...field}
+                {...props}
+                options={options}
+                value={(options ? options.find(option => option.value === field.value) : '')}
+                onChange={option => setValue(option.value)}
+            />
+            {meta.touched && meta.errors && (
+                <p className="field-error">{meta.errors}</p>
+            )}
+        </Fragment>
+    )
 }
 
 export const MultiSelect = ({options, name, className, classNamePrefix}) => {
@@ -72,11 +95,9 @@ export const TagsSelect = ({options,name,className,classNamePrefix}) => {
             value={selectedOption}
             onChange={handleChange}
 
-
-
             options={options}
             name={name}
-            className={className}
+            className={`tag ${className || ""}`}
             classNamePrefix={classNamePrefix}
         />
     );

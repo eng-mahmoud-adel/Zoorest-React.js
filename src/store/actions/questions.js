@@ -155,6 +155,29 @@ export const getQuestionsAnalytics = () => async (dispatch) => {
 
 };
 
+export const createQuestion = (data, onSuccess, onError, onFinally) => async (dispatch) => {
+
+    await ApiService
+        .post(`${ENDPOINT}`, data)
+        .then(
+            (response) => {
+                dispatch({
+                    type: QUESTION_CREATED,
+                    payload: response.data.data,
+                });
+
+                if (onSuccess) {
+                    onSuccess();
+                }
+            },
+            (error) => {
+                onError(error.response);
+            }
+        ).finally(() => {
+            onFinally();
+        });
+};
+
 
 export const getSingleQuestion = (id) => async (dispatch, getState) => {
     dispatch({

@@ -44,11 +44,7 @@ export const getAuthData = () => async (dispatch, getState) => {
         return;
     }
     await ApiService
-        .post(`auth/getData`, {}, {
-            headers: {
-                Authorization: `Bearer ${getState().authUser.accessToken}`
-            }
-        })
+        .post(`auth/getData`)
         .then(
             (response) => {
                 console.log(response);

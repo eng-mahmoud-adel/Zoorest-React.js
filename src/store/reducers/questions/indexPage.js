@@ -5,6 +5,7 @@ import {
     GET_MOST_COMMON_QUESTIONS,
     GET_NOT_ANSWERED_QUESTIONS,
     GET_RECENT_QUESTIONS,
+    QUESTION_CREATED,
     QUESTIONS_ANALYTICS,
     TOP_QUESTIONS,
 } from "../../actions/questions";
@@ -102,6 +103,23 @@ const questionsReducer = (state = initialState, action) => {
                 analytics: action.payload,
             };
 
+        case QUESTION_CREATED:
+            let newQuestion = new Question(action.payload);
+            return {
+                ...state,
+                not_answered: new ModelPaginatedResource({
+                    data: state.not_answered.data.concat(newQuestion),
+                }),
+                recent: new ModelPaginatedResource({
+                    data: state.recent.data.concat(newQuestion),
+                }),
+                all: state.all.concat(newQuestion),
+                analytics: {
+                    ...state.analytics,
+                    total: state.analytics + 1,
+                    open: state.open + 1,
+                },
+            };
         default:
             break;
     }
