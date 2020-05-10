@@ -25,7 +25,7 @@ const DownloadAppSection = (props) => {
                 <div className="wrapper">
                     <h5 className="font-regular">{downloadData.getFiledValueByName("description", currentLocale)}</h5>
 
-                    <div className="row">
+                    <div className="row justify-content-center justify-content-md-start">
                         <div className="col-xl-5 col-lg-5 col-md-6 col-4 ml-1 ml-sm-0">
 
                             {/* eslint-disable-next-line react/jsx-no-target-blank */}
