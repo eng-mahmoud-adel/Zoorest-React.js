@@ -113,7 +113,7 @@ const UserForm = ({
                 <form onSubmit={handleSubmit} autoComplete="off">
 
                     <div className="my-3">
-                        <label className="font-medium"><span style={{color: "red"}}>*</span>Full Name</label>
+                        <label className="font-medium">Full Name<span style={{color: "red"}}>*</span></label>
                         <BasicInput
                             className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
                             name="name" type="text" value={values.name} placeholder="name"
@@ -121,7 +121,7 @@ const UserForm = ({
                         {errors.name && touched.name && <div style={{color: "red"}}>{errors.name}</div>}
                     </div>
                     <div className="mb-3">
-                        <label className="font-medium"><span style={{color: "red"}}>*</span>Email Address</label>
+                        <label className="font-medium">Email Address<span style={{color: "red"}}>*</span></label>
                         <BasicInput
                             className={`basic-input ${values.email === "" ? "" : (!errors.email ? "is-valid" : "is-invalid")}`}
                             name="email" type="email" value={values.email} placeholder="email"
@@ -129,7 +129,7 @@ const UserForm = ({
                         {errors.email && touched.email && <div style={{color: "red"}}>{errors.email}</div>}
                     </div>
                     <div className="mb-3">
-                        <label className="font-medium"><span style={{color: "red"}}>*</span>Phone Number</label>
+                        <label className="font-medium">Phone Number<span style={{color: "red"}}>*</span></label>
                         <BasicInput
                             className={`basic-input ${values.phone === "" ? "" : (!errors.phone ? "is-valid" : "is-invalid")}`}
                             name="phone" type="text" value={values.phone}
@@ -149,7 +149,7 @@ const UserForm = ({
 
                     <div className="row">
                         <div className="mb-3 col-md-6">
-                            <label className="font-medium"><span style={{color: "red"}}>*</span>Password</label>
+                            <label className="font-medium">Password<span style={{color: "red"}}>*</span></label>
                             <BasicInput
                                 className={`basic-input ${values.password === "" ? "" : (!errors.password ? "is-valid" : "is-invalid")}`}
                                 name="password" type="password" value={values.password} placeholder="password"
@@ -158,7 +158,7 @@ const UserForm = ({
                             <div style={{color: "red"}}>{errors.password}</div>}
                         </div>
                         <div className="mb-3 col-md-6">
-                            <label className="font-medium"><span style={{color: "red"}}>*</span>Confirm Password</label>
+                            <label className="font-medium">Confirm Password<span style={{color: "red"}}>*</span></label>
                             <BasicInput
                                 className={`basic-input ${values.password_confirmation === "" ? "" : (!errors.password_confirmation ? "is-valid" : "is-invalid")}`}
                                 name="password_confirmation" type="password" value={values.password_confirmation}
