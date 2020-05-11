@@ -4,9 +4,9 @@ import ProfileAvatar from "../../components/Avatars/ProfileAvatar";
 import {Tab, Tabs} from 'react-bootstrap';
 import {getSingleUser} from '../../store/actions/user';
 import Photo from '../../components/Cards/Photos/Photo';
-import { PhotoLoadingAnimationBar } from '../../components/Cards/Photos/LoadingAnimations/Photo';
+import {PhotoLoadingAnimationBar} from '../../components/Cards/Photos/LoadingAnimations/Photo';
 import Pet from '../../components/Cards/Pets/Pet';
-import { PetLoadingAnimationBar } from '../../components/Cards/Pets/LoadingAnimations/Pet';
+import {PetLoadingAnimationBar} from '../../components/Cards/Pets/LoadingAnimations/Pet';
 
 const User = ({stateData, getSingleUser, match}) => {
 
@@ -20,10 +20,12 @@ const User = ({stateData, getSingleUser, match}) => {
     return (
         <div className="container mt-5 pt-5">
             <div className="row">
-                <div className="provider-image col-xl-2 col-md-3 col-sm-3 col-12">
-                    <ProfileAvatar model={stateData.model} withName={true} withJoiningDate={true}/>
-                    <p>{stateData.model.description}</p>
-                </div>
+                {
+                    stateData.loading === false && <div className="provider-image col-xl-2 col-md-3 col-sm-3 col-12">
+                        <ProfileAvatar model={stateData.model} withName={true} withJoiningDate={true}/>
+                        <p>{stateData.model.description}</p>
+                    </div>
+                }
 
                 <Tabs
                     className="my-5"
@@ -32,7 +34,8 @@ const User = ({stateData, getSingleUser, match}) => {
                     onSelect={(k) => setKey(k)}
                 >
                     <Tab eventKey="photos" title="photos">
-                        {stateData.loading === false ? stateData.model.images.map(photo => <Photo model={photo} />) : <PhotoLoadingAnimationBar />}
+                        {stateData.loading === false ? stateData.model.images.map(photo => <Photo model={photo}/>) :
+                            <PhotoLoadingAnimationBar/>}
                     </Tab>
 
                     <Tab eventKey="animals" title="Animals">

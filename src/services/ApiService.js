@@ -41,7 +41,7 @@ function onRequestInterceptors(config) {
 
     if (token) {
         //if access token is present, append it to any request
-        config.headers.Authorization = token;
+        config.headers.Authorization = `Bearer ${token}`;
     }
 
     return config;

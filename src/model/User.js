@@ -2,6 +2,9 @@ import Model from "./Base/Model";
 import Provider from "./Provider";
 import Image from "./Image";
 import moment from "moment";
+import Pet from "../components/Cards/Pets/Pet";
+import Album from "./Album";
+import Alarm from "./Alarm";
 
 class User extends Model {
 
@@ -52,6 +55,21 @@ class User extends Model {
         this._images = [];
         if (object.images) {
             this._images = object.images.map(photo => new Image(photo))
+        }
+
+        this._pets = [];
+        if (object.pets) {
+            this._pets = object.pets.map(pet => new Pet(pet))
+        }
+
+        this._albums = [];
+        if (object.albums) {
+            this._albums = object.albums.map(album => new Album(album))
+        }
+
+        this._alarms = [];
+        if (object.alarms) {
+            this._alarms = object.alarms.map(alarms => new Alarm(alarms))
         }
     }
 
@@ -327,12 +345,58 @@ class User extends Model {
         this._views_count = value;
     }
 
+
+    get images() {
+        return this._images;
+    }
+
+    set images(value) {
+        this._images = value;
+    }
+
+
+    get pets() {
+        return this._pets;
+    }
+
+    set pets(value) {
+        this._pets = value;
+    }
+
+    get albums() {
+        return this._albums;
+    }
+
+    set albums(value) {
+        this._albums = value;
+    }
+
+    get alarms() {
+        return this._alarms;
+    }
+
+    set alarms(value) {
+        this._alarms = value;
+    }
+
     getNameInitials = () => {
         return this.name[0]
     }
 
     getJoiningDateString = () => {
         return this.created_at.format("MMMM D Y")
+    }
+
+    isProvider() {
+        return !!this.provider
+    }
+
+    getProfileRoute() {
+        if (this.isProvider()) {
+            return `/provider/${this.getKey()}`
+        } else {
+            return `/user/${this.getKey()}`
+        }
     }
 }
 

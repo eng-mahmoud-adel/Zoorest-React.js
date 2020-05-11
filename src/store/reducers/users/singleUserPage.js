@@ -2,7 +2,7 @@ import {GET_USER, SET_USER_LOADED, SET_USER_LOADING} from '../../actions/user';
 import User from '../../../model/User';
 
 const initialState = {
-    model: new User(),
+    model: null,
     loading: true,
 };
 

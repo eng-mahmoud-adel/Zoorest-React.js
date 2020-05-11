@@ -56,7 +56,7 @@ const Provider = ({model: user, showModal, className, authUser}) => {
                 {user.provider.has_appointments ?
                     <div className="row">
                         <div className="col-xl-4 pl-xl-2 pr-xl-0 mb-2 mb-xl-0">
-                            <Link to={`/doctor/profile/${user.getKey()}`}>
+                            <Link to={`/provider/${user.getKey()}`}>
                                 <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
                             </Link>
                         </div>
@@ -65,7 +65,7 @@ const Provider = ({model: user, showModal, className, authUser}) => {
                                     onClick={showAppointmentModal}/>
                         </div>
                     </div> : <div className="w-75 mx-auto">
-                        <Link to={`/doctor/profile/${user.getKey()}`}>
+                        <Link to={`/provider/${user.getKey()}`}>
                             <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
                         </Link>
                     </div>}

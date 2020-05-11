@@ -40,7 +40,7 @@ const AppRouter = () => (
             <Route path="/comment" component={CommentCards}/>
 
             <Route exact path="/doctor" component={Doctors}/>
-            <Route path="/doctor/profile/:id" component={DoctorProfile}/>
+            <Route path="/provider/:id" component={DoctorProfile}/>
 
             <Route path="/user/:id" component={User}/>
 
@@ -53,7 +53,7 @@ const AppRouter = () => (
             <Route path="/demo/typography" component={TypographyPage}/>
 
             {/*todo <AuthRoute
-            path="/doctor/profile/:id/edit"
+            path="/provider/:id/edit"
             component={}
             props={}
             isAuthenticated={check if auth user exists}

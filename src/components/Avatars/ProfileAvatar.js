@@ -1,6 +1,7 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import LazyLoad from "react-lazyload";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 const ProfileAvatar = ({model: user, className, radius, withName, withJoiningDate}) => {
 
@@ -27,18 +28,18 @@ const ProfileAvatar = ({model: user, className, radius, withName, withJoiningDat
         </div>;
     }
 
-    return (
-        <Fragment>
-            <Fragment>
-                <div className="avatar-four">
-                    {ImageOrInitialsComponent}
+    let profile_url = user.getProfileRoute();
 
-                    {withName && <p className="font-medium label mb-0">{user.name}</p>}
-                    {withJoiningDate &&
-                    <p className="small text-muted">{`Joined Since ${user.getJoiningDateString()}`}</p>}
-                </div>
-            </Fragment>
-        </Fragment>
+    return (
+        <Link to={profile_url}>
+            <div className="avatar-four">
+                {ImageOrInitialsComponent}
+
+                {withName && <p className="font-medium label mb-0">{user.name}</p>}
+                {withJoiningDate &&
+                <p className="small text-muted">{`Joined Since ${user.getJoiningDateString()}`}</p>}
+            </div>
+        </Link>
     )
 };
 
