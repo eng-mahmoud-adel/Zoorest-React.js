@@ -49,7 +49,9 @@ const Auth = withTranslation()(({authUser, showModal, t}) => {
                 <Fragment>
                     {/*There is authenticated User */}
                     <label className="font-medium">{authUser.user.name}</label>
-                    <ProfileAvatar model={authUser.user} withLeftName={true} withName={false} withJoiningDate={false}/>
+                    <Link to="/user">
+                        <ProfileAvatar model={authUser.user} withLeftName={true} withName={false} withJoiningDate={false}/>
+                    </Link>
 
                 </Fragment>
             }

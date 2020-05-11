@@ -48,6 +48,11 @@ class User extends Model {
         if (object.photo) {
             this._photo = new Image(object.photo)
         }
+
+        this._images = [];
+        if (object.images) {
+            this._images = object.images.map(photo => new Image(photo))
+        }
     }
 
     get id() {

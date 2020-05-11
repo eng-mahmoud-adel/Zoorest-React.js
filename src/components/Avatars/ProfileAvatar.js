@@ -22,7 +22,7 @@ const ProfileAvatar = ({model: user, className, radius, withName, withJoiningDat
     if (user.photo && user.photo.path_icon) {
         ImageOrInitialsComponent = <div className="img-container">
             <LazyLoad unmountIfInvisible={true} once={true}>
-                <img src={user.photo.path_medium} width={radius} alt="avatar"/>
+                <img src={imageUrl || user.photo.path_medium} width={radius} alt="avatar"/>
             </LazyLoad>
         </div>;
     }
