@@ -15,6 +15,7 @@ import modalReducer from "./modal";
 import globalReducer from "./globals";
 import pageReducer from "./pages";
 import notyReducer from "./noty";
+import singleUserReducer from './users/singleUserPage';
 
 const reducer = combineReducers({
     pages: pageReducer,
@@ -25,6 +26,9 @@ const reducer = combineReducers({
     singleArticlePage: singleArticleReducer,
 
     authUser: authReducer,
+
+    singleUserPage: singleUserReducer,
+
     providers: providersReducer,
     singleProviderPage: singleProviderPage,
     questions: questionsReducer,

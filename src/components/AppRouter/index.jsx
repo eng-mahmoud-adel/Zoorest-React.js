@@ -18,6 +18,7 @@ import SignUpPage from "../../pages/Auth/Signup";
 import TypographyPage from "../../pages/Demo/Typography";
 import PrivacyPage from "../../pages/Privacy";
 import TermsPage from "../../pages/Terms";
+import User from '../../pages/User/index';
 
 
 const AppRouter = () => (
@@ -40,6 +41,8 @@ const AppRouter = () => (
 
             <Route exact path="/doctor" component={Doctors}/>
             <Route path="/doctor/profile/:id" component={DoctorProfile}/>
+
+            <Route path="/user/:id" component={User}/>
 
             <Route path="/login" component={LoginPage}/>
             <Route path="/signup" component={SignUpPage}/>
