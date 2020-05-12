@@ -645,6 +645,36 @@
 
 /* ***************************************************** */
 
+/* for photo component */
+  .photo-card {
+    border-radius: $border-radius-8;
+    img {
+      border-radius: $border-radius-8;
+      height: 318px;
+    }
+  }
+/* ***************************************************** */
+
+/* for pet component */
+.pet-card {
+  border-radius: $border-radius-8;
+  img {
+    height: 320px;
+    border-top-left-radius: $border-radius-8;
+    border-top-right-radius: $border-radius-8;
+  }
+  .card-title {
+    color: $dark;
+  }
+  .card-text {
+    color: $gray-color;
+  }
+  .dropdown-content {
+    @extend %dropdown-content;
+  }
+}
+/* ***************************************************** */
+
 
 //card header and footer general appearance
 .card {

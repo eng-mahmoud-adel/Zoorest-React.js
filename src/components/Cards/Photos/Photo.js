@@ -3,9 +3,13 @@ import Card from "react-bootstrap/Card";
 
 const Photo = ({model}) => {
     return (
-        <Card>
-            <Card.Img src={model.path_large} />
-        </Card>
+        <div className="col-lg-4 col-md-6 mb-4">
+            <Card className="photo-card">
+                <div>
+                    <Card.Img src={model.path_small} />
+                </div>
+            </Card>
+        </div>
     )
 }
 

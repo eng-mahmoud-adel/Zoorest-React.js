@@ -42,7 +42,7 @@ const DropFileWithButton = (props) => {
         <input {...getInputProps()} />
         <div className= "col-8 text-center">
           <p>Drag 'n' drop some files here</p>
-          <Button text= "Choose" color= "btn btn-info" size= "btn-sm" />
+          <Button text= "Choose" color= "btn btn-info" size= "btn-sm" onClick={open} />
         </div>
       </div>
       <aside>

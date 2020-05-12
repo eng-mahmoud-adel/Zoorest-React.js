@@ -5,12 +5,12 @@ const PetLoadingAnimation = ({className}) => {
 
     return (
         <Card className={`pet-card loading-card my-2 w-100 ${className || ""}`}>
-            <Card.Img />
-            <Card.Body>
-                <Card.Title></Card.Title>
-                <Card.Text>
-                
-                </Card.Text>
+            <div className="image loading">
+                <Card.Img />
+            </div>
+            <Card.Body className="bars">
+                <Card.Title className="bar bar1 loading"></Card.Title>
+                <Card.Text className="bar bar2 loading"></Card.Text>
             </Card.Body>
         </Card>
     )
@@ -21,7 +21,7 @@ export const PetLoadingAnimationBar = ({size, count}) => {
     return (
         <Fragment>
             {[...Array(count)].map((n, index) => (
-                <div key={`photo-animation-${index}`} className={` ${size}`}>
+                <div key={`pet-animation-${index}`} className={` ${size}`}>
                     <PetLoadingAnimation/>
                 </div>
             ))}

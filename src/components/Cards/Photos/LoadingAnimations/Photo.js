@@ -5,7 +5,9 @@ const PhotoLoadingAnimation = ({className}) => {
 
     return (
         <Card className={`photo-card loading-card my-2 w-100 ${className || ""}`}>
-            <Card.Img />
+            <div className="image loading">
+                <Card.Img />
+            </div>
         </Card>
     )
 };
