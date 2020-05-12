@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {IoMdHeart, IoMdHeartEmpty, IoMdStar} from "react-icons/io";
 import {MdComment, MdPhone, MdRemoveRedEye, MdShare} from "react-icons/md";
-import {FaEllipsisV, FaFacebookSquare, FaGoogle, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
+import {FaEllipsisH, FaEllipsisV, FaFacebookSquare, FaGoogle, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
 // import {FcGoogle} from "react-icons/fc";
 
 
@@ -63,7 +63,8 @@ export const FacebookIcon = (props) => (<FaFacebookSquare color={"blue"} {...pro
 export const GoogleIcon = (props) => (<FaGoogle {...props}/>);
 export const InstagramIcon = (props) => (<FaInstagram {...props}/>);
 export const TwitterIcon = (props) => (<FaTwitter {...props}/>);
-export const EllipsisIcon = (props) => (<FaEllipsisV color={"#6c757d"} {...props}/>);
+export const VerticalEllipsisIcon = (props) => (<FaEllipsisV color={"#6c757d"} {...props}/>);
+export const HorizontalEllipsisIcon = (props) => (<FaEllipsisH color={"#6c757d"} {...props}/>);
 
 
 

@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import Info from './Info';
 import {Tab, Tabs} from 'react-bootstrap';
-import RateBar from '../../../components';
-import {CallIcon, ViewsIcon} from "../../../components/Icons";
 import {showModal} from "../../../store/actions/modal";
 import {
     callProvider,
@@ -18,9 +16,9 @@ import {
 import LazyList from "../../../components/DataList";
 import Article from "../../../components/Cards/Articles/Article";
 import Question from "../../../components/Cards/Questions/Question";
-import ProfileAvatar from "../../../components/Avatars/ProfileAvatar";
 import QuestionLoadingAnimation from "../../../components/Cards/Questions/LoadingAnimations/Question";
 import ArticleLoadingAnimation, {ArticleLoadingAnimationBar} from "../../../components/Cards/Articles/LoadingAnimations/Article";
+import UserBio, {UserBioLoadingAnimation} from "../../../components/UserBio";
 
 const DoctorProfile = (
     {
@@ -63,51 +61,9 @@ const DoctorProfile = (
         <div className="container profile my-5 pt-5">
 
             {
-                stateData.loading === false &&
-                <div className="row" key={stateData.model.id}>
-                    <div className="provider-image col-xl-2 col-md-3 col-sm-3 col-12">
-                        <ProfileAvatar model={stateData.model} withName={false} withJoiningDate={false}/>
-                    </div>
-
-                    <div className="col-xl-10 col-md-9 col-sm-9 col-12">
-                        <h2 className="mt-xl-0 mt-lg-2">
-                            <h2>{stateData.model.official_name || stateData.model.name}</h2>
-                        </h2>
-
-                        <div className="d-flex">
-                            <div>
-                                <RateBar rate={stateData.model.provider.average_rating}/>
-                            </div>
-                            <div className="views ml-5">
-                                <ViewsIcon
-                                    text={"Views"}
-                                    className={"mr-2"}
-                                    value={stateData.model.views_count}/>
-                            </div>
-                        </div>
-
-                        <div className="d-flex">
-                            <div className="contact">
-                                <CallIcon className="mr-2 text-info" value={stateData.model.phone}/>
-                            </div>
-                            {
-                                stateData.model.additional_phone_number &&
-                                <div className="contact ml-5">
-                                    <CallIcon className="mr-2 text-info"
-                                              value={stateData.model.additional_phone_number}/>
-                                </div>}
-                        </div>
-
-                        <div className="address mt-2">
-                            <p className="header-5 font-bold">{stateData.model.provider.address}</p> | <a
-                            href={`https://www.google.com/maps/@${stateData.model.provider.latitude()},${stateData.model.provider.longitude()},15z`}
-                            className="font-weight-bold" target="_blank" rel="noopener noreferrer">
-                            <p className="header-5 font-bold text-info">Show on Maps</p>
-                        </a>
-                        </div>
-
-                    </div>
-                </div>
+                stateData.loading === false ?
+                    <UserBio user={stateData.model}/> :
+                    <UserBioLoadingAnimation/>
             }
 
             <Tabs

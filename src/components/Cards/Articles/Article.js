@@ -8,7 +8,7 @@ import ReactPlayer from 'react-player'
 import {showModal} from "../../../store/actions/modal";
 import {connect} from "react-redux";
 import ClampLines from 'react-clamp-lines';
-import {EllipsisIcon} from '../../Icons/index';
+import {VerticalEllipsisIcon} from '../../Icons/index';
 
 const Article = ({model: article, currentLocale}) => {
 
@@ -45,12 +45,13 @@ const Article = ({model: article, currentLocale}) => {
                     />
                 </Card.Title>
 
-                <EllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}} onClick={showDropdown}/>
-                    <div id={`article${article.id}`} className="dropdown-content">
-                        <a href="#edit">Edit</a>
-                        <a href="#remove">Remove</a>
-                        <a href="#report">Report</a>
-                    </div>
+                <VerticalEllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}}
+                                      onClick={showDropdown}/>
+                <div id={`article${article.id}`} className="dropdown-content">
+                    <a href="#edit">Edit</a>
+                    <a href="#remove">Remove</a>
+                    <a href="#report">Report</a>
+                </div>
 
             </div>
             <small className="small-text">

@@ -1,0 +1,9 @@
+.brand-filter:after {
+  position: absolute;
+  content: "";
+  height: 75%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(232, 33, 93, 0.13), rgba(18, 176, 198, 0.13));
+}

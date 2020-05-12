@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 import {likeQuestion, unlikeQuestion} from "../../../store/actions/questions";
 import ProfileAvatar from "../../Avatars/ProfileAvatar";
 import ClampLines from "react-clamp-lines";
-import {EllipsisIcon} from '../../Icons/index';
+import {VerticalEllipsisIcon} from '../../Icons/index';
 
 
 const Question = ({model, className, hide_add_answer, currentLocale = "ar", like, unlike}) => {
@@ -49,7 +49,8 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
                             {model.humanizedCreatedAt()}
                         </small>
                     </Card.Subtitle>
-                    <EllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}} onClick={showDropdown}/>
+                    <VerticalEllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}}
+                                          onClick={showDropdown}/>
                     <div id={`question_${model.id}`} className="dropdown-content">
                         <a href="#edit">Edit</a>
                         <a href="#remove">Remove</a>

@@ -398,6 +398,11 @@ class User extends Model {
             return `/user/${this.getKey()}`
         }
     }
+
+
+    getKey(): * {
+        return this.slug;
+    }
 }
 
 export default User;

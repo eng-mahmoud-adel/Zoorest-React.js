@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import ProfileAvatar from "../../Avatars/ProfileAvatar";
 import Button from "../../Buttons/Button/Button";
 import {CommentsIcon, HeartIcon} from "../../Icons";
-import {EllipsisIcon} from '../../Icons/index';
+import {VerticalEllipsisIcon} from '../../Icons/index';
 
 const Post = ({id, className, model: post}) => {
     const slickSettings = {
@@ -59,7 +59,8 @@ const showDropdown = () => {
                             <h5 className="font-bold">{post.name}</h5>
                         </Card.Title>
 
-                            <EllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}} onClick={showDropdown}/>
+                        <VerticalEllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}}
+                                              onClick={showDropdown}/>
                         <div id={`post_${post.id}`} className="dropdown-content">
                             <a href="#edit">Edit</a>
                             <a href="#remove">Remove</a>

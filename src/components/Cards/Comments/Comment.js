@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, Row} from "react-bootstrap";
 import {HeartIcon} from "../../Icons";
 import ProfileAvatar, {ProfileAvatarLoadingAnimation} from "../../Avatars/ProfileAvatar";
-import {EllipsisIcon} from '../../Icons/index';
+import {VerticalEllipsisIcon} from '../../Icons/index';
 
 const Comment = (props) => {
     const {model} = props;
@@ -32,7 +32,8 @@ const Comment = (props) => {
 
                     <small className="small-text">{model.humanizedCreatedAt()}</small>
 
-                    <EllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}} onClick={showDropdown}/>
+                    <VerticalEllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}}
+                                          onClick={showDropdown}/>
                     <div id={`comment_${model.id}`} className="dropdown-content">
                         <a href="#edit">Edit</a>
                         <a href="#remove">Remove</a>
