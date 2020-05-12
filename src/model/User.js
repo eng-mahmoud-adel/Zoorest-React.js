@@ -2,9 +2,9 @@ import Model from "./Base/Model";
 import Provider from "./Provider";
 import Image from "./Image";
 import moment from "moment";
-import Pet from "../components/Cards/Pets/Pet";
 import Album from "./Album";
 import Alarm from "./Alarm";
+import Pet from "./Pet";
 
 class User extends Model {
 
