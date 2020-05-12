@@ -8,7 +8,7 @@ import UploadAlbum from '../../components/Forms/UploadAlbum';
 import Location from '../../components/Forms/Location';
 import ProfileForm from '../../components/Forms/ProfileForm';
 import Appointment from '../../components/Forms/Appointment';
-import AddAnimal from '../../components/Forms/AddAnimal';
+import AddAnimalForm from '../../components/Forms/AddAnimalForm';
 
 const Forms = () => {
     return (
@@ -61,9 +61,9 @@ const Forms = () => {
             <hr />
             <h1>Add animal</h1>
             <hr />
-            <AddAnimal title= "Add Animal" text= "Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the" stepOne= "step-one" />
-            <AddAnimal title= "Add Animal" text= "Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the" stepTwo= "step-two" />
-            <AddAnimal title= "Add Animal" text= "Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the" stepThree= "step-three" />
+            <AddAnimalForm title= "Add Animal" text= "Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the" stepOne= "step-one" />
+            <AddAnimalForm title= "Add Animal" text= "Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the" stepTwo= "step-two" />
+            <AddAnimalForm title= "Add Animal" text= "Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the" stepThree= "step-three" />
 
             <hr />
             <h1>Appointment</h1>

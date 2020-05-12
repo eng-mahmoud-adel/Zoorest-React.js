@@ -1,0 +1,19 @@
+/* start user page */
+#user_profile {
+    .nav-tabs {
+        border-bottom-color: $secondary;
+        a {
+        background-color: $light;
+        border: none;
+        color: $gray-color;
+        outline: none;
+        font-weight: bold;
+        border-bottom: 1px solid $secondary;
+        &:focus {
+            color: $dark;
+            border-bottom: 2px solid $info;
+        }
+        }
+    }
+}
+/* end user page */

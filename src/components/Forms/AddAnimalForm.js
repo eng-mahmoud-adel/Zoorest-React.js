@@ -6,7 +6,7 @@ import Avatar from '../Avatars/Avatar';
 import InlineDateTimePickerDemo from '../DropDowns/DatePickerOne';
 
 
-const AddAnimal = (props) => {
+const AddAnimalForm = (props) => {
     return (
         <form>
             <div className="form-group add-animal-form col-10">
@@ -139,4 +139,4 @@ const AddAnimal = (props) => {
     )
 };
 
-export default AddAnimal;
+export default AddAnimalForm;

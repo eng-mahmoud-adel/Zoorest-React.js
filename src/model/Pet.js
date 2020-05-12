@@ -12,6 +12,7 @@ class Pet extends Model {
         this._birth_date = object.birth_date
         this._user_id = object.user_id
         this._owner = new User(object.owner);
+        this._image = object.image
 
         this._images = [];
         if (object.images) {
@@ -78,6 +79,14 @@ class Pet extends Model {
 
     set owner(value) {
         this._owner = value;
+    }
+
+    get image() {
+        return this._image;
+    }
+
+    set image(value) {
+        this._image = value;
     }
 
     get images() {

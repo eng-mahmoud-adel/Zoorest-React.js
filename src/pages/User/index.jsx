@@ -7,10 +7,11 @@ import Photo from '../../components/Cards/Photos/Photo';
 import {PhotoLoadingAnimationBar} from '../../components/Cards/Photos/LoadingAnimations/Photo';
 import Pet from '../../components/Cards/Pets/Pet';
 import {PetLoadingAnimationBar} from '../../components/Cards/Pets/LoadingAnimations/Pet';
+import DropFileWithButton from '../../components/Forms/DropFiles/DropFileWithButton';
 
 const User = ({stateData, getSingleUser, match}) => {
 
-    const [key, setKey] = useState('photos');
+    const [key, setKey] = useState('animals');
     const id = match.params.id;
 
     useEffect(() => {
@@ -18,12 +19,13 @@ const User = ({stateData, getSingleUser, match}) => {
     }, [getSingleUser, id]);
 
     return (
-        <div className="container mt-5 pt-5">
-            <div className="row">
+        <div id="user_profile" className="container mt-5 pt-5">
                 {
-                    stateData.loading === false && <div className="provider-image col-xl-2 col-md-3 col-sm-3 col-12">
+                    stateData.loading === false && 
+                    
+                    <div className="provider-image">
                         <ProfileAvatar model={stateData.model} withName={true} withJoiningDate={true}/>
-                        <p>{stateData.model.description}</p>
+                        {/* <p>{stateData.model.description}</p> */}
                     </div>
                 }
 
@@ -34,12 +36,17 @@ const User = ({stateData, getSingleUser, match}) => {
                     onSelect={(k) => setKey(k)}
                 >
                     <Tab eventKey="photos" title="photos">
-                        {stateData.loading === false ? stateData.model.images.map(photo => <Photo model={photo}/>) :
-                            <PhotoLoadingAnimationBar/>}
+                        <DropFileWithButton />
+                        <div className="row">
+                            {stateData.loading === false ? stateData.model.images.map(photo => <Photo model={photo} />) :
+                                <PhotoLoadingAnimationBar/>}
+                        </div>
                     </Tab>
 
                     <Tab eventKey="animals" title="Animals">
-                        {stateData.loading === false ? stateData.model.pets.map(pet => <Pet model={pet} />) : <PetLoadingAnimationBar />}
+                        <div className="row">
+                            {stateData.loading === false ? stateData.model.pets.map(pet => <Pet model={pet} />) : <PetLoadingAnimationBar />}
+                        </div>
                     </Tab>
 
                     <Tab eventKey="reminder" title="Reminder">
@@ -50,7 +57,6 @@ const User = ({stateData, getSingleUser, match}) => {
                         {/* {stateData.loading === false ? stateDate.model.albums.map(album => <Album model={album} />) : <AlbumLoadingAnimationBar />} */}
                     </Tab>
                 </Tabs>
-            </div>
         </div>
     )
 }
