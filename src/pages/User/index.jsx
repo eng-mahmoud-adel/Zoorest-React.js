@@ -9,7 +9,7 @@ import DropFileWithButton from '../../components/Forms/DropFiles/DropFileWithBut
 import UserBio, {UserBioLoadingAnimation} from "../../components/UserBio";
 import Button from "../../components/Buttons/Button/Button";
 import {PetLoadingAnimationBar} from "../../components/Cards/Pets/LoadingAnimations/Pet";
-import AddAnimalForm from "../../components/Forms/AddAnimalForm";
+import AddAnimalForm from "../../components/Forms/AddAnimal/AddAnimalForm";
 import {showModal} from "../../store/actions/modal";
 
 const NoPetsSection = ({onButtonClicked}) => {
@@ -24,7 +24,7 @@ const NoPetsSection = ({onButtonClicked}) => {
 
 const User = ({stateData, getSingleUser, match, showModal}) => {
 
-    const [key, setKey] = useState('photos');
+    const [key, setKey] = useState('pets');
     const id = match.params.id;
 
     const addAnimal = () => {
@@ -69,7 +69,7 @@ const User = ({stateData, getSingleUser, match, showModal}) => {
 
                     <div className="row">
                         {stateData.loading === false ?
-                            stateData.model.pets.length > 0 ? stateData.model.pets.map((pet, index) =>
+                            !stateData.model.pets.length > 0 ? stateData.model.pets.map((pet, index) =>
                                     <div key={`pet_${index}`} className="col-lg-4 col-md-6 mb-4">
                                         <Pet model={pet}/>
                                     </div>
