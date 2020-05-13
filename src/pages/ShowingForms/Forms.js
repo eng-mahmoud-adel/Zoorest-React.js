@@ -8,7 +8,7 @@ import UploadAlbum from '../../components/Forms/UploadAlbum';
 import Location from '../../components/Forms/Location';
 import ProfileForm from '../../components/Forms/ProfileForm';
 import Appointment from '../../components/Forms/Appointment';
-import AddAnimalForm from '../../components/Forms/AddAnimalForm';
+import AddAnimalForm from '../../components/Forms/AddAnimal/AddAnimalForm';
 
 const Forms = () => {
     return (

@@ -9,7 +9,7 @@ import DropFileWithButton from '../../components/Forms/DropFiles/DropFileWithBut
 import UserBio, {UserBioLoadingAnimation} from "../../components/UserBio";
 import Button from "../../components/Buttons/Button/Button";
 import {PetLoadingAnimationBar} from "../../components/Cards/Pets/LoadingAnimations/Pet";
-import AddAnimalForm from "../../components/Forms/AddAnimalForm";
+import AddAnimalForm from "../../components/Forms/AddAnimal/AddAnimalForm";
 import {showModal} from "../../store/actions/modal";
 
 const NoPetsSection = ({onButtonClicked}) => {
