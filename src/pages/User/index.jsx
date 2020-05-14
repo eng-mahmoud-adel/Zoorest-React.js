@@ -11,6 +11,9 @@ import Button from "../../components/Buttons/Button/Button";
 import {PetLoadingAnimationBar} from "../../components/Cards/Pets/LoadingAnimations/Pet";
 import AddAnimalForm from "../../components/Forms/AddAnimal/AddAnimalForm";
 import {showModal} from "../../store/actions/modal";
+import Album from '../../components/Cards/Album/Album';
+import {AlbumLoadingAnimationBar} from '../../components/Cards/Album/LoadingAnimations/Album';
+import UploadAlbumForm from '../../components/Forms/UploadAlbumForm';
 
 const NoPetsSection = ({onButtonClicked}) => {
 
@@ -22,9 +25,19 @@ const NoPetsSection = ({onButtonClicked}) => {
     )
 };
 
+const NoAlbumsSection = ({onButtonClicked}) => {
+
+    return (
+        <div className="mx-auto">
+            <h3 className="font-bold">You dont have albums yet!</h3>
+            <Button text="Add Album" color="btn btn-info" size="btn-sm" onClick={onButtonClicked}/>
+        </div>
+    )
+};
+
 const User = ({stateData, getSingleUser, match, showModal}) => {
 
-    const [key, setKey] = useState('photos');
+    const [key, setKey] = useState('albums');
     const id = match.params.id;
 
     const addAnimal = () => {
@@ -85,7 +98,17 @@ const User = ({stateData, getSingleUser, match, showModal}) => {
                 </Tab>
 
                 <Tab eventKey="albums" title="Albums">
-                    {/*{stateData.loading === false ? stateData.model.albums.map(album => <Album model={album} />) : <AlbumLoadingAnimationBar />} */}
+                    <div className="row">
+                        {stateData.loading === false ?
+                                    stateData.model.albums.length > 0 ? stateData.model.albums.map((album, index) =>
+                                            <div key={`album_${index}`} className="col-md-6 col-12 mb-4">
+                                                <Album model={album}/>
+                                            </div>
+                                        ) :
+                                        <NoAlbumsSection onButtonClicked={UploadAlbumForm}/>
+                                    :
+                                    <AlbumLoadingAnimationBar/>}
+                    </div>
                 </Tab>
             </Tabs>
         </div>
