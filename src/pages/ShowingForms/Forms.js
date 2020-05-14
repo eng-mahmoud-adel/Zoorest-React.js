@@ -4,7 +4,7 @@ import SignUpFormContainer from '../../components/Forms/Auth/Signup/SignUpFormCo
 import AddQuestion from '../../components/Forms/AddQuestion';
 import AddPostForm from '../../components/Forms/AddPostForm';
 import Reminder from '../../components/Forms/Reminder';
-import UploadAlbum from '../../components/Forms/UploadAlbum';
+import UploadAlbumForm from '../../components/Forms/UploadAlbumForm';
 import Location from '../../components/Forms/Location';
 import ProfileForm from '../../components/Forms/ProfileForm';
 import Appointment from '../../components/Forms/Appointment';
@@ -46,7 +46,7 @@ const Forms = () => {
             <hr />
             <h1>Upload Album</h1>
             <hr />
-            <UploadAlbum title= "Upload Album" text= "Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the " />
+            <UploadAlbumForm title= "Upload Album" text= "Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the " />
 
             <hr />
             <h1>Location</h1>

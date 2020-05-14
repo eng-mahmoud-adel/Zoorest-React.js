@@ -675,6 +675,22 @@
 }
 /* ***************************************************** */
 
+/* for album component */
+.album-card {
+  border-radius: $border-radius-8;
+  img {
+    height: 410px;
+    border-top-left-radius: $border-radius-8;
+    border-top-right-radius: $border-radius-8;
+    border-bottom-left-radius: $border-radius-8;
+    border-bottom-right-radius: $border-radius-8;
+  }
+  .dropdown-content {
+    @extend %dropdown-content;
+  }
+}
+/* ***************************************************** */
+
 
 //card header and footer general appearance
 .card {

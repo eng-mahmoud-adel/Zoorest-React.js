@@ -3,7 +3,7 @@ import BasicInput from '../Inputs/BasicInput';
 import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 
-const UploadAlbum = (props) => {
+const UploadAlbumForm = (props) => {
     return (
         <form>
             <div className="form-group album-form col-8">
@@ -30,4 +30,4 @@ const UploadAlbum = (props) => {
     )
 }
 
-export default UploadAlbum;
+export default UploadAlbumForm;
