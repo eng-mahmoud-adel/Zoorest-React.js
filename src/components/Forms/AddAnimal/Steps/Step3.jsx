@@ -13,6 +13,12 @@ const Step3 = (props) => {
 
     return (
         <div className={props.stepThree}>
+            <div className="text-center">
+                <h4 className="font-weight-bold">Add Animal</h4>
+                <p className="px-5">Occasionally he inserts a comment of his own, either linking it into the main trail
+                    or joining it by a side trail to a particular item. When it becomes evident that the</p>
+            </div>
+
             <div className="row avatars justify-content-center mb-5">
                 <div className="col-4">
                     <Avatar className="avatar-one" text="1" name="Name and photos"/>
@@ -28,8 +34,8 @@ const Step3 = (props) => {
             <div className="row justify-content-center">
 
                 <div className="col-5 my-2">
-                    <BasicInput className="basic-input" type="text" placeholder="name"
-                                label="Vaccinations name"/>
+                    <label>Vaccinations name</label>
+                    <BasicInput className="basic-input" type="text" placeholder="name" />
                 </div>
                 <div className="col-5 my-2">
                     <label>Vaccinations Date</label>

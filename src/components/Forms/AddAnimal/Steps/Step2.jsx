@@ -8,6 +8,12 @@ const Step2 = (props) => {
     }
     return (
         <div>
+            <div className="text-center">
+                <h4 className="font-weight-bold">Add Animal</h4>
+                <p className="px-5">Occasionally he inserts a comment of his own, either linking it into the main trail
+                    or joining it by a side trail to a particular item. When it becomes evident that the</p>
+            </div>
+            
             <div className="row avatars justify-content-center mb-5">
                 <div className="col-4">
                     <Avatar className="avatar-one" text="1" name="Name and photos"/>

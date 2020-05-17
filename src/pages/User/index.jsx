@@ -14,6 +14,8 @@ import {showModal} from "../../store/actions/modal";
 import Album from '../../components/Cards/Album/Album';
 import {AlbumLoadingAnimationBar} from '../../components/Cards/Album/LoadingAnimations/Album';
 import UploadAlbumForm from '../../components/Forms/UploadAlbumForm';
+import Reminder from '../../components/Helpers/Reminder';
+import ReminderForm from '../../components/Forms/ReminderForm';
 
 const NoPetsSection = ({onButtonClicked}) => {
 
@@ -37,11 +39,19 @@ const NoAlbumsSection = ({onButtonClicked}) => {
 
 const User = ({stateData, getSingleUser, match, showModal}) => {
 
-    const [key, setKey] = useState('albums');
+    const [key, setKey] = useState('pets');
     const id = match.params.id;
 
     const addAnimal = () => {
         showModal(AddAnimalForm)
+    }
+
+    const addAlbum = () => {
+        showModal(UploadAlbumForm)
+    }
+
+    const addReminder = () => {
+        showModal(ReminderForm)
     }
 
     useEffect(() => {
@@ -77,14 +87,14 @@ const User = ({stateData, getSingleUser, match, showModal}) => {
                     {(stateData.loading === false && stateData.model.pets.length > 0) && <Button text=" + Add More Pets"
                                                                                                  color="btn btn-info"
                                                                                                  size="btn-sm"
-                                                                                                 onclick={addAnimal}
+                                                                                                 onClick={addAnimal}
                                                                                                  className="my-3"/>}
 
                     <div className="row">
                         {stateData.loading === false ?
                             stateData.model.pets.length > 0 ? stateData.model.pets.map((pet, index) =>
                                     <div key={`pet_${index}`} className="col-lg-4 col-md-6 mb-4">
-                                        <Pet model={pet}/>
+                                        <Pet model={pet} id={id} />
                                     </div>
                                 ) :
                                 <NoPetsSection onButtonClicked={addAnimal}/>
@@ -94,18 +104,19 @@ const User = ({stateData, getSingleUser, match, showModal}) => {
                 </Tab>
 
                 <Tab eventKey="reminder" title="Reminder">
-
+                    <div className="col-md-6 mx-auto my-4">
+                        <Button text="+ Add Reminder" color="btn btn-info" size="btn-sm" onClick={addReminder}/>
+                    </div>
+                    <Reminder />
                 </Tab>
 
                 <Tab eventKey="albums" title="Albums">
                     <div className="row">
                         {stateData.loading === false ?
                                     stateData.model.albums.length > 0 ? stateData.model.albums.map((album, index) =>
-                                            <div key={`album_${index}`} className="col-md-6 col-12 mb-4">
-                                                <Album model={album}/>
-                                            </div>
+                                        <Album key={`album_${index}`} model={album}/>
                                         ) :
-                                        <NoAlbumsSection onButtonClicked={UploadAlbumForm}/>
+                                        <NoAlbumsSection onButtonClicked={addAlbum}/>
                                     :
                                     <AlbumLoadingAnimationBar/>}
                     </div>

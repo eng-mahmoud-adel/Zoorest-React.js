@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Card from "react-bootstrap/Card";
 
 const Album = ({model}) => {
     return (
-        <Card className="album-card">
+        <Fragment>
             {model.images &&  model.images.map(image => 
-                <div>
-                    <Card.Img src={image.path_large} />
+                <div className="col-md-6 mb-4">
+                    <Card className="album-card">
+                        <Card.Img src={image.path_large} />
+                    </Card>
                 </div>)}
-        </Card>
+        </Fragment>
     )
 }
 

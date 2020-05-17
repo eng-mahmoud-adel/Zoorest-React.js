@@ -6,12 +6,13 @@ import DropFile from './DropFiles/DropFile';
 const UploadAlbumForm = (props) => {
     return (
         <form>
-            <div className="form-group album-form col-8">
-                <h3 className= "title text-center my-4">{props.title}</h3>
-                <p className= "text text-center col-10 mx-auto mb-5">{props.text}</p>
+            <div className="form-group album-form col-md-12">
+                <h3 className= "title text-center my-4 pt-0">Upload Album </h3>
+                <p className= "text text-center col-10 mx-auto mb-5">Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the </p>
 
                 <div className= "col-10 my-5">
-                    <BasicInput className= "basic-input" type= "text" placeholder= "name" label= "Title of your album" />
+                    <label>Title of your album</label>
+                    <BasicInput className= "basic-input" type= "text" placeholder= "name" />
                 </div>
                 <div className= "col-4 my-5">
                     <label>Upload photos</label>
