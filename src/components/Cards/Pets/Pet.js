@@ -3,8 +3,9 @@ import Card from "react-bootstrap/Card";
 import {connect} from 'react-redux';
 import {showModal} from '../../../store/actions/modal';
 import {HorizontalEllipsisIcon} from "../../Icons";
+import {Link} from "react-router-dom";
 
-const Pet = ({model}) => {
+const Pet = ({model, id}) => {
 
 
     const showDropdown = () => {
@@ -27,11 +28,13 @@ const Pet = ({model}) => {
 
     return (
         <Card className="pet-card">
-            <div className="img-container">
-                <div className="brand-filter">
-                    <Card.Img variant="top" src={model.image}/>
+            <Link to={`/user/${id}/pet-details`}>
+                <div className="img-container">
+                    <div className="brand-filter">
+                        <Card.Img variant="top" src={model.image}/>
+                    </div>
                 </div>
-            </div>
+            </Link>
             <Card.Body>
                 <div className="d-flex">
                     <Card.Title className="header-5 medium">{model.name}</Card.Title>

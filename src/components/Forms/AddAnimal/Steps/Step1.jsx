@@ -21,7 +21,7 @@ const Step1 = (props) => {
                     <Avatar className="avatar-one" text="1" name="Name and photos"/>
                 </div>
                 <div className="col-5">
-                    <Avatar className="avatar-one" text="2" name="Certificates & Prescriptions"/>
+                    <Avatar className="avatar-one" text="2" name="Certificates & Prescriptions" />
                 </div>
                 <div className="col-3">
                     <Avatar className="avatar-one" text="3" name="Vaccinations"/>

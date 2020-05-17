@@ -19,6 +19,7 @@ import TypographyPage from "../../pages/Demo/Typography";
 import PrivacyPage from "../../pages/Privacy";
 import TermsPage from "../../pages/Terms";
 import User from '../../pages/User/index';
+import PetDetails from '../Cards/Pets/PetDetails/PetDetails';
 
 
 const AppRouter = () => (
@@ -42,7 +43,8 @@ const AppRouter = () => (
             <Route exact path="/doctor" component={Doctors}/>
             <Route path="/provider/:id" component={DoctorProfile}/>
 
-            <Route path="/user/:id" component={User}/>
+            <Route exact path="/user/:id" component={User}/>
+            <Route path="/user/:id/pet-details" component={PetDetails}/>
 
             <Route path="/login" component={LoginPage}/>
             <Route path="/signup" component={SignUpPage}/>
