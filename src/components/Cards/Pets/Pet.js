@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {showModal} from '../../../store/actions/modal';
 import {HorizontalEllipsisIcon} from "../../Icons";
 import {Link} from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const Pet = ({model, id}) => {
 
@@ -31,7 +32,9 @@ const Pet = ({model, id}) => {
             <Link to={`/user/${id}/pet-details`}>
                 <div className="img-container">
                     <div className="brand-filter">
-                        <Card.Img variant="top" src={model.image}/>
+                        <LazyLoad unmountIfInvisible={true} once={true}>
+                            <Card.Img variant="top" src={model.image}/>
+                        </LazyLoad>
                     </div>
                 </div>
             </Link>

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import logo from '../../images/logo.png';
 import {connect} from "react-redux";
 import Button from "../Buttons/Button/Button";
-import './jquery';
+//import './jquery';
 import {Nav} from "react-bootstrap";
 import BaseNavbar from "react-bootstrap/Navbar";
 import {showModal} from "../../store/actions/modal";
@@ -12,8 +12,9 @@ import LoginForm from "../Forms/Auth/LoginForm";
 import SignUpFormContainer from "../Forms/Auth/Signup/SignUpFormContainer";
 import {withTranslation} from 'react-i18next';
 import ProfileAvatar from "../Avatars/ProfileAvatar";
+import {logoutUser} from '../../store/actions/auth';
 
-const Auth = withTranslation()(({authUser, showModal, t}) => {
+const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
     const showSignUpModal = () => {
         showModal(SignUpFormContainer);
     };
@@ -21,6 +22,24 @@ const Auth = withTranslation()(({authUser, showModal, t}) => {
     const showSignInModal = () => {
         showModal(LoginForm);
     };
+
+    const showDropdown = () => {
+        document.getElementById(`user_${authUser.user.id}`).classList.toggle("show");
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                let dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    let openDropdown = dropdowns[i];
+                    console.log(openDropdown)
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        }
 
     return (
         <ul className="nav navbar-nav ml-auto w-100 justify-content-end auth">
@@ -49,9 +68,12 @@ const Auth = withTranslation()(({authUser, showModal, t}) => {
                 <Fragment>
                     {/*There is authenticated User */}
                     <label className="font-medium">{authUser.user.name}</label>
-                    <Link to="/user">
-                        <ProfileAvatar model={authUser.user} withLeftName={true} withName={false} withJoiningDate={false}/>
-                    </Link>
+                    <ProfileAvatar model={authUser.user} withLeftName={true} withName={false} withJoiningDate={false} onClick={showDropdown} />
+
+                    <div id={`user_${authUser.user.id}`} className="dropdown-content">
+                        <Link to={`/user/${authUser.user.id}`}>View Profile</Link>
+                        <Link to="/"><span onClick={logoutUser}>Logout</span></Link>
+                    </div>
 
                 </Fragment>
             }
@@ -133,6 +155,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
     showModal: (component) => {
         dispatch(showModal(component));
+    },
+    logoutUser: () => {
+        dispatch(logoutUser);
     }
 });
 
