@@ -2,9 +2,12 @@
 header {
     .navbar {
         background-color: $white;
-
         .navbar-collapse {
             .navbar-nav {
+                .dropdown-content {
+                    @extend %dropdown-content;
+                }
+                
                 .nav-item {
                     .nav-link {
                         color: $gray-color;

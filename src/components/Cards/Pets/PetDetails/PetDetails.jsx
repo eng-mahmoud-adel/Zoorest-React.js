@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {getSingleUser} from '../../../../store/actions/user';
 import SlickSlider from '../../../../components/Helpers/SlickSlider';
+import Card from "react-bootstrap/Card";
 
 
 const PetDetails = ({stateData, getSingleUser, match}) => {
@@ -46,26 +47,37 @@ const PetDetails = ({stateData, getSingleUser, match}) => {
 
     return (
         <div className="container">
-            <div>
-                {stateData.loading === false && stateData.model.pets.map(pet => <h4>{pet.name}</h4>)}
-                <p className="label">{`Date of Birth: `}</p>
-            </div>
-
-            <div>Photos (20)</div>
             
-            {/* <SlickSlider settings={slickSettings}>
-                {stateData ? stateData.model.pets.map((pet, index) => (
-                    <Pet key={index} model={pet} className="pet-card"/>
-                )) : <h1>loading</h1>}
-            </SlickSlider> */}
+            {stateData.loading === false && stateData.model.pets.map(pet => 
+            <Fragment>
+                <div>
+                    <h2>Animal Name: {pet.name}</h2>
+                    <p className="label">{`Date of Birth: ${pet.birth_date}`}</p>
+                </div>
 
-            <div>
-                <h6>Certificates &amp; Prescription</h6>
-            </div>
+                <div>Photos (20)</div>
 
-            <div>
-                <h6>Vaccinations</h6>
-            </div>
+                <SlickSlider settings={slickSettings}>
+                    {stateData ? stateData.model.pets.map((pet, index) => (
+                        <Card className="photo-card">
+                            <div>
+                                <Card.Img src={pet.images.map(img => img._path_small)} />
+                            </div>
+                        </Card>
+                    )) : <h1>loading</h1>}
+                </SlickSlider>
+
+                <div>
+                    <h6 className="font-weight-bold">Certificates &amp; Prescription</h6>
+                    <img src={pet.certificates} />
+                </div>
+
+                <div>
+                    <h6 className="font-weight-bold">Vaccinations</h6>
+                    <img src={pet.transcriptions} />
+                </div>
+            </Fragment>
+            )}
         </div>
     )
 }
