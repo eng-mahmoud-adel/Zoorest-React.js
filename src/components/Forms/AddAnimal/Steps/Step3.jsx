@@ -5,14 +5,14 @@ import InlineDateTimePickerDemo from '../../../DropDowns/DatePickerOne';
 import BasicInput from '../../../Inputs/BasicInput';
 import Button from '../../../Buttons/Button/Button';
 
-const Step3 = (props) => {
+const Step3 = ({currentStep, values, errors, touched, handleChange, handleBlur}) => {
 
-    if (props.currentStep !== 3) {
+    if (currentStep !== 3) {
         return null
     }
 
     return (
-        <div className={props.stepThree}>
+        <div>
             <div className="text-center">
                 <h4 className="font-weight-bold">Add Animal</h4>
                 <p className="px-5">Occasionally he inserts a comment of his own, either linking it into the main trail
@@ -35,7 +35,12 @@ const Step3 = (props) => {
 
                 <div className="col-5 my-2">
                     <label>Vaccinations name</label>
-                    <BasicInput className="basic-input" type="text" placeholder="name" />
+                    <BasicInput
+                        className={`basic-input ${values.vaccinationsName === "" ? "" : (!errors.vaccinationsName ? "is-valid" : "is-invalid")}`}
+                        name="vaccinationsName" type="text" value={values.vaccinationsName} placeholder="name"
+                        handleChange={handleChange} handleBlur={handleBlur}/>
+                    {errors.vaccinationsName && touched.vaccinationsName &&
+                    <div style={{color: "red"}}>{errors.vaccinationsName}</div>}
                 </div>
                 <div className="col-5 my-2">
                     <label>Vaccinations Date</label>

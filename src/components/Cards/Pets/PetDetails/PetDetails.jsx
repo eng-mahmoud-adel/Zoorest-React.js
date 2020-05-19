@@ -1,11 +1,10 @@
-import React, {useEffect, Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {getSingleUser} from '../../../../store/actions/user';
+import {getSinglePet} from '../../../../store/actions/pet';
 import SlickSlider from '../../../../components/Helpers/SlickSlider';
 import Card from "react-bootstrap/Card";
 
-
-const PetDetails = ({stateData, getSingleUser, match}) => {
+const PetDetails = ({stateData, getSinglePet, match}) => {
 
     const id = match.params.id;
 
@@ -18,21 +17,21 @@ const PetDetails = ({stateData, getSingleUser, match}) => {
         // autoplay: true,
         // autoplaySpeed: 5000,
         slidesToShow: 3,
-        centerMode: true,
+        //centerMode: true,
         centerPadding: '200px',
         lazyLoad: 'ondemand',
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 992,
                 settings: {
                     centerPadding: '60px',
                     slidesToShow: 2,
-                    centerMode: true,
+                    //centerMode: true,
 
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
                     centerPadding: '40px',
@@ -42,40 +41,52 @@ const PetDetails = ({stateData, getSingleUser, match}) => {
     };
 
     useEffect(() => {
-        getSingleUser(id);
-    }, [getSingleUser, id]);
+        getSinglePet(id);
+    }, [getSinglePet, id]);
 
     return (
         <div className="container">
-            
-            {stateData.loading === false && stateData.model.pets.map(pet => 
-            <Fragment>
-                <div>
-                    <h2>Animal Name: {pet.name}</h2>
-                    <p className="label">{`Date of Birth: ${pet.birth_date}`}</p>
-                </div>
 
-                <div>Photos (20)</div>
+            {stateData.loading === false && (
+                <Fragment>
+                    <div>
+                        <h2>Animal Name: {stateData.model.name}</h2>
+                        <p className="label">{`Date of Birth: ${stateData.model.birth_date}`}</p>
+                    </div>
 
-                <SlickSlider settings={slickSettings}>
-                    {stateData ? stateData.model.pets.map((pet, index) => (
-                        <Card className="photo-card">
-                            <div>
-                                <Card.Img src={pet.images.map(img => img._path_small)} />
-                            </div>
-                        </Card>
-                    )) : <h1>loading</h1>}
+                    <div>Photos (20)</div>
+
+                    <SlickSlider settings={slickSettings}>
+                        {stateData ? stateData.model.images.map((image, index) => (
+                            <Card className="photo-card">
+                                <div>
+                                    <Card.Img src={image}/>
+                                </div>
+                            </Card>
+                        )) : <h1>loading</h1>}
                 </SlickSlider>
 
-                <div>
-                    <h6 className="font-weight-bold">Certificates &amp; Prescription</h6>
-                    <img src={pet.certificates} />
-                </div>
+                    <div>
+                        <h6 className="font-weight-bold">Certificates &amp; Prescription</h6>
+                        {stateData.model.certificates.map((certificate, index) => (
+                            <Card className="certificate-card">
+                                <div>
+                                    <Card.Img src={certificate.path}/>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
 
-                <div>
-                    <h6 className="font-weight-bold">Vaccinations</h6>
-                    <img src={pet.transcriptions} />
-                </div>
+                    <div>
+                        <h6 className="font-weight-bold">Vaccinations</h6>
+                        {stateData.model.transcriptions.map((transcription, index) => (
+                            <Card className="transcription-card">
+                                <div>
+                                    <Card.Img src={transcription.path}/>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
             </Fragment>
             )}
         </div>
@@ -83,12 +94,12 @@ const PetDetails = ({stateData, getSingleUser, match}) => {
 }
 
 const mapStateToProps = (state) => ({
-    stateData: state.singleUserPage
+    stateData: state.singlePetPage
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getSingleUser: (id) => {
-        dispatch(getSingleUser(id));
+    getSinglePet: (id) => {
+        dispatch(getSinglePet(id));
     },
 })
 

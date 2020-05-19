@@ -12,7 +12,7 @@ import User from '../../model/User';
 import TimeInputOne from '../../components/Inputs/TimeInputOne';
 import CounterOne from '../../components/Inputs/CounterOne';
 
-const ProfileForm = ({countries, cities, currentLocale}) => {
+const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
 
     const handleFormSubmit = (values) => {
         console.log(values);
@@ -45,53 +45,65 @@ const ProfileForm = ({countries, cities, currentLocale}) => {
     }
 
     return (
-        <Fragment>
+        <Formik
+            initialValues={{
+                name: "",
+                email: "",
+                phone: "",
+                additional_phone_number: "",
+                official_name: "",
 
-            <section className="wrapper-one">
-                <h1 className="font-weight-bold">Edit your Profile</h1>
-                <div className="row">
-                    <p className="col-md-9">Audit Bureau of Circulations integrated the definition of this medium in its
-                        latest report. Legal rights are at least unclear for many common Internet activities, such as
-                        posting a picture that belongs</p>
-                    <div className="col-md-3">
-                        <Button text="Save all changes" color="btn btn-info" size="btn-sm" onClick={handleFormSubmit}/>
-                    </div>
-                </div>
-            </section>
+                oldPassword: "",
+                newPassword: "",
+                password_confirmation: "",
+            }}
+            onSubmit={handleFormSubmit}
+            validationSchema={Yup.object().shape({
+                name: Yup.string().required('This field is required.'),
+                email: Yup.string().email('Invalid email').required('This field is required.'),
+                phone: Yup.string().nullable().required('This field is required.'),
+                additional_phone_number: Yup.string().nullable(),
+                official_name: Yup.string().nullable().required('This field is required.'),
 
-            <Formik
-                initialValues={{
-                    name: "",
-                    email: "",
-                    phone: "",
-                    additional_phone_number: "",
-                    official_name: "",
+                oldPassword: Yup.string().required('This field is required.'),
+                newPassword: Yup.string().required('This field is required.'),
+                password_confirmation: Yup.string().required('This field is required.').when("newPassword", {
+                    is: val => (val && val.length > 0 ? true : false),
+                    then: Yup.string().oneOf(
+                        [Yup.ref("newPassword")],
+                        "Both password need to be the same"
+                    )
+                }),
+            })}
+            render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid, handleReset}) =>
 
-                    oldPassword: "",
-                    newPassword: "",
-                    password_confirmation: "",
-                }}
-                onSubmit={handleFormSubmit}
-                validationSchema={Yup.object().shape({
-                    name: Yup.string().required('This field is required.'),
-                    email: Yup.string().email('Invalid email').required('This field is required.'),
-                    phone: Yup.string().nullable().required('This field is required.'),
-                    additional_phone_number: Yup.string().nullable(),
-                    official_name: Yup.string().nullable().required('This field is required.'),
+                <Fragment>
+                    <section className="wrapper-one container">
+                        <h1 className="font-weight-bold">Edit your Profile</h1>
+                        <div className="row">
+                            <p className="col-md-9">Audit Bureau of Circulations integrated the definition of this
+                                medium in its
+                                latest report. Legal rights are at least unclear for many common Internet activities,
+                                such as
+                                posting a picture that belongs</p>
+                            <div className="col-md-3">
+                                <Button text="Save all changes" color="btn btn-info" size="btn-sm"
+                                        onClick={() => handleFormSubmit({
+                                            name: values.name,
+                                            email: values.email,
+                                            phone: values.phone,
+                                            additional_phone_number: values.additional_phone_number,
+                                            official_name: values.official_name,
+                                            oldPassword: values.oldPassword,
+                                            newPassword: values.newPassword,
+                                            password_confirmation: values.password_confirmation,
+                                        })}
+                                        disabled={isSubmitting}/>
+                            </div>
+                        </div>
+                    </section>
 
-                    oldPassword: Yup.string().required('This field is required.'),
-                    newPassword: Yup.string().required('This field is required.'),
-                    password_confirmation: Yup.string().required('This field is required.').when("newPassword", {
-                        is: val => (val && val.length > 0 ? true : false),
-                        then: Yup.string().oneOf(
-                            [Yup.ref("newPassword")],
-                            "Both password need to be the same"
-                        )
-                    }),
-                })}
-                render={({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid, handleReset}) =>
-
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className="container">
                         <div className="form-group profile-form col-12">
                             <h3 className="title font-weight-bold mt-0 pt-0">Account information</h3>
                             <div className="row my-5">
@@ -120,7 +132,8 @@ const ProfileForm = ({countries, cities, currentLocale}) => {
                                             className={`basic-input ${values.email === "" ? "" : (!errors.email ? "is-valid" : "is-invalid")}`}
                                             name="email" type="email" value={values.email} placeholder="email"
                                             handleChange={handleChange} handleBlur={handleBlur}/>
-                                        {errors.email && touched.email && <div style={{color: "red"}}>{errors.email}</div>}
+                                        {errors.email && touched.email &&
+                                        <div style={{color: "red"}}>{errors.email}</div>}
                                     </div>
 
                                     <div className="mb-3">
@@ -148,7 +161,8 @@ const ProfileForm = ({countries, cities, currentLocale}) => {
                                         <label className="font-weight-bold">Official doctor name</label>
                                         <BasicInput
                                             className={`basic-input ${values.official_name === "" ? "" : (!errors.official_name ? "is-valid" : "is-invalid")}`}
-                                            name="official_name" type="text" value={values.official_name} placeholder="name"
+                                            name="official_name" type="text" value={values.official_name}
+                                            placeholder="name"
                                             handleChange={handleChange} handleBlur={handleBlur}/>
                                         {errors.official_name && touched.official_name &&
                                         <div style={{color: "red"}}>{errors.official_name}</div>}
@@ -169,7 +183,8 @@ const ProfileForm = ({countries, cities, currentLocale}) => {
                                         <label className="font-weight-bold">New Password</label>
                                         <BasicInput
                                             className={`basic-input ${values.newPassword === "" ? "" : (!errors.newPassword ? "is-valid" : "is-invalid")}`}
-                                            name="newPassword" type="password" value={values.newPassword} placeholder="password"
+                                            name="newPassword" type="password" value={values.newPassword}
+                                            placeholder="password"
                                             handleChange={handleChange} handleBlur={handleBlur}/>
                                         {errors.newPassword && touched.newPassword &&
                                         <div style={{color: "red"}}>{errors.newPassword}</div>}
@@ -203,41 +218,41 @@ const ProfileForm = ({countries, cities, currentLocale}) => {
                                     </div>
                                     <div className="mb-3">
                                         <label className="font-weight-bold">About doctor</label>
-                                        <TextArea rows="15"/>
+                                        <TextArea rows="14"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
-                }
-            >
-            </Formik>
 
-            <section className="wrapper-two my-5">
-                <h3 className="font-weight-bold mb-5">Appointment management</h3>
-                <div className="row">
-                    <div className="col-md-6">
-                        <label className="font-weight-bold">Availability</label>
-                        <TimeInputOne type="text" className="input-time-one" icon="fa fa-clock-o clock-icon fa-lg"/>
-                    </div>
+                    <section className="wrapper-two container my-5">
+                        <h3 className="font-weight-bold mb-5">Appointment management</h3>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <label className="font-weight-bold">Availability</label>
+                                <TimeInputOne type="text" className="input-time-one"
+                                              icon="fa fa-clock-o clock-icon fa-lg"/>
+                            </div>
 
-                    <div className="col-md-6">
-                        <label className="font-weight-bold">Examination Duration</label>
-                        <CounterOne/>
-                    </div>
-                </div>
-            </section>
+                            <div className="col-md-6">
+                                <label className="font-weight-bold">Examination Duration</label>
+                                <CounterOne/>
+                            </div>
+                        </div>
+                    </section>
 
-            <section className="wrapper-three my-5">
-                <h3 className="font-weight-bold">Certificates</h3>
-                <img src=""/>
-            </section>
+                    <section className="wrapper-three container my-5">
+                        <h3 className="font-weight-bold">Certificates</h3>
+                        <img src=""/>
+                    </section>
 
-            <section className="wrapper-four my-5">
-                <h3 className="font-weight-bold">Articles status</h3>
-            </section>
-
-        </Fragment>
+                    <section className="wrapper-four container my-5">
+                        <h3 className="font-weight-bold">Articles status</h3>
+                    </section>
+                </Fragment>
+            }
+        >
+        </Formik>
     )
 }
 

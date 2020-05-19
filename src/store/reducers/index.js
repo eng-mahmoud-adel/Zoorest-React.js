@@ -16,6 +16,8 @@ import globalReducer from "./globals";
 import pageReducer from "./pages";
 import notyReducer from "./noty";
 import singleUserReducer from './users/singleUserPage';
+import singlePetReducer from './pet';
+import albumReducer from './album';
 
 const reducer = combineReducers({
     pages: pageReducer,
@@ -28,6 +30,10 @@ const reducer = combineReducers({
     authUser: authReducer,
 
     singleUserPage: singleUserReducer,
+
+    singlePetPage: singlePetReducer,
+
+    albumPage: albumReducer,
 
     providers: providersReducer,
     singleProviderPage: singleProviderPage,

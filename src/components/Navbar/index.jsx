@@ -11,7 +11,6 @@ import {showModal} from "../../store/actions/modal";
 import LoginForm from "../Forms/Auth/LoginForm";
 import SignUpFormContainer from "../Forms/Auth/Signup/SignUpFormContainer";
 import {withTranslation} from 'react-i18next';
-import ProfileAvatar from "../Avatars/ProfileAvatar";
 import {logoutUser} from '../../store/actions/auth';
 
 const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
@@ -28,16 +27,16 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
 
         // Close the dropdown if the user clicks outside of it
         window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                let dropdowns = document.getElementsByClassName("dropdown-content");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    let openDropdown = dropdowns[i];
-                    console.log(openDropdown)
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
+            // if (!event.target.matches('.dropbtn')) {
+            //     let dropdowns = document.getElementsByClassName("dropdown-content");
+            //     for (let i = 0; i < dropdowns.length; i++) {
+            //         let openDropdown = dropdowns[i];
+            //         console.log(openDropdown)
+            //         if (openDropdown.classList.contains('show')) {
+            //             openDropdown.classList.remove('show');
+            //         }
+            //     }
+            // }
         }
         }
 
@@ -67,12 +66,16 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
 
                 <Fragment>
                     {/*There is authenticated User */}
-                    <label className="font-medium">{authUser.user.name}</label>
-                    <ProfileAvatar model={authUser.user} withLeftName={true} withName={false} withJoiningDate={false} onClick={showDropdown} />
+                    <span className="font-medium">{authUser.user.name}</span>
+                    <div>
+                        <img src={authUser.user.image} style={{width: "30px", borderRadius: "50%", cursor: "pointer"}}
+                             onClick={showDropdown}/>
+                    </div>
 
                     <div id={`user_${authUser.user.id}`} className="dropdown-content">
                         <Link to={`/user/${authUser.user.id}`}>View Profile</Link>
-                        <Link to="/"><span onClick={logoutUser}>Logout</span></Link>
+                        <Link to={`/user/${authUser.user.id}/edit-profile`}>Edit Profile</Link>
+                        <Link to="/" onClick={logoutUser}>Logout</Link>
                     </div>
 
                 </Fragment>
@@ -141,7 +144,7 @@ const Navbar = (props) => {
                         </Nav.Item>
                     </Nav>
 
-                    <Auth authUser={props.authUser} showModal={props.showModal}/>
+                    <Auth authUser={props.authUser} showModal={props.showModal} logoutUser={props.logoutUser}/>
                 </BaseNavbar.Collapse>
             </BaseNavbar>
         </header>
@@ -157,7 +160,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(showModal(component));
     },
     logoutUser: () => {
-        dispatch(logoutUser);
+        dispatch(logoutUser());
     }
 });
 
