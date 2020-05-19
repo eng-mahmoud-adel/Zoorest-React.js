@@ -4,8 +4,8 @@ import Avatar from '../../../Avatars/Avatar';
 import InlineDateTimePickerDemo from '../../../DropDowns/DatePickerOne';
 import BasicInput from '../../../Inputs/BasicInput';
 
-const Step1 = (props) => {
-    if (props.currentStep !== 1) {
+const Step1 = ({currentStep, values, errors, touched, handleChange, handleBlur}) => {
+    if (currentStep !== 1) {
         return null
     }
     return (
@@ -30,7 +30,11 @@ const Step1 = (props) => {
             <div className="row justify-content-center">
                 <div className="col-5 my-5">
                     <label>Animal name</label>
-                    <BasicInput className="basic-input" type="text" placeholder="name"/>
+                    <BasicInput
+                        className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
+                        name="name" type="text" value={values.name} placeholder="name"
+                        handleChange={handleChange} handleBlur={handleBlur}/>
+                    {errors.name && touched.name && <div style={{color: "red"}}>{errors.name}</div>}
                 </div>
                 <div className="col-5 my-5">
                     <label>Date of birth</label>

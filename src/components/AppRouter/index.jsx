@@ -20,6 +20,7 @@ import PrivacyPage from "../../pages/Privacy";
 import TermsPage from "../../pages/Terms";
 import User from '../../pages/User/index';
 import PetDetails from '../Cards/Pets/PetDetails/PetDetails';
+import ProfileForm from '../Forms/ProfileForm';
 
 
 const AppRouter = () => (
@@ -45,6 +46,7 @@ const AppRouter = () => (
 
             <Route exact path="/user/:id" component={User}/>
             <Route path="/user/:id/pet-details" component={PetDetails}/>
+            <Route path="/user/:id/edit-profile" component={ProfileForm}/>
 
             <Route path="/login" component={LoginPage}/>
             <Route path="/signup" component={SignUpPage}/>

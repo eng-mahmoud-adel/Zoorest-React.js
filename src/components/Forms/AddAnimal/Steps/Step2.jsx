@@ -2,8 +2,8 @@ import React from 'react';
 import DropFile from '../../DropFiles/DropFile';
 import Avatar from '../../../Avatars/Avatar';
 
-const Step2 = (props) => {
-    if (props.currentStep !== 2) {
+const Step2 = ({currentStep, values, errors, touched, handleChange, handleBlur}) => {
+    if (currentStep !== 2) {
         return null
     }
     return (

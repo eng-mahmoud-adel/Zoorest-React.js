@@ -39,7 +39,7 @@ const NoAlbumsSection = ({onButtonClicked}) => {
 
 const User = ({stateData, getSingleUser, match, showModal}) => {
 
-    const [key, setKey] = useState('pets');
+    const [key, setKey] = useState('photos');
     const id = match.params.id;
 
     const addAnimal = () => {
