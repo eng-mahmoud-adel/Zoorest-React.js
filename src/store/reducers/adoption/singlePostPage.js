@@ -3,7 +3,8 @@ import {
     GET_POSTS_LOADING,
     GET_POST_COMMENTS,
     GET_MORE_POST_COMMENTS,
-    TOP_POSTS
+    TOP_POSTS,
+    CREATE_POSTS
 } from "../../actions/posts";
 import ModelPaginatedResource from "../../../model/ModelPaginatedResource";
 import Post from "../../../model/Post";
@@ -47,6 +48,12 @@ const singlePostReducer = (state = initialState, action) => {
             return {
                 ...state,
                 top: new ModelPaginatedResource(action.payload, Post)
+            };
+
+        case CREATE_POSTS:
+            return {
+                ...state,
+                model: new Post(action.payload)
             };
         
 

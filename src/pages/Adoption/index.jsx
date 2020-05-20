@@ -65,7 +65,7 @@ const AllPostsContainer = ({
                                 <Button text=" + Add New Post"
                                         color="btn btn-danger"
                                         size="btn-sm"
-                                        onclick={addPostForm}
+                                        onClick={addPostForm}
                                         className="mb-3"/>
                             </div>
                             {<LazyList
@@ -144,8 +144,8 @@ const AllPostsContainer = ({
                                     placeholder="Start searching for anything"/>
                     </div>
 
-                    <div>
-                        <AddPost />
+                    <div className="mt-5">
+                        <AddPost onButtonClicked={addPostForm} />
                     </div>
                 </section>
 
