@@ -26,19 +26,19 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
         document.getElementById(`user_${authUser.user.id}`).classList.toggle("show");
 
         // Close the dropdown if the user clicks outside of it
-        window.onclick = function (event) {
-            // if (!event.target.matches('.dropbtn')) {
-            //     let dropdowns = document.getElementsByClassName("dropdown-content");
-            //     for (let i = 0; i < dropdowns.length; i++) {
-            //         let openDropdown = dropdowns[i];
-            //         console.log(openDropdown)
-            //         if (openDropdown.classList.contains('show')) {
-            //             openDropdown.classList.remove('show');
-            //         }
-            //     }
-            // }
-        }
-        }
+        // window.onclick = function (event) {
+        //     if (!event.target.matches('.dropbtn')) {
+        //         let dropdowns = document.getElementsByClassName("dropdown-content");
+        //         for (let i = 0; i < dropdowns.length; i++) {
+        //             let openDropdown = dropdowns[i];
+        //             console.log(openDropdown)
+        //             if (openDropdown.classList.contains('show')) {
+        //                 openDropdown.classList.remove('show');
+        //             }
+        //         }
+        //     }
+        // }
+    }
 
     return (
         <ul className="nav navbar-nav ml-auto w-100 justify-content-end auth">

@@ -4,6 +4,7 @@ export const HOMEPAGE_HERO_SECTION = "HOMEPAGE_HERO_SECTION";
 export const HOMEPAGE_DOWNLOAD_APP_SECTION = "HOMEPAGE_DOWNLOAD_APP_SECTION";
 export const HOMEPAGE_RECENT_QUESTIONS_SECTION = "HOMEPAGE_RECENT_QUESTIONS_SECTION";
 export const HOMEPAGE_SPONSORED_PROVIDER_SECTION = "HOMEPAGE_NEAREST_PROVIDER_SECTION";
+export const HOMEPAGE_SEO = "HOMEPAGE_SEO";
 
 export const HOMEPAGE_RECENT_QUESTIONS = "HOMEPAGE_RECENT_QUESTIONS";
 export const HOMEPAGE_SPONSORED_PROVIDERS = "HOMEPAGE_SPONSORED_PROVIDERS";
@@ -22,6 +23,11 @@ export const getHomeData = () => async (dispatch) => {
     await ApiService.get(`page/home`)
         .then(
             (response) => {
+
+                dispatch({
+                    type: HOMEPAGE_SEO,
+                    payload: response.data.page.seo
+                });
 
                 dispatch({
                     type: HOMEPAGE_HERO_SECTION,

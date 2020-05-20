@@ -8,6 +8,7 @@ import RecentQuestions from "./RecentQuestions";
 import RecentPosts from "./RecentPosts";
 import Testimonials from "./Testimonials";
 import {getHomeData} from "../../store/actions/pages";
+import {Helmet} from "react-helmet";
 
 const HomeContainer = (
     {
@@ -23,6 +24,21 @@ const HomeContainer = (
 
     return (
         <Fragment>
+            {
+                <Helmet>
+
+                    {page.seo.title && <title>page.seo.getLocalizedTitle(currentLocale)}</title>}
+
+                    {page.seo.meta_keywords &&
+                    <meta name="keywords" content={page.seo.getLocalizedKeywords(currentLocale)}/>}
+
+                    {page.seo.meta_description &&
+                    <meta name="description" content={page.seo.getLocalizedDescription(currentLocale)}/>}
+
+                    {page.seo.updated_at && <meta name="og:updated_time" content={page.seo.updated_at}/>}
+                </Helmet>
+            }
+
             <section id="section-hero" className="container pt-sm-5 pt-0 pb-5">
                 <HeroSection currentLocale={currentLocale} data={heroSection}/>
             </section>

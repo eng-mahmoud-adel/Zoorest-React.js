@@ -60,7 +60,7 @@ const PetDetails = ({stateData, getSinglePet, match}) => {
                         {stateData ? stateData.model.images.map((image, index) => (
                             <Card className="photo-card">
                                 <div>
-                                    <Card.Img src={image}/>
+                                    <Card.Img src={image.path}/>
                                 </div>
                             </Card>
                         )) : <h1>loading</h1>}

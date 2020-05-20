@@ -4,15 +4,18 @@ import {
     HOMEPAGE_DOWNLOAD_APP_SECTION,
     HOMEPAGE_HERO_SECTION,
     HOMEPAGE_RECENT_QUESTIONS_SECTION,
+    HOMEPAGE_SEO,
     HOMEPAGE_SPONSORED_PROVIDER_SECTION,
     PRIVACY_PAGE,
     PROVIDERS_PAGE,
     QUESTIONS_PAGE,
     TERMS_PAGE
 } from "../actions/pages";
+import SEO from "../../model/SEO";
 
 const initialState = {
     homepage: {
+        seo: new SEO(),
         heroSection: new Section(),
         downloadAppSection: new Section(),
         recentQuestionsSection: new Section(),
@@ -40,6 +43,17 @@ const initialState = {
 
 const pageReducer = (state = initialState, action) => {
     switch (action.type) {
+        case HOMEPAGE_SEO:
+            if (!action.payload) {
+                return state;
+            }
+            return {
+                ...state,
+                homepage: {
+                    ...state.homepage,
+                    seo: new SEO(action.payload)
+                },
+            }
         case HOMEPAGE_HERO_SECTION:
             return {
                 ...state,
