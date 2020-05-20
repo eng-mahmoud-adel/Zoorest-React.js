@@ -23,6 +23,8 @@ export const GET_MORE_POST_COMMENTS = "GET_MORE_POST_COMMENTS";
 
 export const TOP_POSTS = 'TOP_POSTS';
 
+export const CREATE_POSTS = 'CREATE_POSTS';
+
 const ENDPOINT = 'posts';
 
 export const getSellPosts = () => async (dispatch) => {
@@ -244,4 +246,23 @@ export const getTopPosts = (limit = 4) => async (dispatch) => {
             }
         );
 
+};
+
+export const createPost = (request) => async (dispatch, getState) => {
+    await ApiService.post(`${ENDPOINT}`, request, {
+        headers: {
+            Authorization: `Bearer ${getState().authUser.accessToken}`
+        }
+    })
+        .then(
+            (response) => {
+                dispatch({
+                    type: CREATE_POSTS,
+                    payload: response.data.data
+                });
+            },
+            (error) => {
+                console.log(error.response);
+            }
+        );
 };
