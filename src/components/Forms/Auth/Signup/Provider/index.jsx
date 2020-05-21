@@ -12,8 +12,9 @@ import BaseModal from "react-bootstrap/Modal";
 import Location from "../../../Location";
 import {connect} from 'react-redux';
 import {registerProvider} from '../../../../../store/actions/auth';
+import {withTranslation} from 'react-i18next';
 
-const ProviderForm = ({currentLocale, countries, cities, districts, signup, provider_type}) => {
+const ProviderForm = withTranslation()(({currentLocale, countries, cities, districts, signup, provider_type, t}) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [userGeoLocation, setUserGeoLocation] = useState(null);
 
@@ -132,7 +133,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
 
 
                 <div className="my-3">
-                    <label className="font-medium">Full Name<span style={{color: "red"}}>*</span></label>
+                    <label className="font-medium">{t('full_name')}<span style={{color: "red"}}>*</span></label>
                     <BasicInput
                         className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
                         name="name" type="text" value={values.name} placeholder="name"
@@ -140,7 +141,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                     {errors.name && touched.name && <div style={{color: "red"}}>{errors.name}</div>}
                 </div>
                 <div className="mb-3">
-                    <label className="font-medium">Email Address<span style={{color: "red"}}>*</span></label>
+                    <label className="font-medium">{t('email')}<span style={{color: "red"}}>*</span></label>
                     <BasicInput
                         className={`basic-input ${values.email === "" ? "" : (!errors.email ? "is-valid" : "is-invalid")}`}
                         name="email" type="email" value={values.email} placeholder="email"
@@ -148,7 +149,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                     {errors.email && touched.email && <div style={{color: "red"}}>{errors.email}</div>}
                 </div>
                 <div className="mb-3">
-                    <label className="font-medium">Phone Number<span style={{color: "red"}}>*</span></label>
+                    <label className="font-medium">{t('phone')}<span style={{color: "red"}}>*</span></label>
                     <BasicInput
                         className={`basic-input ${values.phone === "" ? "" : (!errors.phone ? "is-valid" : "is-invalid")}`}
                         name="phone" type="text" value={values.phone}
@@ -157,7 +158,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                     <div style={{color: "red"}}>{errors.phone}</div>}
                 </div>
                 <div className="mb-3">
-                    <label className="font-medium">Additional Phone Number</label>
+                    <label className="font-medium">{t('additional_phone')}</label>
                     <BasicInput
                         className={`basic-input ${values.additional_phone_number === "" ? "" : (!errors.additional_phone_number ? "is-valid" : "is-invalid")}`}
                         name="additional_phone_number" type="text" value={values.additional_phone_number}
@@ -167,7 +168,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                 </div>
                 <div className="row mb-3 ">
                     <div className="col-md-6">
-                        <label className="font-medium">Password<span style={{color: "red"}}>*</span></label>
+                        <label className="font-medium">{t('password')}<span style={{color: "red"}}>*</span></label>
                         <BasicInput
                             className={`basic-input ${values.password === "" ? "" : (!errors.password ? "is-valid" : "is-invalid")}`}
                             name="password" type="password" value={values.password} placeholder="password"
@@ -176,7 +177,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                         <div style={{color: "red"}}>{errors.password}</div>}
                     </div>
                     <div className="col-md-6">
-                        <label className="font-medium">Confirm Password<span style={{color: "red"}}>*</span></label>
+                        <label className="font-medium">{t('confirm_password')}<span style={{color: "red"}}>*</span></label>
                         <BasicInput
                             className={`basic-input ${values.password_confirmation === "" ? "" : (!errors.password_confirmation ? "is-valid" : "is-invalid")}`}
                             name="password_confirmation" type="password"
@@ -189,7 +190,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                 </div>
                 <div className="row mb-3 ">
                     <div className="col-md-6">
-                        <label className="font-medium">Official doctor name<span style={{color: "red"}}>*</span></label>
+                        <label className="font-medium">{t('doctor_name')}<span style={{color: "red"}}>*</span></label>
                         <BasicInput
                             className={`basic-input ${values.official_name === "" ? "" : (!errors.official_name ? "is-valid" : "is-invalid")}`}
                             name="official_name" type="text" value={values.official_name} placeholder="name"
@@ -198,7 +199,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
                         <div style={{color: "red"}}>{errors.official_name}</div>}
                     </div>
                     <div className="col-md-6">
-                        <label className="font-medium">Select your location<span style={{color: "red"}}>*</span></label>
+                        <label className="font-medium">{t('location')}<span style={{color: "red"}}>*</span></label>
 
                         <input readOnly={true}
                                type="text"
@@ -253,7 +254,7 @@ const ProviderForm = ({currentLocale, countries, cities, districts, signup, prov
         }>
 
     </Formik>);
-}
+})
 
 const mapDispatchToProps = (dispatch) => ({
     registerProvider: (request) => {
@@ -261,4 +262,4 @@ const mapDispatchToProps = (dispatch) => ({
     },
 });
 
-export default connect(null, mapDispatchToProps)(ProviderForm);
+export default connect(null, mapDispatchToProps)(withTranslation()(ProviderForm));

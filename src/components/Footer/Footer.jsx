@@ -4,8 +4,10 @@ import logo from '../../images/logo.png';
 import {Nav} from "react-bootstrap";
 import BaseNavbar from "react-bootstrap/Navbar";
 import {FacebookIcon, InstagramIcon, TwitterIcon} from "../Icons";
+import {withTranslation} from 'react-i18next';
+import {connect} from "react-redux";
 
-const Footer = (props) => {
+const Footer = withTranslation()(({t}) => {
     return (
         <footer className= "footer pb-5">
             <div className= "container">
@@ -20,23 +22,23 @@ const Footer = (props) => {
                     </BaseNavbar.Brand>
                     <Nav as="ul" className="navbar-nav w-100 justify-content-center text-center">
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/">Home</Link>
+                            <Link className="nav-link" to="/">{t('home')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/question">Questions</Link>
+                            <Link className="nav-link" to="/question">{t('questions')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/article">Articles</Link>
+                            <Link className="nav-link" to="/article">{t('articles')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link find-doctor" to="/doctor">Find a doctor</Link>
+                            <Link className="nav-link find-doctor" to="/doctor">{t('find_doc')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link conditions"
-                                  to="/terms-and-conditions">Terms &amp; Conditions</Link>
+                                  to="/terms-and-conditions">{t('terms_conditions')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link policy" to="/privacy-policy">Privacy Policy</Link>
+                            <Link className="nav-link policy" to="/privacy-policy">{t('privacy_policy')}</Link>
                         </Nav.Item>
                     </Nav>
                     <ul className="navbar-nav w-25 justify-content-md-end justify-content-between flex-row text-center social-links">
@@ -63,11 +65,11 @@ const Footer = (props) => {
                     </ul>
                 </BaseNavbar>
                 <div className= "copy-right text-center">
-                    All copyrights Reserved 2020. Zoorest&copy;
+                    {t('copy_right')}
                 </div>
             </div>
         </footer>
     );
-};
+});
 
-export default Footer;
+export default connect(null)(withTranslation()(Footer));

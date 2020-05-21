@@ -13,8 +13,13 @@ export const HOMEPAGE_RECENT_ARTICLES = "HOMEPAGE_RECENT_ARTICLES";
 export const HOMEPAGE_TESTIMONIALS = "HOMEPAGE_TESTIMONIALS";
 
 export const PROVIDERS_PAGE = "PROVIDERS_PAGE";
+export const PROVIDERS_PAGE_SEO = "PROVIDERS_PAGE_SEO";
+
 export const QUESTIONS_PAGE = "QUESTIONS_PAGE";
+export const QUESTIONS_PAGE_SEO = "QUESTIONS_PAGE_SEO";
+
 export const ADOPTION_PAGE = "ADOPTION_PAGE";
+export const ADOPTION_PAGE_SEO = "ADOPTION_PAGE_SEO";
 
 export const TERMS_PAGE = "TERMS_PAGE";
 export const PRIVACY_PAGE = "PRIVACY_PAGE";
@@ -92,6 +97,11 @@ export const getProviderPage = () => async (dispatch) => {
                     payload: response.data.data.sections.find(section => section.name === "Banner")
                 });
 
+                dispatch({
+                    type: PROVIDERS_PAGE_SEO,
+                    payload: response.data.seo
+                });
+
             },
             (error) => {
                 console.log(error.response);
@@ -109,6 +119,11 @@ export const getQuestionsPage = () => async (dispatch) => {
                     payload: response.data.data.sections.find(section => section.name === "Banner")
                 });
 
+                dispatch({
+                    type: QUESTIONS_PAGE_SEO,
+                    payload: response.data.seo
+                });
+
             },
             (error) => {
                 console.log(error.response);
@@ -124,6 +139,11 @@ export const getAdoptionPage = () => async (dispatch) => {
                 dispatch({
                     type: ADOPTION_PAGE,
                     payload: response.data.data.sections.find(section => section.name === "Banner")
+                });
+
+                dispatch({
+                    type: ADOPTION_PAGE_SEO,
+                    payload: response.data.seo
                 });
 
             },

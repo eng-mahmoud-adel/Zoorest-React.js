@@ -3,8 +3,10 @@ import Article from "../../components/Cards/Articles/Article";
 import SlickSlider from "../../components/Helpers/SlickSlider";
 import {Link} from "react-router-dom";
 import {ArticleLoadingAnimationBar} from "../../components/Cards/Articles/LoadingAnimations/Article";
+import {withTranslation} from 'react-i18next';
+import {connect} from "react-redux";
 
-const RecentArticles = ({articles}) => {
+const RecentArticles = withTranslation()(({articles, t}) => {
 
     const slickSettings = {
         rtl: false,//todo use variable when site localization is added
@@ -39,11 +41,11 @@ const RecentArticles = ({articles}) => {
             <div className="row">
                 <div className="col-md-3 title mt-0 pt-0">
                     <h3>
-                        Recent Articles
+                        {t('recent_articles')}
                     </h3>
                 </div>
                 <div className="col-md-6"/>
-                <Link to="/article" className="col-md-3">See More Articles</Link>
+                <Link to="/article" className="col-md-3">{t('see_more_articles')}</Link>
             </div>
 
             <div className="row d-none d-lg-flex">
@@ -70,6 +72,6 @@ const RecentArticles = ({articles}) => {
             </SlickSlider>
         </Fragment>
     );
-};
+});
 
-export default RecentArticles;
+export default connect(null)(withTranslation()(RecentArticles));

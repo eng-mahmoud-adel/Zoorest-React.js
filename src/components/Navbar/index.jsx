@@ -58,7 +58,7 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
                         <Button color="btn-info"
                                 onClick={showSignUpModal}>
                             <label className="font-medium text-white">
-                                Signup For Free
+                                {t('sign_up')}
                             </label>
                         </Button>
                     </Nav.Item>
@@ -73,9 +73,9 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
                     </div>
 
                     <div id={`user_${authUser.user.id}`} className="dropdown-content">
-                        <Link to={`/user/${authUser.user.id}`}>View Profile</Link>
-                        <Link to={`/user/${authUser.user.id}/edit-profile`}>Edit Profile</Link>
-                        <Link to="/" onClick={logoutUser}>Logout</Link>
+                        <Link to={`/user/${authUser.user.id}`}>{t('view_profile')}</Link>
+                        <Link to={`/user/${authUser.user.id}/edit-profile`}>{t('edit_profile')}</Link>
+                        <Link to="/" onClick={logoutUser}>{t('logout')}</Link>
                     </div>
 
                 </Fragment>

@@ -8,16 +8,16 @@ import {connect} from "react-redux";
 import * as Yup from "yup";
 import {SelectField, TagsSelect} from "../Inputs/MultiSelect";
 import {createQuestion} from "../../store/actions/questions";
+import {withTranslation} from 'react-i18next';
 
-
-const QuestionForm = ({errors, touched, isSubmitting, categories}) => {
+const QuestionForm = withTranslation()(({errors, touched, isSubmitting, categories, t}) => {
 
     return (
         <div className="question-form">
             <h4 className="text-center font-bold my-4 ">Add a Question</h4>
             <div className="text-left">
                 <div className="my-3 mx-auto col-10">
-                    <label id="title">Title</label>
+                    <label id="title">{t('title')}</label>
                     {/*<BasicInput className="basic-input" type="text" placeholder="input title" name="title" label="Title"/>*/}
 
                     <Field name="title"
@@ -32,7 +32,7 @@ const QuestionForm = ({errors, touched, isSubmitting, categories}) => {
                 </div>
 
                 <div className="mb-3 mx-auto col-10">
-                    <label id="body">Body</label>
+                    <label id="body">{t('body')}</label>
 
                     <Field name="description"
                            as="textarea"
@@ -59,7 +59,7 @@ const QuestionForm = ({errors, touched, isSubmitting, categories}) => {
                 </div>
 
                 <div className="mb-3 mx-auto col-10">
-                    <label>Tags</label>
+                    <label>{t('tags')}</label>
 
                     <Field name="tags[]"
                            as={TagsSelect}
@@ -89,7 +89,7 @@ const QuestionForm = ({errors, touched, isSubmitting, categories}) => {
         </div>
 
     );
-}
+})
 
 
 const AddQuestion = ({currentLocale, addQuestion, hideModal, categories}) => {
@@ -184,4 +184,4 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch({type: HIDE_MODAL, payload: null})
     }
 });
-export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(AddQuestion));

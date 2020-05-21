@@ -3,8 +3,10 @@ import DropFile from '../../DropFiles/DropFile';
 import Avatar from '../../../Avatars/Avatar';
 import InlineDateTimePickerDemo from '../../../DropDowns/DatePickerOne';
 import BasicInput from '../../../Inputs/BasicInput';
+import {withTranslation} from 'react-i18next';
+import {connect} from "react-redux";
 
-const Step1 = ({currentStep, values, errors, touched, handleChange, handleBlur}) => {
+const Step1 = withTranslation()(({currentStep, values, errors, touched, handleChange, handleBlur, t}) => {
     if (currentStep !== 1) {
         return null
     }
@@ -29,7 +31,7 @@ const Step1 = ({currentStep, values, errors, touched, handleChange, handleBlur})
             </div>
             <div className="row justify-content-center">
                 <div className="col-5 my-5">
-                    <label>Animal name</label>
+                    <label>{t('animal_name')}</label>
                     <BasicInput
                         className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
                         name="name" type="text" value={values.name} placeholder="name"
@@ -37,16 +39,16 @@ const Step1 = ({currentStep, values, errors, touched, handleChange, handleBlur})
                     {errors.name && touched.name && <div style={{color: "red"}}>{errors.name}</div>}
                 </div>
                 <div className="col-5 my-5">
-                    <label>Date of birth</label>
+                    <label>{t('dob')}</label>
                     <InlineDateTimePickerDemo/>
                 </div>
             </div>
             <div className="col-3 offset-1 pl-0 my-5">
-                <label>Upload photos</label>
+                <label>{t('upload_photos')}</label>
                 <DropFile/>
             </div>
         </div>
     );
-}
+})
 
-export default Step1;
+export default connect(null)(withTranslation()(Step1));

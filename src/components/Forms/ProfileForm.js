@@ -11,8 +11,9 @@ import {updateProfile} from '../../store/actions/auth';
 import User from '../../model/User';
 import TimeInputOne from '../../components/Inputs/TimeInputOne';
 import CounterOne from '../../components/Inputs/CounterOne';
+import {withTranslation} from 'react-i18next';
 
-const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
+const ProfileForm = withTranslation()(({countries, cities, currentLocale, updateProfile, t}) => {
 
     const handleFormSubmit = (values) => {
         console.log(values);
@@ -118,7 +119,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                             <div className="row">
                                 <div className="col-6">
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Full Name</label>
+                                        <label className="font-weight-bold">{t('full_name')}</label>
                                         <BasicInput
                                             className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
                                             name="name" type="text" value={values.name} placeholder="name"
@@ -127,7 +128,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Email Address</label>
+                                        <label className="font-weight-bold">{t('email')}</label>
                                         <BasicInput
                                             className={`basic-input ${values.email === "" ? "" : (!errors.email ? "is-valid" : "is-invalid")}`}
                                             name="email" type="email" value={values.email} placeholder="email"
@@ -137,7 +138,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Phone Number</label>
+                                        <label className="font-weight-bold">{t('phone')}</label>
                                         <BasicInput
                                             className={`basic-input ${values.phone === "" ? "" : (!errors.phone ? "is-valid" : "is-invalid")}`}
                                             name="phone" type="text" value={values.phone}
@@ -147,7 +148,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Additional Phone Number</label>
+                                        <label className="font-weight-bold">{t('additional_phone')}</label>
                                         <BasicInput
                                             className={`basic-input ${values.additional_phone_number === "" ? "" : (!errors.additional_phone_number ? "is-valid" : "is-invalid")}`}
                                             name="additional_phone_number" type="text"
@@ -158,7 +159,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Official doctor name</label>
+                                        <label className="font-weight-bold">{t('doctor_name')}</label>
                                         <BasicInput
                                             className={`basic-input ${values.official_name === "" ? "" : (!errors.official_name ? "is-valid" : "is-invalid")}`}
                                             name="official_name" type="text" value={values.official_name}
@@ -169,7 +170,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Old Password</label>
+                                        <label className="font-weight-bold">{t('old_password')}</label>
                                         <BasicInput
                                             className={`basic-input ${values.oldPassword === "" ? "" : (!errors.oldPassword ? "is-valid" : "is-invalid")}`}
                                             name="oldPassword" type="password" value={values.oldPassword}
@@ -180,7 +181,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">New Password</label>
+                                        <label className="font-weight-bold">{t('new_password')}</label>
                                         <BasicInput
                                             className={`basic-input ${values.newPassword === "" ? "" : (!errors.newPassword ? "is-valid" : "is-invalid")}`}
                                             name="newPassword" type="password" value={values.newPassword}
@@ -191,7 +192,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Confirm Password</label>
+                                        <label className="font-weight-bold">{t('confirm_password')}</label>
                                         <BasicInput
                                             className={`basic-input ${values.password_confirmation === "" ? "" : (!errors.password_confirmation ? "is-valid" : "is-invalid")}`}
                                             name="password_confirmation" type="password"
@@ -204,20 +205,20 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                                 </div>
                                 <div className="col-6">
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Select your location</label>
+                                        <label className="font-weight-bold">{t('location')}</label>
                                         <BasicInput className="input-icon-left" type="text"
                                                     right_icon="fa fa-commenting-o fa-lg" placeholder="maadi street"/>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Country</label>
+                                        <label className="font-weight-bold">{t('country')}</label>
                                         <MultiSelect options={getCountries()}/>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">Region</label>
+                                        <label className="font-weight-bold">{t('region')}</label>
                                         <MultiSelect options={getCities()}/>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">About doctor</label>
+                                        <label className="font-weight-bold">{t('about_doctor')}</label>
                                         <TextArea rows="14"/>
                                     </div>
                                 </div>
@@ -229,13 +230,13 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
                         <h3 className="font-weight-bold mb-5">Appointment management</h3>
                         <div className="row">
                             <div className="col-md-6">
-                                <label className="font-weight-bold">Availability</label>
+                                <label className="font-weight-bold">{t('availability')}</label>
                                 <TimeInputOne type="text" className="input-time-one"
                                               icon="fa fa-clock-o clock-icon fa-lg"/>
                             </div>
 
                             <div className="col-md-6">
-                                <label className="font-weight-bold">Examination Duration</label>
+                                <label className="font-weight-bold">{t('examination_duration')}</label>
                                 <CounterOne/>
                             </div>
                         </div>
@@ -254,7 +255,7 @@ const ProfileForm = ({countries, cities, currentLocale, updateProfile}) => {
         >
         </Formik>
     )
-}
+})
 
 const mapStateToProps = (state) => ({
     countries: state.globals.countries,
@@ -268,4 +269,4 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileForm);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ProfileForm));
