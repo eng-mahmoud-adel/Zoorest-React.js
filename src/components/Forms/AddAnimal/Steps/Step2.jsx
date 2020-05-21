@@ -1,8 +1,10 @@
 import React from 'react';
 import DropFile from '../../DropFiles/DropFile';
 import Avatar from '../../../Avatars/Avatar';
+import {withTranslation} from 'react-i18next';
+import {connect} from "react-redux";
 
-const Step2 = ({currentStep, values, errors, touched, handleChange, handleBlur}) => {
+const Step2 = withTranslation()(({currentStep, values, errors, touched, handleChange, handleBlur, t}) => {
     if (currentStep !== 2) {
         return null
     }
@@ -26,16 +28,16 @@ const Step2 = ({currentStep, values, errors, touched, handleChange, handleBlur})
                 </div>
             </div>
             <div className="col-3 offset-1 pl-0 my-5">
-                <label>Upload Certificates</label>
+                <label>{t('upload_certificates')}</label>
                 <DropFile/>
             </div>
             <hr/>
             <div className="col-3 offset-1 pl-0 my-5">
-                <label>Upload Prescriptions</label>
+                <label>{t('upload_prescriptions')}</label>
                 <DropFile/>
             </div>
         </div>
     );
-}
+})
 
-export default Step2;
+export default connect(null)(withTranslation()(Step2));

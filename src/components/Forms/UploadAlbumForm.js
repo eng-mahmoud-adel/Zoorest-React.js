@@ -8,8 +8,9 @@ import * as Yup from "yup";
 import {hideModal} from "../../store/actions/modal";
 import {createAlbum} from "../../store/actions/album";
 import Album from "../../model/Album";
+import {withTranslation} from 'react-i18next';
 
-const UploadAlbumForm = ({hideModal, createAlbum}) => {
+const UploadAlbumForm = withTranslation()(({hideModal, createAlbum, t}) => {
 
     const handleSubmissionSuccess = () => {
         hideModal();
@@ -41,7 +42,7 @@ const UploadAlbumForm = ({hideModal, createAlbum}) => {
                             item. When it becomes evident that the </p>
 
                         <div className="col-10 my-5">
-                            <label>Title of your album</label>
+                            <label>{t('album_title')}</label>
                             <BasicInput
                                 className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
                                 name="name" type="text" value={values.name} placeholder="name"
@@ -49,7 +50,7 @@ const UploadAlbumForm = ({hideModal, createAlbum}) => {
                             {errors.name && touched.name && <div style={{color: "red"}}>{errors.name}</div>}
                         </div>
                         <div className="col-4 my-5">
-                            <label>Upload photos</label>
+                            <label>{t('upload_photos')}</label>
                             <DropFile/>
                         </div>
                         <div className="row">
@@ -72,7 +73,7 @@ const UploadAlbumForm = ({hideModal, createAlbum}) => {
         >
         </Formik>
     )
-}
+})
 
 const mapDispatchToProps = (dispatch) => ({
     hideModal: () => {
@@ -83,4 +84,4 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-export default connect(null, mapDispatchToProps)(UploadAlbumForm);
+export default connect(null, mapDispatchToProps)(withTranslation()(UploadAlbumForm));

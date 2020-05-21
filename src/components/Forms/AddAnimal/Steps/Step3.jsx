@@ -4,8 +4,10 @@ import Avatar from '../../../Avatars/Avatar';
 import InlineDateTimePickerDemo from '../../../DropDowns/DatePickerOne';
 import BasicInput from '../../../Inputs/BasicInput';
 import Button from '../../../Buttons/Button/Button';
+import {withTranslation} from 'react-i18next';
+import {connect} from "react-redux";
 
-const Step3 = ({currentStep, values, errors, touched, handleChange, handleBlur}) => {
+const Step3 = ({currentStep, values, errors, touched, handleChange, handleBlur, t}) => {
 
     if (currentStep !== 3) {
         return null
@@ -34,7 +36,7 @@ const Step3 = ({currentStep, values, errors, touched, handleChange, handleBlur})
             <div className="row justify-content-center">
 
                 <div className="col-5 my-2">
-                    <label>Vaccinations name</label>
+                    <label>{t('vaccination_name')}</label>
                     <BasicInput
                         className={`basic-input ${values.vaccinationsName === "" ? "" : (!errors.vaccinationsName ? "is-valid" : "is-invalid")}`}
                         name="vaccinationsName" type="text" value={values.vaccinationsName} placeholder="name"
@@ -43,12 +45,12 @@ const Step3 = ({currentStep, values, errors, touched, handleChange, handleBlur})
                     <div style={{color: "red"}}>{errors.vaccinationsName}</div>}
                 </div>
                 <div className="col-5 my-2">
-                    <label>Vaccinations Date</label>
+                    <label>{t('vaccination_date')}</label>
                     <InlineDateTimePickerDemo/>
                 </div>
             </div>
             <div className="col-10 mx-auto pl-0 my-2">
-                <label>Upload photos</label>
+                <label>{t('upload_photos')}</label>
                 <DropFile/>
             </div>
             <div className="col-8 mx-auto my-5">
@@ -58,4 +60,4 @@ const Step3 = ({currentStep, values, errors, touched, handleChange, handleBlur})
     );
 }
 
-export default Step3;
+export default connect(null)(withTranslation()(Step3));

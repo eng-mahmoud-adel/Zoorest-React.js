@@ -5,8 +5,9 @@ import InlineDateTimePickerDemo from '../DropDowns/DatePickerOne';
 import {Formik} from "formik";
 import * as Yup from "yup";
 import {connect} from "react-redux";
+import {withTranslation} from 'react-i18next';
 
-const ReminderForm = (props) => {
+const ReminderForm = withTranslation()(({t}) => {
 
     const handleSubmit = (values) => {
         console.log(values);
@@ -28,7 +29,7 @@ const ReminderForm = (props) => {
                         <p className= "text">Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the elastic properties of available materials </p>
                         <div className= "row my-5">
                             <div className= "col-6">
-                                <label>Title of your reminder</label>
+                                <label>{t('reminder_title')}</label>
                                 <BasicInput
                                         className={`basic-input ${values.name === "" ? "" : (!errors.name ? "is-valid" : "is-invalid")}`}
                                         name="name" type="name" value={values.name} placeholder="name"
@@ -36,7 +37,7 @@ const ReminderForm = (props) => {
                                 {errors.name && touched.name && <div style={{color: "red"}}>{errors.name}</div>}
                             </div>
                             <div className= "col-6">
-                                <label>Date and time</label>
+                                <label>{t('date_time')}</label>
                                 <InlineDateTimePickerDemo />
                             </div>
                         </div>
@@ -54,10 +55,10 @@ const ReminderForm = (props) => {
         >
         </Formik>
     )
-}
+})
 
 const mapDispatchToProps = dispatch => ({
     // add reminder here
 });
 
-export default connect(null, mapDispatchToProps)(ReminderForm);
+export default connect(null, mapDispatchToProps)(withTranslation()(ReminderForm));

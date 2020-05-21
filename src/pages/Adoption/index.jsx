@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {Tab, Tabs} from 'react-bootstrap';
 import Post from '../../components/Cards/Posts/Post';
@@ -21,6 +21,7 @@ import {
     getSellPosts,
 } from '../../store/actions/posts';
 import {getAdoptionPage} from "../../store/actions/pages";
+import {Helmet} from "react-helmet";
 
 const AllPostsContainer = ({
                                page, currentLocale, posts, getSellPosts, getMoreSellPosts, getAdoptPosts, getMoreAdoptPosts,
@@ -43,115 +44,130 @@ const AllPostsContainer = ({
     }
 
     return (
-        <div className= "adoption container">
+        <Fragment>
+            {
+                <Helmet>
+                    {page.seo.title && <title>{page.seo.getLocalizedTitle(currentLocale)}</title>}
 
-            <header>
-                <h1 className= "title font-weight-bold">{page.bannerSection.getFiledValueByName("title", currentLocale)}</h1>
-                <p className= "desc">{page.bannerSection.getFiledValueByName("description", currentLocale)}</p>
-            </header>
+                    {page.seo.meta_keywords &&
+                    <meta name="keywords" content={page.seo.getLocalizedKeywords(currentLocale)}/>}
 
-            <div className= "row">
+                    {page.seo.meta_description &&
+                    <meta name="description" content={page.seo.getLocalizedDescription(currentLocale)}/>}
 
-                <section className= "col-md-9">
-                    <Tabs
-                        className="my-5"
-                        id="posts"
-                        activeKey={key}
-                        onSelect={(k) => setKey(k)}>
+                    {page.seo.updated_at && <meta name="og:updated_time" content={page.seo.updated_at}/>}
+                </Helmet>
+            }
+            <div className= "adoption container">
 
-                        <Tab eventKey="sell" title="Sell">
-                            <div>
-                                <p className="mt-3">Price: </p>
-                                <Button text=" + Add New Post"
-                                        color="btn btn-danger"
-                                        size="btn-sm"
-                                        onClick={addPostForm}
-                                        className="mb-3"/>
-                            </div>
-                            {<LazyList
-                                data={posts.sell}
-                                itemCols={"col-12"}
-                                loadMoreMessage={"Load More Posts"}
-                                component={Post}
-                                //todo placeholderComponent={Post}
-                                fetchMoreData={getMoreSellPosts}
-                                refresh={getSellPosts}
+                <header>
+                    <h1 className= "title font-weight-bold">{page.bannerSection.getFiledValueByName("title", currentLocale)}</h1>
+                    <p className= "desc">{page.bannerSection.getFiledValueByName("description", currentLocale)}</p>
+                </header>
 
-                            />}
-                        </Tab>
+                <div className= "row">
 
-                        <Tab eventKey="adopt" title="Adopt">
-                            {<LazyList
-                                data={posts.adopt}
-                                itemCols={"col-12"}
-                                loadMoreMessage={"Load More Posts"}
-                                component={Post}
-                                //todo placeholderComponent={Post}
-                                fetchMoreData={getMoreAdoptPosts}
-                                refresh={getAdoptPosts}
+                    <section className= "col-md-9">
+                        <Tabs
+                            className="my-5"
+                            id="posts"
+                            activeKey={key}
+                            onSelect={(k) => setKey(k)}>
 
-                            />}
-                        </Tab>
+                            <Tab eventKey="sell" title="Sell">
+                                <div>
+                                    <p className="mt-3">Price: </p>
+                                    <Button text=" + Add New Post"
+                                            color="btn btn-danger"
+                                            size="btn-sm"
+                                            onClick={addPostForm}
+                                            className="mb-3"/>
+                                </div>
+                                {<LazyList
+                                    data={posts.sell}
+                                    itemCols={"col-12"}
+                                    loadMoreMessage={"Load More Posts"}
+                                    component={Post}
+                                    //todo placeholderComponent={Post}
+                                    fetchMoreData={getMoreSellPosts}
+                                    refresh={getSellPosts}
 
-                        <Tab eventKey="mate" title="Mate">
-                            {<LazyList
-                                data={posts.mate}
-                                itemCols={"col-12"}
-                                loadMoreMessage={"Load More Posts"}
-                                component={Post}
-                                //todo placeholderComponent={Post}
-                                fetchMoreData={getMoreMatePosts}
-                                refresh={getMatePosts}
+                                />}
+                            </Tab>
 
+                            <Tab eventKey="adopt" title="Adopt">
+                                {<LazyList
+                                    data={posts.adopt}
+                                    itemCols={"col-12"}
+                                    loadMoreMessage={"Load More Posts"}
+                                    component={Post}
+                                    //todo placeholderComponent={Post}
+                                    fetchMoreData={getMoreAdoptPosts}
+                                    refresh={getAdoptPosts}
 
-                            />}
-                        </Tab>
+                                />}
+                            </Tab>
 
-                        <Tab eventKey="lost" title="Lost">
-                            {<LazyList
-                                data={posts.lost}
-                                itemCols={"col-12"}
-                                loadMoreMessage={"Load More Posts"}
-                                component={Post}
-                                //todo placeholderComponent={Post}
-                                fetchMoreData={getMoreLostPosts}
-                                refresh={getLostPosts}
-
-
-                            />}
-                        </Tab>
-
-                        <Tab eventKey="product" title="Product">
-                            {<LazyList
-                                data={posts.product}
-                                itemCols={"col-12"}
-                                loadMoreMessage={"Load More Posts"}
-                                component={Post}
-                                //todo placeholderComponent={Post}
-                                fetchMoreData={getMoreProductPosts}
-                                refresh={getProductPosts}
+                            <Tab eventKey="mate" title="Mate">
+                                {<LazyList
+                                    data={posts.mate}
+                                    itemCols={"col-12"}
+                                    loadMoreMessage={"Load More Posts"}
+                                    component={Post}
+                                    //todo placeholderComponent={Post}
+                                    fetchMoreData={getMoreMatePosts}
+                                    refresh={getMatePosts}
 
 
-                            />}
-                        </Tab>
-                    </Tabs>
+                                />}
+                            </Tab>
 
-                </section>
+                            <Tab eventKey="lost" title="Lost">
+                                {<LazyList
+                                    data={posts.lost}
+                                    itemCols={"col-12"}
+                                    loadMoreMessage={"Load More Posts"}
+                                    component={Post}
+                                    //todo placeholderComponent={Post}
+                                    fetchMoreData={getMoreLostPosts}
+                                    refresh={getLostPosts}
 
-                <section className= "col-md-3">
-                    <div>
-                        <BasicInput className="basic-input" type="text" right_icon="fa fa-search fa-lg"
-                                    placeholder="Start searching for anything"/>
-                    </div>
 
-                    <div className="mt-5">
-                        <AddPost onButtonClicked={addPostForm} />
-                    </div>
-                </section>
+                                />}
+                            </Tab>
+
+                            <Tab eventKey="product" title="Product">
+                                {<LazyList
+                                    data={posts.product}
+                                    itemCols={"col-12"}
+                                    loadMoreMessage={"Load More Posts"}
+                                    component={Post}
+                                    //todo placeholderComponent={Post}
+                                    fetchMoreData={getMoreProductPosts}
+                                    refresh={getProductPosts}
+
+
+                                />}
+                            </Tab>
+                        </Tabs>
+
+                    </section>
+
+                    <section className= "col-md-3">
+                        <div>
+                            <BasicInput className="basic-input" type="text" right_icon="fa fa-search fa-lg"
+                                        placeholder="Start searching for anything"/>
+                        </div>
+
+                        <div className="mt-5">
+                            <AddPost onButtonClicked={addPostForm} />
+                        </div>
+                    </section>
+
+                </div>
 
             </div>
-
-        </div>
+        </Fragment>
     )
 }
 

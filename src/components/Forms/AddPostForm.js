@@ -10,8 +10,9 @@ import * as Yup from "yup";
 import {hideModal} from "../../store/actions/modal";
 import {createPost} from "../../store/actions/posts";
 import Post from "../../model/Post";
+import {withTranslation} from 'react-i18next';
 
-const AddPostForm = ({hideModal, createPost}) => {
+const AddPostForm = withTranslation()(({hideModal, createPost, t}) => {
 
     const handleSubmissionSuccess = () => {
         hideModal();
@@ -59,15 +60,15 @@ const AddPostForm = ({hideModal, createPost}) => {
                         <div className= "row justify-content-center">
                             <div className= "col-5">
                                 <div className= "mb-3">
-                                    <label>Post Type</label>
+                                    <label>{t('post_type')}</label>
                                     <MultiSelect />
                                 </div>
                                 <div className= "mb-3">
-                                    <label>Animal Type</label>
+                                    <label>{t('animal_type')}</label>
                                     <MultiSelect />
                                 </div>
                                 <div className= "mb-3">
-                                    <label>Color</label>
+                                    <label>{t('color')}</label>
                                     <BasicInput
                                         className={`basic-input ${values.color === "" ? "" : (!errors.color ? "is-valid" : "is-invalid")}`}
                                         name="color" type="text" value={values.color} placeholder="name"
@@ -75,7 +76,7 @@ const AddPostForm = ({hideModal, createPost}) => {
                                     {errors.color && touched.color && <div style={{color: "red"}}>{errors.color}</div>}
                                 </div>
                                 <div className= "mb-3">
-                                    <label>Price</label>
+                                    <label>{t('price')}</label>
                                     <BasicInput
                                         className={`basic-input ${values.price === "" ? "" : (!errors.price ? "is-valid" : "is-invalid")}`}
                                         name="price" type="text" value={values.price} placeholder="name"
@@ -83,7 +84,7 @@ const AddPostForm = ({hideModal, createPost}) => {
                                     {errors.price && touched.price && <div style={{price: "red"}}>{errors.price}</div>}
                                 </div>
                                 <div className= "mb-3">
-                                    <label>License Number</label>
+                                    <label>{t('license_number')}</label>
                                     <BasicInput
                                         className={`basic-input ${values.licenseNumber === "" ? "" : (!errors.licenseNumber ? "is-valid" : "is-invalid")}`}
                                         name="licenseNumber" type="text" value={values.licenseNumber} placeholder="name"
@@ -93,7 +94,7 @@ const AddPostForm = ({hideModal, createPost}) => {
                             </div>
                             <div className= "col-5">
                                 <div className= "mb-3">
-                                    <label>Post Title</label>
+                                    <label>{t('post_title')}</label>
                                     <BasicInput
                                         className={`basic-input ${values.postTitle === "" ? "" : (!errors.postTitle ? "is-valid" : "is-invalid")}`}
                                         name="postTitle" type="text" value={values.postTitle} placeholder="name"
@@ -101,11 +102,11 @@ const AddPostForm = ({hideModal, createPost}) => {
                                     {errors.postTitle && touched.postTitle && <div style={{postTitle: "red"}}>{errors.postTitle}</div>}
                                 </div>
                                 <div className= "mb-3">
-                                    <label>Gender</label>
+                                    <label>{t('gender')}</label>
                                     <MultiSelect />
                                 </div>
                                 <div className= "mb-3">
-                                    <label>Classification</label>
+                                    <label>{t('classification')}</label>
                                     <BasicInput
                                         className={`basic-input ${values.classification === "" ? "" : (!errors.classification ? "is-valid" : "is-invalid")}`}
                                         name="classification" type="text" value={values.classification} placeholder="name"
@@ -113,7 +114,7 @@ const AddPostForm = ({hideModal, createPost}) => {
                                     {errors.classification && touched.classification && <div style={{classification: "red"}}>{errors.classification}</div>}
                                 </div>
                                 <div className= "mb-3">
-                                    <label>Currency</label>
+                                    <label>{t('currency')}</label>
                                     <BasicInput
                                         className={`basic-input ${values.currency === "" ? "" : (!errors.currency ? "is-valid" : "is-invalid")}`}
                                         name="currency" type="text" value={values.currency} placeholder="name"
@@ -121,7 +122,7 @@ const AddPostForm = ({hideModal, createPost}) => {
                                     {errors.currency && touched.currency && <div style={{currency: "red"}}>{errors.currency}</div>}
                                 </div>
                                 <div className= "mb-3">
-                                    <label>Vaccination</label>
+                                    <label>{t('vaccination')}</label>
                                     <BasicInput
                                         className={`basic-input ${values.vaccination === "" ? "" : (!errors.vaccination ? "is-valid" : "is-invalid")}`}
                                         name="vaccination" type="text" value={values.vaccination} placeholder="name"
@@ -131,11 +132,11 @@ const AddPostForm = ({hideModal, createPost}) => {
                             </div>
                         </div>
                         <div className= "mb-3 mx-auto col-10 p-0">
-                            <label>Purity of the platoon</label>
+                            <label>{t('purity_platoon')}</label>
                             <TextArea />
                         </div>
                         <div className= "mb-3 mx-auto col-10 p-0">
-                            <label>Distincitve signs</label>
+                            <label>{t('distincitve_signs')}</label>
                             <TextArea />
                         </div>
                         <div className= "mb-3 col-4">
@@ -162,7 +163,7 @@ const AddPostForm = ({hideModal, createPost}) => {
         >
         </Formik>
     )
-}
+})
 
 const mapDispatchToProps = (dispatch) => ({
     hideModal: () => {
@@ -173,5 +174,5 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-export default connect(null, mapDispatchToProps)(AddPostForm);
+export default connect(null, mapDispatchToProps)(withTranslation()(AddPostForm));
 

@@ -1,6 +1,7 @@
 import Section from "../../model/Section";
 import {
     ADOPTION_PAGE,
+    ADOPTION_PAGE_SEO,
     HOMEPAGE_DOWNLOAD_APP_SECTION,
     HOMEPAGE_HERO_SECTION,
     HOMEPAGE_RECENT_QUESTIONS_SECTION,
@@ -8,7 +9,9 @@ import {
     HOMEPAGE_SPONSORED_PROVIDER_SECTION,
     PRIVACY_PAGE,
     PROVIDERS_PAGE,
+    PROVIDERS_PAGE_SEO,
     QUESTIONS_PAGE,
+    QUESTIONS_PAGE_SEO,
     TERMS_PAGE
 } from "../actions/pages";
 import SEO from "../../model/SEO";
@@ -22,15 +25,19 @@ const initialState = {
         sponsoredProvidersSection: new Section()
     },
     providers: {
+        seo: new SEO(),
         bannerSection: new Section()
     },
     questions: {
+        seo: new SEO(),
         bannerSection: new Section()
     },
     adoption: {
+        seo: new SEO(),
         bannerSection: new Section()
     },
     articles: {
+        seo: new SEO(),
         trending_topics: []
     },
     privacy: {
@@ -54,6 +61,43 @@ const pageReducer = (state = initialState, action) => {
                     seo: new SEO(action.payload)
                 },
             }
+
+        case PROVIDERS_PAGE_SEO:
+            if (!action.payload) {
+                return state;
+            }
+            return {
+                ...state,
+                providers: {
+                    ...state.providers,
+                    seo: new SEO(action.payload)
+                },
+            }
+
+        case QUESTIONS_PAGE_SEO:
+            if (!action.payload) {
+                return state;
+            }
+            return {
+                ...state,
+                questions: {
+                    ...state.questions,
+                    seo: new SEO(action.payload)
+                },
+            }
+
+        case ADOPTION_PAGE_SEO:
+            if (!action.payload) {
+                return state;
+            }
+            return {
+                ...state,
+                adoption: {
+                    ...state.adoption,
+                    seo: new SEO(action.payload)
+                },
+            }
+
         case HOMEPAGE_HERO_SECTION:
             return {
                 ...state,

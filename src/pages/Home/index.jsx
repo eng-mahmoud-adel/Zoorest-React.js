@@ -27,7 +27,7 @@ const HomeContainer = (
             {
                 <Helmet>
 
-                    {page.seo.title && <title>page.seo.getLocalizedTitle(currentLocale)}</title>}
+                    {page.seo.title && <title>{page.seo.getLocalizedTitle(currentLocale)}</title>}
 
                     {page.seo.meta_keywords &&
                     <meta name="keywords" content={page.seo.getLocalizedKeywords(currentLocale)}/>}

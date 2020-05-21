@@ -9,8 +9,9 @@ import {login} from "../../../store/actions/auth";
 import {connect} from "react-redux";
 import {Formik} from "formik";
 import * as Yup from "yup";
+import {withTranslation} from 'react-i18next';
 
-const LoginForm = ({login, onSignupClicked}) => {
+const LoginForm = withTranslation()(({login, onSignupClicked, t}) => {
 
     const handleLogin = (loginRequest) => {
         login(loginRequest)
@@ -76,7 +77,7 @@ const LoginForm = ({login, onSignupClicked}) => {
                     <div className="form-group login-form">
                         <div className="text-right">
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                            <a href="#" onClick={onSignupClicked}>Sign up</a>
+                            <a href="#" onClick={onSignupClicked}>{t('sign_up')}</a>
                         </div>
                         <div className="container">
                             <div className="wrapper">
@@ -114,7 +115,7 @@ const LoginForm = ({login, onSignupClicked}) => {
                                         disabled={!isValid || (values.email === "" && values.password === "" ? isSubmitting = true : isSubmitting = false)}/>
                             </div>
                             <div className="mb-2 col-11 mx-auto">
-                                <a href="#">Forgot password?</a>
+                                <a href="#">{t('forgot_password')}</a>
                             </div>
                             <hr/>
                             <div className="row justify-content-center col-11 mx-auto px-0">
@@ -134,11 +135,11 @@ const LoginForm = ({login, onSignupClicked}) => {
         </Formik>
     )
 
-};
+});
 
 const mapDispatchToProps = dispatch => ({
     login: (request) => {
         dispatch(login(request))
     },
 });
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default connect(null, mapDispatchToProps)(withTranslation()(LoginForm));
