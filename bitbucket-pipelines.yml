@@ -17,20 +17,20 @@ pipelines:
       #          - tar -czvf packaged/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C build . #place the production build in a directory called packaged on bitbucket pipeline
       #        artifacts:
       #          - packaged/**
-      - step:
-          name: Deploy development and run
-          image: alpine
-          #        trigger: manual
-          deployment: test
-          script:
-            - apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
-            - chmod 400 ec2-zoorest.pem
-            - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && git fetch && git checkout --force ${BITBUCKET_COMMIT}"
-            - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && docker-compose -f docker-compose.dev.yml exec -T website npm install"
-            - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && docker-compose -f docker-compose.dev.yml restart"
+      #      - step:
+      #          name: Deploy development and run
+      #          image: alpine
+      #          #        trigger: manual
+      #          deployment: test
+      #          script:
+      #            - apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
+      #            - chmod 400 ec2-zoorest.pem
+      #            - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && git fetch && git checkout --force ${BITBUCKET_COMMIT}"
+      #            - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && docker-compose -f docker-compose.dev.yml exec -T website npm install"
+      #            - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && docker-compose -f docker-compose.dev.yml restart"
       - step:
           name: Deploy staging and run
-          image: node:12.16.1
+          image: node:12.16.1-alpine
           trigger: manual
           deployment: staging
           caches:
