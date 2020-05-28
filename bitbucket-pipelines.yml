@@ -36,7 +36,7 @@ pipelines:
           caches:
             - node
           script:
-            - apt update && apt install openssh rsync #install openssh rsync on bitbucket machine
+            - apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
             - npm install
             - unset CI
             - npm run-script build #create a production build
