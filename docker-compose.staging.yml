@@ -1,0 +1,30 @@
+version: "3"
+services:
+  #PHP Service
+  website:
+    build:
+      context: .
+      dockerfile: docker/environments/staging/Dockerfile
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www/html
+    env_file:
+      - docker/environments/staging/.env.docker.website
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000 #default setup is used by a reverse proxy, change to "3001:3000" to run on localhost:3001 instead
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/node_modules
+    networks:
+      - default
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+  default:
+    external:
+      name: nginx-proxy
