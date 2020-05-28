@@ -42,7 +42,7 @@ pipelines:
             - mkdir upload #create a folder on bitbucket pipeline called upload
             - tar -xf packaged/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C upload # extract compressed build from previous step  to upload directory on bitbucket
             - apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
-            - rsync -a  -e "ssh -i ec2-zoorest.pem -o" --delete upload/ $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP:/var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER} # transfer build files from bitbucket to a temp directory on deployment server
+            - rsync -a  -e "ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no" --delete upload/ $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP:/var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER} # transfer build files from bitbucket to a temp directory on deployment server
             - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP "rm -rf $DEPLOYMENT_STAGING_PATH/*"
             - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP "mv /var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}/* $DEPLOYMENT_STAGING_PATH" #move build files from the temp directory to its target directory
             - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP "rm -rf /var/www/temp/zoorest-${BITBUCKET_BUILD_NUMBER}" #cleanup temp directory
