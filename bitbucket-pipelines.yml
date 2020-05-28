@@ -31,7 +31,7 @@ pipelines:
       - step:
           name: Deploy staging and run
           image: node:12.16.1-alpine
-          trigger: manual
+#          trigger: manual
           deployment: staging
           caches:
             - node
