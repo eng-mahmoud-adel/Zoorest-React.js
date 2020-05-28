@@ -30,7 +30,7 @@ pipelines:
             - ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "cd $DEPLOYMENT_DEV_PATH && docker-compose -f docker-compose.dev.yml restart"
       - step:
           name: Deploy staging and run
-          image: alpine
+          image: node:12.16.1
           trigger: manual
           deployment: staging
           script:
