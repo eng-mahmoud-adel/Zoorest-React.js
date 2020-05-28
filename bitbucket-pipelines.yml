@@ -35,6 +35,7 @@ pipelines:
           deployment: staging
           script:
             - npm install
+            - unset CI
             - npm run-script build #create a production build
             - mkdir packaged
             - tar -czvf packaged/package-${BITBUCKET_BUILD_NUMBER}.tar.gz -C build . #place the production build in a directory called packaged on bitbucket pipeline
