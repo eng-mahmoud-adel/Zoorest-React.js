@@ -18,13 +18,13 @@ const DownloadAppSection = ({section, currentLocale}) => {
             <div className="col-md-6 wrap-section order-md-2 order-1 text-center text-md-left mb-5">
 
                 <div className="title mt-0 mt-md-5 pt-0 pt-md-5">
-                    <h3>
+                    <h3 className="font-bold font-weight-bold">
                         {section.getFiledValueByName("title", currentLocale)}
                     </h3>
                 </div>
 
                 <div className="wrapper">
-                    <h5 className="font-regular">{section.getFiledValueByName("description", currentLocale)}</h5>
+                    <h5 className="font-regular text-muted">{section.getFiledValueByName("description", currentLocale)}</h5>
 
                     <div className="row justify-content-center justify-content-md-start">
                         <div className="col-xl-5 col-lg-5 col-md-6 col-4 ml-1 ml-sm-0">

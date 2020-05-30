@@ -9,21 +9,21 @@ const SponsoredProviderSection = ({providers, section, currentLocale}) => {
     return (
         <div className="row p-3">
             <div className="col-lg-5 mb-4 mb-md-4">
-                <h3 className="title mb-5 mt-0">
+                <h3 className="title mb-5 mt-0 font-bold font-weight-bold">
                     {section.getFiledValueByName("header", currentLocale)}
                 </h3>
                 <div className="wrapper mb-4">
-                    <h6 className="font-black">
+                    <h6 className="font-black font-weight-bold">
                         {section.getFiledValueByName("title", currentLocale)}
                     </h6>
-                    <h5 className="font-regular"
+                    <h5 className="font-regular text-muted"
                         style={{text: "#778699"}}>{section.getFiledValueByName("description", currentLocale)}</h5>
                 </div>
                 <div className="wrapper mb-4">
-                    <h6 className="font-black">
+                    <h6 className="font-black font-weight-bold">
                         {section.getFiledValueByName("title", currentLocale)}
                     </h6>
-                    <h5 className="font-regular"
+                    <h5 className="font-regular text-muted"
                         style={{text: "#778699"}}>{section.getFiledValueByName("description", currentLocale)}</h5>
                 </div>
                 <div className="col-xl-7 col-lg-8 col-md-5 col-sm-6 pl-0">

@@ -53,7 +53,7 @@ const RecentQuestions = ({questions, section, currentLocale}) => {
                 </div>
                 {section && <div className="col-xl-7 col-lg-8 col-md-9 text-center wrapper">
                     <div className="title mt-0">
-                        <h3>
+                        <h3 className="font-bold font-weight-bold">
                             {section.getFiledValueByName("title", currentLocale)}
                         </h3>
 
