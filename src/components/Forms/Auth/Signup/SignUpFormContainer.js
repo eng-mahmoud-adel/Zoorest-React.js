@@ -96,7 +96,7 @@ const SignUpFormContainer = ({onLoginClicked, currentLocale, countries, cities, 
 
                 </Tab>
 
-                <Tab eventKey="doctor" title="Doctor">
+                <Tab eventKey="doctor" title="Doctor (Home visit)">
                     <ProviderForm
                         currentLocale={currentLocale}
                         countries={getCountries()}
