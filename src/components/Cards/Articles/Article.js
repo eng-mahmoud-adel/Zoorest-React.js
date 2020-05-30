@@ -60,6 +60,7 @@ const Article = ({model: article, currentLocale}) => {
             <small className="small-text">
                 <p className="small created-at">{article.humanizedCreatedAt()}</p>
             </small>
+
             <div className="img-container">
                 <LazyLoad unmountIfInvisible={true} once={true}>
 
@@ -75,10 +76,12 @@ const Article = ({model: article, currentLocale}) => {
                         />
 
                         :
-                        <Card.Img variant={null} src={article.photo ? article.photo.path_small : ""}
-                                  className="img-fluid h-100 w-100"
-                                  alt=""/>
+                        <Link to={`/articles/${article.getKey(currentLocale)}`} className="card-link">
 
+                            <Card.Img variant={null} src={article.photo ? article.photo.path_small : ""}
+                                      className="img-fluid h-100 w-100"
+                                      alt=""/>
+                        </Link>
                     }
 
                 </LazyLoad>
