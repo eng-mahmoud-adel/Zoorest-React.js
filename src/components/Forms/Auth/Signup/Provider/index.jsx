@@ -190,7 +190,10 @@ const ProviderForm = withTranslation()(({currentLocale, countries, cities, distr
                 </div>
                 <div className="row mb-3 ">
                     <div className="col-md-6">
-                        <label className="font-medium">{t('doctor_name')}<span style={{color: "red"}}>*</span></label>
+                        <label
+                            className="font-medium">{provider_type === "clinic" ? t('clinic_name') : t('doctor_name')}<span
+                            style={{color: "red"}}>*</span></label>
+
                         <BasicInput
                             className={`basic-input ${values.official_name === "" ? "" : (!errors.official_name ? "is-valid" : "is-invalid")}`}
                             name="official_name" type="text" value={values.official_name} placeholder="name"
