@@ -5,44 +5,46 @@ import FacebookLoginBtn from "../../SocialButtons/FacebookLoginBtn";
 import GoogleLoginBtn from "../../SocialButtons/GoogleLoginBtn";
 import {connect} from 'react-redux';
 import {Tab, Tabs} from 'react-bootstrap';
+import LoginRequest from "../../../../model/Request/LoginRequest";
+import {login} from "../../../../store/actions/auth";
 
 
-const SignUpFormContainer = ({onLoginClicked, currentLocale, countries, cities, districts}) => {
+const SignUpFormContainer = ({socialLogin, onLoginClicked, currentLocale, countries, cities, districts}) => {
 
     const [selectedTab, setSelectedTab] = useState("user");
 
     const handleFacebookSignUp = (data) => {
         console.log(data)
 
-        if (!data.error) {
-            // let loginRequest = new LoginRequest()
-            //     .setProviderKey(data.id)
-            //     .setFacebookLogin()
-            //     .setRawResponse(data)
-            //     .setRememberMe(false)
-            //     .setUserEmail(data.email)
-            //     .setUserName(data.name)
-            //     .setUserImage(data.picture.data.url)
+        if (data && !data.error && data !== "unknown") {
+            socialLogin(
+                new LoginRequest()
+                    .setProviderKey(data.id)
+                    .setFacebookLogin()
+                    .setRawResponse(data)
+                    .setRememberMe(false)
+                    .setUserEmail(data.email)
+                    .setUserName(data.name)
+                    .setUserImage(data.picture.data.url)
+            )
         }
-
     }
-
     const handleGoogleSignUp = (data) => {
         console.log(data)
-        if (!data.error) {
-
-            // handleLogin(
-            //     new LoginRequest()
-            //         .setProviderKey(data.googleId)
-            //         .setGoogleLogin()
-            //         .setRawResponse(data)
-            //         .setRememberMe(false)
-            //         .setUserEmail(data.profileObj.email)
-            //         .setUserName(data.profileObj.name)
-            //         .setUserImage(data.profileObj.image)
-            // )
+        if (data && !data.error) {
+            socialLogin(
+                new LoginRequest()
+                    .setProviderKey(data.googleId)
+                    .setGoogleLogin()
+                    .setRawResponse(data)
+                    .setRememberMe(false)
+                    .setUserEmail(data.profileObj.email)
+                    .setUserName(data.profileObj.name)
+                    .setUserImage(data.profileObj.image)
+            )
         }
     }
+
 
     const getCountries = () => {
         // if(data[0])
@@ -144,5 +146,9 @@ const mapStateToProps = (state) => ({
     districts: state.globals.districts,
     currentLocale: state.i18n.value,
 });
-
-export default connect(mapStateToProps)(SignUpFormContainer);
+const mapDispatchToProps = dispatch => ({
+    socialLogin: (request) => {
+        dispatch(login(request))
+    },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpFormContainer);
