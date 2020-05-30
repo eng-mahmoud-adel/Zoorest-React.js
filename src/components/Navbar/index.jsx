@@ -92,10 +92,10 @@ const Navbar = (props) => {
         <header>
             <BaseNavbar fixed="top" expand="md" bg="faded" className="justify-content-center">
 
-                <BaseNavbar.Brand href="/" className={"d-flex w-50 mr-auto"}>
+                <BaseNavbar.Brand href="/" className={"d-flex w-50 mr-auto pl-5"}>
                     <img
                         src={logo}
-                        width={100}
+                        width={150}
                         className="d-inline-block align-top"
                         alt="zoorest brand logo"
                     />
