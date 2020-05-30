@@ -10,9 +10,11 @@ import {likeQuestion, unlikeQuestion} from "../../../store/actions/questions";
 import ProfileAvatar from "../../Avatars/ProfileAvatar";
 import ClampLines from "react-clamp-lines";
 import {VerticalEllipsisIcon} from '../../Icons/index';
+import {useTranslation} from 'react-i18next';
 
 
 const Question = ({model, className, hide_add_answer, currentLocale = "ar", like, unlike}) => {
+    const {t} = useTranslation();
 
     const handleLike = (is_liked, setIsLiked) => {
         if (is_liked) {
@@ -43,52 +45,55 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
     return (
         <Card className={`question-card my-2 w-100 ${className || ""}`}>
             <Card.Body>
-                <div className="d-flex">
-                    <Card.Subtitle className="small-text">
-                        <small className="text-muted">
-                            {model.humanizedCreatedAt()}
-                        </small>
-                    </Card.Subtitle>
-                    <VerticalEllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}}
-                                          onClick={showDropdown}/>
-                    <div id={`question_${model.id}`} className="dropdown-content">
-                        <a href="#edit">Edit</a>
-                        <a href="#remove">Remove</a>
-                        <a href="#report">Report</a>
+                <Link to={`/question/${model.getLocalizedSlug(currentLocale)}`}>
+                    <div className="d-flex">
+                        <Card.Subtitle className="small-text">
+                            <small className="text-muted">
+                                {model.humanizedCreatedAt()}
+                            </small>
+                        </Card.Subtitle>
+                        <VerticalEllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}}
+                                              onClick={showDropdown}/>
+                        <div id={`question_${model.id}`} className="dropdown-content">
+                            <a href="#edit">Edit</a>
+                            <a href="#remove">Remove</a>
+                            <a href="#report">Report</a>
+                        </div>
                     </div>
-                </div>
-                <Card.Title>
+                    <Card.Title>
+                        <ClampLines
+                            text={model.title}
+                            id={`recent-question-title-${model.getKey()}`}
+                            lines={1}
+                            ellipsis="..."
+                            buttons={false}
+                            className="font-black"
+                            innerElement="h5"
+
+                        />
+                    </Card.Title>
+
                     <ClampLines
-                        text={model.title}
-                        id={`recent-question-title-${model.getKey()}`}
-                        lines={1}
+                        text={model.description}
+                        id={`recent-question--short-description-${model.getKey()}`}
+                        lines={3}
                         ellipsis="..."
                         buttons={false}
-                        className="font-black"
-                        innerElement="h5"
-
+                        className="label text-muted card-text m-0"
+                        // innerElement="p"
                     />
-                </Card.Title>
 
-                <ClampLines
-                    text={model.description}
-                    id={`recent-question--short-description-${model.getKey()}`}
-                    lines={3}
-                    ellipsis="..."
-                    buttons={false}
-                    className="label text-muted card-text m-0"
-                    // innerElement="p"
-                />
-
-                <div className="row mb-3">
-                    {
-                        model.tags.map((tag, index) => (
-                            <div className="col-xl-3 col-md-4 col-sm-5 mb-1 mb-md-0">
-                                <Tag className={`${index % 2 === 0 ? "tag-two" : "tag-one"}`} text="#Tag"/>
-                            </div>
-                        ))
-                    }
-                </div>
+                    <div className="row mb-3">
+                        {
+                            // model.tags
+                            [1, 2, 3].map((tag, index) => (
+                                <div className="col-xl-3 col-md-4 col-sm-5 mb-1 mb-md-0">
+                                    <Tag className={`${index % 2 === 0 ? "tag-two" : "tag-one"}`} text="#Tag"/>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </Link>
             </Card.Body>
             <Card.Footer className="pb-0">
                 <div className="row">
@@ -114,9 +119,9 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
                     <div
                         className="col-xl-4 col-md-6 text-center align-content-center align-items-center align-self-center">
                         {(!hide_add_answer || !model.isClosed()) &&
-                        <Link to={`/question/${model.id/*getLocalizedSlug(currentLocale)*/}`}>
+                        <Link to={`/question/${model.getLocalizedSlug(currentLocale)}`}>
                             <Button className="px-3 py-1" variant="info" size="sm">
-                                Add Answer
+                                {t('see_more')}
                             </Button>
                         </Link>}
                     </div>
