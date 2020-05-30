@@ -19,7 +19,7 @@ const RelatedArticles = ({className, getRelatedArticles, related_articles}) => {
                         related_articles.data.map(article => <p key={"related_articles" + article.getKey()}
                                                                 className="card-text">
 
-                            <Link to={`/article/${article.getKey()}`}>
+                            <Link to={`/articles/${article.getKey()}`}>
                                 <p className="label">{article.getLocalizedTitle()}</p>
                             </Link>
 

@@ -34,15 +34,18 @@ const Article = ({model: article, currentLocale}) => {
         <Card className="article-card m-1">
             <div className="d-flex">
                 <Card.Title>
-                    <ClampLines
-                        text={article.getLocalizedTitle(currentLocale)}
-                        id={`recent-article-title-${article.getKey()}`}
-                        lines={2}
-                        ellipsis="..."
-                        buttons={false}
-                        className="m-0"
-                        innerElement="h4"
-                    />
+                    <Link to={`/articles/${article.getKey(currentLocale)}`} className="card-link">
+
+                        <ClampLines
+                            text={article.getLocalizedTitle(currentLocale)}
+                            id={`recent-article-title-${article.getKey()}`}
+                            lines={2}
+                            ellipsis="..."
+                            buttons={false}
+                            className="m-0"
+                            innerElement="h4"
+                        />
+                    </Link>
                 </Card.Title>
 
                 <VerticalEllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}}
@@ -93,7 +96,7 @@ const Article = ({model: article, currentLocale}) => {
             <Card.Footer>
                 <Row>
                     <Col xs={9} md={7} lg={7} xl={8}>
-                        <Link to={`/article/${article.getKey(currentLocale)}`} className="card-link">
+                        <Link to={`/articles/${article.getKey(currentLocale)}`} className="card-link">
                             <p className="label font-regular read-more"> Read More </p>
                         </Link>
                     </Col>

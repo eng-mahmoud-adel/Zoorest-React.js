@@ -88,7 +88,7 @@ const ProfileForm = withTranslation()(({countries, cities, currentLocale, update
                                 such as
                                 posting a picture that belongs</p>
                             <div className="col-md-3">
-                                <Button text="Save all changes" color="btn btn-info" size="btn-sm"
+                                <Button text="Save all changes" variant="info" size="sm"
                                         onClick={() => handleFormSubmit({
                                             name: values.name,
                                             email: values.email,
@@ -112,7 +112,7 @@ const ProfileForm = withTranslation()(({countries, cities, currentLocale, update
                                     <DropFile/>
                                 </div>
                                 <div className="col-3 mt-3">
-                                    <Button text="Upload your profile picture" color="btn btn-info" size="btn-sm"/>
+                                    <Button text="Upload your profile picture" variant="info" size="sm"/>
                                     <p className="text mt-2">At least 800x800 PNG</p>
                                 </div>
                             </div>

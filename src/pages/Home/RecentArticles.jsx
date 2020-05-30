@@ -38,14 +38,15 @@ const RecentArticles = withTranslation()(({articles, currentLocale, t}) => {
 
     return (
         <Fragment>
-            <div className="row">
-                <div className="col-md-3 title mt-0 pt-0">
+            <div className="row p-3">
+                <div className="col-md-3 title m-0 p-0">
                     <h3>
                         {t('recent_articles')}
                     </h3>
                 </div>
-                <div className="col-md-6"/>
-                <Link to="/article" className="col-md-3">{t('see_more_articles')}</Link>
+                {/*<div className="col-md-6"/>*/}
+                <Link to="/articles"
+                      className="col-md-2 offset-md-7 d-none d-md-flex my-auto">{t('see_more_articles')}</Link>
             </div>
 
             <div className="row d-none d-lg-flex">

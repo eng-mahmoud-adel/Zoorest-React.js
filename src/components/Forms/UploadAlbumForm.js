@@ -55,10 +55,10 @@ const UploadAlbumForm = withTranslation()(({hideModal, createAlbum, t}) => {
                         </div>
                         <div className="row">
                             <div className="ml-auto col-4">
-                                <Button text="Cancel" color="btn btn-light" size="btn-sm"/>
+                                <Button text="Cancel" variant="light" size="sm"/>
                             </div>
                             <div className="mr-auto col-4">
-                                <Button text="Add" color="btn btn-info" size="btn-sm" onClick={() => {
+                                <Button text="Add" variant="info" size="sm" onClick={() => {
                                     handleFormSubmit({
                                         name: values.name,
                                     });

@@ -87,7 +87,7 @@ const showDropdown = () => {
                             </div>
                             <div className="col-xs-6 col-sm-5 col-lg-5 col-xl-4">
                                 <Link to={`post/${post.id}`}>
-                                    <Button text="Contact owner" color="btn btn-info" size="btn-sm"/>
+                                    <Button text="Contact owner" variant="info" size="sm"/>
                                 </Link>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ const showDropdown = () => {
     //                 </div>
     //                 <Col xs={6} sm={5} lg={5} xl={4}>
     //                     <Link to= {`post/${post.id}`}>
-    //                         <Button text="Contact owner" color="btn btn-info" size="btn-sm"/>
+    //                         <Button text="Contact owner" variant="info" size="sm"/>
     //                     </Link>
     //                 </Col>
     //             </Row>

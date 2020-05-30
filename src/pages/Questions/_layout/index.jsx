@@ -1,4 +1,4 @@
-import React, {useEffect, Fragment} from 'react'
+import React, {Fragment, useEffect} from 'react'
 
 import BannerImage from '../../../images/assets/images/Bg@3x.png';
 import AskQuestion from "../../../components/Cards/Questions/AskQuestion";
@@ -12,7 +12,7 @@ import TopQuestions from "../../../components/Cards/Questions/TopQuestions";
 import {Helmet} from "react-helmet";
 
 
-const QuestionBasePage = ({page, children, getPage, currentLocale}) => {
+const QuestionBasePage = ({page: {bannerSection, seo}, children, getPage, currentLocale}) => {
 
     useEffect(() => {
         getPage();
@@ -22,23 +22,23 @@ const QuestionBasePage = ({page, children, getPage, currentLocale}) => {
         <Fragment>
             {
                 <Helmet>
-                    {page.seo.title && <title>{page.seo.getLocalizedTitle(currentLocale)}</title>}
+                    {seo.title && <title>{seo.getLocalizedTitle(currentLocale)}</title>}
 
-                    {page.seo.meta_keywords &&
-                    <meta name="keywords" content={page.seo.getLocalizedKeywords(currentLocale)}/>}
+                    {seo.meta_keywords &&
+                    <meta name="keywords" content={seo.getLocalizedKeywords(currentLocale)}/>}
 
-                    {page.seo.meta_description &&
-                    <meta name="description" content={page.seo.getLocalizedDescription(currentLocale)}/>}
+                    {seo.meta_description &&
+                    <meta name="description" content={seo.getLocalizedDescription(currentLocale)}/>}
 
-                    {page.seo.updated_at && <meta name="og:updated_time" content={page.seo.updated_at}/>}
+                    {seo.updated_at && <meta name="og:updated_time" content={seo.updated_at}/>}
                 </Helmet>
             }
             <div id="questions-index">
                 <div className="jumbotron jumbotron-fluid " style={{backgroundImage: `url(${BannerImage})`}}>
                     <div className="container text-center">
-                        <h2 className="text-white">{page.bannerSection.getFiledValueByName("title", currentLocale)}</h2>
+                        <h2 className="text-white">{bannerSection.getFiledValueByName("title", currentLocale)}</h2>
 
-                        <h5 className="font-regular text-white">{page.bannerSection.getFiledValueByName("description", currentLocale)}</h5>
+                        <h5 className="font-regular text-white">{bannerSection.getFiledValueByName("description", currentLocale)}</h5>
                     </div>
                 </div>
                 <div className="container mt-5">

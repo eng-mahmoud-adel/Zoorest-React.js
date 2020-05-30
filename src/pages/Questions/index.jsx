@@ -12,7 +12,6 @@ import {
 } from "../../store/actions/questions";
 import Tabs from "react-bootstrap/Tabs";
 import {connect} from "react-redux";
-import {Row} from "react-bootstrap";
 import QuestionBasePage from "./_layout";
 import QuestionLoadingAnimation, {QuestionLoadingAnimationBar} from "../../components/Cards/Questions/LoadingAnimations/Question";
 import SearchBar from "../../components/SearchBar";
@@ -35,16 +34,17 @@ const AllQuestionsContainer = (
 
     return (
         <QuestionBasePage>
-            <Row className="mb-3" size="xl">
-                <SearchBar
-                    placeholder="Type Something"
-                    size="xl"
-                    onInputChange={(query) => {
-                        console.log(query);
-                    }}/>
-            </Row>
+            <SearchBar
+                placeholder="Type Something"
+                size="lg"
+                className="mb-5 "
+                onInputChange={(query) => {
+                    console.log(query);
+                }}/>
 
             <Tabs id="recent_question"
+                  variant="tabs"
+                  className="nav-fill"
                   activeKey={key}
                   onSelect={(k) => setKey(k)}>
 

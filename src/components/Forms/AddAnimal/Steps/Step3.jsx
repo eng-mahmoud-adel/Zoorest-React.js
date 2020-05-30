@@ -54,7 +54,7 @@ const Step3 = ({currentStep, values, errors, touched, handleChange, handleBlur, 
                 <DropFile/>
             </div>
             <div className="col-8 mx-auto my-5">
-                <Button text="+ Add another Vaccinations" color="btn btn-info" size="btn-sm"/>
+                <Button text="+ Add another Vaccinations" variant="info" size="sm"/>
             </div>
         </div>
     );

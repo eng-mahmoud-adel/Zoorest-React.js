@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Button from '../../Buttons/Button/Button';
 import RateBar from '../..';
 import Card from "react-bootstrap/Card";
@@ -51,22 +51,28 @@ const Provider = ({model: user, showModal, className, authUser}) => {
                     </div>
                 </div>
                 <Card.Text className="align-content-center mb-1">{user.description}</Card.Text>
-                {user.provider.is_on_payed_plane ?
-                    <p>Examination Fee: <span className="price">{user.provider.examination_price}</span></p> : ""}
+
+                <p style={{minHeight: "25px"}}>
+                    {user.provider.is_on_payed_plane ?
+                        <Fragment>Examination Fee: <span
+                            className="price">{user.provider.examination_price}</span></Fragment>
+                        : ""}
+                </p>
+
                 {user.provider.has_appointments ?
                     <div className="row">
                         <div className="col-xl-4 pl-xl-2 pr-xl-0 mb-2 mb-xl-0">
-                            <Link to={`/provider/${user.getKey()}`}>
-                                <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
+                            <Link to={`/providers/${user.getKey()}`}>
+                                <Button text="View Profile" variant="light" size="xs"/>
                             </Link>
                         </div>
                         <div className="col-xl-8">
-                            <Button text="Make an Appointment" color="btn btn-info" size="btn-xs"
+                            <Button text="Make an Appointment" variant="info" size="xs"
                                     onClick={showAppointmentModal}/>
                         </div>
                     </div> : <div className="w-75 mx-auto">
-                        <Link to={`/provider/${user.getKey()}`}>
-                            <Button text="View Profile" color="btn btn-light" size="btn-xs"/>
+                        <Link to={`/providers/${user.getKey()}`}>
+                            <Button text="View Profile" variant="light" size="xs"/>
                         </Link>
                     </div>}
             </Card.Body>

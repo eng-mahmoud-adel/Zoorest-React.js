@@ -82,8 +82,8 @@ const QuestionForm = withTranslation()(({errors, touched, isSubmitting, categori
                     ) : null}
                 </div>
                 <div className="my-5 mx-auto text-center col-4">
-                    <Button disabled={isSubmitting} type="submit" text="Ask a question" color="btn btn-danger"
-                            size="btn-sm"/>
+                    <Button disabled={isSubmitting} type="submit" text="Ask a question" variant="danger"
+                            size="sm"/>
                 </div>
             </div>
         </div>

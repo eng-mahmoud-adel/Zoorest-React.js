@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import HomeContainer from '../../pages/Home/index';
@@ -9,8 +9,8 @@ import CommentCards from '../../pages/ShowingCards/CommentCards';
 import Forms from '../../pages/ShowingForms/Forms';
 import QuestionDetails from "../../pages/Questions/details";
 import QuestionsAll from "../../pages/Questions";
-import Doctors from '../../pages/FindDoctors';
-import DoctorProfile from '../../pages/FindDoctors/Doctor/index';
+import Doctors from '../../pages/Providers';
+import DoctorProfile from '../../pages/Providers/Doctor/index';
 import AllPostsContainer from '../../pages/Adoption/index';
 import SinglePostContainer from '../../pages/Adoption/SinglePost/index';
 import LoginPage from "../../pages/Auth/Login";
@@ -24,13 +24,12 @@ import ProfileForm from '../Forms/ProfileForm';
 
 
 const AppRouter = () => (
-    <Fragment>
-        <Switch>
+    <Switch>
             <Route exact path="/" component={HomeContainer}/>
             <Route path="/about" component={About}/>
 
-            <Route exact path="/article" component={AllArticlesContainer}/>
-            <Route path="/article/:id" component={SingleArticleContainer}/>
+            <Route exact path="/articles" component={AllArticlesContainer}/>
+            <Route path="/articles/:id" component={SingleArticleContainer}/>
 
             <Route exact path="/post" component={AllPostsContainer}/>
             <Route path="/post/:id" component={SinglePostContainer}/>
@@ -41,8 +40,8 @@ const AppRouter = () => (
 
             <Route path="/comment" component={CommentCards}/>
 
-            <Route exact path="/doctor" component={Doctors}/>
-            <Route path="/provider/:id" component={DoctorProfile}/>
+            <Route exact path="/providers" component={Doctors}/>
+            <Route path="/providers/:id" component={DoctorProfile}/>
 
             <Route exact path="/user/:id" component={User}/>
             <Route path="/user/:id/pet-details" component={PetDetails}/>
@@ -57,15 +56,14 @@ const AppRouter = () => (
             <Route path="/demo/typography" component={TypographyPage}/>
 
             {/*todo <AuthRoute
-            path="/provider/:id/edit"
+            path="/providers/:id/edit"
             component={}
             props={}
             isAuthenticated={check if auth user exists}
             />*/}
 
             <Route exact path="/forms" component={Forms}/>
-        </Switch>
-    </Fragment>
+    </Switch>
 );
 
 export default AppRouter;

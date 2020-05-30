@@ -28,10 +28,10 @@ const Footer = withTranslation()(({t}) => {
                             <Link className="nav-link" to="/question">{t('questions')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/article">{t('articles')}</Link>
+                            <Link className="nav-link" to="/articles">{t('articles')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link find-doctor" to="/doctor">{t('find_doc')}</Link>
+                            <Link className="nav-link find-doctor" to="/providers">{t('find_doc')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link conditions"

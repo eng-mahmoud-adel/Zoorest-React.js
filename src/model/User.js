@@ -393,7 +393,7 @@ class User extends Model {
 
     getProfileRoute() {
         if (this.isProvider()) {
-            return `/provider/${this.getKey()}`
+            return `/providers/${this.getKey()}`
         } else {
             return `/user/${this.getKey()}`
         }

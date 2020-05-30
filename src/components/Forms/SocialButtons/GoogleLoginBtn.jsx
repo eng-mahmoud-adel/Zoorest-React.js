@@ -11,8 +11,8 @@ const GoogleLoginBtn = ({onResponse}) => {
         <GoogleLogin
             clientId={config.googleClientId}
             render={renderProps => (
-                // <SocialBtn onClick={renderProps.onClick} disabled={renderProps.disabled} size="btn-sm"
-                //            color="btn btn-light" text="" social_icon="fa fa-google fa-lg"/>
+                // <SocialBtn onClick={renderProps.onClick} disabled={renderProps.disabled} size="sm"
+                //            variant="light" text="" social_icon="fa fa-google fa-lg"/>
 
                 <Button onClick={renderProps.onClick} variant={"light"} type="button" size={"sm"} color={"light"}
                         className={"btn-social w-100"}>

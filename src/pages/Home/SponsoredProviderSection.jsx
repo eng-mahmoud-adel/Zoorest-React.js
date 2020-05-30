@@ -28,15 +28,15 @@ const SponsoredProviderSection = ({providers, section, currentLocale}) => {
                 </div>
                 <div className="col-xl-7 col-lg-8 col-md-5 col-sm-6 pl-0">
                     <Link to={section.getFiledValueByName("button_actions", currentLocale)}><Button
-                        text={section.getFiledValueByName("button_text", currentLocale)} color="btn btn-info"
-                        size="btn-sm"/></Link>
+                        text={section.getFiledValueByName("button_text", currentLocale)} variant="info"
+                        size="sm"/></Link>
                 </div>
             </div>
             <div className="col-lg-7 section-two">
                 <div className="row">
 
                     {(providers && providers.data) && providers.data.map((provider, index) => (
-                        <div className="col-md-6 col-sm-12 mt-sm-4" key={index}>
+                        <div className="col-md-6 col-sm-12 mt-4" key={index}>
                             <Provider model={provider} className="shadow-lg"/>
                         </div>
                     ))}

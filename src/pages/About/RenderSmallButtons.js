@@ -9,44 +9,44 @@ function RenderButtons() {
             <hr/>
             <div className="row">
                 <div className="col-2">
-                    <Button text="Download" color="btn btn-info" size="btn-sm"/>
+                    <Button text="Download" variant="info" size="sm"/>
                 </div>
                 <div className="col-2 offset-1">
-                    <Button text="Download" color="btn btn-secondary" size="btn-sm" disabled="disabled"/>
+                    <Button text="Download" variant="secondary" size="sm" disabled="disabled"/>
                 </div>
                 <div className="col-2 offset-1">
-                    <Button text="Download" color="btn btn-light" size="btn-sm"/>
+                    <Button text="Download" variant="light" size="sm"/>
                 </div>
                 <div className="col-2 mb-2 offset-1">
-                    <Button text="Download" color="btn btn-outline-info" size="btn-sm"/>
+                    <Button text="Download" variant="outline-info" size="sm"/>
                 </div>
 
                 <div className="col-2">
-                    <Button text="Download" color="btn btn-info" size="btn-sm" right_icon="fa fa-search"/>
+                    <Button text="Download" variant="info" size="sm" right_icon="fa fa-search"/>
                 </div>
                 <div className="col-2 offset-1">
-                    <Button text="Download" color="btn btn-secondary" size="btn-sm" right_icon="fa fa-chevron-down"
+                    <Button text="Download" variant="secondary" size="sm" right_icon="fa fa-chevron-down"
                             disabled="disabled"/>
                 </div>
                 <div className="col-2 offset-1">
-                    <Button text="Download" color="btn btn-light" size="btn-sm" right_icon="fa fa-chevron-down"/>
+                    <Button text="Download" variant="light" size="sm" right_icon="fa fa-chevron-down"/>
                 </div>
                 <div className="col-2 mb-2 offset-1">
-                    <Button text="Download" color="btn btn-outline-info" size="btn-sm" right_icon="fa fa-chevron-down"/>
+                    <Button text="Download" variant="outline-info" size="sm" right_icon="fa fa-chevron-down"/>
                 </div>
 
                 <div className="col-2">
-                    <Button text="Download" color="btn btn-info" size="btn-sm" left_icon="fa fa-search"/>
+                    <Button text="Download" variant="info" size="sm" left_icon="fa fa-search"/>
                 </div>
                 <div className="col-2 offset-1">
-                    <Button text="Download" color="btn btn-secondary" size="btn-sm" left_icon="fa fa-chevron-down"
+                    <Button text="Download" variant="secondary" size="sm" left_icon="fa fa-chevron-down"
                             disabled="disabled"/>
                 </div>
                 <div className="col-2 offset-1">
-                    <Button text="Download" color="btn btn-light" size="btn-sm" left_icon="fa fa-chevron-down"/>
+                    <Button text="Download" variant="light" size="sm" left_icon="fa fa-chevron-down"/>
                 </div>
                 <div className="col-2 mb-2 offset-1">
-                    <Button text="Download" color="btn btn-outline-info" size="btn-sm" left_icon="fa fa-chevron-down"/>
+                    <Button text="Download" variant="outline-info" size="sm" left_icon="fa fa-chevron-down"/>
                 </div>
             </div>
         </div>

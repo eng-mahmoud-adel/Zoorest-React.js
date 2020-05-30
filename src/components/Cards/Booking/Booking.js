@@ -54,7 +54,7 @@ const Booking = ({model: user, getAppointments, bookAppointment, showModal, auth
             weekDays.push(
                 <Col key={dayShortName} xs={3} sm={4} lg={3} xl={2} className="day">
                     <Button disabled={!is_day_enabled}
-                            color="btn btn-outline-info" size="btn-sm"
+                            variant="outline-info" size="sm"
                             onClick={handleDaySelected.bind(this, DD_MMM_YYYY_Date)}>
 
                         <b>{dayShortName}</b>
@@ -151,7 +151,7 @@ const Booking = ({model: user, getAppointments, bookAppointment, showModal, auth
                         {!stateData.loadingAppointments ? populateAppointments() : ""}
                     </Row>
                 </div>
-                <Button text="Confirm your booking" color="btn btn-info" size="btn-lg"
+                <Button text="Confirm your booking" variant="info" size="lg"
                         onClick={handleBookButton}
                         style={{cursor: canSubmit() ? "pointer" : "not-allowed"}}
                         disabled={canSubmit() ? "" : "disabled"}

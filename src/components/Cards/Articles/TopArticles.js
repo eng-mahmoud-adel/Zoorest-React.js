@@ -18,7 +18,7 @@ const TopArticles = ({className, getTopArticles, top_articles}) => {
                         top_articles.data.map(article => <p key={"top_question" + article.getKey()}
                                                             className="card-text">
 
-                            <Link to={`/article/${article.getKey()}`}>
+                            <Link to={`/articles/${article.getKey()}`}>
                                 <p className="label">
                                     {article.getLocalizedTitle()}
                                 </p>

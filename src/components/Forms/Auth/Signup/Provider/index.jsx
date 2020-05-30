@@ -232,7 +232,7 @@ const ProviderForm = withTranslation()(({currentLocale, countries, cities, distr
                 </div>
 
                 <div className="mb-4 col-md-11 mx-auto">
-                    <Button text="Sign Up" color="btn btn-info" size="btn-sm" onClick={() => {
+                    <Button text="Sign Up" variant="info" size="sm" onClick={() => {
                         handleFormSubmit({
                             name: values.name,
                             email: values.email,

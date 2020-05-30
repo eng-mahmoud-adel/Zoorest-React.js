@@ -55,7 +55,7 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
                     </Nav.Item>
 
                     <Nav.Item as="li">
-                        <Button color="btn-info"
+                        <Button variant="info"
                                 onClick={showSignUpModal}>
                             <p className="label font-medium text-white">
                                 {t('sign_up')}
@@ -122,14 +122,14 @@ const Navbar = (props) => {
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/article">
+                            <Link className="nav-link" to="/articles">
                                 <p className="label font-regular">
                                     {t('articles')}
                                 </p>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link find-doctor" to="/doctor">
+                            <Link className="nav-link find-doctor" to="/providers">
                                 <p className="label font-regular">
                                     {t('find_doc')}
                                 </p>

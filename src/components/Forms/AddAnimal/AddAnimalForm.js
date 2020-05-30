@@ -31,7 +31,7 @@ const AddAnimalForm = ({hideModal, createPet}) => {
     const previousButton = () => {
         if (currentStep !== 1) {
             return (
-                <Button text="Back" color="btn btn-danger" size="btn-sm" onClick={_prev}/>
+                <Button text="Back" variant="danger" size="sm" onClick={_prev}/>
             )
         }
         return null;
@@ -40,11 +40,11 @@ const AddAnimalForm = ({hideModal, createPet}) => {
     // const nextButton = () => {
     //     if (currentStep < 3) {
     //         return (
-    //             <Button text="Next" color="btn btn-info" size="btn-sm" onClick={_next}/>
+    //             <Button text="Next" variant="info" size="sm" onClick={_next}/>
     //         )
     //     } else if (currentStep == 3) {
     //         return (
-    //             <Button text="Finish" color="btn btn-info" size="btn-sm" onClick={() => {
+    //             <Button text="Finish" variant="info" size="sm" onClick={() => {
     //                 handleFormSubmit({
     //                     name: values.name,
     //                     vaccinationsName: values.vaccinationsName
@@ -109,17 +109,17 @@ const AddAnimalForm = ({hideModal, createPet}) => {
                     />
                     <div className="row">
                         <div className="col-3 offset-1 mt-5">
-                            <Button text="Cancel" color="btn btn-light" size="btn-sm"/>
+                            <Button text="Cancel" variant="light" size="sm"/>
                         </div>
                         <div className="col-3 offset-1 mt-5">
                             {previousButton()}
                         </div>
                         <div className="col-3 mt-5">
                             {currentStep < 3 ?
-                                <Button text="Next" color="btn btn-info" size="btn-sm" onClick={_next}/>
+                                <Button text="Next" variant="info" size="sm" onClick={_next}/>
                                 :
                                 currentStep == 3 ?
-                                    <Button text="Finish" color="btn btn-info" size="btn-sm" onClick={() => {
+                                    <Button text="Finish" variant="info" size="sm" onClick={() => {
                                         handleFormSubmit({
                                             name: values.name,
                                             vaccinationsName: values.vaccinationsName

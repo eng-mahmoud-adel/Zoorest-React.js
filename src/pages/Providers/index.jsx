@@ -1,14 +1,14 @@
-import React, {useEffect, Fragment} from 'react'
+import React, {Fragment, useEffect} from 'react'
 import {connect} from 'react-redux';
 import LazyList from "../../components/DataList";
 import Provider from '../../components/Cards/Profiles/Provider';
 import CheckBox from '../../components/Buttons/CheckBoxes/CheckBox';
-import BasicInput from '../../components/Inputs/BasicInput';
 import {MultiSelect} from '../../components/Inputs/MultiSelect';
 import {showModal} from "../../store/actions/modal";
 import {getMoreProviders, getProviders} from '../../store/actions/providers';
 import {getProviderPage} from "../../store/actions/pages";
 import {Helmet} from "react-helmet";
+import SearchInput from "../../components/SearchInput";
 
 const Doctors = ({
                      providers, getProviders, getMoreProviders, getPage,
@@ -88,8 +88,7 @@ const Doctors = ({
                             <CheckBox text="Show only nearby doctors" id="customCheck1"/>
                         </div>
                         <div className="col-lg-3 col-sm-6 col-8">
-                            <BasicInput className="basic-input" type="text" right_icon="fa fa-search fa-lg"
-                                        placeholder="Start searching for anything"/>
+                            <SearchInput/>
                         </div>
                     </div>
                 </section>

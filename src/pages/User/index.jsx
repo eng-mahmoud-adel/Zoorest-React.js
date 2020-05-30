@@ -22,7 +22,7 @@ const NoPetsSection = ({onButtonClicked}) => {
     return (
         <div className="mx-auto">
             <h3 className="font-bold">You dont have pets yet!</h3>
-            <Button text="Add Animal" color="btn btn-info" size="btn-sm" onClick={onButtonClicked}/>
+            <Button text="Add Animal" variant="info" size="sm" onClick={onButtonClicked}/>
         </div>
     )
 };
@@ -32,7 +32,7 @@ const NoAlbumsSection = ({onButtonClicked}) => {
     return (
         <div className="mx-auto">
             <h3 className="font-bold">You dont have albums yet!</h3>
-            <Button text="Add Album" color="btn btn-info" size="btn-sm" onClick={onButtonClicked}/>
+            <Button text="Add Album" variant="info" size="sm" onClick={onButtonClicked}/>
         </div>
     )
 };
@@ -85,8 +85,8 @@ const User = ({stateData, getSingleUser, match, showModal}) => {
 
                 <Tab eventKey="pets" title="Pets">
                     {(stateData.loading === false && stateData.model.pets.length > 0) && <Button text=" + Add More Pets"
-                                                                                                 color="btn btn-info"
-                                                                                                 size="btn-sm"
+                                                                                                 variant="info"
+                                                                                                 size="sm"
                                                                                                  onClick={addAnimal}
                                                                                                  className="my-3"/>}
 
@@ -105,7 +105,7 @@ const User = ({stateData, getSingleUser, match, showModal}) => {
 
                 <Tab eventKey="reminder" title="Reminder">
                     <div className="col-md-6 mx-auto my-4">
-                        <Button text="+ Add Reminder" color="btn btn-info" size="btn-sm" onClick={addReminder}/>
+                        <Button text="+ Add Reminder" variant="info" size="sm" onClick={addReminder}/>
                     </div>
                     <Reminder />
                 </Tab>

@@ -20,11 +20,11 @@ const HeroSection = ({section, currentLocale}) => {
                 {
                     /*Dont Show the button if it has no text*/
                     section.getFiledValueByName("button_text", currentLocale) &&
-                    <div className="col-xl-6 col-lg-7 col-md-5 col-9 pl-0 mb-5 align-self-center">
+                    <div className="col-xl-6 col-lg-7 col-md-5 col-12 pl-0 mb-5 align-self-center">
                         <Link to={section.getFiledValueByName("button_action", currentLocale)}>
                             <Button text={section.getFiledValueByName("button_text", currentLocale)}
-                                    color="btn btn-info"
-                                    size="btn-sm"/>
+                                    variant="info"
+                                    size="sm"/>
                         </Link>
                     </div>
                 }

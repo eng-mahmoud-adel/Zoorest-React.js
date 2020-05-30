@@ -22,7 +22,7 @@ const AskQuestion = ({className, getQuestionsAnalytics, analytics, showModal}) =
                 <div className="col-10 mx-auto mb-5 mt-3">
                     <Button text="Ask a question"
                             variant={"danger"}
-                            size="btn-sm"
+                            size="sm"
                             onClick={showAddQuestionModal}
                     />
                 </div>

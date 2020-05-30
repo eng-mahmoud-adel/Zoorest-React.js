@@ -41,10 +41,10 @@ const Location = ({onLocationSelected, center}) => {
             </div>
             <div className="row">
                 <div className="ml-auto col-6">
-                    <Button text="Cancel" color="btn btn-light" size="btn-sm"/>
+                    <Button text="Cancel" variant="light" size="sm"/>
                 </div>
                 <div className="mr-auto col-6">
-                    <Button onClick={handleSubmit} text="Save Location" color="btn btn-info" size="btn-sm"/>
+                    <Button onClick={handleSubmit} text="Save Location" variant="info" size="sm"/>
                 </div>
             </div>
         </form>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState, Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {Tab, Tabs} from 'react-bootstrap';
 import Post from '../../components/Cards/Posts/Post';
@@ -78,8 +78,8 @@ const AllPostsContainer = ({
                                 <div>
                                     <p className="mt-3">Price: </p>
                                     <Button text=" + Add New Post"
-                                            color="btn btn-danger"
-                                            size="btn-sm"
+                                            variant="danger"
+                                            size="sm"
                                             onClick={addPostForm}
                                             className="mb-3"/>
                                 </div>

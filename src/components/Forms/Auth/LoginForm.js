@@ -111,7 +111,7 @@ const LoginForm = withTranslation()(({login, onSignupClicked, t}) => {
                                         password: values.password
                                     });
                                     handleReset();
-                                }} text="Login" color="btn btn-info" size="btn-sm"
+                                }} text="Login" variant="info" size="sm"
                                         disabled={!isValid || (values.email === "" && values.password === "" ? isSubmitting = true : isSubmitting = false)}/>
                             </div>
                             <div className="mb-2 col-11 mx-auto">

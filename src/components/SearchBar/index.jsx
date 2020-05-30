@@ -2,7 +2,7 @@ import React, {Fragment, useState} from 'react'
 import PropTypes from "prop-types";
 import {FormControl} from "react-bootstrap";
 
-const SearchBar = ({className, placeholder, onInputChange, size, type}) => {
+const SearchBar = ({className, placeholder, onInputChange, size, name, type}) => {
     const [query, setQuery] = useState('');
     let search = "";
     const handleInputChange = (x) => {
@@ -22,6 +22,7 @@ const SearchBar = ({className, placeholder, onInputChange, size, type}) => {
             <FormControl
                 required
                 type={type}
+                name={name}
                 size={size}
                 className={className}
                 placeholder={placeholder}
@@ -37,11 +38,13 @@ SearchBar.propTypes = {
     onInputChange: PropTypes.func.isRequired,
     size: PropTypes.string,
     type: PropTypes.string,
+    name: PropTypes.string,
 }
 SearchBar.defaultProps = {
     placeholder: "Search for...",
     size: "lg",
     type: "text",
+    name: "search",
 }
 
 export default SearchBar;

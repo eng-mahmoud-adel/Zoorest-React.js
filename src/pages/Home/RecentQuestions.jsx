@@ -62,8 +62,8 @@ const RecentQuestions = ({questions, section, currentLocale}) => {
 
                     <div className="col-lg-6 col-md-7 col-sm-5 col-11 mx-auto">
                         <Link to={section.getFiledValueByName("button_actions", currentLocale)}><Button
-                            text={section.getFiledValueByName("button_text", currentLocale)} color="btn btn-info"
-                            size="btn-sm"/></Link>
+                            text={section.getFiledValueByName("button_text", currentLocale)} variant="info"
+                            size="sm"/></Link>
                     </div>
                 </div>}
             </div>

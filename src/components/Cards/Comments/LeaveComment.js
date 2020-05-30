@@ -26,7 +26,7 @@ const LeaveCommentForm = ({onSubmit, withImages}) => {
                                 </Card.Title>
                             </Col>
                             <Col xs="3">
-                                <Button type="submit" text="Comment" variant="info" size="btn-sm"
+                                <Button type="submit" text="Comment" variant="info" size="sm"
                                         disabled={isSubmitting}/>
                             </Col>
                         </Row>

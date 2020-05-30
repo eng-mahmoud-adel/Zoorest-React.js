@@ -183,7 +183,7 @@ const UserForm = withTranslation()(({
                     </div>
 
                     <div className="mb-4 col-md-11 mx-auto">
-                        <Button type="submit" text="Sign Up" color="btn btn-info" size="btn-sm" onClick={() => {
+                        <Button type="submit" text="Sign Up" variant="info" size="sm" onClick={() => {
                             handleFormSubmit(values, setErrors, handleReset);
                         }}
                                 disabled={isSubmitting}/>

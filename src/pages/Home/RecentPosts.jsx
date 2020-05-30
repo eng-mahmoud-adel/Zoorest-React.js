@@ -11,7 +11,7 @@ const RecentPosts = ({posts, currentLocale}) => {
     const [key, setKey] = useState(Object.keys(posts)[0]);
 
     return (
-        <div className="row">
+        <div className="row p-3">
             <div className="title d-lg-none">
 
                 <h3>
