@@ -4,10 +4,11 @@ import Tabs from 'react-bootstrap/Tabs';
 import Post from '../../components/Cards/Posts/Post';
 import Tab from "react-bootstrap/Tab";
 import LazyLoad from "react-lazyload";
+import {connect} from "react-redux";
 
-const RecentPosts = (props) => {
-    const data = props.data;
-    const [key, setKey] = useState(Object.keys(data)[0]);
+const RecentPosts = ({posts, currentLocale}) => {
+
+    const [key, setKey] = useState(Object.keys(posts)[0]);
 
     return (
         <div className="row">
@@ -38,10 +39,10 @@ const RecentPosts = (props) => {
                       className="mb-4">
 
                     {
-                        Object.keys(data).map((key, index1) => {
+                        Object.keys(posts).map((key, index1) => {
                             return (
                                 <Tab key={index1} eventKey={key} title={key}>
-                                    {data[key].data.length > 0 && <Post model={data[key].data[0]}/>}
+                                    {posts[key].data.length > 0 && <Post model={posts[key].data[0]}/>}
                                 </Tab>
                             )
                         })
@@ -53,4 +54,11 @@ const RecentPosts = (props) => {
     );
 };
 
-export default RecentPosts;
+const mapStateToProps = (state) => ({
+    posts: state.posts,
+    currentLocale: state.i18n,
+
+});
+
+export default connect(mapStateToProps)(RecentPosts);
+

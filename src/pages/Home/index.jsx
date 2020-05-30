@@ -10,14 +10,9 @@ import Testimonials from "./Testimonials";
 import {getHomeData} from "../../store/actions/pages";
 import {Helmet} from "react-helmet";
 
-const HomeContainer = (
-    {
-        currentLocale, page, recentQuestions, sponsoredProviders,
-        recentPosts, recentArticles, testimonials,
-        getHomeData
-    }) => {
+const HomeContainer = ({currentLocale, seo, getHomeData}) => {
 
-    const {heroSection, downloadAppSection, recentQuestionsSection, sponsoredProvidersSection} = page
+
     useEffect(() => {
         getHomeData();
     }, [getHomeData]);
@@ -25,31 +20,30 @@ const HomeContainer = (
     return (
         <Fragment>
             {
-                <Helmet>
+                seo && <Helmet>
 
-                    {page.seo.title && <title>{page.seo.getLocalizedTitle(currentLocale)}</title>}
+                    {seo.title && <title>{seo.getLocalizedTitle(currentLocale)}</title>}
 
-                    {page.seo.meta_keywords &&
-                    <meta name="keywords" content={page.seo.getLocalizedKeywords(currentLocale)}/>}
+                    {seo.meta_keywords &&
+                    <meta name="keywords" content={seo.getLocalizedKeywords(currentLocale)}/>}
 
-                    {page.seo.meta_description &&
-                    <meta name="description" content={page.seo.getLocalizedDescription(currentLocale)}/>}
+                    {seo.meta_description &&
+                    <meta name="description" content={seo.getLocalizedDescription(currentLocale)}/>}
 
-                    {page.seo.updated_at && <meta name="og:updated_time" content={page.seo.updated_at}/>}
+                    {seo.updated_at && <meta name="og:updated_time" content={seo.updated_at}/>}
                 </Helmet>
             }
 
             <section id="section-hero" className="container pt-sm-5 pt-0 pb-5">
-                <HeroSection currentLocale={currentLocale} data={heroSection}/>
+                <HeroSection/>
             </section>
 
             <section id="section-download-apps" className="container">
-                <DownloadAppSection currentLocale={currentLocale} downloadData={downloadAppSection}/>
+                <DownloadAppSection/>
             </section>
 
             <section id="section-recent-questions">
-                <RecentQuestions currentLocale={currentLocale} questions={recentQuestions}
-                                 questionsData={recentQuestionsSection}/>
+                <RecentQuestions/>
 
             </section>
 
@@ -58,26 +52,25 @@ const HomeContainer = (
                 <div id="right-background" className="h-100"/>
 
                 <div className="container pt-4">
-                    <SponsoredProviderSection currentLocale={currentLocale} providers={sponsoredProviders}
-                                              section={sponsoredProvidersSection}/>
+                    <SponsoredProviderSection/>
                 </div>
             </section>
 
             <section id="section-recent-posts" className="">
                 <div className="container pt-4">
-                    <RecentPosts currentLocale={currentLocale} data={recentPosts}/>
+                    <RecentPosts/>
                 </div>
             </section>
 
             <section id="section-recent-articles">
                 <div className="container pt-4">
-                    <RecentArticles currentLocale={currentLocale} articles={recentArticles}/>
+                    <RecentArticles/>
                 </div>
             </section>
 
             <section id="section-testimonials" className="">
                 <div className="container py-5">
-                    <Testimonials currentLocale={currentLocale} testimonials={testimonials}/>
+                    <Testimonials/>
                 </div>
             </section>
         </Fragment>
@@ -85,12 +78,8 @@ const HomeContainer = (
 };
 
 const mapStateToProps = (state) => ({
-    page: state.pages.homepage,
-    recentArticles: state.articles.recent,
-    sponsoredProviders: state.providers.sponsored,
-    recentQuestions: state.questions.recent_questions,
-    recentPosts: state.posts,
-    testimonials: state.testimonials,
+    seo: state.pages.seo,
+
     currentLocale: state.i18n.value,
 
     authUser: state.authUser,

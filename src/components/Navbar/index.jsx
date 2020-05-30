@@ -48,18 +48,18 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
                     {/*Show Sign in and Sign up Button when there is no auth user*/}
                     <Nav.Item as="li" className="mr-3">
                         <Link className="nav-link" to="#" onClick={showSignInModal}>
-                            <label className="font-medium">
+                            <p className="label font-medium">
                                 {t('login')}
-                            </label>
+                            </p>
                         </Link>
                     </Nav.Item>
 
                     <Nav.Item as="li">
                         <Button color="btn-info"
                                 onClick={showSignUpModal}>
-                            <label className="font-medium text-white">
+                            <p className="label font-medium text-white">
                                 {t('sign_up')}
-                            </label>
+                            </p>
                         </Button>
                     </Nav.Item>
                 </Fragment> :
@@ -109,37 +109,37 @@ const Navbar = (props) => {
                         <Nav.Item as="li">
 
                             <Link className="nav-link" to="/">
-                                <label className="font-regular">
+                                <p className="label font-regular">
                                     {t('home')}
-                                </label>
+                                </p>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link" to="/question">
-                                <label className="font-regular">
+                                <p className="label font-regular">
                                     {t('questions')}
-                                </label>
+                                </p>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link" to="/article">
-                                <label className="font-regular">
+                                <p className="label font-regular">
                                     {t('articles')}
-                                </label>
+                                </p>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link find-doctor" to="/doctor">
-                                <label className="font-regular">
+                                <p className="label font-regular">
                                     {t('find_doc')}
-                                </label>
+                                </p>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link" to="/post">
-                                <label className="font-regular">
+                                <p className="label font-regular">
                                     {t('posts')}
-                                </label>
+                                </p>
                             </Link>
                         </Nav.Item>
                     </Nav>

@@ -18,7 +18,7 @@ const initialState = {
     recent: new ModelPaginatedResource(),
     not_answered: new ModelPaginatedResource(),
     most_common: new ModelPaginatedResource(),
-    recent_questions: [],
+    recent_questions: null, //this needs to be null 3shan el homepage slider
     top: new ModelPaginatedResource(),
     analytics: {
         total: 0,

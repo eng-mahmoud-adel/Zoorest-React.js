@@ -6,7 +6,7 @@ import {ArticleLoadingAnimationBar} from "../../components/Cards/Articles/Loadin
 import {withTranslation} from 'react-i18next';
 import {connect} from "react-redux";
 
-const RecentArticles = withTranslation()(({articles, t}) => {
+const RecentArticles = withTranslation()(({articles, currentLocale, t}) => {
 
     const slickSettings = {
         rtl: false,//todo use variable when site localization is added
@@ -74,4 +74,10 @@ const RecentArticles = withTranslation()(({articles, t}) => {
     );
 });
 
-export default connect(null)(withTranslation()(RecentArticles));
+const mapStateToProps = (state) => ({
+    articles: state.articles.recent,
+    currentLocale: state.i18n,
+
+});
+
+export default connect(mapStateToProps)(withTranslation()(RecentArticles));

@@ -3,12 +3,13 @@ import HeroImage from '../../images/assets/images/Group 12@3x.png';
 import Button from '../../components/Buttons/Button/Button';
 import LazyLoad from "react-lazyload";
 import {Link} from 'react-router-dom';
+import {connect} from "react-redux";
 
-const HeroSection = ({data: section, currentLocale}) => {
+const HeroSection = ({section, currentLocale}) => {
 
     return (
         <div className="row">
-            <div className="col-lg-6 text-center text-md-left">
+            {section && <div className="col-lg-6 text-center text-md-left">
                 <h1 className="title mt-0 text-dark">
                     {section.getFiledValueByName("title", currentLocale)}
                 </h1>
@@ -27,7 +28,7 @@ const HeroSection = ({data: section, currentLocale}) => {
                         </Link>
                     </div>
                 }
-            </div>
+            </div>}
 
             <div className="col-lg-6">
                 <LazyLoad unmountIfInvisible={true} once={true}
@@ -38,5 +39,9 @@ const HeroSection = ({data: section, currentLocale}) => {
         </div>
     );
 };
+const mapStateToProps = (state) => ({
+    currentLocale: state.i18n.value,
+    section: state.pages.homepage.heroSection,
 
-export default HeroSection;
+});
+export default connect(mapStateToProps)(HeroSection);

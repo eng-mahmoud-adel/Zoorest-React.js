@@ -1,6 +1,6 @@
 /* start hero section */
 #section-hero {
-  margin-top: 100px;
+  //margin-top: 100px;
   .title {
     color: $black-color;
     font-size: $font-size-64;
@@ -233,17 +233,20 @@
 
 /* start recent posts section */
 #section-recent-posts {
-    padding: $padding-64 0;
-    background-color: $light;
-    .title {
-        color: $dark;
-        font-size: $font-size-32;
-    }
-    .nav-tabs {
-      border-bottom-color: $secondary;
-      a {
-        background-color: $light;
-        border: none;
+  padding-bottom: $padding-64;
+  background-color: $light;
+
+  .title {
+    color: $dark;
+    font-size: $font-size-32;
+  }
+
+  .nav-tabs {
+    border-bottom-color: $secondary;
+
+    a {
+      background-color: $light;
+      border: none;
         color: $gray-color;
         outline: none;
         font-weight: bold;

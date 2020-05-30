@@ -1,9 +1,11 @@
 import React, {Fragment} from 'react';
 import Testimonial from '../../components/Cards/Testimonials/Testimonial';
 import SlickSlider from "../../components/Helpers/SlickSlider";
+import {connect} from "react-redux";
+import {withTranslation} from "react-i18next";
 
-const Testimonials = (props) => {
-    const {testimonials}= props;
+const Testimonials = ({testimonials, currentLocale}) => {
+
     const slickSettings = {
         rtl: false,//todo use variable when site localization is added
         dots: true,
@@ -44,4 +46,9 @@ const Testimonials = (props) => {
     );
 };
 
-export default Testimonials;
+const mapStateToProps = (state) => ({
+    testimonials: state.testimonials,
+    currentLocale: state.i18n,
+});
+
+export default connect(mapStateToProps)(withTranslation()(Testimonials));

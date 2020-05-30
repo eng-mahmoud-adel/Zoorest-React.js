@@ -4,13 +4,11 @@ import AnimalImage
     from '../../images/assets/images/kisspng-cat-dog-veterinarian-pet-clinique-vtrinaire-5b0b7de8a47a66.0097244915274797846737@3x.png';
 import SlickSlider from '../../components/Helpers/SlickSlider';
 import Question from "../../components/Cards/Questions/Question";
-import Tag from "../../components/Tags/Tag";
 import LazyLoad from "react-lazyload";
 import {Link} from 'react-router-dom';
+import {connect} from "react-redux";
 
-const RecentQuestions = (props) => {
-
-    const {questions, questionsData, currentLocale} = props;
+const RecentQuestions = ({questions, section, currentLocale}) => {
 
     const slickSettings = {
         rtl: false,//todo use variable when site localization is added
@@ -53,30 +51,38 @@ const RecentQuestions = (props) => {
                         <img src={AnimalImage} alt="" className="img-fluid"/>
                     </LazyLoad>
                 </div>
-                <div className="col-xl-7 col-lg-8 col-md-9 text-center wrapper">
+                {section && <div className="col-xl-7 col-lg-8 col-md-9 text-center wrapper">
                     <div className="title mt-0">
                         <h3>
-                            {questionsData.getFiledValueByName("title", currentLocale)}
+                            {section.getFiledValueByName("title", currentLocale)}
                         </h3>
 
                     </div>
-                    <h5 className="font-regular">{questionsData.getFiledValueByName("description", currentLocale)}</h5>
+                    <h5 className="font-regular">{section.getFiledValueByName("description", currentLocale)}</h5>
 
                     <div className="col-lg-6 col-md-7 col-sm-5 col-11 mx-auto">
-                        <Link to={questionsData.getFiledValueByName("button_actions", currentLocale)}><Button
-                            text={questionsData.getFiledValueByName("button_text", currentLocale)} color="btn btn-info"
+                        <Link to={section.getFiledValueByName("button_actions", currentLocale)}><Button
+                            text={section.getFiledValueByName("button_text", currentLocale)} color="btn btn-info"
                             size="btn-sm"/></Link>
                     </div>
-                </div>
+                </div>}
             </div>
 
-            <SlickSlider settings={slickSettings}>
-                {questions ? questions.map((question, index) => (
-                    <Question key={index} model={question} className="question-card " tag={Tag}/>
-                )) : <h1>loading</h1>}
-            </SlickSlider>
+            {
+                (questions && questions.length > 0) && <SlickSlider settings={slickSettings}>
+                    {questions.map((question, index) => (
+                        <Question key={`home_recent_question_${index}`} model={question} className="question-card "/>
+                    ))}
+                </SlickSlider>
+            }
         </Fragment>
     );
 };
 
-export default RecentQuestions;
+const mapStateToProps = (state) => ({
+    questions: state.questions.recent_questions,
+    section: state.pages.homepage.recentQuestionsSection,
+
+    currentLocale: state.i18n.value,
+});
+export default connect(mapStateToProps)(RecentQuestions);

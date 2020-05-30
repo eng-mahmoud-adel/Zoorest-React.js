@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '../../components/Buttons/Button/Button';
 import Provider from '../../components/Cards/Profiles/Provider';
 import {Link} from 'react-router-dom';
+import {connect} from "react-redux";
 
 const SponsoredProviderSection = ({providers, section, currentLocale}) => {
 
@@ -46,4 +47,11 @@ const SponsoredProviderSection = ({providers, section, currentLocale}) => {
     );
 };
 
-export default SponsoredProviderSection;
+const mapStateToProps = (state) => ({
+    providers: state.providers.sponsored,
+    currentLocale: state.i18n.value,
+    section: state.pages.homepage.sponsoredProvidersSection,
+
+});
+
+export default connect(mapStateToProps)(SponsoredProviderSection);
