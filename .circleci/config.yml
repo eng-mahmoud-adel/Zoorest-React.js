@@ -20,17 +20,18 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run:
-          name: Creating Build Artifacts
-          command: mkdir /tmp/builds;
-
       - run: npm run-script build
       - run: mkdir packaged
       - run: tar -czvf packaged/package-${CIRCLE_BUILD_NUM}.tar.gz -C build . #place the production build in a directory called packaged on circle-ci pipeline
+      - run:
+          name: Creating Build Artifacts
+          command: |
+          mkdir /tmp/builds;
+          cp packaged/package-${CIRCLE_BUILD_NUM}.tar.gz /tmp/builds
 
       - store_artifacts:
           path: packaged/package-${CIRCLE_BUILD_NUM}.tar.gz
-          destination: /tmp/builds
+          destination: build
 
   deploy-dev:
     docker:
