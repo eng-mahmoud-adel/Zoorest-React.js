@@ -1,0 +1,39 @@
+version: 2.1
+orbs:
+  node: circleci/node@2.0.2
+
+jobs:
+  build:
+    docker:
+      # Specify the version you desire here
+      - image: node:12.16.1-alpine
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # Using the RAM variation mitigates I/O contention
+      # for database intensive operations.
+      # - image: circleci/mysql:5.7-ram
+      #
+      # - image: redis:3
+
+
+    steps:
+      - checkout
+      # composer cache
+      - restore_cache:
+        keys:
+          # is not committed to the repository.
+          - v1-dependencies-{{ checksum "composer.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+      - node/with-cache:
+          steps:
+            - run: apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
+            - run: npm install
+            - run: unset CI
+            - run: npm run-script build
+            - run: mkdir packaged
+workflows:
+  build-and-test:
+    jobs:
+      - build
