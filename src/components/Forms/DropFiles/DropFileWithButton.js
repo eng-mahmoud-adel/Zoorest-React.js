@@ -32,6 +32,7 @@ const DropFileWithButton = (props) => {
     </li>
   ));
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   const style = useMemo(() => ({
     ...baseStyle
   }));

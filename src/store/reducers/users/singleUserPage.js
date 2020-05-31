@@ -24,8 +24,10 @@ const singleUserReducer = (state = initialState, action) => {
                 ...state,
                 loading: true
             };
+        default:
+            return state;
     }
-    return state;
+
 }
 
 export default singleUserReducer;

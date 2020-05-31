@@ -69,7 +69,7 @@ const ProfileForm = withTranslation()(({countries, cities, currentLocale, update
                 oldPassword: Yup.string().required('This field is required.'),
                 newPassword: Yup.string().required('This field is required.'),
                 password_confirmation: Yup.string().required('This field is required.').when("newPassword", {
-                    is: val => (val && val.length > 0 ? true : false),
+                    is: val => (!!(val && val.length > 0)),
                     then: Yup.string().oneOf(
                         [Yup.ref("newPassword")],
                         "Both password need to be the same"
@@ -244,7 +244,7 @@ const ProfileForm = withTranslation()(({countries, cities, currentLocale, update
 
                     <section className="wrapper-three container my-5">
                         <h3 className="font-weight-bold">Certificates</h3>
-                        <img src=""/>
+                        <img src="" alt="alt"/>
                     </section>
 
                     <section className="wrapper-four container my-5">

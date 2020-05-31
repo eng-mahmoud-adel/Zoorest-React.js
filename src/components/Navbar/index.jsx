@@ -69,7 +69,7 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
                     <span className="font-medium">{authUser.user.name}</span>
                     <div>
                         <img src={authUser.user.image} style={{width: "30px", borderRadius: "50%", cursor: "pointer"}}
-                             onClick={showDropdown}/>
+                             onClick={showDropdown} alt="alt"/>
                     </div>
 
                     <div id={`user_${authUser.user.id}`} className="dropdown-content">
