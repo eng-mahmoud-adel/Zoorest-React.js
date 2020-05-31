@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build-and-deploy-staging:
+  build:
     docker:
       - image: node:12.16.1-alpine
 
@@ -8,7 +8,6 @@ jobs:
 
     steps:
       - checkout
-      - run: apk update && apk add openssh rsync #install openssh rsync on circle-ci machine
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -21,39 +20,70 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run:
-          name: "Setup custom environment variables"
-          command: echo 'export CI=false' >> $BASH_ENV
       - run: npm run-script build
       - run: mkdir packaged
       - run: tar -czvf packaged/package-${CIRCLE_BUILD_NUM}.tar.gz -C build . #place the production build in a directory called packaged on circle-ci pipeline
+      - run:
+          name: Creating Build Artifacts
+          command: mkdir /tmp/builds && cp packaged/package-${CIRCLE_BUILD_NUM}.tar.gz /tmp/builds
+
+      - store_artifacts:
+          path: packaged/package-${CIRCLE_BUILD_NUM}.tar.gz
+          destination: build
+
+  deploy-dev:
+    docker:
+      - image: node:12.16.1-alpine
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: apk update && apk add openssh rsync #install openssh rsync on circle-ci machine
+
       - run: mkdir upload #create a folder on circle-ci pipeline called upload
-      - run: tar -xf packaged/package-${CIRCLE_BUILD_NUM}.tar.gz -C upload # extract compressed build from previous step  to upload directory on circle-ci
+      - run: tar -xf /tmp/builds/packaged/package-${CIRCLE_BUILD_NUM}.tar.gz -C upload # extract compressed build from previous step  to upload directory on circle-ci
+      - run: chmod 400 ec2-zoorest.pem
+      - run: rsync -a  -e "ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no" --delete upload/ $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP:/var/www/temp/zoorest-${CIRCLE_BUILD_NUM} # transfer build files from circle-ci to a temp directory on deployment server
+      - run: ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "rm -rf $DEPLOYMENT_DEV_PATH/*"
+      - run: ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "mv /var/www/temp/zoorest-${CIRCLE_BUILD_NUM}/* $DEPLOYMENT_DEV_PATH" #move build files from the temp directory to its target directory
+      - run: ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "rm -rf /var/www/temp/zoorest-${CIRCLE_BUILD_NUM}" #cleanup temp directory
+      - run: ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_DEV_USERNAME@$DEPLOYMENT_DEV_IP "chmod -R u+rwX,go+rX,go-w $DEPLOYMENT_DEV_PATH" #grant permissions on the deployment folder
+
+  deploy-stage:
+    docker:
+      - image: node:12.16.1-alpine
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: apk update && apk add openssh rsync #install openssh rsync on circle-ci machine
+
+      - run: mkdir upload #create a folder on circle-ci pipeline called upload
+      - run: tar -xf /tmp/builds/packaged/package-${CIRCLE_BUILD_NUM}.tar.gz -C upload # extract compressed build from previous step  to upload directory on circle-ci
       - run: chmod 400 ec2-zoorest.pem
       - run: rsync -a  -e "ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no" --delete upload/ $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP:/var/www/temp/zoorest-${CIRCLE_BUILD_NUM} # transfer build files from circle-ci to a temp directory on deployment server
       - run: ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP "rm -rf $DEPLOYMENT_STAGING_PATH/*"
       - run: ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP "mv /var/www/temp/zoorest-${CIRCLE_BUILD_NUM}/* $DEPLOYMENT_STAGING_PATH" #move build files from the temp directory to its target directory
       - run: ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP "rm -rf /var/www/temp/zoorest-${CIRCLE_BUILD_NUM}" #cleanup temp directory
       - run: ssh -i ec2-zoorest.pem -o StrictHostKeyChecking=no $DEPLOYMENT_STAGING_USERNAME@$DEPLOYMENT_STAGING_IP "chmod -R u+rwX,go+rX,go-w $DEPLOYMENT_STAGING_PATH" #grant permissions on the deployment folder
-#    steps:
-#      - checkout
-#      # node cache
-#      - restore_cache:
-#          keys:
-#            - node-v4-{{ checksum "package.json" }}
-#            - node-v4-
-#            - run: npm install
-#      - save_cache:
-#          key: node-v4-{{ checksum "package.json" }}
-#          paths:
-#            - node_modules
-#            - ~/.yarn
-#      - run: apk update && apk add openssh rsync #install openssh rsync on circle-ci machine
-#      - run: npm install
-#      - run: unset CI
-#      - run: npm run-script build
-#      - run: mkdir packaged
+
 workflows:
   build-and-deploy-staging:
     jobs:
-      - build-and-deploy-staging
+      - build
+      - deploy-dev:
+          requires:
+            - build
+          filters:
+            branches:
+              only: staging
+      - deploy-stage:
+          requires:
+            - build
+          filters:
+            branches:
+              only: staging
+#      - deploy-prod:
+#          requires:
+#            - build
+#          filters:
+#            branches:
+#              only: master
