@@ -99,6 +99,7 @@ const SingleArticleContainer = ({
                         <ArticleDetails model={stateData.model}
                                         currentLocale={currentLocale}
                                         handleShare={handleShare}
+                                        handleLike={handleLike}
                         /> :
                         <ArticleDetailsLoadingAnimation/>
                 }

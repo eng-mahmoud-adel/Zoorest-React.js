@@ -29,8 +29,10 @@ const singlePetReducer = (state = initialState, action) => {
                 ...state,
                 model: new Pet(action.payload),
             };
+        default:
+            return state;
     }
-    return state;
+
 }
 
 export default singlePetReducer;

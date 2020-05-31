@@ -115,6 +115,7 @@ const LoginForm = withTranslation()(({login, onSignupClicked, t}) => {
                                         disabled={!isValid || (values.email === "" && values.password === "" ? isSubmitting = true : isSubmitting = false)}/>
                             </div>
                             <div className="mb-2 col-11 mx-auto">
+                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                 <a href="#">{t('forgot_password')}</a>
                             </div>
                             <hr/>

@@ -118,7 +118,7 @@ const AddAnimalForm = ({hideModal, createPet}) => {
                             {currentStep < 3 ?
                                 <Button text="Next" variant="info" size="sm" onClick={_next}/>
                                 :
-                                currentStep == 3 ?
+                                currentStep === 3 ?
                                     <Button text="Finish" variant="info" size="sm" onClick={() => {
                                         handleFormSubmit({
                                             name: values.name,
