@@ -19,20 +19,22 @@ jobs:
 
     steps:
       - checkout
-      # composer cache
+      # node cache
       - restore_cache:
-        keys:
-          # is not committed to the repository.
-          - v1-dependencies-{{ checksum "composer.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-      - node/with-cache:
-          steps:
-            - run: apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
+          keys:
+            - node-v4-{{ checksum "package.json" }}
+            - node-v4-
             - run: npm install
-            - run: unset CI
-            - run: npm run-script build
-            - run: mkdir packaged
+      - save_cache:
+          key: node-v4-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+            - ~/.yarn
+      - run: apk update && apk add openssh rsync #install openssh rsync on bitbucket machine
+      - run: npm install
+      - run: unset CI
+      - run: npm run-script build
+      - run: mkdir packaged
 workflows:
   build-and-test:
     jobs:
