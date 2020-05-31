@@ -101,7 +101,7 @@ const Doctors = ({
                     <LazyList
                         data={providers.all}
                         itemCols={"col-4"}
-                        loadMoreMessage={"Load More Questions"}
+                        loadMoreMessage={"Load More question"}
                         component={Provider}
                         //todo placeholderComponent={Provider}
                         fetchMoreData={getMoreProviders}

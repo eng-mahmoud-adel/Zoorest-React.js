@@ -51,7 +51,7 @@ const AllQuestionsContainer = (
                 <Tab eventKey="recent_questions" title="Recent Questions">
                     {recent_questions_data.data.length !== 0 ? <LazyList
                             data={recent_questions_data}
-                            loadMoreMessage={"Load More Questions"}
+                            loadMoreMessage={"Load More question"}
                             component={Question}
                             placeholderComponent={QuestionLoadingAnimation}
                             fetchMoreData={getMoreRecentQuestions}
@@ -68,7 +68,7 @@ const AllQuestionsContainer = (
 
                     <LazyList
                         data={not_answered_data}
-                        loadMoreMessage={"Load More Questions"}
+                        loadMoreMessage={"Load More question"}
                         component={Question}
                         placeholderComponent={QuestionLoadingAnimation}
                         fetchMoreData={getMoreNotAnsweredQuestions}
@@ -79,7 +79,7 @@ const AllQuestionsContainer = (
                 <Tab eventKey="most_common" title="Most Common">
                     <LazyList
                         data={most_common_data}
-                        loadMoreMessage={"Load More Questions"}
+                        loadMoreMessage={"Load More question"}
                         component={Question}
                         placeholderComponent={QuestionLoadingAnimation}
                         fetchMoreData={getMoreMostCommonQuestions}

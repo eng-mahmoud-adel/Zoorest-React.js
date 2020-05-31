@@ -79,7 +79,7 @@ const AllArticlesContainer = ({page, articles, getArticles, getMoreArticles, cur
                             getMoreArticles(articles.all.links.getNextLink());
                         }}
                         hasMore={hasMore}
-                        loadMoreMessage={"Load More Articles"}
+                        loadMoreMessage={"Load More articles"}
 
                         refreshFunction={() => {
                             console.log("refreshing");

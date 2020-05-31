@@ -80,7 +80,7 @@ const DoctorProfile = (
                     {stateData.loadingQuestions === false ? <LazyList
                         data={stateData.questions}
                         itemCols={"col-8"}
-                        loadMoreMessage={"Load More Questions"}
+                        loadMoreMessage={"Load More question"}
                         component={Question}
                         placeholderComponent={QuestionLoadingAnimation}
                         fetchMoreData={getMoreProviderQuestions}
@@ -92,7 +92,7 @@ const DoctorProfile = (
                         <LazyList
                             data={stateData.articles}
                             itemCols={"col-4"}
-                            loadMoreMessage={"Load More Articles"}
+                            loadMoreMessage={"Load More articles"}
                             component={Article}
                             placeholderComponent={ArticleLoadingAnimation}
                             fetchMoreData={getMoreProviderArticles}

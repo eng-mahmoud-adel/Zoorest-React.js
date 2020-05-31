@@ -1,35 +1,32 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
-import HomeContainer from '../../pages/Home/index';
-import About from '../../pages/About/About';
-import AllArticlesContainer from '../../pages/Articles/index';
-import SingleArticleContainer from '../../pages/Articles/details/index';
-import CommentCards from '../../pages/ShowingCards/CommentCards';
-import Forms from '../../pages/ShowingForms/Forms';
-import QuestionDetails from "../../pages/Questions/details";
-import QuestionsAll from "../../pages/Questions";
-import Doctors from '../../pages/Providers';
-import DoctorProfile from '../../pages/Providers/Doctor/index';
-import AllPostsContainer from '../../pages/Adoption/index';
-import SinglePostContainer from '../../pages/Adoption/SinglePost/index';
-import LoginPage from "../../pages/Auth/Login";
-import SignUpPage from "../../pages/Auth/Signup";
-import TypographyPage from "../../pages/Demo/Typography";
-import PrivacyPage from "../../pages/Privacy";
-import TermsPage from "../../pages/Terms";
-import User from '../../pages/User/index';
+import HomeContainer from '../../pages/home/index';
+import AllArticlesContainer from '../../pages/articles/index';
+import SingleArticleContainer from '../../pages/articles/id/index';
+
+import QuestionDetails from "../../pages/question/id";
+import QuestionsAll from "../../pages/question";
+import Doctors from '../../pages/providers';
+import DoctorProfile from '../../pages/providers/id/index';
+import AllPostsContainer from '../../pages/adoption/index';
+import SinglePostContainer from '../../pages/adoption/id/index';
+import LoginPage from "../../pages/auth/login";
+import SignUpPage from "../../pages/auth/signup";
+import TypographyPage from "../../pages/demo/typography";
+import PrivacyPage from "../../pages/privacy";
+import TermsPage from "../../pages/terms";
+import User from '../../pages/user/index';
 import PetDetails from '../Cards/Pets/PetDetails/PetDetails';
 import ProfileForm from '../Forms/ProfileForm';
 
 
 const AppRouter = () => (
     <Switch>
-            <Route exact path="/" component={HomeContainer}/>
-            <Route path="/about" component={About}/>
+        <Route exact path="/" component={HomeContainer}/>
 
-            <Route exact path="/articles" component={AllArticlesContainer}/>
-            <Route path="/articles/:id" component={SingleArticleContainer}/>
+        <Route exact path="/articles" component={AllArticlesContainer}/>
+        <Route path="/articles/:id" component={SingleArticleContainer}/>
 
             <Route exact path="/post" component={AllPostsContainer}/>
             <Route path="/post/:id" component={SinglePostContainer}/>
@@ -38,7 +35,6 @@ const AppRouter = () => (
             <Route path="/question/:id" component={QuestionDetails}/>
             <Route path="/question" component={QuestionsAll}/>
 
-            <Route path="/comment" component={CommentCards}/>
 
             <Route exact path="/providers" component={Doctors}/>
             <Route path="/providers/:id" component={DoctorProfile}/>
@@ -62,7 +58,6 @@ const AppRouter = () => (
             isAuthenticated={check if auth user exists}
             />*/}
 
-            <Route exact path="/forms" component={Forms}/>
     </Switch>
 );
 
