@@ -14,7 +14,7 @@ const FacebookLoginBtn = ({onResponse}) => {
             callback={onResponse}
             // autoLoad
             render={renderProps => (
-                // <SocialBtn onClick={renderProps.onClick} size="sm" variant="light" text="Login with Facebook"
+                // <SocialBtn onClick={renderProps.onClick} size="sm" variant="light" text="login with Facebook"
                 //            social_icon="fa fa-facebook-official fa-lg"/>
 
                 <Button onClick={renderProps.onClick} variant={"light"} type="button" size={"sm"} color={"light"}

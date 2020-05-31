@@ -45,7 +45,7 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
     return (
         <Card className={`question-card my-2 w-100 ${className || ""}`}>
             <Card.Body>
-                <Link to={`/question/${model.getLocalizedSlug(currentLocale)}`}>
+                <Link to={`/questions/${model.id}/${model.getLocalizedSlug(currentLocale)}`}>
                     <div className="d-flex">
                         <Card.Subtitle className="small-text">
                             <small className="text-muted">
@@ -119,7 +119,7 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
                     <div
                         className="col-xl-4 col-md-6 text-center align-content-center align-items-center align-self-center">
                         {(!hide_add_answer || !model.isClosed()) &&
-                        <Link to={`/question/${model.getLocalizedSlug(currentLocale)}`}>
+                        <Link to={`/questions/${model.id}/${model.getLocalizedSlug(currentLocale)}`}>
                             <Button className="px-3 py-1" variant="info" size="sm">
                                 {t('see_more')}
                             </Button>

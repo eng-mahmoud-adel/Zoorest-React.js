@@ -25,7 +25,7 @@ const Footer = withTranslation()(({t}) => {
                             <Link className="nav-link" to="/">{t('home')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/question">{t('questions')}</Link>
+                            <Link className="nav-link" to="/questions">{t('questions')}</Link>
                         </Nav.Item>
                         <Nav.Item as="li">
                             <Link className="nav-link" to="/articles">{t('articles')}</Link>

@@ -86,7 +86,7 @@ const SingleQuestionContainer = (
             <div className="row">
                 <Breadcrumb className={"w-100"}>
                     <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                    <Breadcrumb.Item href="/question">
+                    <Breadcrumb.Item href="/questions">
                         Questions
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active>Question {id}</Breadcrumb.Item>

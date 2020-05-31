@@ -33,7 +33,7 @@ const App = ({getUserData, getGlobalData, location}) => {
             <Navbar/>
             <NotyToaster/>
 
-            <div style={{marginTop: location.pathname !== "/question" ? "100px" : ""}}>
+            <div style={{marginTop: location.pathname !== "/questions" ? "100px" : ""}}>
                 {/*Any Non*/}
                 <AppRouter/>
             </div>

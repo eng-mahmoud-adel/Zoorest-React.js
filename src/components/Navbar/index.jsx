@@ -65,7 +65,7 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
                 </Fragment> :
 
                 <Fragment>
-                    {/*There is authenticated User */}
+                    {/*There is authenticated user */}
                     <span className="font-medium">{authUser.user.name}</span>
                     <div>
                         <img src={authUser.user.image} style={{width: "30px", borderRadius: "50%", cursor: "pointer"}}
@@ -115,7 +115,7 @@ const Navbar = (props) => {
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link className="nav-link" to="/question">
+                            <Link className="nav-link" to="/questions">
                                 <p className="label font-regular">
                                     {t('questions')}
                                 </p>

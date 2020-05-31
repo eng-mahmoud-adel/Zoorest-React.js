@@ -125,7 +125,7 @@ const LoginForm = withTranslation()(({login, onSignupClicked, t}) => {
                                 </div>
                                 <div className="col-md-5 pl-2 pr-0">
                                     <GoogleLoginBtn onResponse={handleGoogleLogin}/>
-                                    {/*<SocialBtn size= "btn-sm" color= "btn btn-light" text= "Login with Google" social_icon= "fa fa-google fa-lg" />*/}
+                                    {/*<SocialBtn size= "btn-sm" color= "btn btn-light" text= "login with Google" social_icon= "fa fa-google fa-lg" />*/}
                                 </div>
                             </div>
                         </div>

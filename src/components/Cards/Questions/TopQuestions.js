@@ -21,7 +21,7 @@ const TopQuestions = ({className, getTopQuestions, top_questions}) => {
                     top_questions.data.map(question => <p key={"top_question" + question.getKey()}
                                                           className="card-text">
 
-                        <Link to={`/question/${question.getKey()}`}>
+                        <Link to={`/questions/${question.id}/${question.getKey()}`}>
                             <label className="font-regular text-muted">{question.getLocalizedTitle()}</label>
                         </Link>
                     </p>)
