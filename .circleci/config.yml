@@ -52,7 +52,7 @@ jobs:
 #      - run: unset CI
 #      - run: npm run-script build
 #      - run: mkdir packaged
-#workflows:
-#  build-and-test:
-#    jobs:
-#      - build
+workflows:
+  build-and-deploy-staging:
+    jobs:
+      - build-and-deploy-staging
