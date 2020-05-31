@@ -29,8 +29,8 @@ jobs:
       - run: tar -czvf packaged/package-${CIRCLE_BUILD_NUM}.tar.gz -C build . #place the production build in a directory called packaged on circle-ci pipeline
 
       - store_artifacts:
-          path: /tmp/builds
-          destination: packaged/package-${CIRCLE_BUILD_NUM}.tar.gz
+          path: packaged/package-${CIRCLE_BUILD_NUM}.tar.gz
+          destination: /tmp/builds
 
   deploy-dev:
     docker:
