@@ -139,13 +139,13 @@ const Navbar = (props) => {
                                 </p>
                             </Link>
                         </Nav.Item>
-                        <Nav.Item as="li">
+                        {/*<Nav.Item as="li">
                             <Link className="nav-link" to="/post">
                                 <p className="label font-regular">
                                     {t('posts')}
                                 </p>
                             </Link>
-                        </Nav.Item>
+                        </Nav.Item>*/}
                     </Nav>
 
                     <Auth authUser={props.authUser} showModal={props.showModal} logoutUser={props.logoutUser}/>

@@ -1,6 +1,7 @@
 import {
     CREATE_ARTICLE_COMMENT,
     GET_ARTICLE_COMMENTS,
+    GET_ARTICLES_LOADED,
     GET_ARTICLES_LOADING,
     GET_MORE_ARTICLE_COMMENTS,
     GET_SINGLE_ARTICLE,
@@ -12,7 +13,7 @@ import Article from "../../../model/Article";
 import Comment from "../../../model/Comment";
 
 const initialState = {
-    model: new Article(),
+    model: {},
     loading: true,
     comments: new ModelPaginatedResource(),
     loadingComments: true,
@@ -34,6 +35,12 @@ const singleArticleReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true
+            };
+
+        case GET_ARTICLES_LOADED:
+            return {
+                ...state,
+                loading: false
             };
 
         case GET_ARTICLE_COMMENTS:
@@ -70,7 +77,9 @@ const singleArticleReducer = (state = initialState, action) => {
                 ...state,
                 comments: new ModelPaginatedResource({
                     ...state.comments,
-                    data: state.comments.data.concat(new Comment(action.payload)),
+                    data: [new Comment(action.payload), ...state.comments.data],
+
+                    // data: state.comments.data.concat(new Comment(action.payload)),
                 }),
             };
 

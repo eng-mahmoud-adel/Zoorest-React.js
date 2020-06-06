@@ -1,11 +1,11 @@
 import React from 'react';
 import img from '../../../images/article-cover.png';
 
-import {CommentsIcon, FacebookIcon, ShareIcon, TwitterIcon, ViewsIcon} from '../../Icons/index';
+import {CommentsIcon, FacebookIcon, HeartIcon, ShareIcon, TwitterIcon, ViewsIcon} from '../../Icons/index';
 import ReactPlayer from "react-player";
 import {Card, Col, Row} from "react-bootstrap";
 
-const ArticleDetails = ({model, currentLocale, handleShare}) => {
+const ArticleDetails = ({model, currentLocale, handleShare, handleLike}) => {
 
     const pageURL = () => {
         return window.location.href;
@@ -14,11 +14,9 @@ const ArticleDetails = ({model, currentLocale, handleShare}) => {
     return (
         <div className="article-details-card card ">
             <div className="card-header p-3">
-                <h5 className="card-title mb-0">
-                    <h2>
-                        {model.getLocalizedTitle(currentLocale)}
-                    </h2>
-                </h5>
+                <h2 className="card-title mb-0">
+                    {model.getLocalizedTitle(currentLocale)}
+                </h2>
                 <small className="small-text">
                     <h5 className="font-regular text-muted">
                         By {model.author.name}
@@ -26,7 +24,9 @@ const ArticleDetails = ({model, currentLocale, handleShare}) => {
                 </small>
 
                 <div className="icons">
-                    <span className="icon-one"><CommentsIcon value={model.likes_count} text="comments"/></span>
+                    <span className="icon-one"><HeartIcon onClick={handleLike} is_active={model.is_liked}
+                                                          value={model.likes_count} text="likes"/></span>
+                    <span className="icon-one"><CommentsIcon value={model.comments_count} text="comments"/></span>
                     <span className="icon-one"><ViewsIcon value={model.views_count} text="views"/></span>
                 </div>
             </div>
@@ -106,14 +106,14 @@ export const ArticleDetailsLoadingAnimation = props => {
             </div>
 
             <Card.Body>
-                <Card.Text>
+                <div className="card-text">
                     <div className="bars">
                         <div className="bar bar1 loading"/>
                         <div className="bar bar1 loading"/>
                         <div className="bar bar1 loading"/>
                         <div className="bar bar2 loading"/>
                     </div>
-                </Card.Text>
+                </div>
             </Card.Body>
             <Card.Footer>
                 <Row>

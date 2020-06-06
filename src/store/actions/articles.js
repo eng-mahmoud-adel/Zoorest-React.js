@@ -1,10 +1,13 @@
 import ApiService from "../../services/ApiService";
 
+
 export const GET_ARTICLES = 'GET_ARTICLES';
 export const GET_MORE_ARTICLES = 'GET_MORE_ARTICLES';
 export const ARTICLE_CREATED = 'ARTICLE_CREATED';
 export const GET_SINGLE_ARTICLE = 'GET_SINGLE_ARTICLE';
+export const GET_ARTICLE = 'GET_ARTICLE';
 export const GET_ARTICLES_LOADING = 'GET_ARTICLES_LOADING';
+export const GET_ARTICLES_LOADED = 'GET_ARTICLES_LOADED';
 export const GET_ARTICLE_COMMENTS = 'GET_ARTICLE_COMMENTS';
 export const GET_MORE_ARTICLE_COMMENTS = 'GET_MORE_ARTICLE_COMMENTS';
 export const TOP_ARTICLES = 'TOP_ARTICLES';
@@ -59,7 +62,7 @@ export const getSingleArticle = (id) => async (dispatch) => {
                 });
 
                 dispatch({
-                    type: GET_ARTICLES_LOADING
+                    type: GET_ARTICLES_LOADED
                 });
             },
 
@@ -68,6 +71,17 @@ export const getSingleArticle = (id) => async (dispatch) => {
             }
         );
 };
+export const setSingleArticle = (article) => async (dispatch) => {
+    dispatch({
+        type: GET_ARTICLE,
+        payload: article
+    });
+
+    dispatch({
+        type: GET_ARTICLES_LOADED
+    })
+};
+
 
 export const getArticleComments = (id, limit = 5) => async (dispatch) => {
     await ApiService

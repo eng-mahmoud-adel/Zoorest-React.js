@@ -3,6 +3,7 @@ import {IoMdHeart, IoMdHeartEmpty, IoMdStar} from "react-icons/io";
 import {MdComment, MdPhone, MdRemoveRedEye, MdShare} from "react-icons/md";
 import {FaEllipsisH, FaEllipsisV, FaFacebookSquare, FaGoogle, FaInstagram, FaSearch, FaTwitter} from "react-icons/fa";
 // import {FcGoogle} from "react-icons/fc";
+import PropTypes from 'prop-types';
 
 
 export const StarIcon = ({onClick, is_active, value}) => {
@@ -29,7 +30,7 @@ export const HeartIcon = ({onClick, is_active, value, text}) => {
     const Component = selected ? IoMdHeart : IoMdHeartEmpty;
 
     const handleClick = () => {
-        setSelected(true);
+        setSelected(!selected);
         if (onClick) {
             onClick(selected, setSelected);
         }
@@ -37,9 +38,17 @@ export const HeartIcon = ({onClick, is_active, value, text}) => {
 
     return (
         <span className="icon-group">
-            <Component onClick={handleClick} color={selected ? "red" : ""}/><small> {value} {text}</small>
+            <Component style={{cursor: "pointer"}} onClick={handleClick}
+                       color={selected ? "red" : ""}/><small> {value} {text}</small>
         </span>
     );
+};
+
+HeartIcon.propTypes = {
+    is_active: PropTypes.bool,
+};
+HeartIcon.defaultProps = {
+    is_active: false,
 };
 
 export const CommentsIcon = (props) => (

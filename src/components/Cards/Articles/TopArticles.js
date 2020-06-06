@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {getTopArticles} from "../../../store/actions/articles";
 
-const TopArticles = ({className, getTopArticles, top_articles}) => {
+const TopArticles = ({className, getTopArticles, top_articles, currentLocale}) => {
 
     useEffect(() => {
         getTopArticles()
@@ -15,10 +15,10 @@ const TopArticles = ({className, getTopArticles, top_articles}) => {
                 <h5 className="card-title">Top Articles</h5>
                 <div className="card-body">
                     {
-                        top_articles.data.map(article => <p key={"top_question" + article.getKey()}
-                                                            className="card-text">
+                        top_articles.data.map(article => <div key={"top_question" + article.getKey()}
+                                                              className="card-text">
 
-                            <Link to={`/articles/${article.getKey()}`}>
+                            <Link to={article.getPageRoute(currentLocale)}>
                                 <p className="label">
                                     {article.getLocalizedTitle()}
                                 </p>
@@ -26,7 +26,7 @@ const TopArticles = ({className, getTopArticles, top_articles}) => {
 
                             <br/>
                             <p className="micro text-muted">By {article.author.name}</p>
-                        </p>)
+                        </div>)
                     }
                 </div>
             </div>}
@@ -36,6 +36,8 @@ const TopArticles = ({className, getTopArticles, top_articles}) => {
 
 const mapStateToProps = (state) => ({
     top_articles: state.articles.top,
+    currentLocale: state.i18n,
+
 });
 
 const mapDispatchToProps = dispatch => ({

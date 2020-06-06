@@ -9,14 +9,31 @@ import {showModal} from "../../../store/actions/modal";
 import {connect} from "react-redux";
 import ClampLines from 'react-clamp-lines';
 import {VerticalEllipsisIcon} from '../../Icons/index';
+import DropdownActions from "../../DropdownActions";
+import {likeArticle, unlikeArticle} from "../../../store/actions/articles";
 
-const Article = ({model: article, currentLocale}) => {
+const DropDownOptions = [
+    {
+        title: "Edit", actions: () => {
+        }
+    },
+    {
+        title: "remove", actions: () => {
+        }
+    },
+    {
+        title: "report", actions: () => {
+        }
+    },
+];
+
+const Article = ({model: article, like, unlike, currentLocale}) => {
 
     const showDropdown = () => {
         document.getElementById(`article${article.id}`).classList.toggle("show");
 
         // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (!event.target.matches('.dropbtn')) {
                 let dropdowns = document.getElementsByClassName("dropdown-content");
                 for (let i = 0; i < dropdowns.length; i++) {
@@ -28,13 +45,22 @@ const Article = ({model: article, currentLocale}) => {
                 }
             }
         }
+    }
+
+    const handleLike = (is_liked, setIsLiked) => {
+        console.log("handleLike")
+        if (is_liked) {
+            unlike(article.id);
+        } else {
+            like(article.id);
         }
+    }
 
     return (
         <Card className="article-card m-1">
             <div className="d-flex">
                 <Card.Title>
-                    <Link to={`/articles/${article.getKey(currentLocale)}`} className="card-link">
+                    <Link to={article.getPageRoute(currentLocale)} className="card-link">
 
                         <ClampLines
                             text={article.getLocalizedTitle(currentLocale)}
@@ -50,11 +76,8 @@ const Article = ({model: article, currentLocale}) => {
 
                 <VerticalEllipsisIcon className="ml-auto dropbtn mt-3 mr-3" style={{cursor: "pointer"}}
                                       onClick={showDropdown}/>
-                <div id={`article${article.id}`} className="dropdown-content">
-                    <a href="#edit">Edit</a>
-                    <a href="#remove">Remove</a>
-                    <a href="#report">Report</a>
-                </div>
+
+                <DropdownActions id={`article_${article.id}`} options={DropDownOptions}/>
 
             </div>
             <small className="small-text">
@@ -76,7 +99,7 @@ const Article = ({model: article, currentLocale}) => {
                         />
 
                         :
-                        <Link to={`/articles/${article.getKey(currentLocale)}`} className="card-link">
+                        <Link to={article.getPageRoute(currentLocale)} className="card-link">
 
                             <Card.Img variant={null} src={article.photo ? article.photo.path_small : ""}
                                       className="img-fluid h-100 w-100"
@@ -87,19 +110,22 @@ const Article = ({model: article, currentLocale}) => {
                 </LazyLoad>
             </div>
             <Card.Body>
-                <ClampLines
-                    text={article.getLocalizedCleanedBody(currentLocale)}
-                    id={`recent-article-short-description-${article.getKey()}`}
-                    lines={3}
-                    ellipsis="..."
-                    buttons={false}
-                    className="label font-regular card-text"
-                />
+                <Link to={article.getPageRoute(currentLocale)} className="card-link">
+
+                    <ClampLines
+                        text={article.getLocalizedCleanedBody(currentLocale)}
+                        id={`recent-article-short-description-${article.getKey()}`}
+                        lines={3}
+                        ellipsis="..."
+                        buttons={false}
+                        className="label font-regular card-text"
+                    />
+                </Link>
             </Card.Body>
             <Card.Footer>
                 <Row>
                     <Col xs={9} md={7} lg={7} xl={8}>
-                        <Link to={`/articles/${article.getKey(currentLocale)}`} className="card-link">
+                        <Link to={article.getPageRoute(currentLocale)} className="card-link">
                             <p className="label font-regular read-more"> Read More </p>
                         </Link>
                     </Col>
@@ -114,7 +140,8 @@ const Article = ({model: article, currentLocale}) => {
                                 </div>
 
                                 <div className="col-4">
-                                    <HeartIcon value={article.likes_count}/>
+                                    <HeartIcon onClick={handleLike} is_active={article.is_liked}
+                                               value={article.likes_count}/>
                                 </div>
                             </div>
                         </div>
@@ -138,6 +165,13 @@ const mapDispatchToProps = (dispatch) => ({
     showModal: (component) => {
         dispatch(showModal(component));
     },
+    like: (id) => {
+        dispatch(likeArticle(id));
+    },
+    unlike: (id) => {
+        dispatch(unlikeArticle(id));
+    },
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Article);

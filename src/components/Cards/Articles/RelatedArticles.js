@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {getRelatedArticles} from "../../../store/actions/articles";
 
-const RelatedArticles = ({className, getRelatedArticles, related_articles}) => {
+const RelatedArticles = ({className, getRelatedArticles, related_articles, currentLocale}) => {
 
     useEffect(() => {
         getRelatedArticles()
@@ -16,16 +16,16 @@ const RelatedArticles = ({className, getRelatedArticles, related_articles}) => {
                 <h5 className="card-title">Related Articles</h5>
                 <div className="card-body">
                     {
-                        related_articles.data.map(article => <p key={"related_articles" + article.getKey()}
-                                                                className="card-text">
+                        related_articles.data.map(article => <div key={"related_articles" + article.getKey()}
+                                                                  className="card-text">
 
-                            <Link to={`/articles/${article.getKey()}`}>
+                            <Link to={article.getPageRoute(currentLocale)}>
                                 <p className="label">{article.getLocalizedTitle()}</p>
                             </Link>
 
                             <br/>
                             <p className="micro text-muted">By {article.author.name}</p>
-                        </p>)
+                        </div>)
                     }
                 </div>
             </div>
@@ -36,6 +36,8 @@ const RelatedArticles = ({className, getRelatedArticles, related_articles}) => {
 
 const mapStateToProps = (state) => ({
     related_articles: state.singleArticlePage.related,
+    currentLocale: state.i18n,
+
 });
 
 const mapDispatchToProps = dispatch => ({

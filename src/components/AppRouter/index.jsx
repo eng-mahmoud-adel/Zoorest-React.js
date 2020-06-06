@@ -9,8 +9,8 @@ import QuestionDetails from "../../pages/question/id";
 import QuestionsAll from "../../pages/question";
 import Doctors from '../../pages/providers';
 import DoctorProfile from '../../pages/providers/id/index';
-import AllPostsContainer from '../../pages/adoption/index';
-import SinglePostContainer from '../../pages/adoption/id/index';
+// import AllPostsContainer from '../../pages/adoption/index';
+// import SinglePostContainer from '../../pages/adoption/id/index';
 import LoginPage from "../../pages/auth/login";
 import SignUpPage from "../../pages/auth/signup";
 import TypographyPage from "../../pages/demo/typography";
@@ -23,27 +23,27 @@ import ProfileForm from '../Forms/ProfileForm';
 
 const AppRouter = () => (
     <Switch>
-        <Route exact path="/" component={HomeContainer}/>
+            <Route exact path="/" component={HomeContainer}/>
 
-        <Route exact path="/articles" component={AllArticlesContainer}/>
-        <Route path="/articles/:id" component={SingleArticleContainer}/>
+            <Route exact path="/articles" component={AllArticlesContainer}/>
+            <Route path="/articles/:id/:slug" component={SingleArticleContainer}/>
 
-        <Route exact path="/post" component={AllPostsContainer}/>
-        <Route path="/post/:id" component={SinglePostContainer}/>
-        {/*<Route path="/demo-question" component={QuestionCards}/>*/}
+            {/*<Route exact path="/post" component={AllPostsContainer}/>*/}
+            {/*<Route path="/post/:id" component={SinglePostContainer}/>*/}
+            {/*<Route path="/demo-question" component={QuestionCards}/>*/}
 
-        <Route path="/questions/:id/:slug" component={QuestionDetails}/>
-        <Route path="/questions" component={QuestionsAll}/>
+            <Route path="/questions/:id/:slug" component={QuestionDetails}/>
+            <Route path="/questions" component={QuestionsAll}/>
 
 
-        <Route exact path="/providers" component={Doctors}/>
-        <Route path="/providers/:id" component={DoctorProfile}/>
+            <Route exact path="/providers" component={Doctors}/>
+            <Route path="/providers/:id" component={DoctorProfile}/>
 
-        <Route exact path="/user/:id" component={User}/>
-        <Route path="/user/:id/pet-details" component={PetDetails}/>
-        <Route path="/user/:id/edit-profile" component={ProfileForm}/>
+            <Route exact path="/user/:id" component={User}/>
+            <Route path="/user/:id/pet-details" component={PetDetails}/>
+            <Route path="/user/:id/edit-profile" component={ProfileForm}/>
 
-        <Route path="/login" component={LoginPage}/>
+            <Route path="/login" component={LoginPage}/>
             <Route path="/signup" component={SignUpPage}/>
 
             <Route path="/privacy-policy" component={PrivacyPage}/>

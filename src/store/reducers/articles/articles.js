@@ -1,4 +1,4 @@
-import {GET_ARTICLES, GET_MORE_ARTICLES, TOP_ARTICLES} from "../../actions/articles";
+import {GET_ARTICLES, GET_MORE_ARTICLES, TOP_ARTICLES, UPDATE_ARTICLE} from "../../actions/articles";
 import {HOMEPAGE_RECENT_ARTICLES} from '../../actions/pages';
 import Article from "../../../model/Article";
 import ModelPaginatedResource from '../../../model/ModelPaginatedResource';
@@ -52,6 +52,23 @@ const articlesReducer = (state = initialState, action) => {
                 top: new ModelPaginatedResource(action.payload, Article),
             };
 
+        case UPDATE_ARTICLE:
+            return {
+                ...state,
+                all: new ModelPaginatedResource({
+                    data: state.all.data.map((item, index) => {
+                        //update only the item where the state id equals the new item id
+                        if (item.id === action.payload.id) {
+                            return new Article(action.payload)
+                        }
+                        return item;
+                    }),
+                    links: action.payload.links,
+                    meta: action.payload.meta,
+                }),
+
+
+            };
 
         default:
             break;

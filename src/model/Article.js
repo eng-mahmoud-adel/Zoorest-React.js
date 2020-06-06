@@ -21,6 +21,7 @@ class Article extends Model {
         this._likes_count = object.likes_count
         this._shares_count = object.shares_count
         this._views_count = object.views_count
+        this._is_liked = object.is_liked
 
         if (object.photo) {
             this._photo = new Image(object.photo)
@@ -181,6 +182,10 @@ class Article extends Model {
         return !!this.video;
     }
 
+    get is_liked() {
+        return this._is_liked;
+    }
+
     getImageForSeo() {
         if (this.hasVideo()) {
             if (this.author) {
@@ -195,6 +200,14 @@ class Article extends Model {
                 return this.image_url
             }
         }
+    }
+
+    set is_liked(value) {
+        this._is_liked = value;
+    }
+
+    getPageRoute(currentLocale) {
+        return `/articles/${this.id}/${this.getLocalizedSlug(currentLocale)}`
     }
 
     getLocalizedSlug(locale = "ar") {
