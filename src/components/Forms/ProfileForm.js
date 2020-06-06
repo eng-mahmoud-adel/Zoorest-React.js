@@ -1,10 +1,10 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import TextArea from '../Inputs/TextArea';
 // import {MultiSelect} from '../Inputs/MultiSelect';
 import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
-import {Formik} from "formik";
+import {Field, Formik} from "formik";
 import * as Yup from "yup";
 import {connect} from 'react-redux';
 import {updateProfile} from '../../store/actions/auth';
@@ -12,6 +12,7 @@ import User from '../../model/User';
 import TimeInputOne from '../../components/Inputs/TimeInputOne';
 import CounterOne from '../../components/Inputs/CounterOne';
 import {withTranslation} from 'react-i18next';
+import {SelectField} from "../Inputs/Select2";
 
 const ProfileForm = withTranslation()(({countries, cities, currentLocale, updateProfile, t}) => {
 
@@ -31,7 +32,13 @@ const ProfileForm = withTranslation()(({countries, cities, currentLocale, update
         )
     }
 
+    const [selectedCountry, setSelectCountry] = useState(null);
+
     const getCountries = () => {
+        if (!countries) {
+            return [];
+        }
+
         return countries.map(country => ({
             value: country.id,
             label: country.getLocalizedName(currentLocale),
@@ -39,11 +46,17 @@ const ProfileForm = withTranslation()(({countries, cities, currentLocale, update
     }
 
     const getCities = () => {
-        return cities.map(city => ({
-            value: city.id,
-            label: city.getLocalizedName(currentLocale),
-        }));
+        if (!cities || !selectedCountry) {
+            return [];
+        }
+
+        return cities.filter(city => city.country_id === selectedCountry.value)
+            .map(city => ({
+                value: city.id,
+                label: city.getLocalizedName(currentLocale),
+            }));
     }
+
 
     return (
         <Formik
@@ -210,12 +223,34 @@ const ProfileForm = withTranslation()(({countries, cities, currentLocale, update
                                                     right_icon="fa fa-commenting-o fa-lg" placeholder="maadi street"/>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">{t('country')}</label>
+                                        {/*<label className="font-weight-bold">{t('country')}</label>*/}
                                         {/*<MultiSelect options={getCountries()}/>*/}
+                                        <Field
+                                            label={t('country')}
+                                            as={SelectField}
+                                            name={"country_id"}
+                                            placeholder={"Select Country"}
+                                            className={"w-100"}
+                                            options={getCountries()}
+                                            onChange={(selected_option) => {
+                                                setSelectCountry(selected_option)
+                                            }}
+                                        />
                                     </div>
                                     <div className="mb-3">
-                                        <label className="font-weight-bold">{t('region')}</label>
-                                        {/*<MultiSelect options={getCities()}/>*/}
+                                        {/*<label className="font-weight-bold">{t('region')}</label>*/}
+
+                                        <Field
+                                            label={t('region')}
+                                            as={SelectField}
+                                            name={"city_id"}
+                                            placeholder={"Select City"}
+                                            className={"w-100"}
+                                            options={getCities()}
+                                            // onChange={(selected_option) => {
+                                            //     setSelectCity(selected_option)
+                                            // }}
+                                        />
                                     </div>
                                     <div className="mb-3">
                                         <label className="font-weight-bold">{t('about_doctor')}</label>
