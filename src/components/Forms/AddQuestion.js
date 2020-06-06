@@ -6,7 +6,7 @@ import {Field, Form, Formik} from 'formik';
 import {HIDE_MODAL} from "../../store/actions/modal";
 import {connect} from "react-redux";
 import * as Yup from "yup";
-import {SelectField, TagsSelect} from "../Inputs/MultiSelect";
+import {SelectField, TagsSelect} from "../Inputs/Select2";
 import {createQuestion} from "../../store/actions/questions";
 import {withTranslation} from 'react-i18next';
 

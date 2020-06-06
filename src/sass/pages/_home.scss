@@ -1,6 +1,9 @@
 /* start hero section */
 #section-hero {
-  //margin-top: 100px;
+  background-image: url("../../images/hero-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
   .title {
     color: $black-color;
     font-size: $font-size-64;
@@ -65,9 +68,6 @@
         @media (min-width: 992px) {
           padding: $padding-12 $padding-64 $padding-12 $padding-8;
         }
-      }
-      .app-store-image {
-        transform: translateY(-7px);
       }
     }
   }

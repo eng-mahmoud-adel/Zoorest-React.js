@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import {Formik} from "formik";
+import {Field, Formik} from "formik";
 import * as Yup from "yup";
 import BasicInput from "../../../../Inputs/BasicInput";
-import {SingleSelect} from "../../../../Inputs/MultiSelect";
+import {SelectField} from "../../../../Inputs/Select2";
 import DropFileWithButton from "../../../DropFiles/DropFileWithButton";
 import Button from "../../../../Buttons/Button/Button";
 import ProviderSignUpRequest from "../../../../../model/Request/ProviderSignUpRequest";
@@ -12,11 +12,14 @@ import BaseModal from "react-bootstrap/Modal";
 import Location from "../../../Location";
 import {connect} from 'react-redux';
 import {registerProvider} from '../../../../../store/actions/auth';
-import {withTranslation} from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
-const ProviderForm = withTranslation()(({currentLocale, countries, cities, districts, signup, provider_type, t}) => {
+const ProviderForm = (({currentLocale, countries, cities, districts, signup, provider_type}) => {
+    const {t} = useTranslation();
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [userGeoLocation, setUserGeoLocation] = useState(null);
+
+    const [selectedCountry, setSelectCountry] = useState(null);
 
     const handleSignUp = (signUpRequest) => {
         registerProvider(signUpRequest)
@@ -69,6 +72,29 @@ const ProviderForm = withTranslation()(({currentLocale, countries, cities, distr
         setIsModalVisible(false);
     };
 
+    const getCountries = () => {
+        if (!countries) {
+            return [];
+        }
+
+        return countries.map(country => ({
+            value: country.id,
+            label: country.getLocalizedName(currentLocale),
+        }));
+    }
+
+    const getCities = () => {
+        if (!cities || !selectedCountry) {
+            return [];
+        }
+
+        return cities.filter(city => city.country_id === selectedCountry.value)
+            .map(city => ({
+                value: city.id,
+                label: city.getLocalizedName(currentLocale),
+            }));
+    }
+
 
     return (<Formik
         initialValues={{
@@ -105,7 +131,7 @@ const ProviderForm = withTranslation()(({currentLocale, countries, cities, distr
 
             password: Yup.string().required('This field is required.'),
             password_confirmation: Yup.string().required('This field is required.').when("password", {
-                is: val => (val && val.length > 0 ? true : false),
+                is: val => (val && val.length > 0),
                 then: Yup.string().oneOf(
                     [Yup.ref("password")],
                     "Both password need to be the same"
@@ -223,10 +249,31 @@ const ProviderForm = withTranslation()(({currentLocale, countries, cities, distr
 
                 <div className="row mb-3 ">
                     <div className="col-md-6">
-                        <SingleSelect name="country_id" placeholder={"Select Your Country"} options={countries}/>
+                        {/*<SingleSelect name="country_id" placeholder={"Select Your Country"} options={countries}/>*/}
+
+                        <Field
+                            as={SelectField}
+                            name={"country_id"}
+                            placeholder={"Select Your Country"}
+                            className={"w-100"}
+                            options={getCountries()}
+                            onChange={(selected_option) => {
+                                setSelectCountry(selected_option)
+                            }}
+                        />
                     </div>
                     <div className="col-md-6">
-                        <SingleSelect name="city_id" placeholder={"Select Your City"} options={cities}/>
+                        {/*<SingleSelect name="city_id" placeholder={"Select Your City"} options={}/>*/}
+
+                        <Field
+                            as={SelectField}
+                            // label={"Select Your Country"}
+                            name={"city_id"}
+                            placeholder={"Select Your City"}
+                            className={"w-100"}
+                            options={getCities()}
+                        />
+
                     </div>
                 </div>
 
@@ -265,4 +312,4 @@ const mapDispatchToProps = (dispatch) => ({
     },
 });
 
-export default connect(null, mapDispatchToProps)(withTranslation()(ProviderForm));
+export default connect(null, mapDispatchToProps)(ProviderForm);

@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import TextArea from '../Inputs/TextArea';
-import {MultiSelect} from '../Inputs/MultiSelect';
+// import {MultiSelect} from '../Inputs/MultiSelect';
 import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 import {connect} from "react-redux";
@@ -61,11 +61,11 @@ const AddPostForm = withTranslation()(({hideModal, createPost, t}) => {
                             <div className= "col-5">
                                 <div className= "mb-3">
                                     <label>{t('post_type')}</label>
-                                    <MultiSelect />
+                                    {/*<MultiSelect />*/}
                                 </div>
                                 <div className= "mb-3">
                                     <label>{t('animal_type')}</label>
-                                    <MultiSelect />
+                                    {/*<MultiSelect />*/}
                                 </div>
                                 <div className= "mb-3">
                                     <label>{t('color')}</label>
@@ -103,7 +103,7 @@ const AddPostForm = withTranslation()(({hideModal, createPost, t}) => {
                                 </div>
                                 <div className= "mb-3">
                                     <label>{t('gender')}</label>
-                                    <MultiSelect />
+                                    {/*<MultiSelect />*/}
                                 </div>
                                 <div className= "mb-3">
                                     <label>{t('classification')}</label>

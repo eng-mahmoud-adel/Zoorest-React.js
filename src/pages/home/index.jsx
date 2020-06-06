@@ -5,7 +5,7 @@ import HeroSection from "./HeroSection";
 import DownloadAppSection from "./DownloadAppSection";
 import SponsoredProviderSection from "./SponsoredProviderSection";
 import RecentQuestions from "./RecentQuestions";
-import RecentPosts from "./RecentPosts";
+// import RecentPosts from "./RecentPosts";
 import Testimonials from "./Testimonials";
 import {getHomeData} from "../../store/actions/pages";
 import {Helmet} from "react-helmet";
@@ -34,8 +34,11 @@ const HomeContainer = ({currentLocale, seo, getHomeData}) => {
                 </Helmet>
             }
 
-            <section id="section-hero" className="container pt-sm-5 pt-0 pb-5">
-                <HeroSection/>
+            <section id="section-hero">
+                <div className="container pt-sm-5 pt-0 pb-5">
+
+                    <HeroSection/>
+                </div>
             </section>
 
             <section id="section-download-apps" className="container">
@@ -56,11 +59,11 @@ const HomeContainer = ({currentLocale, seo, getHomeData}) => {
                 </div>
             </section>
 
-            <section id="section-recent-posts" className="">
-                <div className="container pt-4">
-                    <RecentPosts/>
-                </div>
-            </section>
+            {/*<section id="section-recent-posts" className="">*/}
+            {/*    <div className="container pt-4">*/}
+            {/*        <RecentPosts/>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
 
             <section id="section-recent-articles">
                 <div className="container pt-4">

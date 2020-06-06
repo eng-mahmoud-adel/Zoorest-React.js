@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import LazyList from "../../components/DataList";
 import Provider from '../../components/Cards/Profiles/Provider';
 import CheckBox from '../../components/Buttons/CheckBoxes/CheckBox';
-import {MultiSelect} from '../../components/Inputs/MultiSelect';
+// import {MultiSelect} from '../../components/Inputs/MultiSelect';
 import {showModal} from "../../store/actions/modal";
 import {getMoreProviders, getProviders} from '../../store/actions/providers';
 import {getProviderPage} from "../../store/actions/pages";
@@ -75,14 +75,14 @@ const Doctors = ({
                     <div className="row mb-3">
                         <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
                             <div>Country:
-                                <MultiSelect options={getCountries()}/>
+                                {/*<MultiSelect options={getCountries()}/>*/}
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                            <div>Cities: <MultiSelect options={getCities()}/></div>
+                            {/*<div>Cities: <MultiSelect options={getCities()}/></div>*/}
                         </div>
                         <div className="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                            <div>Rating: <MultiSelect /></div>
+                            <div>Rating: {/*<MultiSelect />*/}</div>
                         </div>
                         <div className="col-lg-3 col-sm-6 col-8 mb-3 mb-lg-0">
                             <CheckBox text="Show only nearby doctors" id="customCheck1"/>

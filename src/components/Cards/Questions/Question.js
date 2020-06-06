@@ -11,16 +11,32 @@ import ProfileAvatar from "../../Avatars/ProfileAvatar";
 import ClampLines from "react-clamp-lines";
 import {VerticalEllipsisIcon} from '../../Icons/index';
 import {useTranslation} from 'react-i18next';
+import DropdownActions from "../../DropdownActions";
 
-
+const DropDownOptions = [
+    {
+        title: "Edit", actions: () => {
+        }
+    },
+    {
+        title: "remove", actions: () => {
+        }
+    },
+    {
+        title: "report", actions: () => {
+        }
+    },
+];
 const Question = ({model, className, hide_add_answer, currentLocale = "ar", like, unlike}) => {
     const {t} = useTranslation();
 
     const handleLike = (is_liked, setIsLiked) => {
         if (is_liked) {
             unlike(model.getKey());
+            setIsLiked(false);
         } else {
             like(model.getKey());
+            setIsLiked(true);
         }
     }
 
@@ -45,21 +61,19 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
     return (
         <Card className={`question-card my-2 w-100 ${className || ""}`}>
             <Card.Body>
+                <div className="d-flex">
+                    <Card.Subtitle className="small-text">
+                        <small className="text-muted">
+                            {model.humanizedCreatedAt()}
+                        </small>
+                    </Card.Subtitle>
+                    <VerticalEllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}}
+                                          onClick={showDropdown}/>
+
+                    <DropdownActions id={`question_${model.id}`} options={DropDownOptions}/>
+                </div>
                 <Link to={`/questions/${model.id}/${model.getLocalizedSlug(currentLocale)}`}>
-                    <div className="d-flex">
-                        <Card.Subtitle className="small-text">
-                            <small className="text-muted">
-                                {model.humanizedCreatedAt()}
-                            </small>
-                        </Card.Subtitle>
-                        <VerticalEllipsisIcon className="ml-auto dropbtn" style={{cursor: "pointer"}}
-                                              onClick={showDropdown}/>
-                        <div id={`question_${model.id}`} className="dropdown-content">
-                            <a href="#edit">Edit</a>
-                            <a href="#remove">Remove</a>
-                            <a href="#report">Report</a>
-                        </div>
-                    </div>
+
                     <Card.Title>
                         <ClampLines
                             text={model.title}
@@ -82,18 +96,19 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
                         className="label text-muted card-text m-0"
                         // innerElement="p"
                     />
+                </Link>
 
                     <div className="row mb-3">
                         {
                             // model.tags
                             [1, 2, 3].map((tag, index) => (
-                                <div className="col-xl-3 col-md-4 col-sm-5 mb-1 mb-md-0">
+                                <div key={`question_${model.id}_${index}`}
+                                     className="col-xl-3 col-md-4 col-sm-5 mb-1 mb-md-0">
                                     <Tag className={`${index % 2 === 0 ? "tag-two" : "tag-one"}`} text="#Tag"/>
                                 </div>
                             ))
                         }
                     </div>
-                </Link>
             </Card.Body>
             <Card.Footer className="pb-0">
                 <div className="row">
@@ -118,7 +133,16 @@ const Question = ({model, className, hide_add_answer, currentLocale = "ar", like
 
                     <div
                         className="col-xl-4 col-md-6 text-center align-content-center align-items-center align-self-center">
-                        {(!hide_add_answer || !model.isClosed()) &&
+                        {/*
+                        hide_add_answer  isClosed       show
+                                0           0            yes
+                                0           1            no
+                                1           0            no
+                                1           1            no
+                        */}
+
+                        {/*Only Show button if its not closed and not force hidden*/}
+                        {(!hide_add_answer && !model.isClosed()) &&
                         <Link to={`/questions/${model.id}/${model.getLocalizedSlug(currentLocale)}`}>
                             <Button className="px-3 py-1" variant="info" size="sm">
                                 {t('see_more')}

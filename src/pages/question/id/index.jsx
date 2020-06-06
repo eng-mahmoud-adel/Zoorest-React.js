@@ -113,7 +113,7 @@ const SingleQuestionContainer = (
             </div>}
 
             <div className="row my-3">
-                <div className="col-12 mx-0">
+                <div className="col-12 mx-0 px-0">
                     {!stateData.loadingComments ?
                         <LazyList
                             data={stateData.comments}

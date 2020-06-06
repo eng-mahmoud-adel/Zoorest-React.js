@@ -1,0 +1,46 @@
+.breadcrumb {
+  background-color: unset;
+  border: 1px $light-dark-color solid;
+  border-radius: $border-radius-8 $border-radius-8 0 0;
+  margin-bottom: 0;
+
+  a, .breadcrumb-item.active {
+    color: $gray-color;
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: $info;
+  }
+}
+
+
+//card header and footer general appearance
+.card {
+  .card-header {
+    background-color: unset;
+    border-bottom: unset;
+  }
+
+  .card-footer {
+    background-color: unset;
+  }
+}
+
+
+//
+
+//.dropzone {
+//  width: 170px!important;
+//  height: 86px!important;
+//  border-radius: $border-radius-8!important;
+//  border-width: 1px!important;
+//  border-spacing: 1px;
+//  border-color: $light-dark-color!important;
+//}
+
+.nav-pills {
+  .nav-item {
+    color: $gray-color;
+  }
+}

@@ -6,6 +6,7 @@ class District extends Model {
 
         this._id = object.id
         this._name = object.name
+        this._city_id = object.city_id
     }
 
     get id() {
@@ -22,6 +23,15 @@ class District extends Model {
 
     set name(value) {
         this._name = value;
+    }
+
+
+    get city_id() {
+        return this._city_id;
+    }
+
+    set city_id(value) {
+        this._city_id = value;
     }
 
     getLocalizedName(locale = "ar") {

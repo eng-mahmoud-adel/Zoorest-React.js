@@ -1,13 +1,15 @@
 // for dropdown one component
 .dropdown {
-    
-    border-color: $ligh-dark-color;
-    optgroup {
-        font-size: $font-size-10;
-    }
-    option {
-        font-size: $font-size-14;
-    }
+
+  border-color: $light-dark-color;
+
+  optgroup {
+    font-size: $font-size-10;
+  }
+
+  option {
+    font-size: $font-size-14;
+  }
 }
 
 /* ----------------- */
@@ -34,11 +36,11 @@
 .MuiPickersToolbar-toolbar {
     background-color: #12B0C6 !important;
 }
-  
-  .MuiPickersDay-daySelected {
+
+.MuiPickersDay-daySelected {
     background-color: #12B0C6 !important;
 }
-  
-  .MuiTabs-flexContainer {
+
+.MuiTabs-flexContainer {
     background-color: #12B0C6 !important;
 }

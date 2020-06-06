@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import BasicInput from '../Inputs/BasicInput';
 import TextArea from '../Inputs/TextArea';
-import {MultiSelect} from '../Inputs/MultiSelect';
+// import {MultiSelect} from '../Inputs/MultiSelect';
 import Button from '../Buttons/Button/Button';
 import DropFile from './DropFiles/DropFile';
 import {Formik} from "formik";
@@ -211,11 +211,11 @@ const ProfileForm = withTranslation()(({countries, cities, currentLocale, update
                                     </div>
                                     <div className="mb-3">
                                         <label className="font-weight-bold">{t('country')}</label>
-                                        <MultiSelect options={getCountries()}/>
+                                        {/*<MultiSelect options={getCountries()}/>*/}
                                     </div>
                                     <div className="mb-3">
                                         <label className="font-weight-bold">{t('region')}</label>
-                                        <MultiSelect options={getCities()}/>
+                                        {/*<MultiSelect options={getCities()}/>*/}
                                     </div>
                                     <div className="mb-3">
                                         <label className="font-weight-bold">{t('about_doctor')}</label>

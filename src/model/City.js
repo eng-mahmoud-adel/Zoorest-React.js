@@ -9,6 +9,7 @@ class City extends Model {
         this._name = object.name
         this._latitude = object.latitude
         this._longitude = object.longitude
+        this._country_id = object.country_id
 
         this._districts = object.districts ? object.districts.map(district => new District(district)) : [];
     }
@@ -52,6 +53,14 @@ class City extends Model {
 
     set districts(value) {
         this._districts = value;
+    }
+
+    get country_id() {
+        return this._country_id;
+    }
+
+    set country_id(value) {
+        this._country_id = value;
     }
 
     getLocalizedName(locale = "ar") {

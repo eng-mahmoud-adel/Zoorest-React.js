@@ -69,13 +69,13 @@ export const CommentLoadingAnimation = ({className}) => {
                         <div className="bar loading-time loading"/>
                     </div>
                 </Card.Subtitle>
-                <Card.Text className="m-0">
+                <div className="m-0 card-text">
                     <div className="bars">
                         <div className="bar bar1 loading"/>
                         <div className="bar bar1 loading"/>
                         <div className="bar bar2 loading"/>
                     </div>
-                </Card.Text>
+                </div>
             </Card.Body>
             <Card.Footer className="pb-0">
                 <div className="row">

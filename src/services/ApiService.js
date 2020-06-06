@@ -51,51 +51,53 @@ function onResponseRejectedInterceptors(error) {
     console.log(error.response);
     if (!error.response) {
         instance.dispatch(showNetworkErrorNoty());
-    }
+    } else {
 
-    // eslint-disable-next-line default-case
-    switch (error.response.status) {
-        case 401:
-            //show validation error
-            instance.dispatch(showUnAuthenticatedNoty());
+        // eslint-disable-next-line default-case
+        switch (error.response.status) {
+            case 401:
+                //show validation error
+                instance.dispatch(showUnAuthenticatedNoty());
 
-            break;
-        case 403:
-            //show validation error
-            instance.dispatch(showUnAuthorizedNoty());
+                break;
+            case 403:
+                //show validation error
+                instance.dispatch(showUnAuthorizedNoty());
 
-            break;
-        case 404:
-            //show not found component
+                break;
+            case 404:
+                //show not found component
 
-            break;
-        case 422:
-            //show validation error
-            //showValidationNoty(error.response.data,message)
-            let errors = error.response.data.errors;
-            if (errors) {
+                break;
+            case 422:
+                //show validation error
+                //showValidationNoty(error.response.data,message)
+                let errors = error.response.data.errors;
+                if (errors) {
 
 
-                let errorFields = Object.keys(errors);
-                for (let i = 0; i < errorFields.length; i++) {
-                    let key = errorFields[i];
-                    // apiErrors[key] = errors[key][0];
-                    instance.dispatch(showValidationNoty(errors[key][0]))
+                    let errorFields = Object.keys(errors);
+                    for (let i = 0; i < errorFields.length; i++) {
+                        let key = errorFields[i];
+                        // apiErrors[key] = errors[key][0];
+                        instance.dispatch(showValidationNoty(errors[key][0]))
+                    }
+                } else {
+                    instance.dispatch(showValidationNoty(error.response.data.message))
+
                 }
-            } else {
-                instance.dispatch(showValidationNoty(error.response.data.message))
+                break;
+            case 500:
+                //show something went wrong
+                instance.dispatch(showServerErrorNoty())
 
-            }
-            break;
-        case 500:
-            //show something went wrong
-            instance.dispatch(showServerErrorNoty())
-
-            break;
-        case 503:
-            //show server maintenance alert
-            break;
+                break;
+            case 503:
+                //show server maintenance alert
+                break;
+        }
     }
+
     return Promise.reject(error);
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import DownloadImage from '../../images/assets/images/Group 18@3x.png';
 import googlePlayImage from '../../images/assets/images/Google Play Badge US@3x.png';
-import appStoreImage from '../../images/assets/images/Group 27@3x.png';
+import appStoreImage from '../../images/app-store.png';
 import LazyLoad from "react-lazyload";
 import {connect} from "react-redux";
 

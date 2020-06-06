@@ -58,5 +58,7 @@
   "reminder_title": "Title of your Reminder",
   "album_title": "Title of your Album",
   "date_time": "التارريخ والوقت",
-  "see_more": "مشاهده المزيد"
+  "see_more": "مشاهده المزيد",
+  "select_country": "Select Your Country",
+  "select_city": "Select Your City"
 }

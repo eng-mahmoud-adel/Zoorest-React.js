@@ -4,16 +4,19 @@ import {Link} from 'react-router-dom';
 import logo from '../../images/logo.png';
 import {connect} from "react-redux";
 import Button from "../Buttons/Button/Button";
-//import './jquery';
+import './jquery';
 import {Nav} from "react-bootstrap";
 import BaseNavbar from "react-bootstrap/Navbar";
 import {showModal} from "../../store/actions/modal";
 import LoginForm from "../Forms/Auth/LoginForm";
 import SignUpFormContainer from "../Forms/Auth/Signup/SignUpFormContainer";
-import {withTranslation} from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {logoutUser} from '../../store/actions/auth';
 
-const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
+
+const Auth = (({authUser, showModal, logoutUser}) => {
+
+    const {t} = useTranslation();
     const showSignUpModal = () => {
         showModal(SignUpFormContainer);
     };
@@ -86,7 +89,8 @@ const Auth = withTranslation()(({authUser, showModal, t, logoutUser}) => {
 });
 
 const Navbar = (props) => {
-    const {t} = props;
+
+    const {t} = useTranslation();
 
     return (
         <header>
@@ -164,4 +168,4 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Navbar));
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -7,30 +7,7 @@ import {useField} from "formik";
 
 const animatedComponents = makeAnimated();
 
-// https://react-select.com/home
-export const SingleSelect = ({options, name, className, classNamePrefix, placeholder}) => {
-    const [selectedOption, setSelectedOption] = useState(null);
-    // const handleChange = selectedOption => {
-    //     setSelectedOption(selectedOption);
-    // };
-    return (
-        <Select
-            isMulti={false}
-            isRtl={false}
-            components={animatedComponents}
-            value={selectedOption}
-            placeholder={placeholder}
-            onChange={setSelectedOption}
-            options={options}
-            name={name}
-            className={className}
-            classNamePrefix={classNamePrefix}
-        />
-    );
-
-}
-
-export const SelectField = ({label, ...props}) => {
+export const SelectField = ({label, onChange, ...props}) => {
     const {options} = props
     const [field, meta, helpers] = useField(props);
     const {setValue} = helpers;
@@ -43,36 +20,18 @@ export const SelectField = ({label, ...props}) => {
                 {...props}
                 options={options}
                 value={(options ? options.find(option => option.value === field.value) : '')}
-                onChange={option => setValue(option.value)}
+                onChange={option => {
+                    setValue(option.value);
+                    if (onChange) {
+                        onChange(option)
+                    }
+                }}
             />
             {meta.touched && meta.errors && (
                 <p className="field-error">{meta.errors}</p>
             )}
         </Fragment>
     )
-}
-
-export const MultiSelect = ({options, name, className, classNamePrefix}) => {
-    const [selectedOption, setSelectedOption] = useState(null);
-    // const handleChange = selectedOption => {
-    //     setSelectedOption(selectedOption);
-    // };
-    return (
-        <Select
-            isMulti
-            isRtl={false}
-            components={animatedComponents}
-            value={selectedOption}
-            onChange={setSelectedOption}
-
-
-            options={options}
-            name={name}
-            className={className}
-            classNamePrefix={classNamePrefix}
-        />
-    );
-
 }
 
 //https://react-select.com/creatable
@@ -103,11 +62,13 @@ export const TagsSelect = ({options,name,className,classNamePrefix}) => {
     );
 }
 
-MultiSelect.propTypes = {
+SelectField.propTypes = {
+    label: PropTypes.string,
     options: PropTypes.array.isRequired,
-    name: PropTypes.string,
-    className: PropTypes.string,
-    classNamePrefix: PropTypes.string,
+    // options: PropTypes.array.isRequired,
+    // name: PropTypes.string,
+    // className: PropTypes.string,
+    // classNamePrefix: PropTypes.string,
 };
 
 TagsSelect.propTypes = {

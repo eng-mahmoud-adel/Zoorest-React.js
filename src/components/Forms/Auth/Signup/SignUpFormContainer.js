@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Fragment, useState} from 'react';
 import UserForm from "./User";
 import ProviderForm from "./Provider";
 import FacebookLoginBtn from "../../SocialButtons/FacebookLoginBtn";
@@ -45,35 +45,6 @@ const SignUpFormContainer = ({socialLogin, onLoginClicked, currentLocale, countr
         }
     }
 
-
-    const getCountries = () => {
-        // if(data[0])
-        //     setSelectedCountry(data[0].value)
-        return countries.map(country => ({
-            value: country.id,
-            label: country.getLocalizedName(currentLocale),
-        }));
-    }
-
-    const getCities = () => {
-        // if(data[0])
-        //     setSelectedCountry(data[0].value)
-        return cities.map(city => ({
-            value: city.id,
-            label: city.getLocalizedName(currentLocale),
-        }));
-    }
-
-    const getDistricts = () => {
-        // if(data[0])
-        //     setSelectedCountry(data[0].value)
-        return districts.map(district => ({
-            value: district.id,
-            label: district.getLocalizedName(currentLocale),
-        }));
-    }
-
-
     return <div className="signup-form">
         <div className="text-right">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -91,9 +62,9 @@ const SignUpFormContainer = ({socialLogin, onLoginClicked, currentLocale, countr
                 <Tab eventKey="user" title="User">
                     <UserForm
                         currentLocale={currentLocale}
-                        countries={getCountries()}
-                        cities={getCities()}
-                        districts={getDistricts()}
+                        countries={countries}
+                        cities={cities}
+                        districts={districts}
                     />
 
                 </Tab>
@@ -101,9 +72,9 @@ const SignUpFormContainer = ({socialLogin, onLoginClicked, currentLocale, countr
                 <Tab eventKey="doctor" title="Doctor (Home visit)">
                     <ProviderForm
                         currentLocale={currentLocale}
-                        countries={getCountries()}
-                        cities={getCities()}
-                        districts={getDistricts()}
+                        countries={countries}
+                        cities={cities}
+                        districts={districts}
                         provider_type={selectedTab}
                     />
                 </Tab>
@@ -111,9 +82,9 @@ const SignUpFormContainer = ({socialLogin, onLoginClicked, currentLocale, countr
                 <Tab eventKey="clinic" title="Clinic">
                     <ProviderForm
                         currentLocale={currentLocale}
-                        countries={getCountries()}
-                        cities={getCities()}
-                        districts={getDistricts()}
+                        countries={countries}
+                        cities={cities}
+                        districts={districts}
                         provider_type={selectedTab}
                     />
 
@@ -122,19 +93,21 @@ const SignUpFormContainer = ({socialLogin, onLoginClicked, currentLocale, countr
 
             </Tabs>
 
-            <div className="row justify-content-center">
-                <span className="line col-md-3 mb-3"/>
-                <span className="line col-md-3 offset-1 mb-3"/>
-            </div>
-            <div className="row justify-content-center">
-                <div className="col-md-5 text-right pr-2">
-                    <FacebookLoginBtn onResponse={handleFacebookSignUp}/>
+            {selectedTab === "user" && <Fragment>
+                <div className="row justify-content-center">
+                    <span className="line col-md-3 mb-3"/>
+                    <span className="line col-md-3 offset-1 mb-3"/>
                 </div>
-                <div className="col-md-5 pl-2">
-                    <GoogleLoginBtn onResponse={handleGoogleSignUp}/>
+                <div className="row justify-content-center">
+                    <div className="col-md-5 text-right pr-2">
+                        <FacebookLoginBtn onResponse={handleFacebookSignUp}/>
+                    </div>
+                    <div className="col-md-5 pl-2">
+                        <GoogleLoginBtn onResponse={handleGoogleSignUp}/>
 
+                    </div>
                 </div>
-            </div>
+            </Fragment>}
         </div>
     </div>
 

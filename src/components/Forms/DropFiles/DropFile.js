@@ -48,9 +48,11 @@ const DropFile = (props) => {
   }), [isDragAccept, isDragActive, isDragReject]);
 
   return (
-      <div {...getRootProps({style})}>
+      <div {...getRootProps({style})} className={"dropzone_dis"}>
         <input {...getInputProps()} />
-        <p className= "text-center"><span className= "rounded-circle mx-auto d-block w-50 text-white bg-info">+</span> <span className= "d-block">Upload</span> </p>
+        <p className="text-center mb-0"><span
+            className="rounded-circle mx-auto d-block w-50 text-white bg-info">+</span> <span
+            className="d-block">Upload</span></p>
       </div>
   );
 }

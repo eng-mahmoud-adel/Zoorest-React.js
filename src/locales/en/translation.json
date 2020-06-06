@@ -58,5 +58,7 @@
   "reminder_title": "Title of your Reminder",
   "album_title": "Title of your Album",
   "date_time": "Date and time",
-  "see_more": "See More"
+  "see_more": "See More",
+  "select_country": "Select Your Country",
+  "select_city": "Select Your City"
 }

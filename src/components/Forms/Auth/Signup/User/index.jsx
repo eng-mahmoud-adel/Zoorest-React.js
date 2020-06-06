@@ -1,22 +1,62 @@
-import React from 'react'
-import {Formik} from "formik";
+import React, {useState} from 'react'
+import {Field, Formik} from "formik";
 import * as Yup from "yup";
 import BasicInput from "../../../../Inputs/BasicInput";
-import {SingleSelect} from "../../../../Inputs/MultiSelect";
+// import {SingleSelect} from "../../../../Inputs/MultiSelect";
 import Button from "../../../../Buttons/Button/Button";
 import {registerUser} from "../../../../../store/actions/auth";
 import {connect} from "react-redux";
 import {HIDE_MODAL} from "../../../../../store/actions/modal";
 import {withTranslation} from 'react-i18next';
+import {SelectField} from "../../../../Inputs/Select2";
 
 const UserForm = withTranslation()(({
                       currentLocale, countries, cities, districts, register, hideModal, t
                   }) => {
 
+    const [selectedCountry, setSelectCountry] = useState(null);
+    const [selectedCity, setSelectCity] = useState(null);
+
     const handleSubmissionSuccess = (handleReset) => {
         //Close Modal After A successful signup
         handleReset();
         hideModal();
+    }
+
+
+    const getCountries = () => {
+        if (!countries) {
+            return [];
+        }
+
+        return countries.map(country => ({
+            value: country.id,
+            label: country.getLocalizedName(currentLocale),
+        }));
+    }
+
+    const getCities = () => {
+        if (!cities || !selectedCountry) {
+            return [];
+        }
+
+        return cities.filter(city => city.country_id === selectedCountry.value)
+            .map(city => ({
+                value: city.id,
+                label: city.getLocalizedName(currentLocale),
+            }));
+    }
+
+    const getDistricts = () => {
+        if (!districts || !selectedCity) {
+            return [];
+        }
+
+        return districts.filter(district => district.city_id === selectedCity.value)
+            .map(district => ({
+                value: district.id,
+                label: district.getLocalizedName(currentLocale),
+            }));
     }
 
     const handleFormSubmit = (values, resetForm) => {
@@ -26,7 +66,7 @@ const UserForm = withTranslation()(({
             name: values.name,
             email: values.email,
             phone: values.phone,
-            type: "دكتور",
+
             additional_phone_number: values.additional_phone_number,
             password: values.password,
             password_confirmation: values.password_confirmation,
@@ -171,15 +211,40 @@ const UserForm = withTranslation()(({
 
                     <div className="row">
                         <div className="mb-3 col-md-6">
-                            <SingleSelect name="country_id" options={countries}/>
+                            <Field
+                                as={SelectField}
+                                name={"country_id"}
+                                placeholder={"Select Your Country"}
+                                className={"w-100"}
+                                options={getCountries()}
+                                onChange={(selected_option) => {
+                                    setSelectCountry(selected_option)
+                                }}
+                            />
                         </div>
                         <div className="mb-3 col-md-6">
-                            <SingleSelect name="city_id" options={cities}/>
+                            <Field
+                                as={SelectField}
+                                // label={"Select Your Country"}
+                                name={"city_id"}
+                                placeholder={"Select Your City"}
+                                className={"w-100"}
+                                options={getCities()}
+                                onChange={(selected_option) => {
+                                    setSelectCity(selected_option)
+                                }}
+                            />
                         </div>
                     </div>
 
                     <div className="mb-3">
-                        <SingleSelect name="district_id" options={districts}/>
+                        <Field
+                            as={SelectField}
+                            name={"district_id"}
+                            placeholder={"Select Your District"}
+                            className={"w-100"}
+                            options={getDistricts()}
+                        />
                     </div>
 
                     <div className="mb-4 col-md-11 mx-auto">

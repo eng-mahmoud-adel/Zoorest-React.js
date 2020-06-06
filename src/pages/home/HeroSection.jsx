@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 const HeroSection = ({section, currentLocale}) => {
 
     return (
-        <div className="row">
+        <div className="row mt-5">
             {section && <div className="col-lg-6 text-center text-md-left">
                 <h1 className="title mt-0 text-dark">
                     {section.getFiledValueByName("title", currentLocale)}
